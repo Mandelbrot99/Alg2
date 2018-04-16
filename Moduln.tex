@@ -1,8 +1,127 @@
 \newpage
 \section{Moduln}
+\begin{center}
+	\textbf{In dieser Vorlesung steht die Bezeichnung "'Ring"' stets für einen (nicht notwendig kommutativen) Ring mit 1. In diesem Kapitel sei $R$ ein Ring.}
+\end{center}
 \subsection{Grundlagen über Moduln}
 \begin{df}
-	Dies ist ein Test $\defi H$ $\norm \id$
+	Ein "'$R$-Linksmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abbildung $R\times M \to M, \, (a,x) \mapsto ax$ (skalare Multiplikation), sodass für alle $a,b\in R, \, x,y\in M$ gilt:
+	\begin{enumerate}[label= \alph*)]
+		\item $a(x+y) = ax + ay$
+		\item $(a+b)x = ax+bx$
+		\item $a(bx) = (ab)x$
+		\item $1x = x$
+	\end{enumerate}
+Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abbildung $M\times R \to M, \, (x,a) \mapsto xa$, sodass für alle $a,b\in R, \, x,y\in M$ gilt:
+\begin{enumerate}
+	\item[$a')$] $(x+y)a = xa+ yb$
+	\item[$b')$] $x(a+b) = xa + xb$
+	\item[$c')$] $x(ab) = (xa)b$
+	\item[$d')$] $x1=x$
+\end{enumerate}
 \end{df}
-
-	
+\begin{anm}
+	Es bezeichne $R^\text{op}$ den zu $R$ entgegengesetzten Ring, d.h. eine Menge $R$ mit derselbern Addition, sowie der Multiplikation $a \cdot_\text{op}b := b \cdot a$. Ist $M$ ein $R-$Rechtsmodul, dann wird $M$ durch $ax:= xa$ zu einem $R^\text{op}$-Linksmodul, denn es gilt 
+	$$a(bx) = (bx)a = (xb)a = x(ba) = (ba)x = (a \cdot_\text{op} b)x \quad \text{für alle } a,b\in R, \, x,a\in M$$
+	Analog anders herum. Im Folgenden betrachten wir in der Regel nur $R$-Linksmoduln, und unter einem $R$-Modul verstehen wir einen $R$-Linksmodul
+	\begin{itemize}
+		\item Forderung $a)$ impliziert, dass für alle $a\in R$ die Abbildung 
+		$$l_a: M \to M, \quad x\mapsto ax$$
+		zum Ring $\text{End}(M)$ aller Gruppenhomomorphismen $M\to M$ gehört.
+		$$(\text{mit } (f+g)(x) := f(x) + g(x), \, (f\cdot g) := (f\circ g)(x) = f(g(x))$$für $f,g\in \text{End}(M), \, x\in M)$. Nach $b)-d)$ ist die Abbildung $\phi:R\to \text{End}(M), \, a\mapsto l_a$ ein Ringhomomorphismus. Umgekehrt macht jeder Ringhomomorphismus $\phi:R\to \text{End}(M)$ eine abelsche Gruppe $(M,+)$ zu einem $R$-Modul via $ax:= \phi(a)(x)$
+		\item Für alle $x\in M$ ist $0x=0, \, (-1)x=-x$, und für alle $a\in R$ ist $a0=0$ 
+	\end{itemize}
+\end{anm}
+\begin{bsp}
+	\begin{enumerate}[label=\alph*)]
+		\item Ist $K$ ein Körper, dann sind $K$-Moduln die $K$-Vektorräume.
+		\item Jede abelsche Gruppe $G$ ist ein $\Z$-Modul via
+		$$\Z\times G\to G, \quad (n,x) \mapsto nx:= \begin{cases} \underbrace{x+ \ldots x}_{\text{n-mal}}& n>0 \\
+		0 & n=0\\
+		-(\underbrace{x+ \ldots + x}_{\text{(-n)-mal}}) & n<0
+		\end{cases}$$
+		Für jeden Ring $R$ gibt es genau einen Ringhomomorphismus $\Z\to R$ (analog zur Algebra 1), insbesondere gibt es für jede abelsche Gruppe $G$ genau einen Ringhomomorphismus $\Z\to \text{End}(G)$, d.h. genau eine Struktur als $\Z-$Modul, sodass die Moduladdition mit der gegebenen Addition auf $G$ überein einstimmt (nämlich obige).
+	\end{enumerate}
+\end{bsp}
+\begin{df}
+	Seien $M,M'$ $R$-Moduln, $\phi:M \to M'$. Dann heißt $\phi$ "$R$-Modul-\\homomorphismus" ($R$-linear), wenn für alle $x,y\in M, \, a,b\in R$ gilt: 
+	\begin{enumerate}[label=\alph*)]
+		\item $\phi(x+y) = \phi(x) + \phi(y)$
+		\item $\phi(ax) = a\phi(x)$
+	\end{enumerate}
+	$\text{Hom}_R(M, M')$ bezeichne die Menge der $R$-Modulhomomorphismen von $M$ nach $M'$.
+\end{df}
+\begin{anm}
+	$\text{Hom}_R(M,M')$ ist eine abelsche Gruppe bezüglich $(f+g)(x) := f(X) + g(x)$ für $f,g\in \text{Hom}_R(M, M'), \, x\in M$
+\end{anm}
+\begin{bsp}
+	Sei $M$ ein $R$-Modul, $\phi\in \text{Hom}_R(M, M)=: \text{End}_R(M) \subseteq \text{End}_\Z(M) = \text{End}(M)$. Den Polynomring $R[X]$ kann man wie über kommutativen Ringen definieren, allerdings ist die Einsetzungsabbildung 
+	$$R[X] \to R, \quad \sum_{i=0}^na_i X^i\mapsto \sum_{i=0}^na_ib^i, \quad \text{für ein } b\in R$$
+	im Allgemeinen kein Ringhomomorphismus ("'$X$ vertauscht mit Elementen aus $R$, $b$ im Allgemeinen nicht"'). Die Abbildung 
+	$$\Psi:R[X] \to \text{End}(M), \quad \sum_{i=0}^n a_i X^i \mapsto \sum_{i=0}^n a_i \phi^i$$
+	ist ein Ringhomomorphismus, da $\phi$ $R$-linear ist. Somit wird $M$ zum $R[X]$-Modul.
+\end{bsp}
+\begin{df}
+	Seien $M,M'$ $R$-Moduln, $\phi:M\to M'$ $R$-linear. $\phi$ heißt 
+	\begin{enumerate}
+		\item[] "'Monomorphismus"' $\defi \phi$ ist injektiv (Notation: $M \hookrightarrow M'$)
+		\item[] "'Epimorphismus"' $\defi \phi$ ist surjektiv (Notation: $M \twoheadrightarrow M'$)
+		\item[] "'Isomorphismus"' $\defi \phi$ ist bijektiv (Notation: $M \overset{\sim}{\ra} M'$)
+	\end{enumerate}
+	Existiert ein Isomorphismus zwischen $M,M'$, so heißen $M,M'$ "'isomorph"' (Notation: $M \cong M'$)
+\end{df}
+\begin{anm}
+	Ist $\phi$ ein Isomorphismus, dann ist $\phi^{-1}$ ein Isomorphismus.
+\end{anm}
+\begin{bem}
+	Seien $M,M'$ $R$-Moduln. Dann gilt:
+	\begin{enumerate}[label=\alph*)]
+		\item $R$ kommutativ $\Ra \text{Hom}_R(M, M')$ ist ein $R$-Modul via $(a \phi)(x):= a\phi(x)$ für $a\in R, \, \phi \in \text{Hom}_R(M, M'), \, x\in M$.
+		\item $\text{End}_R(M) = \text{Hom}_R(M, M)$ ist ein Unterring von $\text{End}(M) = \text{End}_\Z(M)$.
+		\item Die Abbildung $\Phi:\text{Hom}_R(R, M)\to M, \; \phi \mapsto \phi(1)$ ist ein Isomorphismus von abelschen Gruppen (hierbei ist $R$ auf natürliche Weise ein $R$-Linksmodul). Ist $R$ kommutativ, so ist $\Phi$ ein Isomorphismus von $R$-Moduln.
+		\item $\text{End}_R(R)\cong R^\text{op}$
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	\begin{enumerate}[label=\alph*)]
+		\item Beachte: Für $a\in R, \, \phi\in \text{Hom}_R(M, M')$ ist $a\phi$ wieder $R$-linear, denn für $a,b\in R, \, x\in M$ ist $(a\phi)(bx) = a\phi(bx) = ab \phi(x) = ba \phi(x) = b (a\phi)(x)$
+		\item Nachrechnen.
+		\item Eine Umkehrabbildung zu $\Phi$ ist gegeben durch 
+		$$\Psi:M \to \text{Hom}_R(R, M), \quad m \mapsto(\phi:R\to M, \, a \mapsto am)$$
+		\item Nach Aussage $c)$ haben wir sofort einen Isomorphismus: $\Phi:\text{End}_R(R) \to R, \, \phi\mapsto \phi(1)$ von abelschen Gruppen. Es ist 
+		\begin{eqnarray*}\Phi(\phi \psi) &=& (\phi \psi)(1) = \phi(\psi(1)) = \phi( \psi(1) \cdot 1) = \psi(1) \phi(1)\\
+		&=& \phi(1) \cdot_{\text{op}}  \psi(1) = \Phi(\phi) \cdot_\text{op} \Phi(\psi)
+		\end{eqnarray*}
+	\end{enumerate}
+\end{proof}
+\begin{df}
+	Sei $M$ ein $R$-Modul, $N\subseteq M$. $N$ heißt $R$-Untermodul von $M$, wenn gilt:
+	\begin{enumerate}[label= \alph*)]
+		\item $0\in N$
+		\item $x+y\in N$ für alle $x,y\in N$
+		\item $ax\in N$ für alle $a\in R, x\in N$
+	\end{enumerate}
+\end{df}
+\begin{bsp}
+	\begin{enumerate}[label=\alph*)]
+		\item Betrachte $R$ als $R$-Linksmodul. Dann sind die Untermodul von $R$ genau die Linksideale in $R$ (analog: Rechtsideale für $R$ als $R$-Rechtsmodul).
+		\item Ist $M$ ein $R$-Modul, dann sind $\{0\}$ (meist als $0$ geschrieben) und $M\subseteq M$ die trivialen Untermoduln. Ist $(M_i)_{i\in I}$ eine Familie von Untermoduln von $M$, dann ist $\bigcap_{i\in I} M_I\subseteq M$ ein Untermodul, sowie $\sum_{i\in I} M_i = \{\sum_{i\in I} x_i|\, x_i \in M_i, \, x_i=0 \text{ für fast alle } i\in I\}$
+		\item Sind $M, M'$ $R$-Moduln, $\phi\in \text{Hom}_R(M, M'), \, N\subseteq M$ ein Untermodul, $N' \subseteq M'$ ein Untermodul, dann sind $\phi(N) \subseteq M'$ und $\phi^{-1}(N') \subseteq M$ Untermoduln. 
+		\begin{enumerate}
+			\item[] $\im \phi:= \phi(M)$ heißt das "'Bild"' von $\phi$
+			\item[] $\ker \phi:= \phi^{-1}(\{0\})$ heißt der "'Kern"' von $\phi$
+		\end{enumerate}
+	Es gilt: $\phi$ ist injektiv $\Lra \ker \phi =0$ und $\phi$ surjektiv $\Lra \im \phi = M'$
+	\end{enumerate}
+\end{bsp}
+\begin{bem+df}
+	Sei $M$ ein $R$-Modul, $N\subseteq M$ ein Untermodul. Dann ist die Faktorgruppe $\QR{M}{N}$ via $a(x+N) = ax+N, \, a\in R, \,x\in M$ ein $R$-Modul,der "'Faktormodul"' von $M$ nach $N$. Die kanonische Abbildung $\pi:M \to \QR{M}{N}, \; m \mapsto m+N$ ist ein Modulepimorphismus mit $\ker \pi = N$.
+\end{bem+df}
+\begin{bsp}
+	Sei $I\subseteq R$ ein Linksideal, $M$ ein $R$-Modul. Dann ist 
+	$$IM:= \left\{\sum_{i=1}^n a_i x_i|\, n\in \N, \, a_i \in I, \, x_i \in M\right\}\subseteq M$$
+	ein Untermodul von $M$. Ist $I$ ein zweiseitiges Ideal, dann ist $\QR{R}{I}$ ein Ring (beachte: Die Zweiseitigkeit von $I$ geht ein bei der Wohldefiniertheit der Multiplikation
+	$$\QR{R}{I} \times \QR{R}{I} \longrightarrow \QR{R}{I}, \quad (a+I, b+I) \mapsto ab+I$$
+	$\QR{M}{IM}$ ist ein $\QR{R}{I}$-Modul vermöge
+	$$(a+I)(x+M) := ax+IM, \quad a\in R, \, x\in M$$
+\end{bsp}
