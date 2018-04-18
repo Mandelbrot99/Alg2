@@ -123,11 +123,12 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	ein Untermodul von $M$. Ist $I$ ein zweiseitiges Ideal, dann ist $\QR{R}{I}$ ein Ring (beachte: Die Zweiseitigkeit von $I$ geht ein bei der Wohldefiniertheit der Multiplikation
 	$$\QR{R}{I} \times \QR{R}{I} \longrightarrow \QR{R}{I}, \quad (a+I, b+I) \mapsto ab+I$$
 	$\QR{M}{IM}$ ist ein $\QR{R}{I}$-Modul vermöge
-	$$(a+I)(x+M) := ax+IM, \quad a\in R, \, x\in M$$ \\
+	$$(a+I)(x+M) := ax+IM, \quad a\in R, \, x\in M$$ 
 \end{bsp}
 \begin{center}
 	\emph{Die nächsten Sätze zeigt man wie für Gruppen ($K$-VR,...)}
 \end{center}
+\ 
 \begin{sa}
 	Seien $M, M^{’} $ $R$-Moduln, $N \subseteq M $ ein Untermodul, $ \pi: M \to \QR{M}{N} $ die kanonische Projektion, $\phi: M \to M^{’} $ $R$-Modulhomomorphismus. Dann sind äquivalent: 
 \begin{enumerate}[label= \roman*)]
@@ -155,14 +156,14 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	\begin{eqnarray*}
 		\{\text{Untermoduln} \ M^{’} \text{von} \  M \text{mit} \ N \subseteq M^{’} \} &\longrightarrow &\{\text{Untermoduln } \text{ von } \QR{M}{N}\}\\
 		M^{’}& \mapsto & \pi(M^{’}) \\
-		\pi^{-1}(L) &\leftmapsto & L % Pfeil muss anders rum
+		\pi^{-1}(L) &\leftarrowtail & L % Pfeil muss anders rum
 	\end{eqnarray*}
 	die inklusionserhaltend ist.
 \end{sa}
 \begin{bem+df}
 	Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: $\prod_{i \in I} M_i$ ist ein $R$-Modul mit komponentenweiser Addition und skalarer Multiplikation und heißt das "'direkte Produkt"' der $M_{i}$. Die Projektionsabbildungen $p_{j}: \prod_{i \in I} M_i \to M_{j} $ mit $(m_i)_{i \in I} \mapsto m_j $ sind $R$-Modulhomomorphismen.
 \end{bem+df}
-\begin{sa}[Universelle Eingenschaft des Produkts] Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: Für jeden $R$-Modul $M$ ist die Abbildung $$ Hom_{R}(M,\prod_{i \in I} M_i) \to \prod_{i \in I} Hom_{R}(M,M_i) \qquad \phi \mapsto (p_i \circ \phi)_{i \in I}$$
+\begin{sa}[Universelle Eingenschaft des Produkts] Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: Für jeden $R$-Modul $M$ ist die Abbildung $$ \Hom_{R}(M,\prod_{i \in I} M_i) \to \prod_{i \in I} Hom_{R}(M,M_i) \qquad \phi \mapsto (p_i \circ \phi)_{i \in I}$$
 	eine Bijektion, d.h. für jede Familie $(\phi_i)_{i \in I}$ von $R$-Modulhomomorphismen $\phi_i: M \to M_i $ ex. genau ein $R$-Modulhomomorphismus $\phi: M \to \prod_{i \in I} M_i$ mit $ p_i \circ \phi = \phi_i$ für alle $i \in I$ (nämlich der durch $\phi(x) := ((\phi_i(x))_{i\in I}) $
 \end{sa}
 \begin{df}
@@ -176,7 +177,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	eine Bijektion, d.h. für jede Familie $(\psi_i)_{i \in I}$ von $R$-Modulhomomorphismen $\psi_i: M_i \to M $ ex. genau ein $R$-Modulhomomorphismus $\psi: \bigoplus_{i \in I}M_i \to M$ mit $ \psi \circ q_i = \psi_i$ für alle $i \in I$ (nämlich der durch $\psi((m_i)_{i \in I}) := \sum_{i\in I} \psi_i(m_i)$ definierte).
 \end{sa}
 \begin{anm}
-	Sei $I$ eine Indexmenge, $M$ ein $R$-Modul. \\
+	Sei $I$ eine Indexmenge, $M$ ein $R$-Modul. Dann ist:\\
 	 \begin{align*}
 	 M^j &:= \prod_{i \in I}M, & M^{(j)} &:= \bigoplus_{i \in I}M, & M^{r} &:= M^{\{1,..,r\}}=M^{(\{1,..,r\})}
 	 \end{align*}
@@ -192,7 +193,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	\end{itemize}
 \end{anm}
 \begin{df}
-	Sei $M$ ein $R$-Modul und sei $x \in M$. Die Abbildung $f_{x}:R \to M, a \mapsto ax$ ist ein $R$-Modulhomomorphismus, das Linksideal $$ ann_{R}(x) := ker f_x = \{a \in R \ | \  ax=0\}$$ heißt der "Annulator" von $x$. Das Bild $im f_x = Rx=\{ax|a \in R\} $ heißt der von $x$ erzeugte Untermodul von M. Allgemeiner heißt für eine Teilmenge $X \subseteq M$ $$ RX := <X>_{R} := \sum_{x\in X} Rx = im(R^{(X)} \to M) = \bigcap_{X \subseteq N \subseteq M \\ N \text{Untermodul mit } X \subseteq N}N $$
+	Sei $M$ ein $R$-Modul und sei $x \in M$. Die Abbildung $f_{x}:R \to M, a \mapsto ax$ ist ein $R$-Modulhomomorphismus, das Linksideal $$ ann_{R}(x) := \ker f_x = \{a \in R \ | \  ax=0\}$$ heißt der "'Annulator" von $x$. Das Bild $\im f_x = Rx=\{ax \ | \ a \in R\} $ heißt der von $x$ erzeugte Untermodul von M. Allgemeiner heißt für eine Teilmenge $X \subseteq M$ $$ RX := \langle X\rangle_{R} := \sum_{x\in X} Rx = \im(R^{(X)} \to M) = \bigcap_{X \subseteq N \subseteq M \atop N \text{Untermodul} \text{ mit } X \subseteq N}N $$
 	Der von X erzeugte Untermodul von M.
 \end{df}
 \begin{df}
@@ -233,8 +234,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	Eine "’exakte Folge (exakte Sequenz) "’ von $R$-Moduln ist eine Familie $(f_i)_{i \in I}4$ von $R$-Modulhomomorphismen $f_i: M_i \to M_{i+1} $ für ein (endliches oder unendliches) Intervall $I \in \Z $, sodass: $$ \im f_i = \ker f_{i+1} \quad \text{für alle } i \in I \text{mit} i+1 \in I $$ gilt. \\
 	Schreibweise: \quad  $\begin{tikzcd}
 	\ldots \arrow{r}{}& M_{i-1} \arrow{r}{f_{i-1}}& M_i \arrow{r}{f_i} & M_{i+1} \arrow{r} & \ldots
-	\end{tikzcd}$ 
-	Eine exakte Folge der Form: $$\begin{tikzcd}
+	\end{tikzcd}$.	Eine exakte Folge der Form: $$\begin{tikzcd}
 	0  \arrow{r} & M^{’} \arrow{r}{f} & M \arrow{r}{g} & M^{''} \arrow{r} & 0
 	\end{tikzcd}  \quad (\ast) $$
 	heißt eine "'kurze exakte Folge"' (hierbei sind die äußeren Abbildungen die Nullabbildungen). Die Exaktheit von $ (\ast)$ bedeutet explizit:
@@ -256,9 +256,21 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		0  \arrow{r} & M^{’} \arrow{r}{f} & M \arrow{r}{g} & M^{''} \arrow{r} & 0
 		\end{tikzcd} $ eine exakte Folge von $R$-Moduln, und setzen wir $N:= \ker g$, so induziert g einen Isomorphismus $\overline{g}: \QR{M}{N} \overset{\sim}{\longrightarrow}  M^{''}$, und $f$ beschränkt sich zu einem Isomorphismus $f: M^{’} \overset{\sim}{\longrightarrow} N$. 
 		(d.h. $$\begin{tikzcd}
-		0 \arrow{r}& M^{'} \arrow{r}{f}\arrow{d}{b'}& B \arrow{r}{c} \arrow{d}{c'}& C \arrow{r}\arrow{d}{d'} & \ldots\\
-		\ldots \arrow{r}{d}& D \arrow{r}{e}& E \arrow{r}{f} & F \arrow{r}{g} & \ldots
-		\end{tikzcd}$$)
+		0 \arrow{r}& M^{'} \arrow{r}{f}\arrow{d}[swap]{\sim}{f}& M \arrow{r}{g} \arrow[equal]{d} & M^{''} \arrow[swap]{r} & 0\\
+		0 \arrow{r}& N \arrow[hook]{r}{e}& M \arrow{r}{f} & \arrow{u}[swap]{\sim}\QR{M}{N} \arrow{r} & 0
+		\end{tikzcd}$$
+		ist ein kommutatives Diagramm mit exakten Zeilen.)
+		\item Ist $\begin{tikzcd}
+		0  \arrow{r} & M_i \arrow{r} & M_i^{'} \arrow{r} & M_i^{''} \arrow{r} & 0
+		\end{tikzcd}, \; i \in I$ eine Familie exakter Folgen von $R$-Moduln, dann sind auch die Folgen 
+		$$ \begin{tikzcd}
+		\prod_{i\in I} M_i^{'} \arrow{r}& \prod_{i\in I} M_i \arrow{r}& \prod_{i\in I} M_i^{''}
+		\end{tikzcd}$$ 
+		sowie
+		$$\begin{tikzcd}
+		\bigoplus_{i\in I} M_i^{'} \arrow{r} &\bigoplus_{i\in I} M_i \arrow{r}& \bigoplus_{i\in I} M_i^{''}
+		\end{tikzcd}$$
+		(mit der komponentenweisen Abbildungen) exakt.
 	\end{itemize}
 \end{anm}
 
