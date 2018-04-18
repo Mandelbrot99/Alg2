@@ -58,3 +58,55 @@
 
 %--------Ableitungen----------
 \renewcommand{\bar}{\overline}
+
+\begin{comment}
+Beispielschablonen für Diagramme etc.
+
+
+
+Dreieck z.B. Homomorphiesatz TODO: Anpassung der Bezeichnungen
+
+
+$$\begin{tikzcd}
+G \arrow[swap]{dr}{\pi} \arrow{rr}{\phi} & & G'\\
+& G/N \arrow[swap,dashed]{ru}{\overline{\phi}}&
+\end{tikzcd}$$
+
+%inklusionsumkehrende Bijektion mit Array:
+\begin{eqnarray*}
+\Phi:\{\text{Untergruppen von } G/H\} &\longrightarrow &\{\text{Untergruppen } V \text{ von } G \text{ mit } V\supseteq H\}\\
+U & \mapsto & \pi^{-1}(U)
+\end{eqnarray*}
+
+
+
+exakte Sequenz, geht auch inline
+
+
+
+$\begin{tikzcd}
+\ldots \arrow{r}{a}& A \arrow{r}{b}& B \arrow{r}{c} & C \arrow{r} & \ldots
+\end{tikzcd}$
+
+
+kommutatives Diagramm aus exakten Sequenzen
+
+
+$$\begin{tikzcd}
+\ldots \arrow{r}{a}& A \arrow{r}{b}\arrow{d}{b'}& B \arrow{r}{c} \arrow{d}{c'}& C \arrow{r}\arrow{d}{d'} & \ldots\\
+\ldots \arrow{r}{d}& D \arrow{r}{e}& E \arrow{r}{f} & F \arrow{r}{g} & \ldots
+\end{tikzcd}$$
+
+
+
+kommutatives Diagramm für Produkt/Koprodukt
+
+
+
+$\begin{tikzcd}
+& A \arrow[dd] \arrow[rdd, bend left] \arrow[ldd, bend right] &  \\
+& & \\
+B \arrow[r] & C & D \arrow[l]
+\end{tikzcd}$
+
+\end{comment}
