@@ -123,5 +123,144 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	ein Untermodul von $M$. Ist $I$ ein zweiseitiges Ideal, dann ist $\QR{R}{I}$ ein Ring (beachte: Die Zweiseitigkeit von $I$ geht ein bei der Wohldefiniertheit der Multiplikation
 	$$\QR{R}{I} \times \QR{R}{I} \longrightarrow \QR{R}{I}, \quad (a+I, b+I) \mapsto ab+I$$
 	$\QR{M}{IM}$ ist ein $\QR{R}{I}$-Modul vermöge
-	$$(a+I)(x+M) := ax+IM, \quad a\in R, \, x\in M$$
+	$$(a+I)(x+M) := ax+IM, \quad a\in R, \, x\in M$$ \\
 \end{bsp}
+\begin{center}
+	\emph{Die nächsten Sätze zeigt man wie für Gruppen ($K$-VR,...)}
+\end{center}
+\begin{sa}
+	Seien $M, M^{’} $ $R$-Moduln, $N \subseteq M $ ein Untermodul, $ \pi: M \to \QR{M}{N} $ die kanonische Projektion, $\phi: M \to M^{’} $ $R$-Modulhomomorphismus. Dann sind äquivalent: 
+\begin{enumerate}[label= \roman*)]
+	\item $N \subseteq ker\phi$
+	\item Es ex. genau ein Modulhomomorphismus $\overline{\phi}: \QR{M}{N} \to M^{’} $ mit $\overline{\phi} \circ \pi = \phi:$
+	$$\begin{tikzcd}
+	M \arrow[swap]{dr}{\pi} \arrow{rr}{\phi} & & N\\
+	& \QR{M}{N} \arrow[swap,dashed]{ru}{\overline{\phi}}&
+	\end{tikzcd}$$
+	\end{enumerate}
+\end{sa}
+\begin{sa}[Homomorphiesatz] Seien $M, M^{’} $ $R$-Moduln,  $\phi: M \to M^{’} $ ein $R$-Modulhomomorphismus. Dann existiert ein $R$-Modulisomorphismus $\overline{\phi}: \QR{M}{ker\phi} \overset{\sim}{\longrightarrow} \im\phi $ mit $\overline{\phi}(x+ker\phi)=\phi(x) $ für alle $ x \in M$.
+\end{sa}
+\begin{sa}
+	(Isomorphiesätze) Sein $M$ ein $R$-Modul, $N_1, N_2 \subseteq M$ Untermoduln. Dann gilt:
+	\begin{enumerate}[label=\alph*)]
+		\item Die Abbildung$$\QR{N_1}{N_1 \cap N_2} \overset{\sim}{\longrightarrow} \QR{(N_1+N_2)}{N_2} \qquad x + N_1\cap N_2  \mapsto x +N_2$$ ist ein Isomorphismus.
+		\item Ist $ N_2 \subseteq N_1$, so ist
+		 $$\QR{M/N_2}{M/N_1} \overset{\sim}{\ra} \QR{M}{N_1}\qquad (x+N_2)+\QR{N_1}{N_2} \mapsto x+N_1$$
+		 ein Isomorphismus.
+	\end{enumerate}
+\end{sa}
+\begin{sa}
+	Sei $M$ ein $R$-Modul, $N \subseteq M$ ein Untermodul, $ \pi: M \to \QR{M}{N} $ die kanonische Projektion. Dann gibt es eine Bijektion 
+	\begin{eqnarray*}
+		\{\text{Untermoduln} \ M^{’} \text{von} \  M \text{mit} \ N \subseteq M^{’} \} &\longrightarrow &\{\text{Untermoduln } \text{ von } \QR{M}{N}\}\\
+		M^{’}& \mapsto & \pi(M^{’}) \\
+		\pi^{-1}(L) &\leftmapsto & L % Pfeil muss anders rum
+	\end{eqnarray*}
+	die inklusionserhaltend ist.
+\end{sa}
+\begin{bem+df}
+	Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: $\prod_{i \in I} M_i$ ist ein $R$-Modul mit komponentenweiser Addition und skalarer Multiplikation und heißt das "'direkte Produkt"' der $M_{i}$. Die Projektionsabbildungen $p_{j}: \prod_{i \in I} M_i \to M_{j} $ mit $(m_i)_{i \in I} \mapsto m_j $ sind $R$-Modulhomomorphismen.
+\end{bem+df}
+\begin{sa}[Universelle Eingenschaft des Produkts] Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: Für jeden $R$-Modul $M$ ist die Abbildung $$ Hom_{R}(M,\prod_{i \in I} M_i) \to \prod_{i \in I} Hom_{R}(M,M_i) \qquad \phi \mapsto (p_i \circ \phi)_{i \in I}$$
+	eine Bijektion, d.h. für jede Familie $(\phi_i)_{i \in I}$ von $R$-Modulhomomorphismen $\phi_i: M \to M_i $ ex. genau ein $R$-Modulhomomorphismus $\phi: M \to \prod_{i \in I} M_i$ mit $ p_i \circ \phi = \phi_i$ für alle $i \in I$ (nämlich der durch $\phi(x) := ((\phi_i(x))_{i\in I}) $
+\end{sa}
+\begin{df}
+	Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Der Untermodul $$ \bigoplus_{i \in I} M_i := \{(m_i)_{i \in I} \in \prod_{i \in I} M_i \ | \text{ fast alle }  m_i =0\} \subseteq \prod_{i \in I} M_i $$ 
+	heißt die "'direkte Summe"' der $M_i$. Die Inklusionsabbildungen $$q_j: M_j \to \bigoplus_{i \in I} M_i, \quad x \mapsto (x_i)_{i \in I} \quad \text{mit} \quad x_i=\begin{cases} x & i = j \\ 0 & \text{sonst.} \end{cases}$$ sind $R$-Modulhomomorphismen.
+\end{df}
+\begin{anm}
+	Ist $I$ endlich, dann ist $\bigoplus_{i \in I}M_i = \prod_{i \in I} M_i$.
+\end{anm}
+\begin{sa}[Universelle Eingenschaft der Summe] Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: Für jeden $R$-Modul $M$ ist die Abbildung $$ Hom_{R}(\bigoplus_{i \in I} M_i,M) \to \prod_{i \in I} Hom_{R}(M_i,M) \quad \text{mit} \quad \psi \mapsto (\psi \circ q_i)_{i \in I}$$
+	eine Bijektion, d.h. für jede Familie $(\psi_i)_{i \in I}$ von $R$-Modulhomomorphismen $\psi_i: M_i \to M $ ex. genau ein $R$-Modulhomomorphismus $\psi: \bigoplus_{i \in I}M_i \to M$ mit $ \psi \circ q_i = \psi_i$ für alle $i \in I$ (nämlich der durch $\psi((m_i)_{i \in I}) := \sum_{i\in I} \psi_i(m_i)$ definierte).
+\end{sa}
+\begin{anm}
+	Sei $I$ eine Indexmenge, $M$ ein $R$-Modul. \\
+	 \begin{align*}
+	 M^j &:= \prod_{i \in I}M, & M^{(j)} &:= \bigoplus_{i \in I}M, & M^{r} &:= M^{\{1,..,r\}}=M^{(\{1,..,r\})}
+	 \end{align*}
+\end{anm}
+\begin{bem}
+	Sei $M$ ein $R$-Modul, $(M_i)_{i \in I}$ eine Familie von Untermoduln von M. Dann erhalten wir (aus der Universellen Eigenschaft von $\bigoplus$ mit $\psi_i:M_i\hookrightarrow M$ Inklusionsabbildung) einen $R$-Modulhomomorphismus $$ \psi:\bigoplus_{i \in I} M_i \to M, \quad (m_i)_{i \in I} \mapsto \sum_{i\in I}m_i \quad \text{mit} \quad\im\psi = \sum_{i\in I}M_i $$
+	Ist $\psi$ injekitv, so heißt die Summe $\sum_{i\in I}M_i $ "'direkt"', und wir schreiben auch $\bigoplus_{i \in I}M_i $ für $ \sum_{i\in I}M_i$.
+\end{bem}
+\begin{anm} In der Situation von 1.19 gilt:
+	\begin{itemize}
+		\item $\sum_{i\in I}M_i $ direkt $\Longleftrightarrow \sum_{i\in J}M_i $ \ direkt für alle Teilmengen $J \subseteq I$ 
+		\item $M_1+M_2 = M_1 \bigoplus M_2 \Longleftrightarrow M_1 \cap M_2 =0$
+	\end{itemize}
+\end{anm}
+\begin{df}
+	Sei $M$ ein $R$-Modul und sei $x \in M$. Die Abbildung $f_{x}:R \to M, a \mapsto ax$ ist ein $R$-Modulhomomorphismus, das Linksideal $$ ann_{R}(x) := ker f_x = \{a \in R \ | \  ax=0\}$$ heißt der "Annulator" von $x$. Das Bild $im f_x = Rx=\{ax|a \in R\} $ heißt der von $x$ erzeugte Untermodul von M. Allgemeiner heißt für eine Teilmenge $X \subseteq M$ $$ RX := <X>_{R} := \sum_{x\in X} Rx = im(R^{(X)} \to M) = \bigcap_{X \subseteq N \subseteq M \\ N \text{Untermodul mit } X \subseteq N}N $$
+	Der von X erzeugte Untermodul von M.
+\end{df}
+\begin{df}
+	Sei $M$ ein $R$-Modul, $(x_i)_{i \in I} $ Familie von Elementen aus $M$, $\psi:R^{(I)} \to M, (a_i)_{i \in I} \mapsto \sum_{i\in I}a_ix_i$.
+	$(x_i)_{i \in I} $ heißt 
+	\begin{enumerate}
+		\item[] "'Erzeugendensystem"' von $M$ mit $R$ $\defi$  $\psi $ surjektiv $\Longleftrightarrow$ $M$ stimmt mit dem von $(x_i)_{i \in I} $ erzeugten Untermodul überein
+		\item[]	"'linear abhängig"' $\Longleftrightarrow$ $\psi $ injektiv 
+		\item[] "'Basis"' von $M$ über $R$ $\Longleftrightarrow$ $\psi$ bijektiv 
+	\end{enumerate}
+	$M$ heißt
+	\begin{enumerate}
+		\item[]	 "'endlich erzeugt"' $\Longleftrightarrow$ $M$ besitzt ein endliches Erzeugendensystem 
+		\item[] "'frei"' $\Longleftrightarrow$ $M$ besitzt eine Basis
+	\end{enumerate}
+\end{df}
+\begin{anm}
+	\begin{itemize}
+		\item Ist $R=K$ ein Körper, so sind alle $K$-Moduln frei (LA1)
+		\item Im allgemeinen ist dies jedoch falsch: $\QR{\Z}{2\Z} $ ist eine abelsche Gruppe (=$\Z$ Modul), die nicht frei als $\Z$-Modul ist.
+		\item Jeder $R$-Modul $M$ ist Faktormodul eines freien $R$-Moduls, denn: $$ R^{(M)} \to M, (a_x)_{ x \in M} \mapsto \sum_{x\in M}a_{x}x \quad \text{ist surjektiv}.$$
+		\item Basen eines freien $R$-Moduls können unterschiedliche Länge haben.
+	\end{itemize}
+\end{anm}
+\begin{sa}
+	Sei $A$ ein kommutativer Ring, $A \neq 0$, $n_1,n_2 \in N $. Dann gilt: \\
+	$$ A^{n_1} \simeq A^{n_2} \Longleftrightarrow n_1 =n_2 $$
+\end{sa}
+\begin{proof}
+	Vorüberlegung: nach Algebra 1, 4.18 ex in $A$ ein maximales Ideal $J$ . Sei $n \in \N$. Dann ist $\QR{A^{n}}{JA^{n}}$ ein $\QR{A}{J}$-Modul (vgl Beispiel 1.10) und $\QR{A}{J}$ ist ein Körper. Die Abbildung $\QR{A^{n}}{JA^{n}} \to (\QR{A}{J})^{n}, (x_1,..,x_n) +JA^{n} \mapsto (x_1+J,...,x_n+J) $ ist ein Isomorphismus von $\QR{A}{J}$-Moduln, d.h. $\QR{A^{n}}{JA^{n}} \simeq (\QR{A}{J})^{n} $ ist ein n-dimensionaler $\QR{A}{J}$-Vektorraum. Aus $ A^{n_1} \simeq A^{n_2}$ folgt $\QR{A^{n_1}}{JA^{n_1}} \simeq \QR{A^{n_2}}{JA^{n_2}}$, also $ (\QR{A}{J})^{n_1} \simeq (\QR{A}{J})^{n_2}$ (als $\QR{A}{J}$-Vektorraum)
+\end{proof}
+\begin{df}
+	Sei $A$ ein kommutativer Ring, $M$ ein freier $A$-Modul mit endlicher Basis. Die Kardinalität dieser Basis heißt der "Rang" von M (unabhängig von der Wahl einer endlichen Basis nach 1.22)
+\end{df}
+\newpage
+\subsection{Exakte Folgen}
+\begin{df}
+	Eine "’exakte Folge (exakte Sequenz) "’ von $R$-Moduln ist eine Familie $(f_i)_{i \in I}4$ von $R$-Modulhomomorphismen $f_i: M_i \to M_{i+1} $ für ein (endliches oder unendliches) Intervall $I \in \Z $, sodass: $$ \im f_i = \ker f_{i+1} \quad \text{für alle } i \in I \text{mit} i+1 \in I $$ gilt. \\
+	Schreibweise: \quad  $\begin{tikzcd}
+	\ldots \arrow{r}{}& M_{i-1} \arrow{r}{f_{i-1}}& M_i \arrow{r}{f_i} & M_{i+1} \arrow{r} & \ldots
+	\end{tikzcd}$ 
+	Eine exakte Folge der Form: $$\begin{tikzcd}
+	0  \arrow{r} & M^{’} \arrow{r}{f} & M \arrow{r}{g} & M^{''} \arrow{r} & 0
+	\end{tikzcd}  \quad (\ast) $$
+	heißt eine "'kurze exakte Folge"' (hierbei sind die äußeren Abbildungen die Nullabbildungen). Die Exaktheit von $ (\ast)$ bedeutet explizit:
+	\begin{itemize}
+		\item $f$ injektiv
+		\item $g$ surjektiv
+		\item $\im f = \ker g $.
+	\end{itemize}
+\end{df}
+\begin{anm}
+	\begin{itemize}
+		\item Seien $M,N$ $R$-Moduln und $ f:M \to N $ ein $R$-Modulhomomorphismus. Falls $f$ injektiv, dann ist $\begin{tikzcd}
+		0  \arrow{r} & M \arrow{r}{f} & N \arrow{r}{g} & \QR{N}{\im f} \arrow{r} & 0
+		\end{tikzcd} $ exakt. \\
+		falls $f$ surjektiv, so ist $\begin{tikzcd}
+		0  \arrow{r} & \ker f \arrow{r} & M \arrow{r}{f} & N \arrow{r} & 0
+		\end{tikzcd} $ exakt.
+		\item Ist $\begin{tikzcd}
+		0  \arrow{r} & M^{’} \arrow{r}{f} & M \arrow{r}{g} & M^{''} \arrow{r} & 0
+		\end{tikzcd} $ eine exakte Folge von $R$-Moduln, und setzen wir $N:= \ker g$, so induziert g einen Isomorphismus $\overline{g}: \QR{M}{N} \overset{\sim}{\longrightarrow}  M^{''}$, und $f$ beschränkt sich zu einem Isomorphismus $f: M^{’} \overset{\sim}{\longrightarrow} N$. 
+		(d.h. $$\begin{tikzcd}
+		0 \arrow{r}& M^{'} \arrow{r}{f}\arrow{d}{b'}& B \arrow{r}{c} \arrow{d}{c'}& C \arrow{r}\arrow{d}{d'} & \ldots\\
+		\ldots \arrow{r}{d}& D \arrow{r}{e}& E \arrow{r}{f} & F \arrow{r}{g} & \ldots
+		\end{tikzcd}$$)
+	\end{itemize}
+\end{anm}
+
+
+
