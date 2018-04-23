@@ -163,7 +163,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 \begin{bem+df}
 	Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: $\prod_{i \in I} M_i$ ist ein $R$-Modul mit komponentenweiser Addition und skalarer Multiplikation und heißt das "'direkte Produkt"' der $M_{i}$. Die Projektionsabbildungen $p_{j}: \prod_{i \in I} M_i \to M_{j} $ mit $(m_i)_{i \in I} \mapsto m_j $ sind $R$-Modulhomomorphismen.
 \end{bem+df}
-\begin{sa}[Universelle Eingenschaft des Produkts] Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: Für jeden $R$-Modul $M$ ist die Abbildung $$ \Hom_{R}(M,\prod_{i \in I} M_i) \to \prod_{i \in I} Hom_{R}(M,M_i) \qquad \phi \mapsto (p_i \circ \phi)_{i \in I}$$
+\begin{sa}[Universelle Eingenschaft des Produkts] Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: Für jeden $R$-Modul $M$ ist die Abbildung $$ Hom_{R}(M,\prod_{i \in I} M_i) \to \prod_{i \in I} Hom_{R}(M,M_i) \qquad \phi \mapsto (p_i \circ \phi)_{i \in I}$$
 	eine Bijektion, d.h. für jede Familie $(\phi_i)_{i \in I}$ von $R$-Modulhomomorphismen $\phi_i: M \to M_i $ ex. genau ein $R$-Modulhomomorphismus $\phi: M \to \prod_{i \in I} M_i$ mit $ p_i \circ \phi = \phi_i$ für alle $i \in I$ (nämlich der durch $\phi(x) := ((\phi_i(x))_{i\in I}) $
 \end{sa}
 \begin{df}
@@ -231,7 +231,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 \newpage
 \subsection{Exakte Folgen}
 \begin{df}
-	Eine "’exakte Folge (exakte Sequenz) "’ von $R$-Moduln ist eine Familie $(f_i)_{i \in I}4$ von $R$-Modulhomomorphismen $f_i: M_i \to M_{i+1} $ für ein (endliches oder unendliches) Intervall $I \in \Z $, sodass: $$ \im f_i = \ker f_{i+1} \quad \text{für alle } i \in I \text{mit} i+1 \in I $$ gilt. \\
+	Eine "’exakte Folge (exakte Sequenz) "’ von $R$-Moduln ist eine Familie $(f_i)_{i \in I}$ von $R$-Modulhomomorphismen $f_i: M_i \to M_{i+1} $ für ein (endliches oder unendliches) Intervall $I \in \Z $, sodass: $$ \im f_i = \ker f_{i+1} \quad \text{für alle } i \in I \text{mit} \ i+1 \in I $$ gilt. \\
 	Schreibweise: \quad  $\begin{tikzcd}
 	\ldots \arrow{r}{}& M_{i-1} \arrow{r}{f_{i-1}}& M_i \arrow{r}{f_i} & M_{i+1} \arrow{r} & \ldots
 	\end{tikzcd}$.	Eine exakte Folge der Form: $$\begin{tikzcd}
