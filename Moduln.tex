@@ -135,7 +135,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	\item $N \subseteq ker\phi$
 	\item Es ex. genau ein Modulhomomorphismus $\overline{\phi}: \QR{M}{N} \to M^{’} $ mit $\overline{\phi} \circ \pi = \phi:$
 	$$\begin{tikzcd}
-	M \arrow[swap]{dr}{\pi} \arrow{rr}{\phi} & & N\\
+	M \arrow[swap]{dr}{\pi} \arrow{rr}{\phi} & & M'\\
 	& \QR{M}{N} \arrow[swap,dashed]{ru}{\overline{\phi}}&
 	\end{tikzcd}$$
 	\end{enumerate}
@@ -147,7 +147,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	\begin{enumerate}[label=\alph*)]
 		\item Die Abbildung$$\QR{N_1}{N_1 \cap N_2} \overset{\sim}{\longrightarrow} \QR{(N_1+N_2)}{N_2} \qquad x + N_1\cap N_2  \mapsto x +N_2$$ ist ein Isomorphismus.
 		\item Ist $ N_2 \subseteq N_1$, so ist
-		 $$\QR{M/N_2}{M/N_1} \overset{\sim}{\ra} \QR{M}{N_1}\qquad (x+N_2)+\QR{N_1}{N_2} \mapsto x+N_1$$
+		 $$\QR{M/N_2}{M/N_1} \overset{\sim}{\longrightarrow} \QR{M}{N_1}\qquad (x+N_2)+\QR{N_1}{N_2} \mapsto x+N_1$$
 		 ein Isomorphismus.
 	\end{enumerate}
 \end{sa}
@@ -156,7 +156,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	\begin{eqnarray*}
 		\{\text{Untermoduln} \ M^{’} \text{von} \  M \text{mit} \ N \subseteq M^{’} \} &\longrightarrow &\{\text{Untermoduln } \text{ von } \QR{M}{N}\}\\
 		M^{’}& \mapsto & \pi(M^{’}) \\
-		\pi^{-1}(L) &\leftarrowtail & L % Pfeil muss anders rum
+		\pi^{-1}(L) &\rotatebox[]{180}{$\mapsto$} & L % Pfeil muss anders rum
 	\end{eqnarray*}
 	die inklusionserhaltend ist.
 \end{sa}
@@ -179,7 +179,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 \begin{anm}
 	Sei $I$ eine Indexmenge, $M$ ein $R$-Modul. Dann ist:\\
 	 \begin{align*}
-	 M^j &:= \prod_{i \in I}M, & M^{(j)} &:= \bigoplus_{i \in I}M, & M^{r} &:= M^{\{1,..,r\}}=M^{(\{1,..,r\})}
+	 M^I &:= \prod_{i \in I}M, & M^{(I)} &:= \bigoplus_{i \in I}M, & M^{r} &:= M^{\{1,..,r\}}=M^{(\{1,..,r\})}
 	 \end{align*}
 \end{anm}
 \begin{bem}
@@ -270,9 +270,166 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		$$\begin{tikzcd}
 		\bigoplus_{i\in I} M_i^{'} \arrow{r} &\bigoplus_{i\in I} M_i \arrow{r}& \bigoplus_{i\in I} M_i^{''}
 		\end{tikzcd}$$
-		(mit der komponentenweisen Abbildungen) exakt.
+		(mit der komponentenweisen Abbildungen) exakt.\\
 	\end{itemize}
 \end{anm}
-
-
-
+\begin{sa}
+	Sei $\begin{tikzcd}
+	0  \arrow{r} & M^{’} \arrow{r}{f} & M \arrow{r}{g}\arrow[bend right = 50,swap, dashed]{l}{t} & M^{''}\arrow[bend right = 50,swap, dashed]{l}{s} \arrow{r} & 0
+	\end{tikzcd}$ eine kurze exakte Sequenz von $R$-Moduln. Dann sind äquivalent:
+	\begin{enumerate}[label= \roman*)]
+		\item Es gibt ein Untermodul $N'\subseteq M$ mit $M= \ker g \oplus N'$
+		\item Es gibt einen $R$-Moduolhomomorphismus $s:M''\to M$ mit $g \circ s = \id_{M''}$
+		\item Es existiert ein $R$-Modulhomomorphismus $t:M \to M'$ mit $t\circ f = \id_{M'}$
+	\end{enumerate}
+	Ist eine dieser äquivalenten Bedingungen erfüllt, sagt man, das die kurze exakte Sequenz "'spaltet"'. In diesem Fall gilt: $M \cong M' \oplus M''$. Der Homomorphismus $s$ heißt ein "'Schnitt"' von $g$.
+\end{sa}
+\begin{proof}
+	$i) \Ra ii)$ Sei $N'\subseteq M$ ein Untermodul mit $M= \ker g \oplus N'$. Dann ist $N'\cap \ker g = 0$. Dann ist $g\big|_{N'} : N' \to M''$ injektiv. Außerdem gilt: $M''= g(M) = g(N')$, also ist $G\big|_{N'} : N' \overset{\sim}{\longrightarrow} M''$ ein Isomorphismus. Setze $s:M'' \to N' \hookrightarrow M$. Dann ist $s$ ein $R$-Modulhomomorphismus mit $g\circ s = \id_{M''}$. Außerdem ist $M= \ker g \oplus N' = \ker g \oplus \im s = \im f \oplus \im s = f(M') \oplus s(M'') \underset{f,s\text{ inj}}{\cong} M' \oplus M''$\\
+	$ii) \Ra iii)$ Sei $s:M'' \to M$ ein Modulhomomorphismus mit $g\circ s= \id_{M''}$. Sei $h:f(M') \to M'$ invers zu $f\big|^{f(M)}: M' \overset{\sim}{\longrightarrow} f(M')$. Für $m\in M$ ist 
+	$$g\circ (\id_M - s\circ g))(m) = g(m) - g\circ (s\circ g)(m) = g(m) - ((\underbrace{g\circ s}_{=\id_{M''}}) \circ g)(m) = 0$$
+	Also ist $(\id_{M} - s\circ g)(m) \in \ker g = \im f$. Wir setzen $t:M \xrightarrow{\id_M - s\circ g} f(M') \xrightarrow{h} M'$, welcher ein $R$-Modulhomomorphisus ist mit 
+	$$t\circ f = h\circ (\id_M - s\circ g)\circ f = \underbrace{h\circ \id_M \circ f}_{=\id_{M'}} - h\circ s \circ \underbrace{g\circ f}_{=0} = \id_{M'}$$
+	$iii)\Ra i)$ Setze $t:M\to M'$ ein Modulhomomorphismus mit $t\circ f = \id_{M'}$. Setze $N':= \ker t$. Für $m\in M$ ist $m=\id_M(m) = \underbrace{(\id_M- f\circ t)(m)}_{\in \ker t} + \underbrace{(f\circ t)(m)}_{\in \im f}$, also ist $M= N' + \im f$. Sei außerdem $m\in N' \cap \im f$. Dann existiert ein $m'\in M'$ mit $m= f(m')$, somit ist
+	$$0 =t(m) = (t\circ f)(m') = \id_{M'}(m') = m'$$
+	also auch $m=0$. Damit ist $M= N' \oplus \im f$.
+\end{proof}
+\begin{sa}
+	Sei$\begin{tikzcd}
+	0  \arrow{r} & M^{’} \arrow{r}{f} & M \arrow{r}{g} & M^{''} \arrow{r} & 0
+	\end{tikzcd} $ eine exakte Sequenz von $R$-Moduln, $M''$ ein freier $R$-Modul. Dan spaltet die obige Folge.
+\end{sa}
+\begin{proof}
+	Sei also $(v_i)_{i\in I}$ eine Basis von $M''$. Wähle für alle $i\in I$ ein $m_i\in M$ mit $g(m_i) = v_i$ (beachte: $g$ ist surjektiv). Sei $s:M'' = \bigoplus_{i\in I} Rv_i \to M$ der durch die Vorgabe $s(v_i) = m_i$ induzierte Modulhomomorphismus (existiert nach der UE von $\bigoplus$). Es ist 
+	$$(g\circ s) (v_i) = g(m_i) = v_i, \quad \forall i\in I$$
+	Also ist $g\circ s = \id_{M''}$
+\end{proof}
+\begin{fo}
+	Sei $\begin{tikzcd}
+	0  \arrow{r} & M^{’} \arrow{r} & M \arrow{r} & M^{''} \arrow{r} & 0
+	\end{tikzcd} $ eine kurze exakte Sequenz von $R$-Moduln, $M', M''$ freie $R$-Moduln. Dann ist auch $M$ frei.
+\end{fo}
+\begin{proof}
+	Nach Voraussetzung ist $M' \cong R^{(I)}$, $M'' \cong R^{(J)}$. Nach 1.2.3 spaltet die Folge, also ist 
+	$$M  \cong M'\oplus M'' \cong R^{(I)} \oplus R^{(J)} \cong R^{(I \overset{\cdot}{\cup} J)}$$ und damit auch frei.
+\end{proof}
+\begin{anm}
+	Ist $R$ kommutativ, und haben $M,M'$ endliche Basen, dann zeigt der Beweis: 
+	$$\text{rang}(M) = \text{rang}(M') + \text{rang}(M'')$$
+\end{anm}
+\begin{bem}
+	Sei $\begin{tikzcd}
+	0  \arrow{r} & M^{’} \arrow{r}{f} & M \arrow{r}{g} & M^{''} \arrow{r} & 0
+	\end{tikzcd} $ ein kurze exakte Sequenz von $R$-Moduln. Dann gilt: 
+	\begin{enumerate}[label= \alph*)]
+		\item Ist $M$ endlich erzeugt, dann ist $M''$ endlich erzeugt.
+		\item Sind $M', \, M''$ endlch erzeugt, dann ist $M$ endlich erzeugt.
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	\begin{enumerate}[label=\alph*)]
+		\item Ist $M$ endlich erzeugt, dann existiert ein $n\in \N$ und ein Epimorphismus $\phi:R^n \to M$. Dann ist $g\circ \phi:R^n \to M''$ ebenfalls ein Epimorphismus, also ist $M''$ endlich erzeugt.
+		\item Sei $(x_1, \ldots, x_r)$ ein Erzeugendensystem von $M'$, $(y_1, \ldots, y_s)$ ein Erzeugendensystem von $M''$. Da $g$ surjektiv, exitieren $z_1, \ldots, z_s\in M$ mit $g(z_i) = y_i$ für $i=1, \ldots, s$. \\
+		Behauptung: $f(x_1), \ldots, f(x_r), z_1, \ldots, z_s$ ist ein Erzeugendensystem von $M$, denn sei $m\in M$. Dann exsitieren $a_1, \ldots, a_s\in R$ mit $g(m) = \sum_{i=1}^s a_i y_i = \sum_{i=1}^s a_i g(z_i) = g(\sum_{i=1}^s a_i z_i)$. Damit ist $m- \sum_{i=1}^s a_i z_i \in \ker g = \im f$. Also existiert ein $v\in M'$, etwa $v= \sum_{i=1}^r b_i x_i$ mit $f(v) = m - \sum_{i=1}^s a_i z_i $. Also ist 
+		$$m=f(v) + \sum_{i=1}^sa_i z_i = \sum_{i=1}^r b_i f(x_i) + \sum_{i=1}^s a_i z_i$$ 
+	\end{enumerate}
+\end{proof}
+\begin{anm}
+	Aus $M$ endlich erzeugt, folgt im Allgemeinen nicht, dass $M'$ endlich erzeugt ist.
+\end{anm}
+\begin{bsp}
+	Sei $K$ ein Körper, $R=K[X_1, X_2, \ldots]$. Dann ist $R$ als $R$-Modul offensichtlich endlich erzeugt (von 1). Setzt $I:= \{f\in R \ | \ \text{konstanter Term von } f \text{ ist } =0\}$. Dann ist $I$ ein Ideal in $R$, aber $I$ ist nicht endliche erzeugt als $R$-Modul, denn angenommen ex existieren $f_1, \ldots, f_r\in I$ mit $I = \sum_{i=1}^rRf_i$. Dann existiert ein $n\in \N$, sodass $f_1, \ldots, f_r\in K[X_1, \ldots, X_n] \subseteq R$. \\
+	Problem: $X_{n+1} \notin I$, denn andernfalls wäre $X^{n+1} = a_1 f_1 + \ldots + a_rf_r$ mit $a_1, \ldots, a_r \in R$ und setze $X_1 = \ldots = X_n = 0, \ X_{n+1} = 1$, also $1=0$ Widerspruch!		
+\end{bsp}
+\begin{bem}
+	Seien $M_1, \ldots, M_r$ $R$-Moduln. Dann sind äquivalent:
+	\begin{enumerate}[label=\roman*)]
+		\item $M= \bigoplus_{i=1}^r M_i$ ist endlich erzeugt.
+		\item $M_1, \ldots, M_r$ sind endlich erzeugt.
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	Es genügt, die Behaptung für $r=2$ zu zeigen (Rest induktiv). Wir haben kurze exakte Folgen $$\begin{tikzcd}
+	0  \arrow{r} & M_1 \arrow{r}{f} & M_1 \oplus M_2 \arrow{r}{g} & M_2 \arrow{r} & 0
+	\end{tikzcd} $$
+	 und
+	$$\begin{tikzcd}
+	0  \arrow{r} & M_2 \arrow{r}{f} & M_1 \oplus M_2 \arrow{r}{g} & M_1 \arrow{r} & 0
+	\end{tikzcd} $$
+	Damit folgt die Behauptung aus 2.5
+\end{proof}
+\begin{anm}
+	Ist $M= \bigoplus_{i\in I} M_I$ mit $|I| = \infty, \ M_i \neq 0$ für alle $i\in I$, dann ist $M$ nicht endlich erzeugt, dann für $x_1, \ldots, x_s\in M$ existiert ein $J\subsetneq I$ mit $ x_1, \ldots, x_s \in \bigoplus_{j\in J} M_j$, also $\sum_{i=1}^s R_i \subseteq \bigoplus_{j\in J} M_j\subsetneq \bigoplus_{i\in I} M_i$
+\end{anm}
+\begin{bem}[Fünferlemma] Ist ein kommutatives Diagramm von $R$-Modulhomomorphismen mit exakten Zeilen 
+	$$\begin{tikzcd}
+	M_1 \arrow{r} \arrow{d}{\phi_1}& M_2 \arrow{r}\arrow{d}{\phi_2}& M_3 \arrow{r} \arrow{d}{\phi_3} & M_4 \arrow{r} \arrow{d}{\phi_4} & M_5 \arrow{d}{\phi_5}\\
+	N_1 \arrow{r}& N_2 \arrow{r}& N_3 \arrow{r} & N_4 \arrow{r} & N_5
+	\end{tikzcd}$$
+	gegeben und $\phi_1$ surjektiv, $\phi_2, \phi_4$ Isomorphismen, $\phi_5$ injektiv. Dann ist $\phi_3$ ein Isomorphismus.
+\end{bem}
+\begin{proof}
+	Diagrammjagd (Übungen).
+\end{proof}
+\begin{anm}
+	Wir meist in der Situation $M_1 = N_1 = M_5 = N_5$ angewandt.
+\end{anm}
+\begin{bem}[Schlangenlemma]
+	Sei folgendes Diagramm von $R$ Modulhomomorphismen mit exakten Zeilen gegeben:
+	$$\begin{tikzcd}
+& M^{'} \arrow{r}{f}\arrow{d}{\phi'}& M \arrow{r}{f} \arrow{d}{\phi} & M^{''} \arrow{d}{\phi''} \arrow{r}& 0\\
+	0 \arrow{r}& N' \arrow{r}{g'}& N \arrow{r}{g} & \arrow{u}[swap]{\sim}N''
+	\end{tikzcd}$$
+	Dann existiert eine exakte Sequenz von $R$-Moduln 
+	$$\begin{tikzcd}
+	\ker \phi'  \arrow{r} & \ker \phi \arrow{r}{f} & \ker \phi'' \arrow{r}{\delta} & \coker \phi'  \arrow{r} &  \coker \phi \arrow{r} & \coker \phi''
+	\end{tikzcd} $$
+	wobei $\delta$ die 
+	
+\end{bem}
+\begin{proof} 
+	Betrachte
+	\begin{center}
+		\begin{tikzpicture}[>=triangle 60]
+		\matrix[matrix of math nodes,column sep={60pt,between origins},row
+		sep={60pt,between origins},nodes={asymmetrical rectangle}] (s)
+		{
+			&|[name=ka]| \ker \phi' &|[name=kb]| \ker \phi &|[name=kc]| \ker \phi'' \\
+			%
+			&|[name=A]| M' &|[name=B]| M &|[name=C]| M'' &|[name=01]| 0 \\
+			%
+			|[name=02]| 0 &|[name=A']| N' &|[name=B']| N &|[name=C']| N'' \\
+			%
+			&|[name=ca]| \coker \phi' &|[name=cb]| \coker \phi &|[name=cc]| \coker \phi'' \\
+		};
+		\draw[->] (ka) edge (A)
+		(kb) edge (B)
+		(kc) edge (C)
+		(A) edge node[auto] {\(f'\)}(B)
+		(B) edge node[auto] {\(f\)} (C)
+		(C) edge (01)
+		(A) edge node[auto] {\(\phi'\)} (A')
+		(B) edge node[auto] {\(\phi\)} (B')
+		(C) edge node[auto] {\(\phi''\)} (C')
+		(02) edge (A')
+		(A') edge node[auto] {\(g'\)} (B')
+		(B') edge node[auto] {\(g\)} (C')
+		(A') edge (ca)
+		(B') edge (cb)
+		(C') edge (cc)
+		;
+		\draw[->,gray] (ka) edge (kb)
+		(kb) edge (kc)
+		(ca) edge (cb)
+		(cb) edge (cc)
+		;
+		\draw[->,gray,rounded corners] (kc) -| node[auto,text=black,pos=.7]
+		{\(\delta\)} ($(01.east)+(.5,0)$) |- ($(B)!.35!(B')$) -|
+		($(02.west)+(-.5,0)$) |- (ca);
+		\end{tikzpicture}
+	\end{center}
+	Konstruktion von $\delta:$ Sei $m'' \in \ker \phi'' \subseteq M''$. Da $f$ surjektiv existiert ein $m\in M$ mit $m'' = f(m)$. Setze $n:= \phi(m)$. Dann ist $g(n) = g(\phi(m)) = \phi''(f(m)) = \phi''(m'') = 0$. Dann ist $n\in \ker g = \im g'$. Also existiert ein $n'\in N'$ mit $g'(n') = n$ ($n'$ ist eindeutig bestimmt wegen $g'$ injektiv.) Setze $\delta(m''):= n' + \im \phi'$\\
+	Wohldefiniertheit von $\delta$: Sei $\tilde{m} \in M$ mit $m'' = f(\tilde{m})$. Dann ist $(\tilde{m}) = f(m)$, also $\tilde{m} - m \in \ker f= \im f'$. Damit existiert ein $m'\in M'$ mit $\tilde{m} - m = f'(m')$. Also ist
+	$$\tilde{n}:= \phi(\tilde{m}) = \phi(m+ f'(m')) = \underbrace{\phi(m)}_{=n} + \phi(f'(m')) = g'(n') + g'(\phi'(m')) = g'(\underbrace{n' + \phi'(m')}_{:= \tilde{n}'}) $$
+	Damit ist $\tilde{n}' + \im \phi' = n' + \im \phi'$, Rest ist Übungsaufgabe.
+\end{proof}
