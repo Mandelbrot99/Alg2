@@ -436,13 +436,13 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 \newpage
 \subsection{Noethersche und Artinsche Moduln}
 \begin{df}
-	Sei $M$ ein $R$-Modul. $M$ heißt "'noethersch"' \defi jeder Untermodul von $M$ ist endlich erzeugt.
+	Sei $M$ ein $R$-Modul. $M$ heißt "'noethersch"' $\defi$ jeder Untermodul von $M$ ist endlich erzeugt.
 \end{df}
 \begin{anm}
 	$M$ noetersch $\Ra $ $M$ ist endlich erzeugt.
 \end{anm}
 \begin{bsp}
-	Sei $K$ ein Körper, $V$ ein $K$-VR. Dann gilt: $V$ noethersch $\longleftrightarrow$ $V$ ist endlichdimensional
+	Sei $K$ ein Körper, $V$ ein $K$-VR. Dann gilt: $V$ noethersch $\Lra$ $V$ ist endlich dimensional
 \end{bsp}
 \begin{sa}
 	Sei $M$ ein $R$-Modul. Dann sind äquivalent:
@@ -454,18 +454,17 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	Man sagt in diesem Fall auch: die Untermoduln von $M$ erfüllen die "'aufsteigende Kettenbedigung"'.
 \end{sa}
 	\begin{proof} 
-		$i) \Ra ii)$ Sei $M_0 \subseteq M_1 \subseteq M_2 \subseteq \dots $ eine Kette von Untermoduln von $M$. Setze $N := \bigcup_{i \in \N_0} M_i \subseteq M$. $N$ ist Untermodul von $M$ (beachte: $ a,b \in \N \Ra $ Es existieren $i,j \in \N_0$ mit $a \in M_i$, $b \in M_j$, o.E. gilt: $i\leq j \Ra M_i \subseteq M_j$, $a,b \in M_j \Ra a+b \in M_j \subseteq N$). Da $M$ noethersch, ist $N$ endlich erzeugt, d.h. es existiert ein endliches Erzeugendensystem $x_1, \dots x_r$ von $N$. Für jedes $i \in \{1,\dots r\} $ exsistieren $j_i \in \N_0 $ mit $x_i \in M_{j_i}$. Setze $n:= max\{j_i|i = 1, \dots r \} \Ra x_1,\dots, x_r \in M_n$ $ \Ra N \subseteq M_n \subseteq N \Ra N = M_n \Ra $ für alle $i \geq n $ ist $ M _i=M_n$.
-		$ii) \Ra iii)$ Sei $X$ eine nichtleere Menge von Untermoduln von $M$, die kein maximales Element hat. Insbesondere existiert zu jedem $ M' \in X $ ein $M'' \in X $ mit $M' \subsetneq M''$. $\Ra$ Es existiert eine Kette von Untermoduln $M_0 \subsetneq M_1 \subsetneq M_2 \subsetneq \dots $ von $M$ , die nicht stationär wird.
-		$iii) \Ra i)$ Sei $N \subseteq M $ ei Untermodul. Setze $X := \{M' \subseteq M \text{Untermodul}| M' \text{endlich erzeugt}, M' \subseteq N\}$. Wegen $0 \in X$ ist $X \neq \emptyset $ $\overset{(iii)}{\Ra}$ Es existiert ein maximales Element $\tilde{M} $ in $X$. \\
-		Behauptung: $\tilde{M} = N$, denn: Sei $ x \in N \Ra Rx+\tilde{M} \in X $ und $ \tilde{M} \subseteq Rx+\tilde{M} \overset{\tilde{M} max.}{\Ra} Rx+\tilde{M} = \tilde{M} \Ra x \in \tilde{M}$.
-		% Das komische X sah irgendwie besonders aus
+		$i) \Ra ii)$ Sei $M_0 \subseteq M_1 \subseteq M_2 \subseteq \dots $ eine Kette von Untermoduln von $M$. Setze $N := \bigcup_{i \in \N_0} M_i \subseteq M$. $N$ ist Untermodul von $M$ (beachte: $ a,b \in \N \Ra $ Es existieren $i,j \in \N_0$ mit $a \in M_i$, $b \in M_j$, o.E. gilt: $i\leq j \Ra M_i \subseteq M_j$, $a,b \in M_j \Ra a+b \in M_j \subseteq N$). Da $M$ noethersch, ist $N$ endlich erzeugt, d.h. es existiert ein endliches Erzeugendensystem $x_1, \dots x_r$ von $N$. Für jedes $i \in \{1,\dots r\} $ exsistieren $j_i \in \N_0 $ mit $x_i \in M_{j_i}$. Setze $n:= max\{j_i \ | \ i = 1, \dots r \} \Ra x_1,\dots, x_r \in M_n$ $ \Ra N \subseteq M_n \subseteq N \Ra N = M_n \Ra $ für alle $i \geq n $ ist $ M _i=M_n$.\\
+		$ii) \Ra iii)$ Sei $\mathcal{X}$ eine nichtleere Menge von Untermoduln von $M$, die kein maximales Element hat. Insbesondere existiert zu jedem $ M' \in \mathcal{X} $ ein $M'' \in \mathcal{X} $ mit $M' \subsetneq M''$. $\Ra$ Es existiert eine Kette von Untermoduln $M_0 \subsetneq M_1 \subsetneq M_2 \subsetneq \dots $ von $M$ , die nicht stationär wird.\\
+		$iii) \Ra i)$ Sei $N \subseteq M $ ei Untermodul. Setze $$\mathcal{X} := \{M' \subseteq M \text {Untermodul} \ | \ M' \text{endlich erzeugt}, M' \subseteq N\}$$Wegen $0 \in \mathcal{X}$ ist $\mathcal{X} \neq \emptyset $ $\overset{(iii)}{\Ra}$ Es existiert ein maximales Element $\tilde{M} $ in $\mathcal{X}$. \\
+		Behauptung: $\tilde{M} = N$, denn: Sei $ x \in N \Ra Rx+\tilde{M} \in \mathcal{X} $ und $ \tilde{M} \subseteq Rx+\tilde{M} \overset{\tilde{M} max.}{\Ra} Rx+\tilde{M} = \tilde{M} \Ra x \in \tilde{M}$.
 	\end{proof}
 \begin{bem}
 	Sei $\begin{tikzcd}
-	0  \arrow{r} & M^{’} \arrow{r}{} & M \arrow{r}{} & M^{''} \arrow{r} & 0
+	0  \arrow{r} & M'' \arrow{r} & M \arrow{r} & M'' \arrow{r} & 0
 	\end{tikzcd} $ ein kurze exakte Sequenz von $R$-Moduln. Dann sind äquivalent: 
 	\begin{enumerate} [label= \roman*)]
-		\item $M$ noethersch
+		\item $M$ ist noethersch
 		\item $M'$ und $M''$ sind noethersch
 	\end{enumerate}
 \end{bem}
@@ -473,15 +472,15 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	Es genügt den Fall der Folge $\begin{tikzcd}
 	0  \arrow{r} & N\arrow{r}{} & M \arrow{r}{\pi} & \QR{M}{N} \arrow{r} & 0
 	\end{tikzcd} $ für einen Untermodul $N \subseteq M $ zu betrachten. (Vgl. Anmerkung nach 2.1)\\
-	$i) \Ra ii)$ Sei $N' \subseteq N $ Untermodul $\Ra N' $ Untermodul von $M$ $\overset{M \text{noethersch}}{\Ra} $ $N' $ endlich erzeugt. Sei $N'' \subseteq \QR{M}{N}$ Untermodul. Erhaltender Epimorphismus $\pi^{-1}(N'') \mapsto N'' \Ra N'' $ endlich erzeugt nach 2.5 (a). 
-	$ii) \Ra i)$ Seien $N, \QR{M}{N}$ noethersch, und sei $M' \subseteq M $ Untermodul. Wir erhalten eine kurze exakte Sequenz von $R$-Moduln  $\begin{tikzcd}
+	$i) \Ra ii)$ Sei $N' \subseteq N $ Untermodul $\Ra N' $ Untermodul von $M$ $\overset{M \text{noet.}}{\Longrightarrow} $ $N' $ endlich erzeugt. Sei $N'' \subseteq \QR{M}{N}$ Untermodul. Also ist $\pi^{-1}(N'') \twoheadrightarrow N''$ ein Epimorphismus und damit $ N'' $ endlich erzeugt nach 2.5 (a). \\
+	$ii) \Ra i)$ Seien $N, \QR{M}{N}$ noethersch, und sei $M' \subseteq M $ Untermodul. Wir erhalten eine kurze exakte Sequenz von $R$-Moduln  $$\begin{tikzcd}
 	0  \arrow{r} & M' \cap N \arrow{r}{} & M' \arrow{r}{} & \QR{M'}{M' \cap N} \arrow{r} & 0
-	\end{tikzcd} $, wobei $M' \cap N $ endlich erzeugt, da $N$ noethersch. Außerdem: $\QR{M'}{M' \cap N} \simeq \QR{(M'+N)}{N} \subseteq \QR{M}{N} $ endlich erzeugt, da $\QR{M}{N} $ noethersch. $\Ra M' $ ist endlich erzeugt nach 2.5
+	\end{tikzcd} $$wobei $M' \cap N $ endlich erzeugt, da $N$ noethersch. Außerdem ist $$\QR{M'}{M' \cap N} \simeq \QR{(M'+N)}{N} \subseteq \QR{M}{N} $$ endlich erzeugt, da $\QR{M}{N} $ noethersch. $\Ra M' $ ist endlich erzeugt nach 2.5
 \end{proof}
 \begin{bem}
 	$M_1,...,M_r$ $R$-Moduln. Dann sind äquivalent: 
 	\begin{enumerate} [label= \roman*)]
-		\item $\overset{r}{\bigoplus_{i=1}} M_i $ noethersch 
+		\item $\bigoplus_{i=1}^r M_i $ noethersch 
 		\item $M_1,...,M_r $ noethersch.
 	\end{enumerate}
 \end{bem}
@@ -496,8 +495,8 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 \end{anm}
 \begin{bsp}
 	\begin{enumerate} [label=\alph*)]
-		\item $R$ Schiefkörper (Divisionsring) (d.h. $R \textbackslash \{0\}$ ist eine Gruppe bzgl. "."), Dann ist $R$ noethersch, denn: wegen $Ra=R=aR$ für alle $ a \in R \textbackslash \{0\}$ sind die einzigen Linksideale(Rechtsideale) in $R$ durch $0,R$ gegeben, diese sind endlich erzeugt.
-		\item Sei $K$ ein Körper, $ R= K [ X_1,X-2,\dots ]$ ist nicht noethersch nach Bsp. 2.6.
+		\item Ist $R$ ein Schiefkörper (Divisionsring) (d.h. $R \backslash \{0\}$ ist eine Gruppe bzgl. "."), dann ist $R$ noethersch, denn wegen $Ra=R=aR$ für alle $ a \in R \backslash \{0\}$ sind die einzigen Linksideale (Rechtsideale) in $R$ durch $0,R$ gegeben, diese sind endlich erzeugt.
+		\item Sei $K$ ein Körper, $ R= K [ X_1,X_2,\dots ]$ ist nicht noethersch nach Beispiel 2.6.
 	\end{enumerate}
 \end{bsp}
 \begin{bem}
@@ -505,32 +504,36 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 \end{bem}
 \begin{proof}
 	%hier ist es ein surjektionspfeil
-	Wegen $M$ endlich erzeugt, existiert ein Epimorphismus $R^n \mapsto M $ für geeignetes n. Nach Vorraussetzung ist $R$ als $R$-Modul noethersch $\overset{3.5}{\Ra} $ $R^n $ noetherscher $R$-Modul $\overset{3.4}{\Ra}$ $M$ noethersch.
+	Wegen $M$ endlich erzeugt, existiert ein Epimorphismus $R^n \twoheadrightarrow M $ für geeignetes n. Nach Vorraussetzung ist $R$ als $R$-Modul noethersch $\overset{3.5}{\Ra} $ $R^n $ noetherscher $R$-Modul $\overset{3.4}{\Ra}$ $M$ noethersch.
 \end{proof}
 \begin{bem}
 	Sei $R$ linksnoetherscher Ring, $I \subseteq R $ zweiseitiges Ideal. Dann ist $\QR{R}{I} $ linksnoethersch.
 \end{bem}
 \begin{proof}
-	Es ist zu zeigen: $\QR{R}{I} $ ist linksnoethersch als $\QR{R}{I} $-Modul. \\
+	Es ist zu zeigen: $\QR{R}{I} $ ist noethersch als $\QR{R}{I} $-Modul. \\
 	Vorüberlegungen:
-	\begin{enumerate} [label= \roman*)]
-		\item Für $N \subseteq \QR{R}{I}$ gilt: $$ N \text{ist} \QR{R}{I} \text{-Modul von} \QR{R}{I} (\text{bzgl.}\overline{a}*\overline{x} := \overline{ax}) \longleftrightarrow N \text{ist R- Untermodul von} \QR{R}{I} (bzgl. a*\overline{x} := \overline{ax}) $$
+	\begin{enumerate}
+		\item Für $N \subseteq \QR{R}{I}$ gilt:
+		\begin{eqnarray*}
+		N \text{ ist } \QR{R}{I} \text{-Modul von } \QR{R}{I}& \Lra & N \text{ ist } R- \text{Untermodul von } \QR{R}{I}\\
+		(\text{bezüglich } \overline{a} \cdot \overline{x}:= \overline{ax}) & & (\text{bezüglich }a \cdot \overline{x} := \overline{ax})
+		\end{eqnarray*}
 		\item Für jeden $\QR{R}{I} $-Untermodul $N$ von $\QR{R}{I} $ gilt:
-		$$ N \text{ist endlich erzeugt über } \QR{R}{I} \longleftrightarrow N \text{ist eindlich erzeugt über} R $$ 
+		$$ N \text{ ist endlich erzeugt über } \QR{R}{I} \Lra N \text{ ist endlich erzeugt über} R $$ 
 	\end{enumerate}
-	Nach Vorüberlegungen genügt zu zeigen, dass $\QR{R}{I}$ noethersch als $R$-Modul. Dies folgt aus 3.8, denn $\QR{R}{I}$ ist endlich erzeugt als $R$-Modul (erzeugt von $\overline{1}).$
+	Nach den Vorüberlegungen genügt es zu zeigen, dass $\QR{R}{I}$ noethersch ist als $R$-Modul. Dies folgt aus 3.8, denn $\QR{R}{I}$ ist endlich erzeugt als $R$-Modul (erzeugt von $\overline{1}).$
 \end{proof}
 \begin{anm}
 	Unterringe noetherscher Ringe sind im Allgemeinen nicht noethersch (siehe Übungsaufgaben)
 \end{anm}
 \begin{bem}
-	Seien $M,N \ R$- Moduln mit $M \simeq M \bigoplus N, N \neq 0$. Dann ist $M$ nicht noethersch. 
+	Seien $M,N \ R$-Moduln mit $M \cong M \oplus N, N \neq 0$. Dann ist $M$ nicht noethersch. 
 \end{bem}
-\begin{proof}
-	%hier wieder komisches X und die unteren geschweiften klammern? und blitz am ende
-	% hier ist was bei den Pfeilen mit der tilde schief gegangen 
-	Setze $X := \{N' \subseteq M \text{Untermodul}|\text{Es ex. ein Untermodul }M' \subseteq M, \text{sodass} M = M' \bigoplus N'\text{und} M' \simeq M\}$
-	Nach Vorrausetzung existiert $\phi : M \bigoplus N \overset{\tilde}{\longrightarrow} M \overset{\tilde}{\longrightarrow} M' \Ra M' = \phi(M) \bigoplus \phi(N) \Ra M = M' \bigoplus N' = \phi(M) \bigoplus \phi(N) \bigoplus N' $ Es ist $M \simeq \phi(M) = M''$, somit $ N'' \in X$. Außerdem: $\phi(N) \neq 0 $ wegen $ N \neq 0 $ und $\phi$ injektiv. $\Ra N' \subsetneq N'' $ zu Maximalität von $N'$
+\begin{proof} 
+	Setze $$\mathcal{X} := \{N' \subseteq M \text{Untermodul} \ | \ \exists M' \subseteq M,\, \text{sd. }  M = M' \oplus N'\text{ und } M' \cong M\}$$
+	Offenbar ist $0\in \mathcal{X}$, denn $M= M \oplus 0$, also $\mathcal{X} \neq \emptyset$. \\
+	Angenommen $M$ ist noethersch. Dann enthält $\mathcal{X}$ ein maximales Element $N'$, also  existiert ein $M' \subseteq M$ mit $M = M' \oplus N'$ und $M' \cong M$. Nach Voraussetzung existiert ein $\phi : M \bigoplus N \iso M \iso M'$. Also ist 
+	$$M' = \phi(M) \oplus \phi(N) \Ra M = M' \oplus N' = \underbrace{\phi(M)}_{=:M''} \oplus \underbrace{\phi(N) \oplus N'}_{=:N''} $$ Es ist $M \cong \phi(M) = M''$, somit $ N'' \in \mathcal{X}$. Außerdem ist $\phi(N) \neq 0 $ wegen $ N \neq 0 $ und $\phi$ injektiv. Damit folgt $N' \subsetneq N'' $ im Widerspruch zur Maximalität von $N'$.
 \end{proof}
 \begin{sa}
 	Sei $R$ linksnoetherscher Ring, $R \neq 0$, $n_1,n_2 \in N$. Dann gilt: $ R^{n_1} \simeq R^{n_2} \Ra n_1 = n_2 $.
