@@ -323,7 +323,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	\end{tikzcd} $ ein kurze exakte Sequenz von $R$-Moduln. Dann gilt: 
 	\begin{enumerate}[label= \alph*)]
 		\item Ist $M$ endlich erzeugt, dann ist $M''$ endlich erzeugt.
-		\item Sind $M', \, M''$ endlch erzeugt, dann ist $M$ endlich erzeugt.
+		\item Sind $M', \, M''$ endlich erzeugt, dann ist $M$ endlich erzeugt.
 	\end{enumerate}
 \end{bem}
 \begin{proof}
@@ -338,7 +338,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	Aus $M$ endlich erzeugt, folgt im Allgemeinen nicht, dass $M'$ endlich erzeugt ist.
 \end{anm}
 \begin{bsp}
-	Sei $K$ ein Körper, $R=K[X_1, X_2, \ldots]$. Dann ist $R$ als $R$-Modul offensichtlich endlich erzeugt (von 1). Setzt $I:= \{f\in R \ | \ \text{konstanter Term von } f \text{ ist } =0\}$. Dann ist $I$ ein Ideal in $R$, aber $I$ ist nicht endliche erzeugt als $R$-Modul, denn angenommen ex existieren $f_1, \ldots, f_r\in I$ mit $I = \sum_{i=1}^rRf_i$. Dann existiert ein $n\in \N$, sodass $f_1, \ldots, f_r\in K[X_1, \ldots, X_n] \subseteq R$. \\
+	Sei $K$ ein Körper, $R=K[X_1, X_2, \ldots]$. Dann ist $R$ als $R$-Modul offensichtlich endlich erzeugt (von 1). Setze $I:= \{f\in R \ | \ \text{konstanter Term von } f \text{ ist } =0\}$. Dann ist $I$ ein Ideal in $R$, aber $I$ ist nicht endlich erzeugt als $R$-Modul, denn angenommen ex existieren $f_1, \ldots, f_r\in I$ mit $I = \sum_{i=1}^rRf_i$. Dann existiert ein $n\in \N$, sodass $f_1, \ldots, f_r\in K[X_1, \ldots, X_n] \subseteq R$. \\
 	Problem: $X_{n+1} \notin I$, denn andernfalls wäre $X^{n+1} = a_1 f_1 + \ldots + a_rf_r$ mit $a_1, \ldots, a_r \in R$ und setze $X_1 = \ldots = X_n = 0, \ X_{n+1} = 1$, also $1=0$ Widerspruch!		
 \end{bsp}
 \begin{bem}
@@ -384,7 +384,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	$$\begin{tikzcd}
 	\ker \phi'  \arrow{r} & \ker \phi \arrow{r}{f} & \ker \phi'' \arrow{r}{\delta} & \coker \phi'  \arrow{r} &  \coker \phi \arrow{r} & \coker \phi''
 	\end{tikzcd} $$
-	wobei $\delta$ die 
+	wobei $\delta$ die sogenannte Übergangabbildung ist (Konstruktion siehe Beweis) und $f',f,g',g$ induziert sind. Ist $f'$ injektiv, dann ist auch $\ker \phi' \longrightarrow \ker \phi$ injektiv. Ist $g$ surjektiv, dann auch $\coker \phi \longrightarrow \coker \phi''$
 	
 \end{bem}
 \begin{proof} 
@@ -423,12 +423,12 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		(ca) edge (cb)
 		(cb) edge (cc)
 		;
-		\draw[->,gray,rounded corners] (kc) -| node[auto,text=black,pos=.7]
+		\draw[->,red,rounded corners] (kc) -| node[auto,text=black,pos=.7]
 		{\(\delta\)} ($(01.east)+(.5,0)$) |- ($(B)!.35!(B')$) -|
 		($(02.west)+(-.5,0)$) |- (ca);
 		\end{tikzpicture}
 	\end{center}
-	Konstruktion von $\delta:$ Sei $m'' \in \ker \phi'' \subseteq M''$. Da $f$ surjektiv existiert ein $m\in M$ mit $m'' = f(m)$. Setze $n:= \phi(m)$. Dann ist $g(n) = g(\phi(m)) = \phi''(f(m)) = \phi''(m'') = 0$. Dann ist $n\in \ker g = \im g'$. Also existiert ein $n'\in N'$ mit $g'(n') = n$ ($n'$ ist eindeutig bestimmt wegen $g'$ injektiv.) Setze $\delta(m''):= n' + \im \phi'$\\
+	Konstruktion von $\delta:$ Sei $m'' \in \ker \phi'' \subseteq M''$. Da $f$ surjektiv, existiert ein $m\in M$ mit $m'' = f(m)$. Setze $n:= \phi(m)$. Dann ist $g(n) = g(\phi(m)) = \phi''(f(m)) = \phi''(m'') = 0$. Dann ist $n\in \ker g = \im g'$. Also existiert ein $n'\in N'$ mit $g'(n') = n$ ($n'$ ist eindeutig bestimmt wegen $g'$ injektiv.) Setze $\delta(m''):= n' + \im \phi'$\\
 	Wohldefiniertheit von $\delta$: Sei $\tilde{m} \in M$ mit $m'' = f(\tilde{m})$. Dann ist $(\tilde{m}) = f(m)$, also $\tilde{m} - m \in \ker f= \im f'$. Damit existiert ein $m'\in M'$ mit $\tilde{m} - m = f'(m')$. Also ist
 	$$\tilde{n}:= \phi(\tilde{m}) = \phi(m+ f'(m')) = \underbrace{\phi(m)}_{=n} + \phi(f'(m')) = g'(n') + g'(\phi'(m')) = g'(\underbrace{n' + \phi'(m')}_{:= \tilde{n}'}) $$
 	Damit ist $\tilde{n}' + \im \phi' = n' + \im \phi'$, Rest ist Übungsaufgabe.
