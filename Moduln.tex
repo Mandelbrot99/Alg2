@@ -378,7 +378,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	Sei folgendes Diagramm von $R$ Modulhomomorphismen mit exakten Zeilen gegeben:
 	$$\begin{tikzcd}
 & M^{'} \arrow{r}{f}\arrow{d}{\phi'}& M \arrow{r}{f} \arrow{d}{\phi} & M^{''} \arrow{d}{\phi''} \arrow{r}& 0\\
-	0 \arrow{r}& N' \arrow{r}{g'}& N \arrow{r}{g} & \arrow{u}[swap]{\sim}N''
+	0 \arrow{r}& N' \arrow{r}{g'}& N \arrow{r}{g} & N''
 	\end{tikzcd}$$
 	Dann existiert eine exakte Sequenz von $R$-Moduln 
 	$$\begin{tikzcd}
@@ -472,7 +472,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	Es genügt den Fall der Folge $\begin{tikzcd}
 	0  \arrow{r} & N\arrow{r}{} & M \arrow{r}{\pi} & \QR{M}{N} \arrow{r} & 0
 	\end{tikzcd} $ für einen Untermodul $N \subseteq M $ zu betrachten. (Vgl. Anmerkung nach 2.1)\\
-	$i) \Ra ii)$ Sei $N' \subseteq N $ Untermodul $\Ra N' $ Untermodul von $M$ $\overset{M \text{noet.}}{\Longrightarrow} $ $N' $ endlich erzeugt. Sei $N'' \subseteq \QR{M}{N}$ Untermodul. Also ist $\pi^{-1}(N'') \twoheadrightarrow N'$ ein Epimorphismus und damit $ N' $ endlich erzeugt nach 2.5 (a). \\
+	$i) \Ra ii)$ Sei $N' \subseteq N $ Untermodul $\Ra N' $ Untermodul von $M$ $\overset{M \text{noet.}}{\Longrightarrow} $ $N' $ endlich erzeugt. Sei $N'' \subseteq \QR{M}{N}$ Untermodul. Also ist $\pi^{-1}(N'') \twoheadrightarrow N''$ ein Epimorphismus und damit $ N'' $ endlich erzeugt nach 2.5 (a). \\
 	$ii) \Ra i)$ Seien $N, \QR{M}{N}$ noethersch, und sei $M' \subseteq M $ Untermodul. Wir erhalten eine kurze exakte Sequenz von $R$-Moduln  $$\begin{tikzcd}
 	0  \arrow{r} & M' \cap N \arrow{r}{} & M' \arrow{r}{} & \QR{M'}{M' \cap N} \arrow{r} & 0
 	\end{tikzcd} $$wobei $M' \cap N $ endlich erzeugt, da $N$ noethersch. Außerdem ist $$\QR{M'}{M' \cap N} \simeq \QR{(M'+N)}{N} \subseteq \QR{M}{N} $$ endlich erzeugt, da $\QR{M}{N} $ noethersch. $\Ra M' $ ist endlich erzeugt nach 2.5
@@ -547,6 +547,112 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		\item Jeder Körper ist linksnoethersch $\Ra$ So erhält man einen neuen Beweis für Ergebnis aus LA1
 	\end{itemize}
 \end{anm}
-
-
-
+\begin{sa}[Hilbertscher Basissatz]
+	Sei $R$ ein linksnoetherscher Ring. Dann ist $R[X]$ linksnoethersch.
+\end{sa}
+\begin{proof}
+	Sei $I\subseteq R$ ein Linksideal. Es ist zu zeigen, dass $I$ als $R[X]$-Modul endlich erzeugt ist.
+	\begin{enumerate}
+		\item Für $n\in \N$ setze $I_n:= \{f\in I \ | \ \deg f \leq n\}$, was offenbar ein $R$-Modul ist. Wir betrachten die $R$-lineare Abbildung 
+		$$b_n : I_n \longrightarrow R, \quad \sum_{i=0}^n a_i X^i \mapsto a_n$$
+		also ist $B_n:= b_n(I_n) \subseteq R$ ein Linksideal. Für $f\in I_n$ ist $Xf\in I_{n+1}$, also $b_n(f) = b_{n+1}(Xf) \in B_{n+1} = b_{n+1}(I_{n+1})$, woraus wir eine Kette von Linksidealen $B_1 \subseteq B_2 \subseteq \ldots$ erhalten, welche, da $R$ linksnoethersch ist, stationär ist, also existiert ein $n\in \N$ mit $B_m = B_n$ für alle $m\geq n$.
+		\item Behauptung: $I = R[X] I_n$, denn: 
+		\begin{enumerate}
+			\item["'$\supseteq$"']  klar, wegen $I_n\subseteq I$, wobei $I$ ein Linksideal ist.
+			\item["'$\subseteq$"'] Es ist $I = \bigcup_{m\in \N} I_m$, d.h. es genügt zu zeigen, dass $I_m \subseteq R[X] I_n$ für alle $m\in \N$, was wir per Induktion nach $m$ zeigen. \\
+			$m\leq n$: klar.\\
+			$m >n:$ Sei $f\in I_m$. Dann ist $b_m(f) \in B_m  = B_n = b_n(I_n)$, also existiert ein Polynom $f_1\in I_n$ mit $b_m(f) = b_n(f_1)= b_m(X^{m-n}f_1)$. Also ist $f- X^{m-n} f_1 \in I_{m-1} \overset{\text{IV}}{\subseteq } R[X] I_n$. Wegen $X^{m-n} f_1 \in R[X] I_n$, folgt $f\in R[X] I_n$
+		\end{enumerate}
+	\item $I_n$ ist endlich erzeugt als $R$-Modul, denn: $I_n \subseteq \sum_{i=0}^n RX^i$, und $\sum_{i=0}^n RX^i$ ist ein endlich erzeugter $R$-Modul, also insbesondere noethersch nach 3.8, weshalb $I_n$ als Untermodul endlich erzeugt ist, d.h. es existieren $g_1, \ldots, g_r\in I_n $ mit $I_n = \sum_{i=1}^r Rg_i$, also 
+	$$I \overset{2.}{=} R[X]I_n = \sum_{i=1}^r R[X] g_i $$
+	d.h. $I$ ist endlich erzeugt als $R[X]$-Modul.
+	\end{enumerate}
+\end{proof}
+\begin{fo}
+	\begin{enumerate}[label= \alph*)]
+		\item Ist $R$ ein linksnoetherscher Ring, dann ist $R[X_1, \ldots, X_n]$ linksnoethersch
+		\item Sind $A,\, B$ kommutative Ring, $\phi:A \to B$ ein Ringhomomorphismus, sodass $B$ von $\phi(A)$ und einer endlichen Menge $\{x_1, \ldots, x_r\}\subseteq B$ als Ring erzeugt wird. Dann gilt: $A$ ist nothersch $\Ra B$ noethersch.
+	\end{enumerate}
+\end{fo}
+\begin{proof}
+	\begin{enumerate}[label= \alph*)]
+		\item aus 3.12 per Induktion
+		\item Nach Voraussetzung existiert ein surjektiver Ringhomomorphismus 
+		$$\psi: A[X_1, \ldots, X_r] \twoheadrightarrow B, \quad X_i \mapsto x_i, \quad \text{und} \quad \psi\big|_A = \phi$$
+		Ist $A$ noethersch, dann ist $A[X_1, \ldots, X_r]$ nothersch nach $a)$ und nach 3.9 ist $B$ noethersch.
+	\end{enumerate}
+\end{proof}
+\begin{df}
+	Sei $M$ ein $R$-Modul. $M$ heißt "'artinsch"' $\defi$ für jede absteigende Kette $M_1 \supseteq M_2 \supseteq \ldots$ von Untermoduln von $M$ gibt es ein $n\in \N$ mit $M_i = M_n$ für alle $i\geq n$ ("'absteigende Kettenbedingung"').
+\end{df}
+\begin{df}
+	$R$ heißt "'linksartinsch"' (bzw. "'rechtsartinsch"') $\defi R$ ist als Links- bzw. Rechtsmodul über sich selber artinsch. $R$ heißt "'artinsch"' $\defi R$ ist links- und rechtsartinsch.
+\end{df}
+\begin{bsp}
+	\begin{enumerate}[label= \alph*)]
+		\item Jeder endliche Ring ist artinsch (und noethersch).
+		\item $\Z$ ist kein artinscher Ring, denn $\Z \supsetneq 2\Z\supsetneq 4 \Z \supsetneq 8\Z \supsetneq \ldots$
+		\item Sei $M$ ein endliches Monoid, $K$ ein Körper, $R= K[M]$ sei der Monoidring (vgl. Algebra 1-Übungen). Dann ist $R$ linksartinsch, denn: $K[M]$ ist ein endlichdimensionaler $K$-Vektorraum, jeder $K[M]$-Untermodul von $K[M]$ ist ein $K$-Untervektorraum von $K[M]$, also ist jede absteigende Kette von Untermoduln eine absteigende Kette von Untervektorräumen, die stationär ist. Ebenso ist $K[M]$ rechtsartinsch, $K[M]$ also artinsch.
+	\end{enumerate}
+\end{bsp}
+\begin{bem}
+	Sei $\begin{tikzcd}
+	0 \arrow{r} & M' \arrow{r} & M\arrow{r}  & M'' \arrow{r} & 0
+	\end{tikzcd}$ eine exakte Folge vn $R$-Moduln. Dann sind äquivalent:
+	\begin{enumerate}[label= \roman*)]
+		\item $M$ ist artinsch.
+		\item $M'$, $M''$ ist artinsch.
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	Es genügt, den Fall $\begin{tikzcd}
+	0 \arrow{r} & N \arrow{r} & M\arrow{r} & \QR{M}{N} \arrow{r} & 0
+	\end{tikzcd}$ zu betrachten.\\
+	$i) \Ra ii)$ Sei $M$ artinsch. Sei $N_1 \supseteq N_2 \supseteq \ldots$ eine Kette von Untermoduln von $N$. Dann ist $N_i$ ein Untermodul von $M$ für alle $i\in \N$ und, da $M$ artinsch ist, existiert ein $n\in \N$ mit $N_i = N_n$ für alle $i\geq n$, weshalb $N$ artinsch ist. Sei $N_1' \supseteq N_2'\supseteq \ldots$ eine Kette von Untermoduln von $\QR{M}{N}$. Dann ist $\pi^{-1}(N_1') \supseteq \pi^{-1}(N_2') \supseteq \ldots$ eine Kettte von Untermoduln von $M$, welche, wegen $M$ artinsch, stationär wird. Es ist $N_n' = \pi (\pi^{-1}(N_n')) = \pi(\pi^{-1}(N_i')) = N_i$ für alle $i\geq n$, also ist $\QR{M}{N}$ artinsch.\\
+	$ii) \Ra i)$ Seien $N, \QR{M}{N}$ artinsch. Sei $M_1 \supseteq M_2 \supseteq \ldots$ eine absteigende Kette von Untermoduln von $M$. Dann ist $M_1 \cap N \supseteq M_2 \cap N \supseteq \ldots$ eine absteigende Kette von Untermoduln von $N$. Damit ist 
+	$$\QR{(M_1+N)}{N} \supseteq \QR{(M_2+N)}{N} \supseteq \ldots$$
+	eine absteigende Kette von Untermoduln von $\QR{M}{N}$, also existiert ein $n\in \N$ mit $M_i \cap N = M_n \cap N$ und $\QR{M_i + N}{N} = \QR{M_n+N}{N} $ für alle $i\geq n$, also ist $M_i + N = M_n + N$ für alle $i\geq n$, \\
+	Behauptung: $M_i = M_n$ für alle $i\geq n$, denn sei $i\geq n$ fest. 
+	\begin{enumerate}
+		\item["'$\subseteq$"'] klar
+		\item["'$\supseteq$"'] Sei $x\in M_n$. Dann existieen $x' \in M, \, y\in N$ mit $x = x' + y$ (wegen $M_i + N = M_n + N$), also $y= \underbrace{x}_{\in M_n} - \underbrace{x'}_{\in M_i \subseteq M_n} \in M_n \cap N = M_i \cap N \Ra  x= \underbrace{x'}_{\in M_i} + \underbrace{y}_{\in M_i} \in M_i$ 
+	\end{enumerate}
+\end{proof}
+\begin{fo}
+	Seien $M_1, \ldots, M_n$ $R$-Moduln. Dann sind äquivalent:
+	\begin{enumerate}[label= \roman*)]
+		\item $\bigoplus_{i=1}^n M_i$ ist artinsch
+		\item $M_1, \ldots, M_n$ sind artinsch.
+	\end{enumerate}
+\end{fo}
+\begin{fo}
+	Sei $R$ linksartinsch, $M$ ein endlich erzeugter $R$-Modul. Dann ist $M$ artinsch.
+\end{fo}
+\begin{df}
+	Sei $M$ ein $R$-Modul. Dann heißt $M$ "'endlich koerzeugt"' $\defi $ für jede Familie $(M_i)_{i\in I}$ von Untermoduln von $M$ mit $\bigcap_{i\in I} M_i = 0$ existiert eine endliche Teilmenge $J\subseteq I$ mit $\bigcap_{j\in J} M_j = 0$
+\end{df}
+\begin{anm}
+	\begin{itemize}
+		\item Sei $N\subseteq N$ ein Untermodul. Dann ist $\QR{M}{N}$ endlich koerzeugt $\Lra $ Für jede Familie $(M_i)_{i\in I}$ von Untermoduln von $M$ mit $\bigcap_{\in I} M_i = N$ existiert eine endliche Teilmenge $J \subseteq U$ mit $\bigcap_{j\in J} M_j = N$.
+		\item $N$ ist endlich erzeugt $\Lra$ Für jede Familie $(M_i)_{i\in I}$ von Untermoduln von $M$ mit $\sum_{i\in I} M_I = N$ existiert eine endliche Teilmenge $J\subseteq I$ mit $\sum_{j\in J} M_j = N$.
+	\end{itemize}
+\end{anm}
+\begin{sa}
+	Sei $M$ ein $R$-Modul. Dann sind äquivalent:
+	\begin{enumerate}[label= \alph*)]
+		\item $M$ ist artinsch
+		\item Jede nichtleere Menge von Untermoduln enthält ein minimales Element
+		\item Jeder Faktormodul von $M$ ist endlich koerzeugt.
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	$i) \Ra ii)$ Sei $\mathcal{X}$ eine nichtleere Menge von Untermoduln von $M$, die kein minimales Element besitzt. Insbesondere existiert zu jedem $M'\in \mathcal{X}$ ein $M''\in \mathcal{X}$ mit $M'' \subsetneq M'$, also existiert eine Kette von Untermoduln $M_1 \supsetneq M_2 \supsetneq \ldots$, die nicht stationär wird.\\
+	$ii) \Ra iii)$ Sei $N \subseteq M$ eine Untermodul, $(M_i)_{i\in I}$ eine Familie von Untermoduln von $M$ mit $\bigcap_{i\in I} M_i = N$. Setze $\mathcal{X}:= \{\bigcap_{j\in J}M_j \ | \ J \subseteq I \text{ endlich}\} \overset{(ii)}{\Ra} \mathcal{X}$ enthält ein minimales Element $N_1 = \bigcap_{j\in J} M_j $ für eine endliche Teilmenge $J\subseteq I$.\\
+	Behauptung: $N_1 = N$, denn
+	\begin{enumerate}
+		\item["'$\supseteq$"'] klar
+		\item["'$\subseteq$"'] Angenommen $N_1 \supsetneq N$. Dann existiert ein $x \in N_1$ mit $x\notin N$. Da $N= \bigcap_{i\in I} M_i$ existiert ein $i\in I$ mit $x\notin M_i \Ra x \notin \bigcap\limits_{j\in J \cup \{i\}} M_j =: N_2$. Somit ist $N_2 \in \mathcal{X}$, $N_2 \subsetneq N_1$ im Widerspruch zur Minimalität von $N_1$.
+	\end{enumerate}
+	Somit $N_1=N$, also ist $\QR{M}{N}$ endlich koerzeugt.\\
+	$iii) \Ra i)$ Sei $M_1 \supseteq M_2 \supseteq \ldots$ eine absteigende Kette von Untermoduln von $M$. Setze $N:= \bigcap_{i\in \N} M_i$. $\QR{M}{N}$ ist endlich koerzeugt, weshalb eine endliche Teilmenge $J\in I$ existiert mit $N= \bigcap_{j\in J} M_j$. Setze $n:= \max J$, dann ist $N= M_n$, also ist $M_i = M_n$ für alle $i\geq n$.
+\end{proof}
