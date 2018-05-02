@@ -375,9 +375,9 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	Wir meist in der Situation $M_1 = N_1 = M_5 = N_5$ angewandt.
 \end{anm}
 \begin{bem}[Schlangenlemma]
-	Sei folgendes Diagramm von $R$ Modulhomomorphismen mit exakten Zeilen gegeben:
+	Sei folgendes kommutatives Diagramm von $R$ Modulhomomorphismen mit exakten Zeilen gegeben:
 	$$\begin{tikzcd}
-& M^{'} \arrow{r}{f}\arrow{d}{\phi'}& M \arrow{r}{f} \arrow{d}{\phi} & M^{''} \arrow{d}{\phi''} \arrow{r}& 0\\
+& M^{'} \arrow{r}{f'}\arrow{d}{\phi'}& M \arrow{r}{f} \arrow{d}{\phi} & M^{''} \arrow{d}{\phi''} \arrow{r}& 0\\
 	0 \arrow{r}& N' \arrow{r}{g'}& N \arrow{r}{g} & N''
 	\end{tikzcd}$$
 	Dann existiert eine exakte Sequenz von $R$-Moduln 
@@ -656,3 +656,150 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	Somit $N_1=N$, also ist $\QR{M}{N}$ endlich koerzeugt.\\
 	$iii) \Ra i)$ Sei $M_1 \supseteq M_2 \supseteq \ldots$ eine absteigende Kette von Untermoduln von $M$. Setze $N:= \bigcap_{i\in \N} M_i$. $\QR{M}{N}$ ist endlich koerzeugt, weshalb eine endliche Teilmenge $J\in I$ existiert mit $N= \bigcap_{j\in J} M_j$. Setze $n:= \max J$, dann ist $N= M_n$, also ist $M_i = M_n$ für alle $i\geq n$.
 \end{proof}
+\newpage
+\section{Homologische Algebra}
+\begin{center}
+	In diesem Kapitel sei R stets ein Ring
+\end{center}
+\subsection{Kategorien}
+\begin{df}
+	Eine Kategorie$ \mathcal{C} $ besteht aus 
+	\begin{itemize}
+		\item einer Klasse $Ob\mathcal{C}$ von "Objekten"
+			einer Menge $Mor_{\mathcal{C}}(A,B) $ von "Morphismen" für alle $A,B \in Ob\mathcal{C}$
+		\item einer Verknüpfung $\circ : Mor_{\mathcal{C}}(B,C) \times Mor_{\mathcal{C}}(A,B) \to Mor_{\mathcal{C}}(A,C) $ für alle $A,B,C \in Ob\mathcal{C}$
+	\end{itemize}
+	wobei folgende Axiome gelten:
+	\begin{enumerate}
+		\item[$(K1)$] $Mor_{\mathcal{C}}(A,B) \cap Mor_{\mathcal{C}}(A',B') = \emptyset$, falls $A \neq A'$ oder $B \neq B'$
+		\item[$(K2)$] Für alle $A,B,C,D \in Ob\mathcal{C}, f \in Mor_{\mathcal{C}}(A,B), g \in Mor_{\mathcal{C}}(B,C), h \in Mor_{\mathcal{C}}(C,D)$ gilt:
+		$$ h \circ (g \circ f) = (h \circ g) \circ f \quad (\text{Assoziativität})$$
+		\item[$(K3)$] für jedes $ A \in Ob\mathcal{C}$ existiert ein Morphismus $id_A \in Mor_{\mathcal{C}}(A,A)$, sodass für alle $B \in Ob\mathcal{C}, f \in Mor_{\mathcal{C}}(A,B), g \in Mor_{\mathcal{C}}(B,A)$ gilt: $$f \circ id_A = f, \ id_A \circ g = g $$.
+	\end{enumerate}
+\end{df}
+\begin{anm}
+	\begin{itemize}
+		\item Man sagt "Klasse"' statt Menge, um Paradoxien, wie " die Menge aller Mengen" zu vermeiden.
+		\item Trotzdem schreiben wir $A \in Ob\mathcal{C}$ um zu sagen dass $A$ zu $Ob\mathcal{C}$ gehört (und werden $Ob\mathcal{C}$ im Folgenden wie eine Menge behandeln).
+		\item In den folgenden Abschnitten werden wir mengentheoretische Probleme ignorieren und häufig von Mengen sprechen auch wenn es sich nur um Klassen handelt.
+		\item Für $f \in Mor_{\mathcal{C}}(A,B)$ schreiben wir auch $f: A \to B $. $A$ heißt "Quelle" und $B$ heißt "Ziel" von $f$; wegen $(K1)$ sind diese eindeutig bestimmt.
+		\item für $A \in Ob\mathcal{C}$ ist $id_A$ eindeutig bestimmt (analoges Argument wie bei Monoiden: $id_A = id_A^{'} \circ id_A = id_A^{'}$)
+	\end{itemize}
+\end{anm}
+\begin{bsp}
+	\begin{itemize}
+		\item $Mengen$: Kategorie der Mengen mit Abbildungen von Mengen als Morphismen
+		\item $Ringe$: Kategorie der Ringe mit Ringhomomorphismen als Morphismen
+		\item $R-Mod$: Kategorie der $R$-(Links)-Moduln mit $R$-Modulhomomorphismen als Morphismen
+		\item Top: Kategorie der topologischen Räume mit stetigen Abbildungen als Morphismen
+		\item $Ob\mathcal{C}=\{\ast\}, Mor_{\mathcal{C}}(\ast,\ast) := M $, wobei $M$ Monoid, $\circ = $ Verknüpfung in $M$.
+	\end{itemize}
+\end{bsp}
+\begin{df}
+	Sei $\mathcal{C}$  eine Kategorie. Die zu $\mathcal{C}$ "duale Kategorie '" $\mathcal{C}^{op}$ ist die Kategorie mit: 
+	\begin{itemize}
+		\item $Ob\mathcal{C}^{op} = Ob\mathcal{C}$, $Mor_{\mathcal{C}^{op}}(A,B) := Mor_{\mathcal{C}}(B,A)$ für $A,B \in Ob\mathcal{C}^{op} = Ob\mathcal{C}$
+		\item $\circ_{op}: Mor_{\mathcal{C}^{op}}(A,B) \times Mor_{\mathcal{C}^{op}}(B,C) \to Mor_{\mathcal{C}^{op}}(A,C) $ mit $(f,g) \mapsto f \circ g $ für $A,B,C \in Ob\mathcal{C}$
+	\end{itemize}
+\end{df}
+\begin{anm}
+	\begin{itemize}
+		\item  Anschaulich: Übergang von $\mathcal{C}$ zu  $\mathcal{C}^{op} \ \is $ Pfeile umdrehen
+		\item $(\mathcal{C}^{op})^{op} = \mathcal{C}$
+	\end{itemize}
+\end{anm}
+\begin{df}
+	Seien $\mathcal{C}, \mathcal{D} $ Kategorien. Ein "(kovarianter) Funktor" $F: \mathcal{C} \to \mathcal{D} $ besteht aus einer Abbildung $$ Ob\mathcal{C} \to Ob\mathcal{D}, \quad A \mapsto FA$$
+	und Abbildungen: $$ Mor_{\mathcal{C}}(A,B) \to Mor_{\mathcal{D}}(FA,FB), \quad f \mapsto F(f) $$ für alle $A,B \in Ob\mathcal{C}$, sodass gilt:
+	\begin{enumerate}
+		\item[(F1)] $F(g \circ f) = F(g) \circ F(f) $ für alle $ f \in Mor_{\mathcal{C}}(A,B), g\in Mor_{\mathcal{C}}(B,C), \ A,B,C \in Ob\mathcal{C}$
+		\item[(F2)] $F(id_A) =id_{FA} $ für alle $A \in Ob\mathcal{C}.$
+	\end{enumerate}
+\end{df}
+\begin{bsp}
+	\begin{enumerate} [label= \alph*)]
+		\item Vergiss-Funktoren, zum Beispiel: $R-Mod\to Mengen$, $R-Mod \to \Z-Mod$, ...
+		\item Sei $\mathcal{C}$ eine Kategorie $\Ra$ Jedes Objekt $X \in Ob\mathcal{C}$ induziert einen Funktor $$Mor_{\mathcal{C}}(X,-): \mathcal{C} \to \text{Mengen}, \quad A \mapsto Mor_{\mathcal{C}}(X,A) $$
+		Für $f \in Mor_{\mathcal{C}}(A,B) $ ist hierbei $f_{\ast}^{X} := Mor_{\mathcal{C}}(X,-)(f)$ gegeben durch $$ f_{\ast}^{X}: Mor_{\mathcal{C}}(X,A) \to Mor_{\mathcal{C}}(X,B), \quad g \mapsto f \circ g$$
+		\item Sei $M \in R-Mod$ $\Ra Hom_R(M,-): R-Mod \to \Z-Mod, N \mapsto Hom_R(M,N) $ ist ein Funktor.
+	\end{enumerate}
+\end{bsp}
+\begin{df}
+	Seien $\mathcal{C}, \mathcal{D}$ Kategorien. Ein "(kontavarianter) Funktor" $F$ von $\mathcal{C}$ nach $\mathcal{D}$ ist ein Funktor $F: \mathcal{C}^{op} \to \mathcal{D} $, das heißt besteht aus einer Abbildung $$ Ob\mathcal{C} \to Ob\mathcal{D}, \quad A \mapsto FA$$
+	und Abbildungen: $$ Mor_{\mathcal{C}}(A,B) \to Mor_{\mathcal{D}}(FB,FA), \quad f \mapsto F(f) $$ für alle $A,B \in Ob\mathcal{C}$, sodass gilt:
+	\begin{enumerate}
+		\item[(F1')] $F(g \circ f) = F(f) \circ F(g) $ für alle $ f \in Mor_{\mathcal{C}}(A,B), g\in Mor_{\mathcal{C}}(B,C), \ A,B,C \in Ob\mathcal{C}$
+		\item[(F2')] $F(id_A) =id_{FA} $ für alle $A \in Ob\mathcal{C}.$
+	\end{enumerate}
+\end{df}
+\begin{bsp}
+		\begin{enumerate} [label= \alph*)]
+		\item Sei $\mathcal{C}$ eine Kategorie $\Ra$ Jedes Objekt $Y \in Ob\mathcal{C}$ induziert einen kontravarianten Funktor $$Mor_{\mathcal{C}}(-,Y): \mathcal{C} \to \text{Mengen}, \quad A \mapsto Mor_{\mathcal{C}}(A,Y) $$
+		Für $f \in Mor_{\mathcal{C}}(A,B) $ ist hierbei $f_{Y}^{\ast} := Mor_{\mathcal{C}}(-,Y)(f)$ gegeben durch $$ f_{Y}^{\ast}: Mor_{\mathcal{C}}(B,Y) \to Mor_{\mathcal{C}}(A,Y), \quad g \mapsto g \circ f$$
+		\item Sei $N \in R-Mod$ $\Ra Hom_R(-,N): R-Mod \to \Z-Mod, M \mapsto Hom_R(M,N) $ ist ein kontavarianter Funktor.
+	\end{enumerate}
+\end{bsp}
+\begin{anm}
+	\begin{itemize}
+		\item Sind $F: \mathcal{C} \to \mathcal{D}, G: \mathcal{D} \to \mathcal{E} $ Funktoren, so ist auf naheliegende Weise der Funktor $G \circ F : \mathcal{C} \to \mathcal{E}$
+		\item Unter Funktoren werden kommutative Diagramme auf kommutative Diagramme abgebildet.
+	\end{itemize}
+\end{anm}
+\begin{df}
+	Seien $\mathcal{C},\mathcal{D} $ Kategorien. "Das Produkt" $\mathcal{C} \times \mathcal{D} $ ist diejenige Kategorie mit $ Ob(\mathcal{C} \times \mathcal{D}) = Ob\mathcal{C} \times \mathcal{D} $ und $ Mor_{\mathcal{C} \times \mathcal{D}}((A_1,B_1),(A_2,B_2)) = Mor_{\mathcal{C}}(A_1,A_2) \times Mor_{\mathcal{D}}(B_1,B_2)$ und "komponentenweisen $\circ"$.
+\end{df}
+\begin{df}
+	Seien $\mathcal{C},\mathcal{D}, \mathcal{E}$ Kategorien. Ein "Bifunktor" \ $F$ "von $\mathcal{C}$ kreuz $\mathcal{D} $ nach $\mathcal{E}$ "' ist ein Funktor $F: \mathcal{C} \times \mathcal{D} \to \mathcal{E}$
+\end{df}
+\begin{bsp}
+	\begin{enumerate}  [label= \alph*)]
+		\item $\bigoplus$: $R-Mod \times R-Mod \to R-Mod, (M,N) \to M \bigoplus N $ ist ein Bifunktor
+		\item Sei $\mathcal{C} $ eine Kategorie $\Ra \mathcal{C}^{op} \times \mathcal{C} \to \text{Mengen}, (M,N) \mapsto  Mor_{\mathcal{C}}(M,N) $ ist ein Bifunktor.
+	\end{enumerate}
+\end{bsp}
+\begin{df}
+	Sei $\mathcal{C}$ eine KAtegorie, $ A,B \in Ob\mathcal{C}, f: A \to B $
+	\begin{enumerate}
+		\item[] $f$ heißt "Monomorphismus" $\defi$ Für alle $C \in Ob\mathcal{C}, g_1,g_2: C \to A $ gilt: $f \circ g_1 = f \circ g_2 \Ra g_1 = g_2$ $\Lra$ Für alle $C \in Ob\mathcal{C} ist f_{\ast}^{C}: Mor_{\mathcal{C}}(C,A) \to Mor_{\mathcal{C}}(C,B)$ injektiv.
+		\item[] $f$ heißt "'Epimorphismus" $\defi$ Für alle $C \in Ob\mathcal{C}, g_1,g_2: B \to C $ gilt: $g_1 \circ f = g_2 \circ f \Ra g_1 = g_2$ $\Lra$ Für alle $C \in Ob\mathcal{C} ist f_{C}^{\ast}: Mor_{\mathcal{C}}(B,C) \to Mor_{\mathcal{C}}(A,C)$ injektiv.
+		\item[] $f$ heißt "'Isomorphismus" $\defi$ Es existiert ein $g:b \to A $ mit $ f\circ g = id_B $ und $ g \circ f = id_A.$
+	\end{enumerate}
+\end{df}
+\begin{anm}
+	In der Situation von 4.11 gilt:
+	\begin{itemize}
+		\item $f$ Monomorphismus in $\mathcal{C}$ $\Lra$ $f$ Epimorphismus in $\mathcal{C}^{op}.$
+		\item $f$ Isomorphismus in $\mathcal{C} \Lra  f $ ist Isomorphismus in $\mathcal{C}^{op}.$
+		\item Ist $f$ ein Isomorphismus und $g:B \to A $ mit $ f \circ g = id_B $ und $g \circ f = id_A$, dann ist $g$ ein eindeutig bestimmt (und wird mit $f^{-1} $ bezeichnet). Denn: $g_1,g_2: B \to A$ mit dieser Eigenschaft $Ra g_1 = g_1 \circ id_B = g_1 \circ (f \circ g_2) =(g_1 \circ f) \circ g_2 = id_A \circ g_2 = g_2.$
+		\item In Mengen ist $f$ Monomorphismus $\Lra f $ injektv, $f$ Epimorphismus $Lra f$ surjektiv, $f$ Isomorphismus $\Lra f $ bijektiv. Im Allgemeinen ist dies für Kategorien, in denen die Morphismen Abbildungen sind, jedoch falsch (vgl. Bsp. 4.13)
+	\end{itemize}
+\end{anm}
+\begin{bem}
+	Sei $\mathcal{C}$ eine Kategorie, $A,B \in Ob\mathcal{C}, f:A \to B $ ein Isomorphismus. Dann ist $f$ ein Monomorphismus und Ein Epimorphismus.
+	\begin{proof}
+		Seien $ C \in Ob\mathcal{C} , g_1,g_2:C \to A $ mit $ f \circ g_1 = f \circ g_2 \Ra f^{-1} \circ (f \circ g_1) = f^{-1} \circ (f \circ g_2) \Ra (f^{-1} \circ f) \circ g_1 = (f^{-1} \circ f) \circ g_2 \Ra g_1=g_2 \Ra f $ Monomorphimus. Analog wird gezeigt dass $f$ ein Epimorphimus.
+		%hier fehlen die geschweiften klammern 
+	\end{proof}
+\end{bem}
+\begin{anm}
+	Die Umkehrung von 4.12 ist im Allgemeinen falsch, siehe nächstes Beispiel.
+\end{anm}
+\begin{bsp}
+	\begin{enumerate} [label= \alph*)]
+		\item  Sei $\mathcal{C} = Top  $ die Kategorie der Topologischen Räume mit stetigen Abbildungen. Wir betrachten $id: (\R, \text{diskrete Topologie}) \to (\R, \text{Standardtopologie}).$ Diese ist eine stetige Abbildung, ein Monomorphismus sowie ein Epimorphismus, jedoch kein Isomorphismus (Nicht hömöomorph, da kein stetiges Inverses)
+		\item Sei $\mathcal{C} = Ringe, f:\Z \to \Q $ Inklusion. $f$ ist ein Monomorphismus und ein Epimorphimus (Achtung, denn: Für $g_1,g_2: \Q \to R$ Ringhomomorphismus ist ein Ring $R$ mit $g_1 \circ f = g_2 \circ f, $ das heißt $ g_1 = g_2 $ folgt $ g_1 = g_2 $ wegen der Universellen Eigenschaft von $\Q$ als Quotientenkörper von $\Z$), aber kein Isomorphismus. Insbesondere ist ein Epimorphismus in $\mathcal{C} $ im obigen Sinne ("kategorieller Epimorphismus") nicht dasselbe wie ein surjektiver Ringhomomorphismus.
+	\end{enumerate}
+\end{bsp}
+
+
+
+
+
+
+
+
+
+
+
+
+
