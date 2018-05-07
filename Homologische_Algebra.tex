@@ -147,7 +147,140 @@
 		\end{minipage}
 	\end{enumerate}
 \end{bsp}
-
+\begin{df}
+	Seien $\mathcal{C}, \mathcal{D}$ Kategorien, $F,G:\mathcal{C} \to \mathcal{D}$ Funktoren. Eine "'natürliche Transformation"' $t$ von $F$ nach $G$ ($t: F \Ra G$) ist eine Familie $(t_A)_{A\in \ObC}$ von Morphismen $t_A\in \Mor_{\mathcal{D}}(FA, GA)$, sodass 
+	$$\begin{tikzcd}
+	FA \arrow{r}{t_a} \arrow[swap]{d}{F(f)}& GA\arrow{d}{G(f)}\\
+	FB \arrow{r}{t_B} & GB
+	\end{tikzcd}$$
+	für alle $A,B \in \ObC, \, f:A\to B$ kommutiert. Man sagt häufig auch $t_A: F \to GA$ ist natürlich in $A$.
+\end{df}
+\begin{bsp}
+	\begin{enumerate}[label= \alph*)]
+		\item Sei $\mathcal{C}$ eine Kategorie, $A,B\in \ObC$, $f:A\to B$. Dann ist 
+		$$f^* = (f^*_Y)_{Y\in \ObC} : \Mor_{\mathcal{C}}(B, -) \Ra \Mor_{\mathcal{C}}(A, -)$$
+		ist eine natürliche Transformation von Funktoren $\mathcal{C} \to \text{Mengen}$, denn für $Y_1, Y_2\in \ObC$, $g:Y_1 \to Y_2$ kommutiert das Diagramm:
+		$$\begin{tikzcd}
+		\Mor_{\mathcal{C}}(B, Y_1) \arrow{r}{f_{Y_1}^*}\arrow[swap]{d}{g_*^B} & \Mor_{\mathcal{C}}(A, Y_1)\arrow{d}{g_*^A} \\
+		\Mor_{\mathcal{C}}(B, Y_2) \arrow{r}{f_{Y_2}^*} & \Mor_{\mathcal{C}}(B, Y_2)
+		\end{tikzcd}$$
+		denn: Für $\phi:B\to Y_1$ ist 
+		$$(g_*^A \circ f_{Y_1}^*)(\phi) = g_*^A(\phi \circ f) = g \circ \phi \circ f = f^*_{Y_2}(g\circ \phi) = (f_{Y_2}^* \circ g_*^B) (\phi)$$
+		\item Sei $K$-VR die Kategorie der $K$-Vektorräume über einem festen Körper $K$ (mit linearen Abbildungen als Morphismen). Für $V\in K$-VR sei $V^*:= \Hom_K(V,K)$ der Dualraum. Die kanonische Abbildung $\phi:V : V \to V^{**}, \; w \mapsto \phi_v(w):V^* \to K, \, \psi \mapsto \psi(w)$ ist natürlich in $V$, denn für $V,W \in K$-VR, eine lineare Abbildung $f:V \to W$ kommutiert das Diagramm
+		$$\begin{tikzcd}
+		V \arrow{r}{\phi_v}\arrow{d}{f} & V^{**}  \arrow{d}{f^{**}} \\W \arrow{r}{\phi_w} & W^{**}
+		\end{tikzcd}$$
+		mit $f^{**}: V^{**} \to W^{**}, \, (\phi: V^* \to K) \mapsto f^{**}(\phi) : W^* \to K, \, \psi \mapsto \phi(\underbrace{\psi \circ f}_{\in V^*})$, d.h. $\phi:id_V \Ra \_^{**}$ ist eine natürliche Transformation von $id:K$-VR$ \to K$-VR nach $\_^{**}:K$-VR$ \to K$-VR.
+	\end{enumerate}
+\end{bsp}
+\begin{df}
+	Seien $\mathcal{C}, \mathcal{D}$ Kategorien, $F,G: \mathcal{C} \to \mathcal{D}$ Funktoren, $t:F\Ra G$ eine natürliche Transformation. $t$ heißt "'natürliche Äquivalenz"' $\defi$ Für alle $A\in \ObC$ ist $t_A:FA \to GA$ ein Isomorphismus. (Notation $t: F\overset{\sim}{\Ra} G$)
+\end{df}
+\begin{anm}
+	Ist $t:F\to G$ eine natürliche Äquivalenz, dann existiert eine natürliche Äquivalenz $t^{-1}: G \overset{\sim}{\Ra} F$ via $t_A^{-1} = (t_A)^{-1} : GA \to FA$ 
+\end{anm}
+\begin{bsp}
+	Bezeichne $K$-VR$_{<\infty}$ die Kategorie der endlichdiimensionalen $K$-VR. Dann ist die natürliche Transformation $\phi:\id \Ra \_^{**}$ aus Beispiel 4.15 eine natürliche Transformation.
+\end{bsp}
+\begin{df}
+	Seien $\mathbb{C}, \mathcal{D}$ Kategorien, $F:\mathcal{C} \to \mathcal{D}$ ein Funktor. $F$ heißt "'Kategorienäquivalenz"' $\defi$ Es existiert ein Funktor $G: \mathcal{D} \to \mathcal{C}$ und natürliche Äquivalenzen $F \circ G \overset{\sim}{\Ra} \id_{\mathcal{D}}$, $G\circ F \overset{\sim}{\Ra} \id_{\mathcal{C}}$
+\end{df}
+\begin{bsp}
+	Der Funktor $\_^*: K$-VR$_{<\infty} \to (K$-VR$_{<\infty})^\text{op}, \; v \mapsto V^*$ ist eine Kategorienäquivalent, denn mit $\_^{\overset{\sim}{*}}: (K$-VR$_{<\infty})^\text{op} \to K$-VR$_{<\infty}, \; W \mapsto W^*$ gilt offenbar $\_^{\overset{\sim}{*}} \circ \_^* = \_^{**}$, und $\phi:\id \overset{\sim}{\Ra}  \_^{**}$ ist eine natürliche Äquivalenz, analog andersherum (d.h. die Kategorie $K$-VR$_{< \infty}$ ist selbstdual).
+\end{bsp}
+\begin{sa}[Yoneda-Lemma]
+	Sei $\mathcal{C}$ eine Kategorie, $A\in \ObC$, $F:\mathcal{C} \to \text{Mengen}$ ein Funktor. Dann gibt es eine Bijektion 
+	\begin{eqnarray*}
+	\Phi: \{\text{natürliche Transformationen }t:\Mor_{\mathcal{C}}(A, -) \Ra F\} & \to & F(A) \\
+	t & \mapsto & t_a(\id_A)
+	\end{eqnarray*}
+\end{sa}
+\begin{proof}
+	\begin{enumerate}
+		\item Sei $a\in F(A)$. Wir definieren $S^a: \Mor_{\mathcal{C}}(A,-) \Ra F$ als $s^a= (s^a_B)_{B\in \ObC}$ mit 
+		$$s_B^a := F(\phi)(a) \quad \text{für } \phi \in \Mor_{\mathcal{C}}(A,B)$$
+		$s^a$ ist eine natürliche Transformation, denn für $B,C\in \ObC, \, f:B \to C$ kommutiert
+		$$\begin{tikzcd}
+		\Mor_{\mathcal{C}}(A,B) \arrow{r}{s_B^a}\arrow[swap]{d}{f_*^A} & F(B) \arrow{d}{F(f)}\\
+		\Mor_{\mathcal{C}}(A,C) \arrow{r}{s_C^a} & F(C)
+		\end{tikzcd}$$
+		denn:
+		\begin{eqnarray*}(F(f) \circ s_B^a)(\phi) &=& F(f) (s_B^a(\phi)) = F(f)(F(\phi)(a)) = F(f\circ \phi)(a) \\
+			&=& F(f_*^A(\phi))(a) = s_C^a(f_*^A(\phi))
+	\end{eqnarray*}
+	\item Setze \begin{eqnarray*}
+	\Psi:F(A) &\to& \{\text{natürliche Transformationen }t:\Mor_{\mathcal{C}}(A, -) \Ra F\}\\
+	a & \mapsto & s^a
+	\end{eqnarray*}
+	Dann sind $\Phi, \Psi$ invers zueinander, denn: Für $a\in F(A)$, $t:\Mor_{\mathcal{C}}(A,-) \Ra F$ gilt
+	$$(\Phi \circ \Psi)(a) = \Phi(s^a) = s_A^a(\id_A) = F(\id_A)(a) = \id_{FA}(a) = a$$
+	und 
+	$$(\Psi \circ \Phi)(t) = \Psi(t_A(\id_A))$$
+	und für $B\in \ObC, \, \phi \in \Mor_{\mathcal{C}}(A,B)$ gilt wegen der Kommutativität von 
+	$$\begin{tikzcd}
+	\Mor_{\mathcal{C}}(A,A) \arrow{r}{t_A}\arrow[swap]{d}{\phi_*^A} & F(A) \arrow{d}{F(\phi)}\\
+	\Mor_{\mathcal{C}}(A,B) \arrow{r}{t_B} & F(B)
+	\end{tikzcd}$$
+	$$(\Psi(t_A(\id_A)))_B(\phi) = s^{t_A(\id_A)}_B(\phi)= F(\phi)(t_A(\id_A)) = t_B(\phi_*^A(\id_A)) = t_B(\phi) $$
+	d.h. $(\Psi \circ \Phi)(t) = t$
+	\end{enumerate}
+\end{proof}
+\begin{fo}
+	Sei $\mathcal{C}$ eine Kategorie, $A,B \in \ObC$. Dann ist die Abbildung 
+	\begin{eqnarray*}
+	 \Psi: \Mor_{\mathcal{C}}(B,A) & \longrightarrow & \{\text{natürliche Transformationen } \Mor_{\mathcal{C}}(A,-) \Ra \Mor_{\mathcal{C}}(B,-) \}\\
+	 \psi:B \to A & \mapsto & \psi^*: \Mor_{\mathcal{C}}(A,-) \to \Mor_{\mathcal{C}}(B,-)
+ 	\end{eqnarray*}
+ bijektiv.
+\end{fo}
+\begin{proof}
+	Wende 4.20 auf $F= \Mor_{\mathcal{C}}(B,-)$ and. In der Notation des Beweises von 4.20 ist $\Psi(\psi) = s^\psi = (s_C^\psi)_{C\in \ObC}$, wobei für $C\in \ObC, \, \phi \in \Mor_{\mathcal{C}}(A,C)$ gilt: 
+	$$(s_C^\psi)(\phi) = \Mor_{\mathcal{C}}(B,-)(\phi)(\psi) = \phi_*^B(\psi) = \phi \circ \psi = \psi^*_C(\phi)$$
+	d.h. $\Psi(\psi) = \psi^*$.
+\end{proof}
+\begin{anm}
+	\begin{itemize}
+		\item Folgerung 4.21 liefert einen sogenannten volltreuen Funktor $\mathcal{C}^\text{op} \to \text{Funk}(\mathcal{C}, \text{Mengen})$, wobei $A\mapsto \Mor_{\mathcal{C}}(A,-)$, wobei $\text{Funk}(\mathcal{C}, \text{Mengen})$ die Funktorkategorie von $\mathcal{C}$ nach Mengen bezeichnet (Objekte sind Funktoren: $\mathcal{C} \to $ Mengen, und Morphismen die natürlichen Transformationen) ("'Yoneda-Einbettung"')
+		\item Folgerung 4.21 liefert insbesondere eine Verallgemeinerung des Satzes von Caley aus der Gruppentheorie: Für eine Gruppe $G$ ist $G \hookrightarrow S(G), \; g \mapsto \tau_G$ (Linkstranslation mit $g\in G$) ein injektiver Gruppehomomorphismus. Wende 4.21 an auf: \begin{itemize}
+			\item $\mathcal{C} = $ Kategorie mit $\ObC = \{ \cdot  \}$, $\Mor_{\mathcal{C}}( \cdot , \cdot ) = G$
+			\item $A=B= \cdot $
+		\end{itemize}
+	und erhalte eine Bijektion 
+	\begin{eqnarray*}
+		G= \Mor_{\mathcal{C}}( \cdot, \cdot )  & \longrightarrow & \{\text{natürliche Transformationen } \Mor_{\mathcal{C}}( \cdot, -)  \Ra \Mor_{\mathcal{C}}(\cdot, -) \}\\
+		g & \mapsto & g^*: \Mor_{\mathcal{C}}( \cdot, -) \Ra \Mor_{\mathcal{C}}( \cdot, -) \is \tau_G
+	\end{eqnarray*}
+	\end{itemize}
+\end{anm}
+\newpage
+\subsection{Abelsche Kategorien}
+\begin{df}
+	Sei $\mathcal{C}$ eine Kategorie, $A\in \ObC$. $A$ heißt
+	\begin{enumerate}
+		\item[] "'Anfangsobjekt"' $\defi$ Für alle $M\in \ObC$ ist $\Mor_{\mathcal{C}}(A,M)$ einelementig
+		\item[] "'Endobjekt"' $\defi$ Für alle $M\in \ObC$ ist $\Mor_{\mathcal{C}}(M,A)$ einelementig
+	\end{enumerate}
+\end{df}
+\begin{anm}
+	Falls sie existieren sind Anfangs-und Endobjekte eindeutig bestimmt bis auf eindeutigen Isomorphismus (denn: Sind $A_1, A_2$ Anfangsobjekte, dann ist $\Mor_{\mathcal{C}}(A_1, A_2) = \{\alpha\}$, $\Mor_{\mathcal{C}}(A_2, A_1) = \{\beta\}$, $\Mor_{\mathcal{C}}(A_1, A_1) = \{\id_{A_1}\}$ und analog $\Mor_{\mathcal{C}}(A_2, A_2) = \{\id_{A_2}\}$, insbesondere ist $\beta \circ \alpha = \id_{A_1}, \, \alpha \circ \beta = \id_{A_2}$
+\end{anm}
+\begin{df}
+	Sei $\mathcal{C}$ eine Kategorie. $0\in \ObC$ heißt "'Nullobjekt"' $\defi 0$ ist sowohl Anfangs- als auch Endobjekt. Existiert in $\mathcal{C}$ ein Nullobjekt $0$, so enthält $\Mor_{\mathcal{C}}(A,B)$ für alle $A,B \in \ObC$ einen ausgezeichnetes Element, den "'Nullmorphismus"' $ A \to 0 \to B$
+\end{df}
+\begin{anm}
+	Der Nullmorphismus in $\Mor_{\mathcal{C}}(A,B)$ ist unabhängig von der Wahl des Nullobjekts:
+	$$\begin{tikzcd}
+	A \arrow{r} \arrow{dr} & 0\arrow{d} \arrow{r} & B \\
+	& \tilde{0} \arrow{ur} &
+	\end{tikzcd}$$
+\end{anm}
+\begin{bsp}
+	\begin{enumerate}[label=\alph*)]
+		\item In Mengen ist $\emptyset$ ein Anfangsobjekt, jede einelementige Menge ist ein Endobjekt, insbesondere existiert in Mengen kein Nullobjekt
+		\item in Ringe ist $\Z$ ein Anfangsobjekt, und der Nullring ist ein Endobjekt. In Ringe existiert ebenfalls ein Nullobjekt
+		\item In $R$-Mod ist der Nullmodul ein Nullobjekt.
+	\end{enumerate}
+\end{bsp}
 
 
 
