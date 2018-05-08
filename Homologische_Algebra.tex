@@ -39,7 +39,7 @@
 	\end{itemize}
 \end{bsp}
 \begin{df}
-	Sei $\mathcal{C}$  eine Kategorie. Die zu $\mathcal{C}$ "duale Kategorie'" $\mathcal{C}^{op}$"' ist die Kategorie mit: 
+	Sei $\mathcal{C}$  eine Kategorie. Die zu $\mathcal{C}$ "duale Kategorie'" ($\mathcal{C}^{op}$) ist die Kategorie mit: 
 	\begin{itemize}
 		\item $\text{Ob}(\mathcal{C}^{op}) = \ObC$, $Mor_{\mathcal{C}^{op}}(A,B) := Mor_{\mathcal{C}}(B,A)$ für $A,B \in \text{Ob}(\mathcal{C}^{op}) = \ObC$
 		\item $\circ_{op}: Mor_{\mathcal{C}^{op}}(A,B) \times Mor_{\mathcal{C}^{op}}(B,C) \to Mor_{\mathcal{C}^{op}}(A,C) $ mit $(f,g) \mapsto f \circ g $ für $A,B,C \in \ObC$
@@ -88,12 +88,12 @@
 \end{bsp}
 \begin{anm}
 	\begin{itemize}
-		\item Sind $F: \mathcal{C} \to \mathcal{D}, G: \mathcal{D} \to \mathcal{E} $ Funktoren, so ist auf naheliegende Weise der Funktor $G \circ F : \mathcal{C} \to \mathcal{E}$
+		\item Sind $F: \mathcal{C} \to \mathcal{D}, G: \mathcal{D} \to \mathcal{E} $ Funktoren, so ist auf naheliegende Weise der Funktor $G \circ F : \mathcal{C} \to \mathcal{E}$ definiert.
 		\item Unter Funktoren werden kommutative Diagramme auf kommutative Diagramme abgebildet.
 	\end{itemize}
 \end{anm}
 \begin{df}
-	Seien $\mathcal{C},\mathcal{D} $ Kategorien. "'Das Produkt"' $\mathcal{C} \times \mathcal{D} $ ist diejenige Kategorie mit $ Ob(\mathcal{C} \times \mathcal{D}) = Ob(\mathcal{C}) \times \text{Ob}(\mathcal{D}) $ und $ Mor_{\mathcal{C} \times \mathcal{D}}((A_1,B_1),(A_2,B_2)) = Mor_{\mathcal{C}}(A_1,A_2) \times Mor_{\mathcal{D}}(B_1,B_2)$ und "komponentenweisen $\circ"$.
+	Seien $\mathcal{C},\mathcal{D} $ Kategorien. "'Das Produkt"' \,$\mathcal{C} \times \mathcal{D} $ ist diejenige Kategorie mit $ Ob(\mathcal{C} \times \mathcal{D}) = Ob(\mathcal{C}) \times \text{Ob}(\mathcal{D}) $ und $ Mor_{\mathcal{C} \times \mathcal{D}}((A_1,B_1),(A_2,B_2)) = Mor_{\mathcal{C}}(A_1,A_2) \times Mor_{\mathcal{D}}(B_1,B_2)$ und "komponentenweisen $\circ"$.
 \end{df}
 \begin{df}
 	Seien $\mathcal{C},\mathcal{D}, \mathcal{E}$ Kategorien. Ein "Bifunktor" \ $F$ "von $\mathcal{C}$ kreuz $\mathcal{D} $ nach $\mathcal{E}$ "' ist ein Funktor $F: \mathcal{C} \times \mathcal{D} \to \mathcal{E}$
@@ -107,9 +107,9 @@
 \begin{df}
 	Sei $\mathcal{C}$ eine Kategorie, $ A,B \in \ObC, f: A \to B $ $f$ heißt
 	\begin{enumerate}
-		\item[] "Monomorphismus" $\defi$ Für alle $C \in \ObC,\, g_1,g_2: C \to A $ gilt: $f \circ g_1 = f \circ g_2 \Ra g_1 = g_2$ $\Lra$ Für alle $C \in \ObC$ ist $f_{\ast}^{C}: Mor_{\mathcal{C}}(C,A) \to Mor_{\mathcal{C}}(C,B)$ injektiv.
-		\item[] "'Epimorphismus" $\defi$ Für alle $C \in Ob\mathcal{C}, g_1,g_2: B \to C $ gilt: $g_1 \circ f = g_2 \circ f \Ra g_1 = g_2$ $\Lra$ Für alle $C \in Ob\mathcal{C} ist f_{C}^{\ast}: Mor_{\mathcal{C}}(B,C) \to Mor_{\mathcal{C}}(A,C)$ injektiv.
-		\item[] "'Isomorphismus" $\defi$ Es existiert ein $g:b \to A $ mit $ f\circ g = id_B $ und $ g \circ f = id_A.$
+		\item[] "'Monomorphismus"' $\defi$ Für alle $C \in \ObC,\, g_1,g_2: C \to A $ gilt: $f \circ g_1 = f \circ g_2 \Ra g_1 = g_2$ $\Lra$ Für alle $C \in \ObC$ ist $f_{\ast}^{C}: Mor_{\mathcal{C}}(C,A) \to Mor_{\mathcal{C}}(C,B)$ injektiv.
+		\item[] "'Epimorphismus"' $\defi$ Für alle $C \in \ObC, \,g_1,g_2: B \to C $ gilt: $g_1 \circ f = g_2 \circ f \Ra g_1 = g_2$ $\Lra$ Für alle $C \in \ObC$ ist $f_{C}^{\ast}: Mor_{\mathcal{C}}(B,C) \to Mor_{\mathcal{C}}(A,C)$ injektiv.
+		\item[] "'Isomorphismus"' $\defi$ Es existiert ein $g:B \to A $ mit $ f\circ g = id_B $ und $ g \circ f = id_A.$
 	\end{enumerate}
 \end{df}
 \begin{anm}
@@ -117,7 +117,7 @@
 	\begin{itemize}
 		\item $f$ Monomorphismus in $\mathcal{C}$ $\Lra$ $f$ Epimorphismus in $\mathcal{C}^{op}.$
 		\item $f$ Isomorphismus in $\mathcal{C} \Lra  f $ ist Isomorphismus in $\mathcal{C}^{op}.$
-		\item Ist $f$ ein Isomorphismus und $g:B \to A $ mit $ f \circ g = id_B $ und $g \circ f = id_A$, dann ist $g$ ein eindeutig bestimmt (und wird mit $f^{-1} $ bezeichnet). Denn: $g_1,g_2: B \to A$ mit dieser Eigenschaft $Ra g_1 = g_1 \circ id_B = g_1 \circ (f \circ g_2) =(g_1 \circ f) \circ g_2 = id_A \circ g_2 = g_2.$
+		\item Ist $f$ ein Isomorphismus und $g:B \to A $ mit $ f \circ g = id_B $ und $g \circ f = id_A$, dann ist $g$ ein eindeutig bestimmt (und wird mit $f^{-1} $ bezeichnet), denn sind $g_1,g_2: B \to A$ mit dieser Eigenschaft $\Ra g_1 = g_1 \circ id_B = g_1 \circ (f \circ g_2) =(g_1 \circ f) \circ g_2 = id_A \circ g_2 = g_2.$
 		\item In Mengen ist $f$ Monomorphismus $\Lra f $ injektv, $f$ Epimorphismus $Lra f$ surjektiv, $f$ Isomorphismus $\Lra f $ bijektiv. Im Allgemeinen ist dies für Kategorien, in denen die Morphismen Abbildungen sind, jedoch falsch (vgl. Bsp. 4.13)
 	\end{itemize}
 \end{anm}
@@ -153,20 +153,20 @@
 	FA \arrow{r}{t_a} \arrow[swap]{d}{F(f)}& GA\arrow{d}{G(f)}\\
 	FB \arrow{r}{t_B} & GB
 	\end{tikzcd}$$
-	für alle $A,B \in \ObC, \, f:A\to B$ kommutiert. Man sagt häufig auch $t_A: F \to GA$ ist natürlich in $A$.
+	für alle $A,B \in \ObC, \, f:A\to B$ kommutiert. Man sagt häufig auch $t_A: FA \to GA$ ist natürlich in $A$.
 \end{df}
 \begin{bsp}
 	\begin{enumerate}[label= \alph*)]
 		\item Sei $\mathcal{C}$ eine Kategorie, $A,B\in \ObC$, $f:A\to B$. Dann ist 
 		$$f^* = (f^*_Y)_{Y\in \ObC} : \Mor_{\mathcal{C}}(B, -) \Ra \Mor_{\mathcal{C}}(A, -)$$
-		ist eine natürliche Transformation von Funktoren $\mathcal{C} \to \text{Mengen}$, denn für $Y_1, Y_2\in \ObC$, $g:Y_1 \to Y_2$ kommutiert das Diagramm:
+		eine natürliche Transformation von Funktoren $\mathcal{C} \to \text{Mengen}$, denn für $Y_1, Y_2\in \ObC$, $g:Y_1 \to Y_2$ kommutiert das Diagramm:
 		$$\begin{tikzcd}
 		\Mor_{\mathcal{C}}(B, Y_1) \arrow{r}{f_{Y_1}^*}\arrow[swap]{d}{g_*^B} & \Mor_{\mathcal{C}}(A, Y_1)\arrow{d}{g_*^A} \\
 		\Mor_{\mathcal{C}}(B, Y_2) \arrow{r}{f_{Y_2}^*} & \Mor_{\mathcal{C}}(B, Y_2)
 		\end{tikzcd}$$
 		denn: Für $\phi:B\to Y_1$ ist 
 		$$(g_*^A \circ f_{Y_1}^*)(\phi) = g_*^A(\phi \circ f) = g \circ \phi \circ f = f^*_{Y_2}(g\circ \phi) = (f_{Y_2}^* \circ g_*^B) (\phi)$$
-		\item Sei $K$-VR die Kategorie der $K$-Vektorräume über einem festen Körper $K$ (mit linearen Abbildungen als Morphismen). Für $V\in K$-VR sei $V^*:= \Hom_K(V,K)$ der Dualraum. Die kanonische Abbildung $\phi:V : V \to V^{**}, \; w \mapsto \phi_v(w):V^* \to K, \, \psi \mapsto \psi(w)$ ist natürlich in $V$, denn für $V,W \in K$-VR, eine lineare Abbildung $f:V \to W$ kommutiert das Diagramm
+		\item Sei $K$-VR die Kategorie der $K$-Vektorräume über einem festen Körper $K$ (mit linearen Abbildungen als Morphismen). Für $V\in K$-VR sei $V^*:= \Hom_K(V,K)$ der Dualraum. Die kanonische Abbildung $\phi_v:V \to V^{**}, \; w \mapsto \phi_v(w):V^* \to K, \, \psi \mapsto \psi(w)$ ist natürlich in $V$, denn für $V,W \in K$-VR, eine lineare Abbildung $f:V \to W$ kommutiert das Diagramm
 		$$\begin{tikzcd}
 		V \arrow{r}{\phi_v}\arrow{d}{f} & V^{**}  \arrow{d}{f^{**}} \\W \arrow{r}{\phi_w} & W^{**}
 		\end{tikzcd}$$
@@ -180,13 +180,13 @@
 	Ist $t:F\to G$ eine natürliche Äquivalenz, dann existiert eine natürliche Äquivalenz $t^{-1}: G \overset{\sim}{\Ra} F$ via $t_A^{-1} = (t_A)^{-1} : GA \to FA$ 
 \end{anm}
 \begin{bsp}
-	Bezeichne $K$-VR$_{<\infty}$ die Kategorie der endlichdiimensionalen $K$-VR. Dann ist die natürliche Transformation $\phi:\id \Ra \_^{**}$ aus Beispiel 4.15 eine natürliche Transformation.
+	Bezeichne $K$-VR$_{<\infty}$ die Kategorie der endlichdiimensionalen $K$-VR. Dann ist die natürliche Transformation $\phi:\id \Ra \_^{**}$ aus Beispiel 4.15 eine natürliche Äquivalenz.
 \end{bsp}
 \begin{df}
-	Seien $\mathbb{C}, \mathcal{D}$ Kategorien, $F:\mathcal{C} \to \mathcal{D}$ ein Funktor. $F$ heißt "'Kategorienäquivalenz"' $\defi$ Es existiert ein Funktor $G: \mathcal{D} \to \mathcal{C}$ und natürliche Äquivalenzen $F \circ G \overset{\sim}{\Ra} \id_{\mathcal{D}}$, $G\circ F \overset{\sim}{\Ra} \id_{\mathcal{C}}$
+	Seien $\mathcal{C}, \mathcal{D}$ Kategorien, $F:\mathcal{C} \to \mathcal{D}$ ein Funktor. $F$ heißt "'Kategorienäquivalenz"' $\defi$ Es existiert ein Funktor $G: \mathcal{D} \to \mathcal{C}$ und natürliche Äquivalenzen $F \circ G \overset{\sim}{\Ra} \id_{\mathcal{D}}$, $G\circ F \overset{\sim}{\Ra} \id_{\mathcal{C}}$
 \end{df}
 \begin{bsp}
-	Der Funktor $\_^*: K$-VR$_{<\infty} \to (K$-VR$_{<\infty})^\text{op}, \; v \mapsto V^*$ ist eine Kategorienäquivalent, denn mit $\_^{\overset{\sim}{*}}: (K$-VR$_{<\infty})^\text{op} \to K$-VR$_{<\infty}, \; W \mapsto W^*$ gilt offenbar $\_^{\overset{\sim}{*}} \circ \_^* = \_^{**}$, und $\phi:\id \overset{\sim}{\Ra}  \_^{**}$ ist eine natürliche Äquivalenz, analog andersherum (d.h. die Kategorie $K$-VR$_{< \infty}$ ist selbstdual).
+	Der Funktor $\_^*: K$-VR$_{<\infty} \to (K$-VR$_{<\infty})^\text{op}, \; v \mapsto V^*$ ist eine Kategorienäquivalenz, denn mit $\_^{\overset{\sim}{*}}: (K$-VR$_{<\infty})^\text{op} \to K$-VR$_{<\infty}, \; W \mapsto W^*$ gilt offenbar $\_^{\overset{\sim}{*}} \circ \_^* = \_^{**}$, und $\phi:\id \overset{\sim}{\Ra}  \_^{**}$ ist eine natürliche Äquivalenz, analog andersherum (d.h. die Kategorie $K$-VR$_{< \infty}$ ist selbstdual).
 \end{bsp}
 \begin{sa}[Yoneda-Lemma]
 	Sei $\mathcal{C}$ eine Kategorie, $A\in \ObC$, $F:\mathcal{C} \to \text{Mengen}$ ein Funktor. Dann gibt es eine Bijektion 
@@ -262,7 +262,7 @@
 	\end{enumerate}
 \end{df}
 \begin{anm}
-	Falls sie existieren sind Anfangs-und Endobjekte eindeutig bestimmt bis auf eindeutigen Isomorphismus (denn: Sind $A_1, A_2$ Anfangsobjekte, dann ist $\Mor_{\mathcal{C}}(A_1, A_2) = \{\alpha\}$, $\Mor_{\mathcal{C}}(A_2, A_1) = \{\beta\}$, $\Mor_{\mathcal{C}}(A_1, A_1) = \{\id_{A_1}\}$ und analog $\Mor_{\mathcal{C}}(A_2, A_2) = \{\id_{A_2}\}$, insbesondere ist $\beta \circ \alpha = \id_{A_1}, \, \alpha \circ \beta = \id_{A_2}$
+	Falls sie existieren, sind Anfangs- und Endobjekte eindeutig bestimmt bis auf eindeutigen Isomorphismus (denn: Sind $A_1, A_2$ Anfangsobjekte, dann ist $\Mor_{\mathcal{C}}(A_1, A_2) = \{\alpha\}$, $\Mor_{\mathcal{C}}(A_2, A_1) = \{\beta\}$, $\Mor_{\mathcal{C}}(A_1, A_1) = \{\id_{A_1}\}$ und analog $\Mor_{\mathcal{C}}(A_2, A_2) = \{\id_{A_2}\}$, insbesondere ist $\beta \circ \alpha = \id_{A_1}, \, \alpha \circ \beta = \id_{A_2}$).
 \end{anm}
 \begin{df}
 	Sei $\mathcal{C}$ eine Kategorie. $0\in \ObC$ heißt "'Nullobjekt"' $\defi 0$ ist sowohl Anfangs- als auch Endobjekt. Existiert in $\mathcal{C}$ ein Nullobjekt $0$, so enthält $\Mor_{\mathcal{C}}(A,B)$ für alle $A,B \in \ObC$ einen ausgezeichnetes Element, den "'Nullmorphismus"' $ A \to 0 \to B$
