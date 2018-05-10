@@ -286,13 +286,16 @@
 \end{df}
 \begin{bem}
 	Sei $\mathcal{C}$ eine Kategorie, $(A_i)_{i \in I}$ eine Familie von Objekten aus $\mathcal{C}$, $(A, (p_i)_{i \in I}), (A', (p_i')_{i \in I}),$ Produkte von $(A_i)_{i \in I}. $Dann existiert ein eindeutig bestimmter Isomorphismus $ f:A \to A' $, sodass für alle $i \in I $ gilt: $p_i' \circ f = p_i$
-	(kurz: $A,A'$ sind kanonisch isomorph. Wir sprechen daher oft von \textbf{dem } Produkt und schreiben $ A = \prod_{i \in I} A_i $
-	%hier fehlt noch ein Diagramm (1.1)
+	$$\begin{tikzcd}
+	A \arrow{rr}{f} \arrow[swap]{dr}{p_i} & & A' \arrow{dl}{p_i'	}\\
+	&A_i& 
+	\end{tikzcd}$$
+	(kurz: $A,A'$ sind kanonisch isomorph. Wir sprechen daher oft von "'dem Produkt"' und schreiben $ A = \prod_{i \in I} A_i $
 \end{bem}
 \begin{proof}
 	\begin{enumerate} 
-		\item Wir wenden die Universelle Eigenschaft auf das Produkt $(A', (p_i')_{i \in I}), B = A, f_i = p_i \Ra $ Wir erhalten einen eindeutig bestimmten $ f: A \to A' $ mit $ p_i' \circ f = p_i $ für alle $ i \in I$. Analog: Wenden die Universelle Eigenschaft auf das Produkt $(A, (p_i)_{i \in I}), B = A', f_i= p_i' \Ra $ Es existiert genau ein $ g: A' \to A $ mit $p_i \circ g = p_i'$ für alle $i \in I $.
-		\item $ g \circ f = id_A, f \circ g = id_{A'} $ ( d.h $f$ ist ein Isomorphismus ) denn: Für alle $ i \in I $ ist $p_i \circ ( g \circ f ) = ( p_i \circ g) \circ f =  p_i' \circ f = p_i $ wenden die Universelle Eigenschaft auf das Produkt$ (A, (p_i)_{i \in I}), B= A, f_i = p_i $ an:
+		\item Wir wenden die Universelle Eigenschaft auf das Produkt $(A', (p_i')_{i \in I}), B = A, f_i = p_i \Ra $ Wir erhalten einen eindeutig bestimmten Morphismus $ f: A \to A' $ mit $ p_i' \circ f = p_i $ für alle $ i \in I$. Analog: Wende die Universelle Eigenschaft auf das Produkt $(A, (p_i)_{i \in I}), B = A', f_i= p_i' \Ra $ Es existiert genau ein $ g: A' \to A $ mit $p_i \circ g = p_i'$ für alle $i \in I $.
+		\item Es gilt $ g \circ f = id_A, f \circ g = id_{A'} $ (d.h $f$ ist ein Isomorphismus), denn: Für alle $ i \in I $ ist $p_i \circ ( g \circ f ) = ( p_i \circ g) \circ f =  p_i' \circ f = p_i $. Wende die Universelle Eigenschaft auf das Produkt$ (A, (p_i)_{i \in I}), B= A, f_i = p_i $ an:
 		Es existiert genau ein $ h: A \to A $ mit $ p_i \circ h = p_i $ für alle $ i \in I $ ( nämlich $ h = id_A $) Somit ist $ id_A = g \circ f.$ Analog:  $ f \circ g = id_{A'}$.
 	\end{enumerate}
 \end{proof}
@@ -300,12 +303,11 @@
 	\begin{enumerate} [label=\alph*)]
 		\item In Mengen ist das Produkt das kartesische Produkt.
 		\item In $R$-Mod ist das Produkt das direkte Produkt.
-		\item In der Kategorie der endlichen abelschen Gruppen existiert kein Produkt der Familie $( \QR{\Z}{n\Z})_{n \in \N}$ (Übung)
+		\item In der Kategorie der endlichen abelschen Gruppen existiert kein Produkt der Familie $\left( \QR{\Z}{n\Z}\right)_{n \in \N}$ (Übung)
 	\end{enumerate}
 \end{bsp}
 \begin{bem+df}
-	Sei $\mathcal{C} $ eine Kategorie, $ (A_i)_{i \in I}$ eine Familie von Objekten  aus $ \mathcal{C}$. Ein Koprodukt $(A, (q_i)_{i \in I})$ von $(A_i)_{i \in I}$ ist ein Objekt $ A \in \ObC $ zusammen mit Morphismen $ q_i: A_i \to A$ , sodass $(A, (q_i)_{i \in I})$ Ein Produkt von $(A_i)_{i \in I } $ in $ \mathcal{C}^{op} $ ist, das heißt für alle $ B \in \ObC $ ist die Abbildung $$ Mor_C(A,B) \to \prod_{i \in I} Mor_C(A_i,B) , \quad f \mapsto (f \circ q_i) _{i \in I} $$ bijektiv ist. Falls es existiert ist ein Koprodukt von $(A_i)_{i \in I }$ eindeutig bestimmt bis auf Isomorphie (analog 5.5). Wir sprechen dan von \textbf{dem} Koprodukt und schreiben $ A = \bigoplus_{i \in I} A_i $
-	%koprodukt rein
+	Sei $\mathcal{C} $ eine Kategorie, $ (A_i)_{i \in I}$ eine Familie von Objekten  aus $ \mathcal{C}$. Ein "'Koprodukt"' $(A, (q_i)_{i \in I})$ von $(A_i)_{i \in I}$ ist ein Objekt $ A \in \ObC $ zusammen mit Morphismen $ q_i: A_i \to A$ , sodass $(A, (q_i)_{i \in I})$ Ein Produkt von $(A_i)_{i \in I } $ in $ \mathcal{C}^{op} $ ist, das heißt für alle $ B \in \ObC $ ist die Abbildung $$ Mor_C(A,B) \to \prod_{i \in I} Mor_C(A_i,B) , \quad f \mapsto (f \circ q_i) _{i \in I} $$ bijektiv. Falls es existiert ist ein Koprodukt von $(A_i)_{i \in I }$ eindeutig bestimmt bis auf Isomorphie (analog 5.5). Wir sprechen dan von "'dem Koprodukt"' und schreiben $ A = \bigoplus_{i \in I} A_i $ ($=\coprod_{i\in I} A_i$)
 \end{bem+df}
 \begin{bsp}
 	\begin{enumerate} [label=\alph*)]
@@ -315,12 +317,12 @@
 	\end{enumerate}
 \end{bsp}
 \begin{df}
-	Sei $\mathcal{A} $ eine Kategorie. $\mathcal{A} $ heißt "'additiv"', denn gilt:
+	Sei $\mathcal{A} $ eine Kategorie. $\mathcal{A} $ heißt "'additiv"', wenn gilt:
 	\begin{enumerate}
 		\item[($K1$)] $\mathcal{A}$ hat ein Nullobjekt,
 		\item[($K2$)] In $\mathcal{A}$ existieren endliche Produkte
 		\item[($K3$)] Für alle $A,B \in \ObA$ trägt $Mor_{\mathcal{A}}(A,B) $ die Struktur einer abelschen Gruppe mit dem Nullmorphismus als neutrales Element, sodass für alle $ A,B,C \in \ObA $ die Verknüpfung:
-		 $$ Mor_{\mathcal{A}}(B,C) \times  Mor_{\mathcal{A}}(A,B) \to Mor_{\mathcal{A}}(A,C)$$ bilinear ist.
+		 $$ Mor_{\mathcal{A}}(B,C) \times  Mor_{\mathcal{A}}(A,B) \overset{\circ}{\longrightarrow}Mor_{\mathcal{A}}(A,C)$$ bilinear ist.
 	\end{enumerate}
 \end{df}
 \begin{anm}
@@ -337,63 +339,75 @@
 \end{sa}
 \begin{proof}
 	\begin{enumerate}
-		\item Behauptung: $i_1 \circ p_1 + i_2 \circ p_2: A_1 \times A_2 \to A_1 \times A_2 $ stimmt mit $id_{A_1 \times A_2} $ überein. Denn: Es ist $p_1 \circ (i_1 \circ p_1 + i_2 \circ p_2) = p_1 \circ i_1 \circ p_1 + p_1 \circ i_2 \circ p_2 = p_1 = p_1 \circ id_{A_1 \times A_2}$ 
+		\item Behauptung: $\iota_1 \circ p_1 + \iota_2 \circ p_2: A_1 \times A_2 \to A_1 \times A_2 $ stimmt mit $id_{A_1 \times A_2} $ überein. Denn: Es ist
+		$$p_1 \circ (\iota_1 \circ p_1 + \iota_2 \circ p_2) = \underbrace{p_1 \circ \iota_1}_{=\id_{A_1}} \circ p_1+ \underbrace{p_1 \circ \iota_2}_{=0:A_2\to A_1} \circ p_2 = p_1 = p_1 \circ id_{A_1 \times A_2}$$ 
 			%Klammern drunter 
-		Analog: $p_2 \circ (i_1 \circ p_1 + i_2 \circ p_2) = p_2 = p_2 \circ id_{A_1 \times A_2}$ $\overset{UE}{\Ra} i_1 \circ p_1 + i_2 \circ p_2 = id_{A_1 \times A_2}$.
+		Analog: $$p_2 \circ (\iota_1 \circ p_1 + \iota_2 \circ p_2) = p_2 = p_2 \circ id_{A_1 \times A_2} \overset{UE}{\Ra} \iota_1 \circ p_1 + \iota_2 \circ p_2 = id_{A_1 \times A_2}$$
 		\item Universelle Eigenschaft des Koprodukts:
-		 Sei $ B \in \ObA $, $ f_1: A_1 \to B, f_2: A_2 \to B $ Existenz: Wir setzen $f:= f_1 \circ p_1 + f_2 \circ p_2: A_1 \times A_2 \to B  \Ra f \circ i_1 = f_1 \circ p_1 \circ i_1 + f_2 \circ p_2 \circ i_1 = f_1.$
+		 Sei $ B \in \ObA $, $ f_1: A_1 \to B, f_2: A_2 \to B $\\
+		 Existenz: Wir setzen $f:= f_1 \circ p_1 + f_2 \circ p_2: A_1 \times A_2 \to B$. DAnn ist 
+		 $$f \circ \iota_1 = f_1 \circ \underbrace{p_1 \circ \iota_1}_{=\id_{A_1}} + f_2 \circ \underbrace{p_2 \circ \iota_1}_{=0:A_1 \to A_2} = f_1.$$
 		 % KLammern 
-		Analog: $f \circ i_2 = f_2.$
-		Eindeutigkeit: Sei $f': A_1 \times A_2 \to B $ mit $f' \circ i_1 = f_1 , f' \circ i_1 = f_2. \Ra f' = f' \circ (i_1 \circ p_1 + i_2 \circ p_2 ) = f' \circ i_1  \circ p_1 + f' \circ  i_2 \circ p_2 = f_1 \circ p_1 + f_2 \circ p_2 = f $
+		Analog: $f \circ i_2 = f_2.$\\
+		Eindeutigkeit: Sei $f': A_1 \times A_2 \to B $ mit $f' \circ \iota_1 = f_1 , f' \circ \iota_1 = f_2.$. Dann folgt 
+		$$f' = f' \circ (\iota_1 \circ p_1 + \iota_2 \circ p_2 ) = \underbrace{f' \circ \iota_1}_{=f_1}  \circ p_1 + \underbrace{f' \circ  \iota_2}_{=f_2} \circ p_2 = f_1 \circ p_1 + f_2 \circ p_2 = f $$
 	\end{enumerate}
 \end{proof}
 \begin{fo}
 	Sei $\mathcal{A} $ eine Additive Kategorie. Dann existieren in $\mathcal{A} $  endliche Koprodukte. 
 \end{fo}
 \begin{df}
-	Seien $ \mathcal{A}, \mathcal{B} $ additve Kategorien, $F: \mathcal{A} \to \mathcal{B}$ Funktor. \\
+	Seien $ \mathcal{A}, \mathcal{B} $ additve Kategorien, $F: \mathcal{A} \to \mathcal{B}$ Funktor.
 	 $F$ heißt "'additiv "' $\defi $ für alle $ A, A' \in \ObA $ ist eine Abbildung: $$ Mor_{\mathcal{A}}(A,A') \to  Mor_{\mathcal{B}}(FA,FA'), \quad f \mapsto F(f) $$ ein Homomorphismus abelscher Gruppen.
 \end{df}
 \begin{anm}
-	$F$ additiv $\Ra  F(A \bigoplus A' ) = F(A) \bigoplus F(A') $ (Übungen)
+	$F$ additiv $\Ra  F(A \oplus A' ) = F(A) \oplus F(A') $ (Übungen)
 \end{anm}
 \begin{bem+df}
-	Sei $ \mathcal{A}$  eine additive Kategorie, $ A,A' \in \ObA, f: A \to A' $. Ein Kern $(B,i) $ von $f$ ist ein Objekt $ B \in \ObA$ zusammen mit einem Morphismus $ i: B \to A $, sodass $ f \circ i = 0 $ ist und für alle $ C \in$Ob$\mathcal{A}$  die Abbildung: $$Hom_{\mathcal{A}}(C,B) \to \{g \in Hom_{\mathcal{A}}(C,A) | f \circ g = 0 \}, \quad h \mapsto i \circ h $$ bijektiv ist, das heißt für alle $g:C \to A $ mit $ f \circ g = 0 $ existiert ein eindeutig bestimmter Morphismus $ h: C \to B $ mit $ g = i \circ h$:
+	Sei $ \mathcal{A}$  eine additive Kategorie, $ A,A' \in \ObA, f: A \to A' $. Ein "'Kern"' $(B,\iota) $ von $f$ ist ein Objekt $ B \in \ObA$ zusammen mit einem Morphismus $ \iota: B \to A $, sodass $ f \circ \iota = 0 $ ist und für alle $ C \in$Ob$\mathcal{A}$  die Abbildung: $$Hom_{\mathcal{A}}(C,B) \longrightarrow \{g \in Hom_{\mathcal{A}}(C,A) | f \circ g = 0 \}, \quad h \mapsto \iota \circ h $$ bijektiv ist, das heißt für alle $g:C \to A $ mit $ f \circ g = 0 $ existiert ein eindeutig bestimmter Morphismus $ h: C \to B $ mit $ g = \iota \circ h$:
 	$$\begin{tikzcd}
-	B \arrow{r}{i} \arrow[swap]{d}{h} & A \\C \arrow[swap]{ur}{g}
+	B \arrow{r}{\iota}  & A \arrow{r}{f} & A' \\
+	C \arrow[swap]{ur}{g}\arrow[dashed]{u}{h}
 	\end{tikzcd}$$
-	%hier ist noch was nicht ganz fertig 2.1
-	Ist $(B',i') $ ein weiterer Kern von f, dann existiert ein eindeutig bestimmete Isomorphismus $ \alpha: B \to B' $mit $ i = i' \circ \alpha$:
-	%Diagramm 2.2
-	Wir nennen $(B,i) $ daher auch \textbf{den} Kern von$f$ und schreiben $ \ker f= (B,i)$ beziehungsweise kürzer: $ \ker f= B $.
+	Ist $(B',\iota') $ ein weiterer Kern von f, dann existiert ein eindeutig bestimmte Isomorphismus $ \alpha: B \to B' $ mit $ \iota = \iota' \circ \alpha$:
+	$$\begin{tikzcd}
+	B\arrow{rr}{\alpha} \arrow{dr}{\iota} & & B'\arrow{dl}{\iota'}\\
+	& A &
+	\end{tikzcd}$$
+	
+	Wir nennen $(B,\iota) $ daher auch "'den Kern"' von$f$ und schreiben $ \ker f= (B,\iota)$ beziehungsweise kürzer: $ \ker f= B $ oder auch $\ker f = \iota$
 \end{bem+df}
 \begin{anm}
 	Die Existenz von Kernen ist im Allgemeinen nicht gegeben
 \end{anm}
 \begin{bsp}
-	In $R$-Mod ist der Kategorielle Kern gegeben durch die Inklusion des gewphnlichen Kerns:
+	In $R$-Mod ist der kategorielle Kern gegeben durch die Inklusion des gewöhnlichen Kerns:
 	$$\begin{tikzcd}
-	\ker f \arrow{r}{i} \arrow[swap]{d}{h} & A \\C \arrow[swap]{ur}{g}
+	\ker f \arrow[hook]{r}{\iota} & A \arrow{r}{f} & A'\\C \arrow[swap]{ur}{g}\arrow[dashed]{u}{h}
 	\end{tikzcd}$$
-	%hier ist auch was noch nicht fertig 2.3
-	$ f \circ g = 0 \Ra \im g \subseteq \ker f $ setze  $ h := g :  C \in \ker f$, dann ist $ i\circ h = g $ und $h$ ist eindeutig mit dieser Bedingung.
+	$ f \circ g = 0 \Ra \im g \subseteq \ker f $ setze  $ h := g\big|^{\ker f}:  C \in \ker f$, dann ist $ \iota\circ h = g $ und $h$ ist eindeutig mit dieser Bedingung.
 \end{bsp}
 \begin{bem}
-	Sei $\mathcal{A} $ eine additive Kategorie, $ A,A' \in \ObA, f: A  \to A' , (\ker f, i ) $ Kern von f. Dann ist i ein Monomorphismus. 
+	Sei $\mathcal{A} $ eine additive Kategorie, $ A,A' \in \ObA, f: A  \to A' , (\ker f, \iota) $ Kern von f. Dann ist $\iota$ ein Monomorphismus. 
 \end{bem}
 \begin{proof}
-	Seien $ h_1,h_2: C \to \ker f $ mit $ i \circ h_1 = i \circ h_2 =:g \Ra f \circ g = f \circ i \circ h_1 = 0 \Ra $ Es existiert ein eindeeutig bestimmtes $h: C \to \ker f $ mit $ g = i \circ h \Ra h = h_1 - h_2. $
+	Seien $ h_1,h_2: C \to \ker f $ mit $ \iota\circ h_1 = \iota \circ h_2 =:g \Ra f \circ g = f \circ \iota \circ h_1 = 0 $ Dann existiert ein eindeutig bestimmtes $h: C \to \ker f $ mit $ g = \iota\circ h \Ra h = h_1 - h_2. $
 \end{proof}
 \begin{bem+df}
-	Dual zum Kern definiert man den Kokern (Notation:$ \coker f$). Die Aussage 5.14, 5.16 gelten dual.
+	Dual zum Kern definiert man den Kokern (Notation: $ \coker f$). Die Aussage 5.14, 5.16 gelten dual.
 \end{bem+df}
 \begin{df}
-	 Sei $\mathcal{A} $ eine additive Kategorie, $ A,A' \in \ObA, f: A \to A'$ $\im f := \ker(\coker f) $ heißt das "'Bild"' von $f$ 
-	 $\coim f := \coker(\ker f) $ heißt das "'Kobild"' von $f$.
+	 Sei $\mathcal{A} $ eine additive Kategorie, $ A,A' \in \ObA, f: A \to A'$ 
+	 \begin{enumerate}
+	 \item[] $\im f := \ker(\coker f) $ heißt das "'Bild"' von $f$ 
+	 \item[] $\coim f := \coker(\ker f) $ heißt das "'Kobild"' von $f$.
+	\end{enumerate}
 \end{df}
 \begin{anm}
-	$\im f $ kommt mit einem Monomorphisus $i': \im f \to A' , \coim f $ mit einem Epimorphismus $ q': A \to \coim f $.
+	$\im f $ kommt mit einem Monomorphisus $\iota': \im f \to A' ,\, \coim f $ mit einem Epimorphismus $ q': A \to \coim f $.
 \end{anm}
 \begin{bsp}
-	Sein $\mathcal{A} = R $-Mod ,$ f: A  \to A' $ $R$-Modulhomomorphismus. Dann ist $\im f = \ker(\QR{A'}{\im f}, A' \to \QR{A'}{\im f}) = (\im f, \im f \to A'), \coim f= \coker(\ker f, \ker f \to A) = (\QR{A}{\ker f}, A \to \QR{A}{\ker f}).$
+	Sein $\mathcal{A} = R $-Mod ,$ f: A  \to A' $ $R$-Modulhomomorphismus. Dann ist 
+	$$\im f = \ker\left(\QR{A'}{\im f},\quad  A' \to \QR{A'}{\im f}\right) = (\im f, \ \im f \hookrightarrow A')$$
+	$$\coim f= \coker(\ker f, \ \ker f \to A) = \left(\QR{A}{\ker f},\quad  A \to \QR{A}{\ker f}\right)$$
 \end{bsp}
