@@ -282,7 +282,7 @@
 	\end{enumerate}
 \end{bsp}
 \begin{df}
-	Sei $\mathcal{C}$ eine Kategorie. $(A_i)_{i \in I} $ eine Familie von Objjekten aus $\mathcal{C}$. Ein Produkt $(A, (p_i)_{i \in I})$ von $(A_i)_{i \in I}$ ist ein Objekt $A\in \mathcal{C} $ zusammen mit Morphismen $p_i:A \to A_i $, sodass für alle $B \in \ObC $die Abbildung $$ Mor_C(A,B) \to \prod_{i \in I} Mor_C(B,A_i) , \quad f \mapsto (p_i \circ f) _{i \in I} $$ bijektiv ist, das heißt für jede Familie $(f_i)_{i \in I}$ von Morphismen $f_i: B \to A_i $ existiert ein eindeutig bestimmtes $f:B \to A $ mit $ f_i = p_i \circ f $ für alle $ i \in I$.
+	Sei $\mathcal{C}$ eine Kategorie. $(A_i)_{i \in I} $ eine Familie von Objjekten aus $\mathcal{C}$. Ein Produkt $(A, (p_i)_{i \in I})$ von $(A_i)_{i \in I}$ ist ein Objekt $A\in \mathcal{C} $ zusammen mit Morphismen $p_i:A \to A_i $, sodass für alle $B \in \ObC $die Abbildung $$ Mor_C(B,A) \to \prod_{i \in I} Mor_C(B,A_i) , \quad f \mapsto (p_i \circ f) _{i \in I} $$ bijektiv ist, das heißt für jede Familie $(f_i)_{i \in I}$ von Morphismen $f_i: B \to A_i $ existiert ein eindeutig bestimmtes $f:B \to A $ mit $ f_i = p_i \circ f $ für alle $ i \in I$.
 \end{df}
 \begin{bem}
 	Sei $\mathcal{C}$ eine Kategorie, $(A_i)_{i \in I}$ eine Familie von Objekten aus $\mathcal{C}$, $(A, (p_i)_{i \in I}), (A', (p_i')_{i \in I}),$ Produkte von $(A_i)_{i \in I}. $Dann existiert ein eindeutig bestimmter Isomorphismus $ f:A \to A' $, sodass für alle $i \in I $ gilt: $p_i' \circ f = p_i$
@@ -333,7 +333,7 @@
 	\end{enumerate}
 \end{bsp}
 \begin{sa}
-	Sei $\mathcal{A} $ eine Kategorie, $ A_1,A_2 \in \ObA$ ,$(A_1 \times A_2, (p_1,p_2)) $ Produkt von $ A_1 \times A_2 $, $ i_1: A_1 \to A_1 \times A_2 $ sei via der Univesellen Eigenschaft gegeben durch $id_{A_1}: A_1 \to A_1 , 0: A_1 \to A_2$. Analog sei $ i_2: A_2 \to A_1 \times A_2 $ sei via der Univesellen Eigenschaft gegeben durch $ 0: A_2 \to A_1, id: A_2 \to A_2$. Dann ist $(A_1 \times A_2, (i_1,i_2)) $ ein Koprodukt von $A_1,A_2$ in $\mathcal{A}$.
+	Sei $\mathcal{A} $ eine additive Kategorie, $ A_1,A_2 \in \ObA$ ,$(A_1 \times A_2, (p_1,p_2)) $ Produkt von $ A_1 \times A_2 $, $ i_1: A_1 \to A_1 \times A_2 $ sei via der Univesellen Eigenschaft gegeben durch $id_{A_1}: A_1 \to A_1 , 0: A_1 \to A_2$. Analog sei $ i_2: A_2 \to A_1 \times A_2 $ sei via der Univesellen Eigenschaft gegeben durch $ 0: A_2 \to A_1, id: A_2 \to A_2$. Dann ist $(A_1 \times A_2, (i_1,i_2)) $ ein Koprodukt von $A_1,A_2$ in $\mathcal{A}$.
 \end{sa}
 \begin{proof}
 	\begin{enumerate}
