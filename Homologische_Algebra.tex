@@ -426,7 +426,7 @@
 	$$
 	\begin{enumerate}
 		\item Existenz: Wegen $f\circ \iota = 0$ existiert nach der Universellen Eigenschaft von $\coker$ ein $f': \coim f \to B$ mit $f= f' \circ q'$. Es ist $q \circ  f=0$, also $q \circ f' \circ q' = q \circ f = 0 = 0 \circ q'$. Da $q'$ ein Epimorphismus ist, folgt $q\circ f' = 0$. Nach der Universellen Eigenschaft des Kerns, existiert ein $\bar f: \coim f \to \im f$ mit $\iota' \circ \bar f = f'$, also $\iota' \circ \bar f \circ q' = f' \circ q' = f$.
-		\item Eindeutigkeit: Sei $\tilde{f}: \coim f \to \im f$ mit $\iota' \circ \bar f\circ q' = f = \iota' \circ \tilde{f} \circ q'$, woraus, wegen $\iota$ Monomorphismus zunächst $\bar f \circ q' = \tilde{f} \circ q'$ folgt und dann, wegen $q'$ Epimorphismus, $\bar f = \tilde{f}$.
+		\item Eindeutigkeit: Sei $\tilde{f}: \coim f \to \im f$ mit $\iota' \circ \bar f\circ q' = f = \iota' \circ \tilde{f} \circ q'$, woraus, wegen $\iota'$ Monomorphismus zunächst $\bar f \circ q' = \tilde{f} \circ q'$ folgt und dann, wegen $q'$ Epimorphismus, $\bar f = \tilde{f}$.
 	\end{enumerate}
 \end{proof}
 \begin{df}
@@ -497,14 +497,14 @@
 		\item In $\A$ gilt das Fünferlemme
 		\item In $\A$ gilt das Schlangenlemma
 		\item Eine Folge $\begin{tikzcd}
-		M' \arrow{r}{f} & M' \arrow{r}{g} & M'' \arrow{r} & 0
+		M' \arrow{r}{f} & M \arrow{r}{g} & M'' \arrow{r} & 0
 		\end{tikzcd}$ in $\A$ ist genau dann exakte, wenn für jedes Objekt $N\in \ObA$ die Folge abelscher Gruppen 
 		$$\begin{tikzcd}
 		0 \arrow{r}& \Hom_\A(M'', N) \arrow{r} & \Hom_\A(M,N) \arrow{r} & \Hom_\A(M', N)
 		\end{tikzcd}$$
 		exakte ist.
 		\item Eine Folge $\begin{tikzcd}
-		0 \arrow{r}& \arrow{r} & N' \arrow{r} & N \arrow{r}& N''
+		0 \arrow{r}&  N' \arrow{r} & N \arrow{r}& N''
 		\end{tikzcd}$ in $\A$ ist genau dann exakte, wenn für jedes $M\in \ObA$ die Folge abelscher Gruppen
 		$$\begin{tikzcd}
 		0 \arrow{r}& \Hom_\A(M, N') \arrow{r} & \Hom_\A(M,N) \arrow{r} & \Hom_\A(M, N'')
@@ -519,8 +519,8 @@
 \begin{df}
 	Seien $\A$, $\mathcal{B}$ abelsche Kategorien, $F: \A \to \mathcal{B}$ ein additiver Funktor. $F$ heißt 
 	\begin{enumerate}
-		\item[] "'exakt"' $\defi$ $F$ überführt kurze exakte Folgen in $\A$ in kurze exakte Folgen in $\Bbbk$
-		\item[] "'linksexakt"' $\defi$ Für jede exakte Folge $\begin{tikzcd}
+		\item[] "'exakt"' $\defi$ $F$ überführt kurze exakte Folgen in $\A$ in kurze exakte Folgen in $\mathcal{B}$
+		\item[] "'liksexakt"' $\defi$ Für jede exakte Folge $\begin{tikzcd}
 		0 \arrow{r} & M' \arrow{r} & M \arrow{r} & M''
 		\end{tikzcd}$ in $\A$ ist die Folge $$\begin{tikzcd}
 		0 \arrow{r} & FM' \arrow{r} & FM \arrow{r} & FM''
@@ -550,7 +550,7 @@
 		\end{minipage}
 		\begin{minipage}[t]{0.3\textwidth} 
 			$$\begin{tikzcd}
-			A \arrow[hook]{r}{\iota} \arrow{d}{f} & B\arrow[dash]{dl}{g} \\
+			A \arrow[hook]{r}{\iota} \arrow{d}{f} & B\arrow[dashed]{dl}{g} \\
 			I & 
 			\end{tikzcd}$$
 		\end{minipage}
@@ -584,7 +584,7 @@
 	0 \arrow{r}& \Hom_\A(A'', I) \arrow{r} & \Hom_\A(A,I) \arrow{r} & \Hom_\A(A',I)
 	\end{tikzcd}$$
 	exakt. Somit genügt es zu zeigen, dass $I$ injektiv $\Lra$ Für alle exakten Folgen\\ $\begin{tikzcd}
-	0 \arrow{r} & A \arrow{r}{\iota} & A
+	0 \arrow{r} & A' \arrow{r}{\iota} & A
 	\end{tikzcd}$ in $\A$ ist 
 	$$\begin{tikzcd}
 	\Hom_\A(A,I) \arrow{r}{\iota_I^*} & \Hom_\A(A', I) \arrow{r} & 0
@@ -613,7 +613,7 @@
 	also $F$ \rotatebox{90}{$\perp$} $G$.
 \end{bsp}
 \begin{sa}
-	Seien $\A, \mathcal{B}$ abelsche Kategorien, $f:\A \to \mathcal{B}, \, G: \mathcal{B} \to \A$ additive Funktoren mit $F$ \rotatebox{90}{$\perp$} $G$. Dann gilt:
+	Seien $\A, \mathcal{B}$ abelsche Kategorien, $F:\A \to \mathcal{B}, \, G: \mathcal{B} \to \A$ additive Funktoren mit $F$ \rotatebox{90}{$\perp$} $G$. Dann gilt:
 	\begin{enumerate}[label= \alph*)]
 		\item $F$ ist rechtsexakt
 		\item Ist $F$ exakt, dann überführt $G$ injektive Objekte aus $\mathcal{B}$ in injektive Objekte aus $\A$.
