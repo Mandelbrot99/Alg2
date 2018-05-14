@@ -411,3 +411,234 @@
 	$$\im f = \ker\left(\QR{A'}{\im f},\quad  A' \to \QR{A'}{\im f}\right) = (\im f, \ \im f \hookrightarrow A')$$
 	$$\coim f= \coker(\ker f, \ \ker f \to A) = \left(\QR{A}{\ker f},\quad  A \to \QR{A}{\ker f}\right)$$
 \end{bsp}
+\begin{bem}
+	Sei $\mathcal{A}$ eine additive Kategorie, $A,B\in \ObA$, $f:A\to B$, sodass $\ker f, \coker f, \im f, \coim f$ existieren ($\im f, \iota')$ Bild von $f$, ($\coim f, q'$) Kobild von $f$. Dann existiert ein eindeutig bestimmter Morphismus $\bar f: \coim f \to \im f$ mit $f= \iota' \circ \bar f \circ q'$
+	$$\begin{tikzcd}
+	A \arrow{r}{f} \arrow{d}{q'} & B \\
+	\coim f \arrow[dashed]{r}{\bar f} & \im f \arrow{u}{\iota'}
+	\end{tikzcd}$$
+\end{bem}
+\begin{proof}
+	$$\begin{tikzcd}
+	\ker f \arrow{r}{\iota} & A \arrow{d}{q'} \arrow{r}{f} & B \arrow{r}{q} & \coker f \\
+	& \coim f = \coker \iota \arrow[dashed]{ur}{f'} \arrow[swap, dashed]{r}{\bar f} &\ker q = \im f \arrow{u}{\iota'}  & 
+	\end{tikzcd}
+	$$
+	\begin{enumerate}
+		\item Existenz: Wegen $f\circ \iota = 0$ existiert nach der Universellen Eigenschaft von $\coker$ ein $f': \coim f \to B$ mit $f= f' \circ q'$. Es ist $q \circ  f=0$, also $q \circ f' \circ q' = q \circ f = 0 = 0 \circ q'$. Da $q'$ ein Epimorphismus ist, folgt $q\circ f' = 0$. Nach der Universellen Eigenschaft des Kerns, existiert ein $\bar f: \coim f \to \im f$ mit $\iota' \circ \bar f = f'$, also $\iota' \circ \bar f \circ q' = f' \circ q' = f$.
+		\item Eindeutigkeit: Sei $\tilde{f}: \coim f \to \im f$ mit $\iota' \circ \bar f\circ q' = f = \iota' \circ \tilde{f} \circ q'$, woraus, wegen $\iota$ Monomorphismus zunächst $\bar f \circ q' = \tilde{f} \circ q'$ folgt und dann, wegen $q'$ Epimorphismus, $\bar f = \tilde{f}$.
+	\end{enumerate}
+\end{proof}
+\begin{df}
+	Sei $\mathcal{A}$ eine additive Kategorie. $\mathcal{A}$ heißt "'abelsche Kategorie"', wenn gilt:
+	\begin{enumerate}
+		\item[(Ab1)] Jeder Morphismus in $\mathcal{A}$ hat Kern und Kokern
+		\item[(Ab2)] (Homomorphiesatz). Für jeden Morphismus $f:A \to A'$ in $\A$ ist der induzierte Morphismus 
+		$$\bar f : \coim f \to \im f$$
+		ein Isomorphismus 
+	\end{enumerate}
+\end{df}
+\begin{bsp}
+	\begin{enumerate}[label = \alph*)]
+		\item $R$-Mod ist eine abelsche Kategorie
+		\item Die Kategorie der freien $\Z$-Moduln ist additiv, aber nicht abelsch: (Ab1) ist nicht erfüllt.
+		\item Die Kategorie der abelschen topologischen Gruppen ist eine additive Kategorie, die (Ab1) erfüllt, aber nicht (Ab2): $\id: (\R, +) \to (\R, +)$ (links mit der diskreten Topologie und rechts mit der Standardtopologie) $\bar{\id} = \id$ ist kein Isomorphismus.
+	\end{enumerate}
+\end{bsp}
+\begin{anm}
+	Ist $\A$ eine abelsche Kategorie, dann ist auch $\A^\text{op}$ abelsche Kategorie (einziger nichttrivialer Punkt: Existenz endlicher Produkte, was jedoch aus 5.11 folgt).
+\end{anm}
+\begin{sa}
+	Sei $\A$ eine abelsche Kategorie, $A,A' \in \ObA$, $f:A \to A'$ Mono- und Epimorphsimus. Dann ist $f$ ein Isomorphismus.
+\end{sa}
+\begin{proof}
+	\begin{itemize}
+		\item Da $f$ ein Monomorphismus ist, ist $(0, 0 \to A)$ ein Kern von $f$, denn: 
+		$$ \begin{tikzcd}
+		0 \arrow{r} & A \arrow{r}{f} & A' \\
+		C \arrow[dashed, red]{u}\arrow{ur}{g} \arrow[swap, red, yshift = -1.5ex]{ur}{0}& & 
+		\end{tikzcd} \quad f\circ g = 0 = f \circ 0 \overset{f \text{ Mono}}{\Longrightarrow} g=0
+		$$
+		\item $\coim f = \coker(0 \to A) = (A, \id_A)$, denn 
+		$$\begin{tikzcd}
+		0 \arrow{r} & A \arrow{dr}{g} \arrow{r}{\id_A} & A \arrow[red, dashed]{d}{g}\\
+		& & C
+		\end{tikzcd}
+		$$
+		Analog ist $\im f = (A', \id_{A'})$, also ist $\bar f = f $ ein Isomorphismus nach (Ab2).
+	\end{itemize}
+\end{proof}
+\begin{bem}
+	Sei $\A$ eine abelsche Kategorie, $A,A' \in \ObA$, $f:A \to A'$. Dann gilt:
+	\begin{enumerate}[label= \alph*)]
+		\item $f$ Monomorphismus $\Lra \ker f =0$
+		\item $f$ Epimorphismus $\Lra \coker f = 0$
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	Übungsaufgabe.
+\end{proof}
+\begin{df}
+	Sei $\A$ eine abelsche Kategorie, $A,A', A''\in \ObA$.
+	$$\begin{tikzcd}
+	A' \arrow{r}{f} & A \arrow{r}{g} & A''
+	\end{tikzcd}$$
+	heißt eine "'exakte Folge"' $\Lra \im f \cong \ker g$ in dem Sinne, dass es einen Isomorphismus
+	$\im f \overset{\alpha}{\longrightarrow} \ker g$ gibt, sodass das Diagramm
+	$$\begin{tikzcd}
+	& A & \\
+	\im f \arrow{ur}{\iota'} \arrow{rr}{\alpha} & & \ker g \arrow{ul}{\iota}
+	\end{tikzcd}$$
+	kommutiert (wobei ($\ker g, \iota)$ Kern von $g$, ($\im f, \iota'$) Bild von $f$)
+\end{df}
+\begin{sa}
+	Sei $\A$ eine abelsche Kategorie. Dann gilt:
+	\begin{enumerate}[label= \alph*)]
+		\item In $\A$ gilt das Fünferlemme
+		\item In $\A$ gilt das Schlangenlemma
+		\item Eine Folge $\begin{tikzcd}
+		M' \arrow{r}{f} & M' \arrow{r}{g} & M'' \arrow{r} & 0
+		\end{tikzcd}$ in $\A$ ist genau dann exakte, wenn für jedes Objekt $N\in \ObA$ die Folge abelscher Gruppen 
+		$$\begin{tikzcd}
+		0 \arrow{r}& \Hom_\A(M'', N) \arrow{r} & \Hom_\A(M,N) \arrow{r} & \Hom_\A(M', N)
+		\end{tikzcd}$$
+		exakte ist.
+		\item Eine Folge $\begin{tikzcd}
+		0 \arrow{r}& \arrow{r} & N' \arrow{r} & N \arrow{r}& N''
+		\end{tikzcd}$ in $\A$ ist genau dann exakte, wenn für jedes $M\in \ObA$ die Folge abelscher Gruppen
+		$$\begin{tikzcd}
+		0 \arrow{r}& \Hom_\A(M, N') \arrow{r} & \Hom_\A(M,N) \arrow{r} & \Hom_\A(M, N'')
+		\end{tikzcd}$$
+		exakt ist.
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	$a)$ Stacks-Project: 12.5.17, $b)$ 12.5.20\\
+	$c), \, d)$ werden in 2.6 für $R$-Mod bewiesen.
+\end{proof}
+\begin{df}
+	Seien $\A$, $\mathcal{B}$ abelsche Kategorien, $F: \A \to \mathcal{B}$ ein additiver Funktor. $F$ heißt 
+	\begin{enumerate}
+		\item[] "'exakt"' $\defi$ $F$ überführt kurze exakte Folgen in $\A$ in kurze exakte Folgen in $\Bbbk$
+		\item[] "'linksexakt"' $\defi$ Für jede exakte Folge $\begin{tikzcd}
+		0 \arrow{r} & M' \arrow{r} & M \arrow{r} & M''
+		\end{tikzcd}$ in $\A$ ist die Folge $$\begin{tikzcd}
+		0 \arrow{r} & FM' \arrow{r} & FM \arrow{r} & FM''
+		\end{tikzcd}$$ exakt
+		\item[] "'rechtsexakt"' $\defi$ Für jede exakte Folge $\begin{tikzcd}
+		M' \arrow{r} & M \arrow{r} & M'' \arrow{r} & 0
+		\end{tikzcd}$ in $\A$ ist die Folge
+		$$\begin{tikzcd}
+		FM' \arrow{r} & FM \arrow{r} & FM''  \arrow{r} & 0
+		\end{tikzcd}$$
+		exakt.
+	\end{enumerate}
+\end{df}
+\begin{anm}
+	$F$ ist exakt $\defi F$ ist links- und rechtsexakt $\Lra$ Für alle exakten Folgen $\begin{tikzcd}
+	A' \arrow{r} & A \arrow{r} & A''
+	\end{tikzcd}$ in $\mathcal{A}$ ist $\begin{tikzcd}
+	FA' \arrow{r} & FA \arrow{r} & FA''
+	\end{tikzcd}$ exakt (Übung)
+\end{anm}
+\begin{df}
+	Sei $\mathcal{A}$ eine abelsche Kategorie, $I,P \in \ObA$. $I$ heißt
+	\begin{enumerate}
+		\item[] 
+		 \begin{minipage}[t]{0.7\textwidth}
+		"'injektiv"' $\defi$ Für jeden Monomorphismus $\iota: A \hookrightarrow B$ und jeden Morphismus $f: A \to I$ existiert ein Morphismus $g:B \to I$ mit $g\circ \iota = f$, d.h. $\iota_I^*: \Hom_\A(B,I) \to \Hom_\A(A,I)$ ist surjektiv.	
+		\end{minipage}
+		\begin{minipage}[t]{0.3\textwidth} 
+			$$\begin{tikzcd}
+			A \arrow[hook]{r}{\iota} \arrow{d}{f} & B\arrow[dash]{dl}{g} \\
+			I & 
+			\end{tikzcd}$$
+		\end{minipage}
+	\end{enumerate}
+	$P$ heißt
+	\begin{enumerate}
+
+	\item[] \begin{minipage}[t]{0.7\textwidth}
+		"'projektiv"' $\defi$ $P$ ist injektiv in $\A^\text{op}$, d.h. für jeden Epimorphismus $p: B\twoheadrightarrow A$ und jeden Morphismus $f:P \to A$ existiert ein Morphismus $g:P \to B$ mit $p \circ g = f$
+	\end{minipage}
+	\begin{minipage}[t]{0.3\textwidth} 
+		$$\begin{tikzcd}
+		& P\arrow[dashed, swap]{dl}{g} \arrow{d}{f} \\
+		B \arrow[swap]{r}{p} & A
+		\end{tikzcd}$$
+	\end{minipage}
+	\end{enumerate}
+\end{df}
+\begin{bem}
+	Sei $\A$ eine abelsche Kategorie, $I\in \ObA$. Dann sind äquivalent:
+	\begin{enumerate}[label= \roman*)]
+		\item $I$ ist injektiv
+		\item Der Funktor $\Hom_\A(-, I): \A^\text{op} \to \Z$-Mod ist exakt
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	Nach 2.5.26 $c)$ ist für alle exakten Folgen $\begin{tikzcd}
+	A' \arrow{r} & A \arrow{r} & A'' \arrow{r} & 0
+	\end{tikzcd}$ in $\A$ ist auch die Folge
+	$$\begin{tikzcd}
+	0 \arrow{r}& \Hom_\A(A'', I) \arrow{r} & \Hom_\A(A,I) \arrow{r} & \Hom_\A(A',I)
+	\end{tikzcd}$$
+	exakt. Somit genügt es zu zeigen, dass $I$ injektiv $\Lra$ Für alle exakten Folgen\\ $\begin{tikzcd}
+	0 \arrow{r} & A \arrow{r}{\iota} & A
+	\end{tikzcd}$ in $\A$ ist 
+	$$\begin{tikzcd}
+	\Hom_\A(A,I) \arrow{r}{\iota_I^*} & \Hom_\A(A', I) \arrow{r} & 0
+	\end{tikzcd}$$
+	eine exakte Folge in $\Z$-Mod, d.h. $\iota_I^*:\Hom_\A(A,I) \longrightarrow \Hom_\A(A',I)$ ist surjektiv. Die Exaktheit von  $\begin{tikzcd}
+	0 \arrow{r} & A \arrow{r}{\iota} & A
+	\end{tikzcd}$ ist äquivalent dazu, dass $\iota$ ein Monomorphismus ist.
+\end{proof}
+\begin{bem}
+	Sei $\A$ eine abelsche Kategorie, $P\in \ObA$. Dann sind äquivalent:
+	\begin{enumerate}[label= \roman*)]
+		\item $P$ ist projektiv
+		\item Der Funktor $\Hom_\A(P,-): \A \to \Z$-Mod ist exakt.
+	\end{enumerate}
+\end{bem}
+\begin{df}
+	Seien $\mathcal{C}, \mathcal{D}$  (additive) Kategorien, $F: \mathcal{C} \to \mathcal{D}$, $G: \mathcal{D} \to \mathcal{C}$ (additive) Funktoren. Dann heißt $F$ "'linksadjungiert"' zu $G$ (und $G$ "'rechtsadjungiert"' zu $F$) $\defi$ Es gibt eine natürliche Äquivalenz
+	$$\Mor_\mathcal{C}(-, G -) \iso \Mor_\mathcal{D}( F -, -)$$
+	von Bifunktoren $\mathcal{C}^\text{op} \times \mathcal{D} \to$ Mengen (bzw. $\mathcal{C}^\text{op} \times \mathcal{D} \to \Z$-Mod im additiven Fall).\\
+	Notation: $F $ \rotatebox{90}{$\perp$} $G$
+\end{df}
+\begin{bsp}
+	$F: \text{Mengen} \to K$-VR, $M\mapsto K^{(M)}$, $G: K$-VR $ \to$ Mengen der Vergissfunktor. Es ist $$\Mor_{\text{Mengen}}(M,V) \underset{\text{Bij.}}{\iso} \Mor_{K\text{-VR}}(K^{(M)} , V)$$
+	für alle Mengen $M$ und $K$-VR, wobei die naheliegenden Diagramme kommutieren, d.h. wir haben eine natürliche Äquvalent.
+	$$\Mor_\text{Mengen}(-, G-) \iso \Mor_{K\text{-VR}}(F -, -)$$
+	also $F$ \rotatebox{90}{$\perp$} $G$.
+\end{bsp}
+\begin{sa}
+	Seien $\A, \mathcal{B}$ abelsche Kategorien, $f:\A \to \mathcal{B}, \, G: \mathcal{B} \to \A$ additive Funktoren mit $F$ \rotatebox{90}{$\perp$} $G$. Dann gilt:
+	\begin{enumerate}[label= \alph*)]
+		\item $F$ ist rechtsexakt
+		\item Ist $F$ exakt, dann überführt $G$ injektive Objekte aus $\mathcal{B}$ in injektive Objekte aus $\A$.
+		\item $G$ ist linksexakt
+		\item Ist $G$ exakt, dann überführt $F$ projektive Objekte aus $\A$ in projektive Objekte aus $\mathcal{B}$.
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	\begin{enumerate}[label= \alph*)]
+		\item Sei $\begin{tikzcd}
+		A' \arrow{r} & A \arrow{r} & A'' \arrow{r} & 0
+		\end{tikzcd}$ eine exakte Folge in $\A$. Nach 5.26 $c)$ ist 
+			$$\begin{tikzcd}
+		0 \arrow{r}& \Hom_\A(A'', GB) \arrow{r} & \Hom_\A(A,GB) \arrow{r} & \Hom_\A(A',GB)
+		\end{tikzcd}$$
+		exakt für alle $B\in \text{Ob }\mathcal{B}$ und , da $F$  \rotatebox{90}{$\perp$} $G$ ist
+		$$\begin{tikzcd}
+		0 \arrow{r}& \Hom_\mathcal{B}(FA'', B) \arrow{r} & \Hom_\mathcal{B}(FA,B) \arrow{r} & \Hom_\mathcal{B}(FA',B)
+		\end{tikzcd}$$
+		exakt für alle $B\in \text{Ob }\mathcal{B}$. Damit ist nach 5.26 $c)$
+		$$\begin{tikzcd}
+		FA' \arrow{r} & FA \arrow{r} & FA'' \arrow{r} & 0
+		\end{tikzcd}$$
+		exakt.
+		\item Sei $I\in \text{Ob } \mathcal{B}$ injektiv.
+		 TODO
+	\end{enumerate}
+\end{proof}
