@@ -642,3 +642,163 @@
 		 TODO
 	\end{enumerate}
 \end{proof}
+\begin{df}
+	Seien $\mathcal{C}, \mathcal{D} $ Kategorien, $F: \mathcal{C} \to \mathcal{D} $ ein Funktor. $F$ heißt "'volltreu "' $\defi $ Für alle $A,B \in \ObC $ ist die Abb $Mor_{\mathcal{C}}(A,B) \to Mor_{\mathcal{D}}(FA,FB), f \mapsto F(f) $ bijektiv.
+\end{df}
+\begin{sa}
+	(Einbettungssatz von Freyd-Mitchell) Sei $\mathcal{A} $ eine abelsche Kategorie (dh. $\ObA$ ist eine Menge) Dann existiert ein Ring $R$ und ein volltreuer exakter Funktor $F: \mathcal{A} \to R-Mod $
+\end{sa}
+\begin{anm}
+	\begin{itemize}
+		\item $F$ induziert eine Äquivalenz zwischen $\mathcal{A}$ und einer vollen Unterkategorie von $R-Mod $ ( das heißt $\mathcal{C} $ ist eine Unterkategorie von $R-Mod $ mit $ Hom_{\mathcal{C}}(A,B)= Hom_{R-Mod}(A,B) $ für alle $ A,B \in \ObC$)
+		\item In $\mathcal{A} $ berechnete Kerne und Kokerne entsprechen über diese Äquivalenz Kernen und Kokernen in $R-Mod$. ( Achtung: injektive/projektive Objekte korrespondieren im Allgemeinen nicht zu injektiven/projektiven $R-Moduln$)
+	\end{itemize}
+\end{anm}
+\newpage 
+\subsection{Projektive und Injektive Moduln}
+%hier fehlen überall die striche bei restklassen
+\begin{sa}
+	Sei $\begin{tikzcd}
+	0  \arrow{r} & N' \arrow{r}{f} & N \arrow{r}{g} & N'' \arrow{r} & 0
+	\end{tikzcd} $ eine Folge von $R$-Moduln. Dann sind äquivalent: 
+	\begin{enumerate} [label= \roman*)]
+		\item $\begin{tikzcd}
+		0  \arrow{r} & N' \arrow{r}{f} & N \arrow{r}{g} & N'' 
+		\end{tikzcd} $ ist exakt
+		\item Für jeden $R$-Modul $M$ ist die Sequenz abelscher Gruppen  $$\begin{tikzcd}
+		0  \arrow{r} & Hom_{R}(M,N') \arrow{r}{f_{*}^{M}} & Hom_{R}(M,N)  \arrow{r}{g_{*}^{M}} & Hom_{R}(M,N'') \arrow{r} & 0
+		\end{tikzcd} $$ ist exakt.
+	\end{enumerate}
+	insbesondere ist der Funktor $Hom_R(M,-): R-Mod \to \Z-Mod $ linksexakt
+\end{sa}
+\begin{proof}
+	$(i) \Ra (ii)$ Sei $\begin{tikzcd}
+	0  \arrow{r} & N' \arrow{r}{f} & N \arrow{r}{g} & N'' 
+	\end{tikzcd} $ exakt. 
+	\begin{enumerate}
+		\item Injektivität von $f_{*}^{M}: $ Sei $ \phi \in Hom_{R}(M,N')$ mit $f_{*}^{M}(\phi) = 0 \Ra f \circ \phi = 0 \overset{f injektiv}{\Ra} \phi = 0$, also $ \ker f_{*}^{M} = 0$
+		\item $\im f_{*}^{M} = \ker g_{*}^{M},$ \\
+		"$\subseteq$"' Es  ist $g_{*}^{M} \circ f_{*}^{M} = (g \circ f)_{*}^{M} = O_{*}^{M} = 0$, also $\im f_{*}^{M} \subseteq \ker g_{*}^{M},$ \\
+		"$\supseteq$ "' 
+		%hier fehlt was
+		Sei $\phi: M \to N $ mit $ \phi \in  g_{*}^{M} \Ra g \circ \phi = 0 \Ra \im \phi  \subseteq \ker g = \im f. $ Setze $\phi^{'}: M \to \im \phi \to \im f  \to N' \Ra \phi^{'} \in Hom_{R}(M,N') $ mit $ f \circ \phi^{'} = \phi \Ra \phi \in \im f_{*}^{M}$.
+	\end{enumerate}
+	$(ii) \Ra (i)$ Sei $\begin{tikzcd}
+	0  \arrow{r} & Hom_{R}(M,N') \arrow{r}{f_{*}^{M}} & Hom_{R}(M,N)  \arrow{r}{g_{*}^{M}} & Hom_{R}(M,N'') \arrow{r} & 0
+	\end{tikzcd} $ exakt für alle $R$-Moduln $M$.
+	\begin{enumerate}
+		\item $f$ injektiv: Setze $M := \ker f , \iota: \ker f \to N' $ Inkusion $\Ra f_{*}^{M}(\iota)  = f \circ \iota = 0  \underset{f_{*}^{M} inj.}{\Ra} \iota = 0 \Ra \ker f = 0$
+		\item $\im f = \ker g: $ \\
+		"$\subseteq$"' Setze $M := N' \Ra 0 = 0_{*}^{M}(id_{N'}) = (g_{*}^{M} \circ f_{*}^{M}) (id_{N'}) = ((g \circ f)_{*}^{M})(id_{N'}) = g \circ f \circ id_{N'} = g \circ f $ \\
+		"$\supseteq$ "'Setze $M := \ker g , \iota: \ker g \to N \Ra g_{*}^{M} (\iota) = g \circ \iota = 0 \Ra i \in \im f_{*}^{M} \Ra$ Es existiert ein $\phi: \ker g \to N' $ mit $ f \circ \phi = \iota. $ Somit: $ x \in \ker g \Ra x = \iota(x) = f(\phi(x)) \in \im f.$
+	\end{enumerate}
+\end{proof}
+\begin{anm}
+	Der Funktor $Hom_R(M,-) $ ist im Allgemeinen nicht exakt.
+\end{anm}
+\begin{bsp}
+	Sei $ R = \Z  ,M = \QR{\Z}{2\Z}. $ Wir betrachten die exakte Sequenz  \\ $\begin{tikzcd}
+	0  \arrow{r} & \Z \arrow{r} & \Z \arrow{r} & \QR{\Z}{2\Z} \arrow{r} & 0
+	\end{tikzcd} $ von $\Z$-Moduln  mit $f: \Z \to \Z, x \mapsto 2x, \pi $ kanonische projektion. Die Abbildung $ \pi_{*}^{M}: Hom_{\Z}(\QR{\Z}{2\Z}, \Z) \to Hom_{\Z}(\QR{\Z}{2\Z},\QR{\Z}{2\Z} ) $ ist nicht surjektiv, denn:  Für $ \phi \in Hom_{\Z}(\QR{\Z}{2\Z}, \Z) $ gilt: $0 = \phi(0) = \phi( 1 +1) = \phi(2*1) = 2\phi(1)$, also $ \phi(1)= 0$, das heißt $\phi = 0$. Insbesondere ist $\pi_{*}^{M}(\phi) = \pi_{*}^{M}(0) =0 = id_{\QR{\Z}{2\Z}} . $ Mit anderen Worten $\QR{\Z}{2\Z}$ ist kein projektiver $\Z$-Modul. 
+\end{bsp}
+\begin{sa}
+	Sei $P$ ein $R$-Modul. Dann sind äquivalent:
+	\begin{enumerate} [label= \roman*)]
+		\item $P$ ist ein projektiver $R$-Modul 
+		\item $Hom_R(P,-): R-Mod \to \Z-Mod $ist exakt.
+		\item Für jeden Epimorphisumus $ \pi: M \to N $ von $R$-Moduln und jeden Hom $ \phi: P \to N $ existiert ein Homomorphismus $\psi: P \to M $ mit $ \pi \circ \psi = \phi$
+		%hier fehlt diagramm  1
+		\item Jede kurze exakte Sequenz $\begin{tikzcd}
+		0  \arrow{r} & L \arrow{r}{f} & M \arrow{r}{g} & P \arrow{r} & 0
+		\end{tikzcd} $ von $R$-Moduln spaltet.
+		\item Es gibt einen $R$-Modl $P'$, sodass $ P \bigoplus P' $ ein freier $R$-Modul ist (das heißt $P$ ist direkter Summand eines freien $R$-Moduls )
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	$(i) \defi (ii) \defi (iii) $ folgt aus Definition 5.30. \\
+	$(iii) \Ra (iv) $ Sei $\begin{tikzcd}
+	0  \arrow{r} & L \arrow{r} & M \arrow{r} & P \arrow{r} & 0
+	\end{tikzcd} $
+	%hier fehlt diagramm 2
+	 eine kurze exakte Sequenz von $R$-Moduln. Nach $(iii)$ existiert ein Epimorphismus $ g: M \to P $ um zum Homomorphismus $id_P: P \to P $ ein Homomorphismus $ \psi: P \to M $  mit $ g \circ \psi = id_P$, das heißt die Sequenz spaltet. \\
+	$(iv) \Ra (v) $ Es existiert ein freier $R$-Modul $F$ und ein Epimorphismus $ f: F \to P $. Wir erhalten eine exakte Sequenz $\begin{tikzcd}
+	0  \arrow{r} & \ker f \arrow{r} & F \arrow{r} & P \arrow{r} & 0
+	\end{tikzcd} $, diese spaltet nach $(iv)$ , das heißt $ f \simeq P \bigoplus \ker f $
+	$(v) \Ra (iii)$ Sei $ \pi: M \to N$ ein Epimorphismus von $R$-Moduln, $\phi: P \to N $ ein Homomorphimus. 
+	%diagramm 
+	Wegen $(v)$ existiert ein $R$-Modul $P' $ sodass $F:= P \bigoplus P' $ frei ist, Setze $\phi': F \to N (x,y) \mapsto \phi(x). $ Sei $ (b_i)_{i \in I} $ eine Basis von F, wähle für $i \in I $ jeweils ein $ z_i \in \pi^{-1}(\phi'(b_i)) .$ Durch $\psi': F \to M , b_i \mapsto z_i $ wird ein Homomorphismus definiert mit $ \pi \circ \psi' = \phi'.$ Setze $\psi: P \to M , x \mapsto \psi'((x,0)) ,$ dann gilt für $x \in P: \pi(\psi(x)) = \pi(\psi'((x,0)))= \phi'((x,0)) = \phi(x) $ das heißt $\pi \circ \psi = \phi.$
+	%hier fehlt diargamm 3
+\end{proof}
+\begin{fo}
+	\begin{enumerate} [label= \alph*)]
+		\item Jeder freie $R$-Modul ist ein projektiver R-Modul
+		\item Jeder $R$-Modul ist ein Faktormodul eines projektiven $R$-Moduls. 
+	\end{enumerate}
+\end{fo}
+\begin{proof}
+	\begin{enumerate} [label= \alph*)]
+		\item klar nach 6.3
+		\item da jeder $R$-Modul Faktormodul eines freien $R$-Moduls ist. 
+	\end{enumerate}
+\end{proof}
+\begin{sa}
+	Sei $\begin{tikzcd}
+	 M' \arrow{r}{f} & M \arrow{r}{g} & M'' \arrow{r} & 0
+	\end{tikzcd} $ eine Sequenz von $R$-Moduln. Dann sind äquivalent:
+	\begin{enumerate} [label= \roman*)]
+		\item $\begin{tikzcd}
+		M' \arrow{r}{f} & M \arrow{r}{g} & M'' \arrow{r} & 0
+		\end{tikzcd} $ ist exakt.
+		\item Für jeden $R$-Modul $N$ ist die Sequenz abelscher Gruppen: \\
+		$\begin{tikzcd}
+		0  \arrow{r} & Hom_{R}(M'',N) \arrow{r}{g_{*}^{M}} & Hom_{R}(M,N)  \arrow{r}{f_{*}^{M}} & Hom_{R}(M',N) \end{tikzcd}$ exakt.
+	\end{enumerate}
+	Insbesondere ist der kovariante Funktor: $Hom_R(-,N): R-Mod \to \Z-Mod $ linksexakt.
+\end{sa}
+\begin{proof}
+	Übungsaufgabe.
+\end{proof}
+\begin{anm}
+	$Hom_R(-,N) $ ist im Allgemeinen nicht exakt.
+\end{anm}
+\begin{bsp}
+	Sei $ R= \Z , N = \Z $. Wir betrachten die exakte Sequenz \\
+	 $\begin{tikzcd}
+	0  \arrow{r} & \Z \arrow{r}{f} & \Z \arrow{r}{\pi} & \QR{\Z}{2\Z} \arrow{r} & 0
+	\end{tikzcd} $ von $\Z$-Moduln mit $f: \Z \to \Z , x \mapsto 2x, \pi $ kanomische Projektion. Die Abbildung $ f_{\Z}^{*} : Hom_{\Z}(\Z,\Z) \to Hom_{\Z}(\Z,\Z)$ ist nicht surjektiv, denn für alle $\phi \in Hom_{\Z}(\Z,\Z)$ ist $ (f_{\Z}^{*}(\phi))(x) = (\phi \circ f)(x) = \phi(2x) =2 \phi(x) \in 2\Z$, isbesondere ist $ f_{\Z}^{*}(\phi) \neq id_{\Z}. $ \\
+	Mit anderen Worten: $\Z$ ist kein injektiver $\Z$-Modul.
+\end{bsp}
+\begin{sa}
+	Sei $Q$ ein $R$-Modul. Dann sind äquivalent:
+	\begin{enumerate} [label= \roman*)]
+		\item $Q$ ist ein injektiver $R$-Modul 
+		\item $Hom_{R}(-,Q): R-Mod \to \Z-Mod $ ist exakt.
+		\item Für jeden Monomorphismus $\iota: L \to M $ von $R$-Moduln und jedem Homomorphismus $\phi: L \to Q $ exsistiert ein Homomorphismus $\psi: M \to Q $ von $R$-Moduln  mit $ \psi \circ \iota = \phi $
+		%hier fehlt Diagramm 4
+		\item Jede kurze exakte Sequenz $\begin{tikzcd}
+		0  \arrow{r} & Q \arrow{r} & M \arrow{r} & N \arrow{r} & 0
+		\end{tikzcd} $ von $R$-Moduln spaltet.
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	$(i) \defi (ii) \defi (iii) $ folgt aus 5.29 \\
+	$(iii) \Ra (iv) $ Sei $\begin{tikzcd}
+	0  \arrow{r} & L \arrow{r} & M \arrow{r} & P \arrow{r} & 0
+	\end{tikzcd} $ eine exakte Sequenz von $R$-Moduln.
+	%Diagramm 5
+	Nach $(iii)$ existiert zum Monomorphismus $f: Q \to M $ von $R$-Moduln und zum Homomorphismus $ id_Q : Q \to Q $ ein Homomorphismus $\psi: M \to Q$ mit $ \psi \circ f = id_Q $. das heißt die Sequenz spaltet. \\
+	$(iv) \Ra (iii) $ Sei $\iota : L \to M $ ein Monmorphismus, $ \phi: L \to Q $ ein Homomorphismus von $R$-Moduln. Setze $ S := \{ (\phi(x), \iota(x))| x \in L\} \subseteq Q \bigoplus M $(ist ein Untermodul). $M' := \QR{(Q \bigoplus M)}{S}, N := \QR{M}{\im \iota}, \pi: M \to n  $ kanonische Projektion. 
+	\begin{enumerate}
+		\item  Wir erhalten eine exakte Sequenz $\begin{tikzcd}	0  \arrow{r} & Q \arrow{r}{f} & M' \arrow{r}{g} & N \arrow{r} & 0 
+		%hier fehlt was
+		\end{tikzcd} $ von $R$-Moduln. denn: 
+			\begin{itemize}
+			\item $g$ ist wohldefiniert, denn:$\pi \circ \iota = 0$
+			\item $f$ ist injektiv, denn $ (y,0) = (0,0)  \Ra $ Es existiert ein $ x \in L $ mit $ y= \phi(x), 0 = - \iota(x) \overset{ \iota injektiv}{\Ra} x = 0 \Ra y = \phi(0) = 0 $
+			\item $g$ surjektiv, klar
+			\item $\im f = \ker g: $ "'$\subseteq$"' klar, wegen $g \circ f = 0 $ 
+			"'$\subseteqq$"' Sei $(y,z) \in \ker g \Ra \pi(z) = 0 \Ra z \in \im \iota,$ das heißt es existiert ein $ x \in L $  mit $ z = \iota(x) = -\iota(-x) \Ra (y,z) = (y, -\iota(-x)) = (y+\phi(x), 0) +(\phi(-x), -\iota(-x)) = (y+\phi(x), 0) = f(y+ \phi(x)) \in \im f.$
+		\end{itemize}
+	\item Wegen (iv) spaltet die Sequenz, das heißt es existiert ein R-Modulhomomorphisumus $ h: M \to Q $ mit $h \circ f = id_Q$. Setze $\psi: M \to Q, z \mapsto h((0,z)), \psi $ ist ein $R$-Modulhomomorphismus. Für $x \in L $ ist $(\psi \circ \iota)(x) = h((0,\iota(x))) = h((0, \iota(x))) + h(\phi(x),-\iota(x)) = H((\phi(x),0)) = h(f(\phi(x))) = \phi(x). \Ra \psi \circ \iota = \phi. $
+	\end{enumerate}
+\end{proof}
