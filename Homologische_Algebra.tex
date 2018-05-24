@@ -831,27 +831,49 @@
 	\begin{enumerate} [label= \roman*)]
 		\item $Q$ ist ein injektiver $R$-Modul
 		\item Für jedes Linksideal $I \subseteq R $ und jede $R$-lineare Abbildung $\phi: I \to Q $ existiert eine $R$-lineare Abbildung $\psi: R \to Q $ mit $ \psi = \phi$. 
-		%Diagramm
+		$$\begin{tikzcd}
+		I \arrow[hook]{r}\arrow[swap]{d}{\phi} & R\arrow[dashed]{dl}{\psi} \\Q &
+		\end{tikzcd}$$
 	\end{enumerate}
 \end{sa}
 \begin{proof}
-	$(i) \Ra (ii) $ Betrachte Diagramm ... Da $Q$ injektiv, Exsistert ein $R$-Modulhomomorphismus $\psi: R \to Q $ mit $ \phi = \psi \circ \iota = \psi$. 
-	$(ii) \Ra (i) $ Sei $\iota: L \to M $ ein Monomorphismus von $R$-Moduln, $\phi: L \to Q $. Ohne Einschränkung sei $L \subseteq M $ ein Untermodul, $\iota$ Inklusionsabbildung. 
+	$(i) \Ra (ii) $ Betrachte Diagramm
+	$$\begin{tikzcd}
+	I \arrow[hook]{r}{\sim}\arrow[swap]{d}{\phi} & R\arrow[dashed]{dl}{\psi} \\Q &
+	\end{tikzcd}$$  Da $Q$ injektiv, Exsistert ein $R$-Modulhomomorphismus $\psi: R \to Q $ mit $ \phi = \psi \circ \iota = \psi$. 
+	$(ii) \Ra (i) $ Sei $\iota: L \to M $ ein Monomorphismus von $R$-Moduln, $\phi: L \to Q $.
+	$$\begin{tikzcd}
+	L \arrow{r}{\sim}\arrow[swap]{d}{\phi} & M\arrow[dashed]{dl}{?} \\Q &
+	\end{tikzcd}$$ 
+	 Ohne Einschränkung sei $L \subseteq M $ ein Untermodul, $\iota$ Inklusionsabbildung. 
 	\begin{enumerate}
-		\item Setze $\mathcal{X} := \{ (L',\phi')| L' \subseteq M \text{Untermodul mit } L \subseteq L' , \phi': L' \to Q R-linear mit \phi'|L = \phi\}, \mathcal{X} \neq \emptyset,$ denn: $ (L,\phi) \in \mathcal{X} $. Auf $\mathcal{X} $ ist Halbordung "Kleinergleich" durch $$ (L', \phi') \text{kleinergleich} (L'',\phi'') \defi L' \subseteq L'', \phi''|_{L'} = \phi' $$ erklärt. $\mathcal{X} $ ist induktiv geordnet bzgl "kleinergleich", denn: 
-		Sei $ (L_i,\phi_i)_{i \in I } $ eine Totalgeordnete Familie von Elementen aus $\mathcal{X}. $ Setze $ L' := \bigcup_{i \in I} L_i$. $L'$ ist Untermodul von $M$ ( beachte: $a,b \in L' \Ra $ Es exsistieren $i,j$ mit $ a \in L_i, b \in L_j, $ohne Einschränkung: $ L_i \subseteq L_j  \Ra a+b \in L_j \subseteq L' $) und es ist $L \subseteq L'.$ Außerdem kann die $R$-lineare Abbildung $\phi':L' \to Q $ mit $\phi'|_{L_i} := \phi_i $ für alle $i \in I $ definieren. (wohldefiniert, denn: Für $i,j \in I$, ohne Einschränkung: $(L_i,\phi_i) \subseteq (L_j, \phi_j) $ ist $\phi_j|_{L_i} = \phi _i)$ $\Ra  (L',\phi') $ ist obere Schranke für die Familie$(L_i,\phi_i)_{i \in I}. $ Mit dem Zornshen Lemma folgt, dass ein maximales Element $(L',\phi')$ in $\mathcal{X}$ exsitiert.
+		\item Setze $\mathcal{X} := \{ (L',\phi')|\, L' \subseteq M \text{ Untermodul mit } L \subseteq L' , \phi': L' \to Q$ $R$-linear mit $\phi'\big|_L = \phi\}$. Dann ist $\mathcal{X} \neq \emptyset,$ denn: $ (L,\phi) \in \mathcal{X} $. Auf $\mathcal{X} $ ist die  Halbordung "'$\leq$"' durch $$ (L', \phi') \leq (L'',\phi'') \defi L' \subseteq L'',\, \phi''\big|_{L'} = \phi' $$ erklärt. $\mathcal{X} $ ist induktiv geordnet bzgl "'$\leq$"', denn: 
+		Sei $ (L_i,\phi_i)_{i \in I } $ eine totalgeordnete Familie von Elementen aus $\mathcal{X}. $ Setze $ L' := \bigcup_{i \in I} L_i$. $L'$ ist Untermodul von $M$ ( beachte: $a,b \in L' \Ra $ Es existieren $i,j$ mit $ a \in L_i, b \in L_j, $ohne Einschränkung: $ L_i \subseteq L_j  \Ra a+b \in L_j \subseteq L' $) und es ist $L \subseteq L'.$ Außerdem kann die $R$-lineare Abbildung $\phi':L' \to Q $ mit $\phi'|_{L_i} := \phi_i $ für alle $i \in I $ definieren. (wohldefiniert, denn: Für $i,j \in I$, ohne Einschränkung: $(L_i,\phi_i) \subseteq (L_j, \phi_j) $ ist $\phi_j|_{L_i} = \phi _i)$ $\Ra  (L',\phi') $ ist obere Schranke für die Familie$(L_i,\phi_i)_{i \in I}. $ Mit dem Zornshen Lemma folgt, dass ein maximales Element $(L',\phi')$ in $\mathcal{X}$ exsitiert.
 		\item Behauptung: $L' = M $, denn: \\
-		Sei $x \in M $. Setze $I:= \{a \in R| ax \in L'\} \subseteq R. I $ ist Linksidealin $R$, und die Abbildung $f:I \to Q, a \mapsto \phi'(ax) $ ist $R$-linear. Mit (ii) folgt, dass eine $R$-lineare Abbilgung $g:R \to Q $ mit $ g|_I=f. $ Setze: $\psi': L' \oplus R \to Q, (y,a) \mapsto \phi'(y) + g(a) $ und $\pi: L' \oplus R \to M, (y,a) \mapsto y +ax$, welche beide $r$-Modulhomomorphismen sind. Es ist $\psi'(\ker\pi) = 0$, denn für $(y,a) \in \ker\pi$ ist $ y+ax=0, also ax=-y \in L'$, das heißt $a \in I, also g(a)=f(a)=\phi'(ax)=\phi'(-y) = -\phi'(y) $und somit $\psi'(y,a) = \phi'(y)+g(a) = 0 \Ra \psi'$ induziert $R$-Modulhomomorphismus $\QR{L' \oplus R}{\ker\pi} \to Q, (y,a) \mapsto \phi'(y)+g(a). $ Außerdem ist $L'+Rx = \im\pi \simeq \QR{L' \oplus R}{\ker\pi} $ via $y+ax \mapsto (y,a)$. Wir erhalten den Homomorphismus $\psi:L'+Rx \to Q $ mit $\psi(y+ax) = \phi'(y)+g(a) $ für alle $a \in R, y \in L' $, das heißt $\psi|_{L'} = \phi' \Ra (L',\phi') $ kleinergleich $ (L'+Rx, \psi) $ Wegen $(L',\phi') $ maximal folgt dass $ L'=L'+Rx \Ra x \in L' $. Somit $M \subseteq L' \subseteq M, $ also $M = L'$.
+		\begin{minipage}[t]{0.7\textwidth}
+		Sei $x \in M $. Setze $I:= \{a \in R|\, ax \in L'\} \subseteq R. I $ ist Linksideal in $R$, und die Abbildung $f:I \to Q, a \mapsto \phi'(ax) $ ist $R$-linear. Mit (ii) folgt, dass eine $R$-lineare Abbildung $g:R \to Q $ mit $ g|_I=f. $ Setze:
+		\end{minipage}
+		\begin{minipage}[t]{0.3\textwidth} 
+			$$\begin{tikzcd}
+			I \arrow[hook]{r} \arrow{d}{f}& R \arrow[dashed,red]{dl}{g}\\ Q &
+			\end{tikzcd}$$
+		\end{minipage}
+	 $$\psi': L' \oplus R \to Q,\quad (y,a) \mapsto \phi'(y) + g(a) $$
+	und 
+	$$\pi: L' \oplus R \to M,\quad(y,a) \mapsto y +ax$$
+		welche beide $r$-Modulhomomorphismen sind. Es ist $\psi'(\ker\pi) = 0$, denn für $(y,a) \in \ker\pi$ ist $ y+ax=0, also ax=-y \in L'$, das heißt $a \in I, also g(a)=f(a)=\phi'(ax)=\phi'(-y) = -\phi'(y) $und somit $\psi'(y,a) = \phi'(y)+g(a) = 0 \Ra \psi'$ induziert $R$-Modulhomomorphismus $$\QR{L' \oplus R}{\ker\pi} \to Q, \quad(y,a) \mapsto \phi'(y)+g(a)$$
+		 Außerdem ist $$L'+Rx = \im\pi \simeq \QR{L' \oplus R}{\ker\pi} \quad \text{via}\quad y+ax \mapsto (y,a)$$
+		 Wir erhalten den Homomorphismus $$\psi:L'+Rx \to Q \quad \text{mit} \quad\psi(y+ax) = \phi'(y)+g(a) $$ für alle $a \in R, y \in L' $, das heißt $\psi|_{L'} = \phi' \Ra (L',\phi') \leq (L'+Rx, \psi) $ Wegen $(L',\phi') $ maximal folgt dass $ L'=L'+Rx \Ra x \in L' $. Somit $M \subseteq L' \subseteq M, $ also $M = L'$.
 	\end{enumerate}
 \end{proof}
 \begin{df}
-	Sei $A$ ein Integritätsbereich(kommutativer nullteilerfreier Ring), $M$ ein $A$-Modul. $M$ heißt "teilbar" $\defi$ Für alle $a\in A $ohne 0 ist $ aM=M. \defi$ Für alle $x \in M, a \in A$ ohne 0 existiert ein $y\in M $ mit $x=ay$.
+	Sei $A$ ein Integritätsbereich (kommutativer nullteilerfreier Ring), $M$ ein $A$-Modul. $M$ heißt "teilbar" $\defi$ Für alle $a\in A \backslash \{0\}$ ist $ aM=M. \Lra$ Für alle $x \in M, a \in A$ ohne 0 existiert ein $y\in M $ mit $x=ay$.
 \end{df}
 \begin{bem}
 	Sei $A$ ein Integritätsbereich, $M$ ein injektiver $A$-Modul. Dann ist $M$ teilbar.
 \end{bem}
 \begin{proof}
-	Sei $x \in M , a \in A $ ohne 0 . Wir betrachten die Abbildung $\phi: Aa \to m, ra \mapsto rx, \phi $ ist wohldefiniert, denn: $ r_1a= r_2a \Ra (r_1-r_2)a =0 $ Da $A$ nullterilerfrei ist folgt $r_1=r_2 $. $ \phi$ ist $A$-linear, so folgt mit Satz 6.9, dass eine $A$-lineare Abbildung $\psi: A \to M $ mit $\psi|_{Aa} = \phi$. Setze $y:= \psi(1)$, dann ist $ x = \phi(a)=\psi(a) = \psi(a 1) = a\psi(1)=ay.$
+	Sei $x \in M , a \in A $ ohne 0 . Wir betrachten die Abbildung $$\phi: Aa \to m, ra \mapsto rx$$ $\phi$ ist wohldefiniert, denn: $ r_1a= r_2a \Ra (r_1-r_2)a =0 $ Da $A$ nullterilerfrei ist folgt $r_1=r_2 $. $ \phi$ ist $A$-linear, so folgt mit Satz 6.9, dass eine $A$-lineare Abbildung $\psi: A \to M $ mit $\psi|_{Aa} = \phi$. Setze $y:= \psi(1)$, dann ist $ x = \phi(a)=\psi(a) = \psi(a 1) = a\psi(1)=ay.$
 \end{proof}
 \begin{bem}
 	Sei $A$ ein Hauptidealring, $M$ ein $A$-Modul. Dann sind äquivalent: 
@@ -862,12 +884,13 @@
 \end{bem}
 \begin{proof}
 	$(i) \Ra (ii) $ aus 6.11 \\
-	$(ii) \Ra (i) $ Sei $ I \subseteq A $ ein Ideal, $\phi: I \to M $ $A$ linear. Falls $ I = 0 $, dann wird $\phi $ durch die Nullabbildung nach $A$ fortgesetzt. Im Folgendem sein $ I \neq 0 $. Da $A$ ein Hauptidealring ist, existieren $ a\in A, a\neq 0 $ mit $I =Aa$. Setze $ x:= \phi(a) \Ra \phi(ra)=r\phi(a) = rx $ für alle$ r \in A$. Wegen (ii) existiert ein $y \in M $ mit $ x = ay $. Setze $\psi: A \to M, r \mapsto ry \Ra \psi$ ist $A$-linear und $ \psi(ra)=  ray = rx = \phi(ra) $ für alle $r \in A $ das heißt $\psi|_{Aa} = \phi.$ Dann folgt aus 6.9 $M$ ist injektiv. 
+	$(ii) \Ra (i) $ Sei $ I \subseteq A $ ein Ideal, $\phi: I \to M $ $A$ linear. Falls $ I = 0 $, dann wird $\phi $ durch die Nullabbildung nach $A$ fortgesetzt. Im Folgendem sein $ I \neq 0 $. Da $A$ ein Hauptidealring ist, existieren $ a\in A, a\neq 0 $ mit $I =Aa$. Setze $ x:= \phi(a) \Ra \phi(ra)=r\phi(a) = rx $ für alle$ r \in A$. Wegen (ii) existiert ein $y \in M $ mit $ x = ay $. Setze $$\psi: A \to M,\quad  r \mapsto ry$$
+	Dann ist $\psi$ $A$-linear und $ \psi(ra)=  ray = rx = \phi(ra) $ für alle $r \in A $ das heißt $\psi|_{Aa} = \phi.$ Dann folgt aus 6.9 $M$ ist injektiv. 
 \end{proof}
 \begin{bsp}
 	\begin{enumerate} [label= \alph*)]
-		\item Sei $K$ ein Körper, $V$ein $K$-VR $\Ra V$ ist teilbarer $K$-Modul, also injektiver $K$-Modul. Ist $charK = 0 $ dann ist $V$ teilbarer $\Z$-Modul, also injektiver $\Z$-Modul. 
-		\item Faktormoduln teilbarer $\Z$-Moduln sind Teilbar, somit sind Faktormoduln inketiver $\Z$-Moduln wieder injektive $\Z$-Moduln. 
+		\item Sei $K$ ein Körper, $V$ein $K$-VR $\Ra V$ ist teilbarer $K$-Modul, also injektiver $K$-Modul. Ist $\cha K = 0 $ dann ist $V$ teilbarer $\Z$-Modul, also injektiver $\Z$-Modul. 
+		\item Faktormoduln teilbarer $\Z$-Moduln sind teilbar, somit sind Faktormoduln inketiver $\Z$-Moduln wieder injektive $\Z$-Moduln. 
 		\item Nach (a) sind $\Q, \R $ injektive $\Z$-Moduln, nach (b) also auch $\QR{\Q}{\Z}, \QR{\R}{\Z}$
 	\end{enumerate}
 \end{bsp}
@@ -881,7 +904,7 @@
 	Sei $M$ ein injektiver $\Z$-Modul. Dann ist $Hom_{\Z}(R,M)$ ein injektiver $R$-Modul. Insbesondere ist $R^{v} := Hom_{\Z}(R, \QR{\Q}{\Z}) $ ein injektiver $R$-Modul.
 \end{bem}
 \begin{proof}
-	Sei $ I \subseteq R $ ein Linksideal, $\phi: I \to Hom_{\Z}(R,M) $ $R$-linear. Nach 6.9, genügt es zu zeigen: $\phi$ lässt sich auf $R$ fortsetzen. Setze $f: I \to M , a \mapsto \phi(a)(1), f $ ist $\Z$-linear und für $r \in R , a \in I $ gilt: $ f(ra) = \phi(ra)(1)= (r\phi(a))(1) = \phi(a)(1 r) = \phi(a)(r)$. Da $M$ ein injektiver $\Z$-Modul, existiert eine $\Z$-lineare Abbilsung $g: R \to M $ mit $g|_y=f $. Wir setzen $\psi: R \to Hom_{\Z}(R,M), a \mapsto ag $. $\psi$ ist $R$-linear, und für $a\in I, r \in R $ ist $\psi(a)(r) =(ag)(r) = g(ra) = f(ra) = \phi(a)(r)$, das heißt $\psi|_{I}=\phi.$
+	Sei $ I \subseteq R $ ein Linksideal, $\phi: I \to Hom_{\Z}(R,M) $ $R$-linear. Nach 6.9, genügt es zu zeigen: $\phi$ lässt sich auf $R$ fortsetzen. Setze $$f: I \to M ,\quad a \mapsto \phi(a)(1)$$ Dann ist $f $ ist $\Z$-linear und für $r \in R , a \in I $ gilt: $ f(ra) = \phi(ra)(1)= (r\phi(a))(1) = \phi(a)(1 r) = \phi(a)(r)$. Da $M$ ein injektiver $\Z$-Modul, existiert eine $\Z$-lineare Abbilsung $g: R \to M $ mit $g|_y=f $. Wir setzen $\psi: R \to Hom_{\Z}(R,M), a \mapsto ag $. $\psi$ ist $R$-linear, und für $a\in I, r \in R $ ist $\psi(a)(r) =(ag)(r) = g(ra) = f(ra) = \phi(a)(r)$, das heißt $\psi|_{I}=\phi.$
 \end{proof}
 \begin{df}
 	Sei $M$ ein $R$-Modul. $M$ heißt "kofrei"' $\defi$ Es existiert eine Menge $ I$ mit $M \simeq (R^{v})^I = \prod_{i \in I} R^{v} $.
@@ -907,8 +930,9 @@
 \end{bem}
 \begin{proof}
 	\begin{enumerate}
-		\item Die Abbildung $\theta: Hom_{\Z}(M ,\QR{\Q}{\Z}) \to Hom_{R}(M, R^{v}), \psi \mapsto (m \mapsto \phi_m: R \to \QR{\Q}{\Z}, r \mapsto \psi(rm))$. Ist ein Homomorphismus von $\Z$-Moduln (tatsächlich sogar ein Isomorphismus)
-		\item Ist $\psi: M \to \QR{\Q}{\Z} $ ein $\Z$-Modulhomomorphismus mit $ \psi(m) \neq 0$ dann ist $\theta(\psi)(m) = \phi_m \neq 0, wegen \phi_m(1)= \psi(m) \neq 0, $ das heißt: $\theta(\psi): M \to R^{v} $ ist ein $R$-Modulhomomorphismus mit $\theta(\psi)(m) \neq 0$
-		\item Nach 2 genügt es zu zeigen: Es existiert ein $\Z$-Modulhomomorphimus $\psi: M \to \QR{\Q}{\Z} $ mit $ \psi(m) \neq 0. $ Setze $N := <m>_{\Z}$. 1.Fall: $N \simeq \QR{\Z}{n\Z} $ für ein $n \in N $. Setze $\psi^{~}: N \to \QR{\Z}{n\Z} \to \QR{\Q}{\Z} $ mit $ 1 \mapsto \frac{1}{n} + \Z.$ $ \Ra \psi^{~}(m)\neq 0 $ und da $\QR{\Q}{\Z} $ injektiver $\Z$-Modul ist, setzt sich $\psi^{~} $ auf $M$ fort.
+		\item Die Abbildung $$\theta: \Hom_{\Z}(M ,\QR{\Q}{\Z}) \to \Hom_{R}(M, R^{v}), \psi \mapsto (m \mapsto \phi_m: R \to \QR{\Q}{\Z}, r \mapsto \psi(rm))$$
+		ist ein Homomorphismus von $\Z$-Moduln (tatsächlich sogar ein Isomorphismus).
+		\item Ist $\psi: M \to \QR{\Q}{\Z} $ ein $\Z$-Modulhomomorphismus mit $ \psi(m) \neq 0$ dann ist $\theta(\psi)(m) = \phi_m \neq 0$ wegen $\phi_m(1)= \psi(m) \neq 0, $ das heißt: $\theta(\psi): M \to R^{v} $ ist ein $R$-Modulhomomorphismus mit $\theta(\psi)(m) \neq 0$
+		\item Nach 2 genügt es zu zeigen: Es existiert ein $\Z$-Modulhomomorphimus $\psi: M \to \QR{\Q}{\Z} $ mit $ \psi(m) \neq 0. $ Setze $N := \langle m\rangle_{\Z}$. 1.Fall: $N \simeq \QR{\Z}{n\Z} $ für ein $n \in N $. Setze $\psi^{~}: N \to \QR{\Z}{n\Z} \to \QR{\Q}{\Z} $ mit $ 1 \mapsto \frac{1}{n} + \Z.$ $ \Ra \psi^{~}(m)\neq 0 $ und da $\QR{\Q}{\Z} $ injektiver $\Z$-Modul ist, setzt sich $\psi^{~} $ auf $M$ fort.
 	\end{enumerate}, 
 \end{proof}
