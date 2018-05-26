@@ -798,7 +798,7 @@
 	\end{enumerate}
 \end{sa}
 \begin{proof}
-	$(i) \defi (ii) \defi (iii) $ folgt aus 5.29 \\
+	$(i) \Lra (ii) \Lra (iii) $ folgt aus 5.29 \\
 	$(iii) \Ra (iv) $ Sei $\begin{tikzcd}
 	0  \arrow{r} & L \arrow{r} & M \arrow{r} & P \arrow{r} & 0
 	\end{tikzcd} $ eine exakte Sequenz von $R$-Moduln.
@@ -830,7 +830,7 @@
 	Sei $Q$ ein $R$-Modul. Dann sind äquivalent: 
 	\begin{enumerate} [label= \roman*)]
 		\item $Q$ ist ein injektiver $R$-Modul
-		\item Für jedes Linksideal $I \subseteq R $ und jede $R$-lineare Abbildung $\phi: I \to Q $ existiert eine $R$-lineare Abbildung $\psi: R \to Q $ mit $ \psi = \phi$. 
+		\item Für jedes Linksideal $I \subseteq R $ und jede $R$-lineare Abbildung $\phi: I \to Q $ existiert eine $R$-lineare Abbildung $\psi: R \to Q $ mit $ \psi\big|_{I} = \phi$. 
 		$$\begin{tikzcd}
 		I \arrow[hook]{r}\arrow[swap]{d}{\phi} & R\arrow[dashed]{dl}{\psi} \\Q &
 		\end{tikzcd}$$
@@ -839,15 +839,15 @@
 \begin{proof}
 	$(i) \Ra (ii) $ Betrachte Diagramm
 	$$\begin{tikzcd}
-	I \arrow[hook]{r}{\sim}\arrow[swap]{d}{\phi} & R\arrow[dashed]{dl}{\psi} \\Q &
+	I \arrow[hook]{r}{\iota}\arrow[swap]{d}{\phi} & R\arrow[dashed]{dl}{\psi} \\Q &
 	\end{tikzcd}$$  Da $Q$ injektiv, Exsistert ein $R$-Modulhomomorphismus $\psi: R \to Q $ mit $ \phi = \psi \circ \iota = \psi$. 
 	$(ii) \Ra (i) $ Sei $\iota: L \to M $ ein Monomorphismus von $R$-Moduln, $\phi: L \to Q $.
 	$$\begin{tikzcd}
-	L \arrow{r}{\sim}\arrow[swap]{d}{\phi} & M\arrow[dashed]{dl}{?} \\Q &
+	L \arrow{r}{\iota}\arrow[swap]{d}{\phi} & M\arrow[dashed]{dl}{?} \\Q &
 	\end{tikzcd}$$ 
 	 Ohne Einschränkung sei $L \subseteq M $ ein Untermodul, $\iota$ Inklusionsabbildung. 
 	\begin{enumerate}
-		\item Setze $\mathcal{X} := \{ (L',\phi')|\, L' \subseteq M \text{ Untermodul mit } L \subseteq L' , \phi': L' \to Q$ $R$-linear mit $\phi'\big|_L = \phi\}$. Dann ist $\mathcal{X} \neq \emptyset,$ denn: $ (L,\phi) \in \mathcal{X} $. Auf $\mathcal{X} $ ist die  Halbordung "'$\leq$"' durch $$ (L', \phi') \leq (L'',\phi'') \defi L' \subseteq L'',\, \phi''\big|_{L'} = \phi' $$ erklärt. $\mathcal{X} $ ist induktiv geordnet bzgl "'$\leq$"', denn: 
+		\item Setze $\mathcal{X} := \{ (L',\phi')|\, L' \subseteq M \text{ Untermodul mit } L \subseteq L' , \phi': L' \to Q$ $R$-linear mit $\phi'\big|_L = \phi\}$. Dann ist $\mathcal{X} \neq \emptyset,$ denn: $ (L,\phi) \in \mathcal{X} $. Auf $\mathcal{X} $ ist die  Halbordung "'$\leq$"' durch $$ (L', \phi') \leq (L'',\phi'') \Lra L' \subseteq L'',\, \phi''\big|_{L'} = \phi' $$ erklärt. $\mathcal{X} $ ist induktiv geordnet bzgl "'$\leq$"', denn: 
 		Sei $ (L_i,\phi_i)_{i \in I } $ eine totalgeordnete Familie von Elementen aus $\mathcal{X}. $ Setze $ L' := \bigcup_{i \in I} L_i$. $L'$ ist Untermodul von $M$ ( beachte: $a,b \in L' \Ra $ Es existieren $i,j$ mit $ a \in L_i, b \in L_j, $ohne Einschränkung: $ L_i \subseteq L_j  \Ra a+b \in L_j \subseteq L' $) und es ist $L \subseteq L'.$ Außerdem kann die $R$-lineare Abbildung $\phi':L' \to Q $ mit $\phi'|_{L_i} := \phi_i $ für alle $i \in I $ definieren. (wohldefiniert, denn: Für $i,j \in I$, ohne Einschränkung: $(L_i,\phi_i) \subseteq (L_j, \phi_j) $ ist $\phi_j|_{L_i} = \phi _i)$ $\Ra  (L',\phi') $ ist obere Schranke für die Familie$(L_i,\phi_i)_{i \in I}. $ Mit dem Zornshen Lemma folgt, dass ein maximales Element $(L',\phi')$ in $\mathcal{X}$ exsitiert.
 		\item Behauptung: $L' = M $, denn: \\
 		\begin{minipage}[t]{0.7\textwidth}
@@ -867,13 +867,13 @@
 	\end{enumerate}
 \end{proof}
 \begin{df}
-	Sei $A$ ein Integritätsbereich (kommutativer nullteilerfreier Ring), $M$ ein $A$-Modul. $M$ heißt "teilbar" $\defi$ Für alle $a\in A \backslash \{0\}$ ist $ aM=M. \Lra$ Für alle $x \in M, a \in A$ ohne 0 existiert ein $y\in M $ mit $x=ay$.
+	Sei $A$ ein Integritätsbereich (kommutativer nullteilerfreier Ring), $M$ ein $A$-Modul. $M$ heißt "teilbar" $\defi$ Für alle $a\in A \backslash \{0\}$ ist $ aM=M. \Lra$ Für alle $x \in M, a \in A \backslash \{0\}$ existiert ein $y\in M $ mit $x=ay$.
 \end{df}
 \begin{bem}
 	Sei $A$ ein Integritätsbereich, $M$ ein injektiver $A$-Modul. Dann ist $M$ teilbar.
 \end{bem}
 \begin{proof}
-	Sei $x \in M , a \in A $ ohne 0 . Wir betrachten die Abbildung $$\phi: Aa \to m, ra \mapsto rx$$ $\phi$ ist wohldefiniert, denn: $ r_1a= r_2a \Ra (r_1-r_2)a =0 $ Da $A$ nullterilerfrei ist folgt $r_1=r_2 $. $ \phi$ ist $A$-linear, so folgt mit Satz 6.9, dass eine $A$-lineare Abbildung $\psi: A \to M $ mit $\psi|_{Aa} = \phi$. Setze $y:= \psi(1)$, dann ist $ x = \phi(a)=\psi(a) = \psi(a 1) = a\psi(1)=ay.$
+	Sei $x \in M , a \in A \backslash \{0\}$. Wir betrachten die Abbildung $$\phi: Aa \to m, ra \mapsto rx$$ $\phi$ ist wohldefiniert, denn: $ r_1a= r_2a \Ra (r_1-r_2)a =0 $ Da $A$ nullterilerfrei ist folgt $r_1=r_2 $. $ \phi$ ist $A$-linear, so folgt mit Satz 6.9, dass eine $A$-lineare Abbildung $\psi: A \to M $ mit $\psi|_{Aa} = \phi$. Setze $y:= \psi(1)$, dann ist $ x = \phi(a)=\psi(a) = \psi(a 1) = a\psi(1)=ay.$
 \end{proof}
 \begin{bem}
 	Sei $A$ ein Hauptidealring, $M$ ein $A$-Modul. Dann sind äquivalent: 
@@ -884,7 +884,7 @@
 \end{bem}
 \begin{proof}
 	$(i) \Ra (ii) $ aus 6.11 \\
-	$(ii) \Ra (i) $ Sei $ I \subseteq A $ ein Ideal, $\phi: I \to M $ $A$ linear. Falls $ I = 0 $, dann wird $\phi $ durch die Nullabbildung nach $A$ fortgesetzt. Im Folgendem sein $ I \neq 0 $. Da $A$ ein Hauptidealring ist, existieren $ a\in A, a\neq 0 $ mit $I =Aa$. Setze $ x:= \phi(a) \Ra \phi(ra)=r\phi(a) = rx $ für alle$ r \in A$. Wegen (ii) existiert ein $y \in M $ mit $ x = ay $. Setze $$\psi: A \to M,\quad  r \mapsto ry$$
+	$(ii) \Ra (i) $ Sei $ I \subseteq A $ ein Ideal, $\phi: I \to M $ $A$ linear. Falls $ I = 0 $, dann wird $\phi $ durch die Nullabbildung nach $A$ fortgesetzt. Im Folgendem sein $ I \neq 0 $. Da $A$ ein Hauptidealring ist, existieren $ a\in A, a\neq 0 $ mit $I =Aa$. Setze $ x:= \phi(a) \Ra \phi(ra)=r\phi(a) = rx $ für alle $ r \in A$. Wegen (ii) existiert ein $y \in M $ mit $ x = ay $. Setze $$\psi: A \to M,\quad  r \mapsto ry$$
 	Dann ist $\psi$ $A$-linear und $ \psi(ra)=  ray = rx = \phi(ra) $ für alle $r \in A $ das heißt $\psi|_{Aa} = \phi.$ Dann folgt aus 6.9 $M$ ist injektiv. 
 \end{proof}
 \begin{bsp}
@@ -896,7 +896,7 @@
 \end{bsp}
 \begin{Ziel}
 	injektive $R$-Moduln sind dierekte Faktoren von kofreien $R$-Moduln 
-\end{Ziel}
+\end{Ziel} \\
 \begin{anm}
 	$M$ ein $\Z$-Modul. Dann ist $Hom_{\Z}(R,M)$ via $(a\phi)(r) = \phi(ra) $ ein $R$-Modul. (beachte: $b(a\phi)(r) = (a\phi)(rb) = \phi(rba) = ((ba)\phi)(r) $)
 \end{anm}
