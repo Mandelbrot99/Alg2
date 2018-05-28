@@ -698,9 +698,10 @@
 	Der Funktor $\Hom_R(M,-) $ ist im Allgemeinen nicht exakt.
 \end{anm}
 \begin{bsp}
-	Sei $ R = \Z  ,M = \QR{\Z}{2\Z}. $ Wir betrachten die exakte Sequenz  \\ $\begin{tikzcd}
+	Sei $ R = \Z  ,M = \QR{\Z}{2\Z}. $ Wir betrachten die exakte Sequenz  \\ $$\begin{tikzcd}
 	0  \arrow{r} & \Z \arrow{r} & \Z \arrow{r} & \QR{\Z}{2\Z} \arrow{r} & 0
-	\end{tikzcd} $ von $\Z$-Moduln  mit $f: \Z \to \Z, x \mapsto 2x, \pi $ kanonische projektion. Die Abbildung $ \pi_{*}^{M}: Hom_{\Z}(\QR{\Z}{2\Z}, \Z) \to Hom_{\Z}(\QR{\Z}{2\Z},\QR{\Z}{2\Z} ) $ ist nicht surjektiv, denn:  Für $ \phi \in Hom_{\Z}(\QR{\Z}{2\Z}, \Z) $ gilt: $0 = \phi(0) = \phi( 1 +1) = \phi(2\cdot 1) = 2\phi(1)$, also $ \phi(1)= 0$, das heißt $\phi = 0$. Insbesondere ist $\pi_{*}^{M}(\phi) = \pi_{*}^{M}(0) =0 = \id_{\QR{\Z}{2\Z}} . $ Mit anderen Worten $\QR{\Z}{2\Z}$ ist kein projektiver $\Z$-Modul. 
+	\end{tikzcd}$$ von $\Z$-Moduln  mit $f: \Z \to \Z, x \mapsto 2x, \pi $ kanonische projektion. Die Abbildung $ \pi_{*}^{M}: Hom_{\Z}\left(\QR{\Z}{2\Z}, \Z\right) \to Hom_{\Z}\left(\QR{\Z}{2\Z},\QR{\Z}{2\Z}\right) $ ist nicht surjektiv, denn:  Für $ \phi \in Hom_{\Z}(\QR{\Z}{2\Z}, \Z) $ gilt: 
+	$$0 = \phi(0) = \phi( 1 +1) = \phi(2\cdot 1) = 2\phi(1)$$, also $ \phi(1)= 0$, das heißt $\phi = 0$. Insbesondere ist $\pi_{*}^{M}(\phi) = \pi_{*}^{M}(0) =0 = \id_{\QR{\Z}{2\Z}} . $ Mit anderen Worten $\QR{\Z}{2\Z}$ ist kein projektiver $\Z$-Modul. 
 \end{bsp}
 \begin{sa}
 	Sei $P$ ein $R$-Modul. Dann sind äquivalent:
@@ -715,7 +716,7 @@
 		\item Jede kurze exakte Sequenz $\begin{tikzcd}
 		0  \arrow{r} & L \arrow{r}{f} & M \arrow{r}{g} & P \arrow{r} & 0
 		\end{tikzcd} $ von $R$-Moduln spaltet.
-		\item Es gibt einen $R$-Modl $P'$, sodass $ P \oplus P' $ ein freier $R$-Modul ist (das heißt $P$ ist direkter Summand eines freien $R$-Moduls )
+		\item Es gibt einen $R$-Modul $P'$, sodass $ P \oplus P' $ ein freier $R$-Modul ist (das heißt $P$ ist direkter Summand eines freien $R$-Moduls )
 	\end{enumerate}
 \end{sa}
 \begin{proof}
@@ -724,21 +725,27 @@
 	0  \arrow{r} & L \arrow{r} & M \arrow{r} & P \arrow{r} & 0
 	\end{tikzcd} $
 	%hier fehlt diagramm 2
-	 eine kurze exakte Sequenz von $R$-Moduln. Nach $(iii)$ existiert ein Epimorphismus $ g: M \to P $ um zum Homomorphismus $\id_P: P \to P $ ein Homomorphismus $ \psi: P \to M $  mit $ g \circ \psi = \id_P$, das heißt die Sequenz spaltet. 
+	 eine kurze exakte Sequenz von $R$-Moduln. Nach $(iii)$ existiert zu dem Epimorphismus $ g: M \to P $ und dem Homomorphismus $\id_P: P \to P $ ein Homomorphismus $ \psi: P \to M $  mit $ g \circ \psi = \id_P$, das heißt die Sequenz spaltet. 
 	 	$$\begin{tikzcd}
 	 0 \arrow{r} & L \arrow{r}{f} & M \arrow{r}{g} & P \arrow{r} & 0 \\
 	 & & & P \arrow[dashed]{ul}{\psi} \arrow[swap]{u}{\id} & 
 	 \end{tikzcd}$$
 	$(iv) \Ra (v) $ Es existiert ein freier $R$-Modul $F$ und ein Epimorphismus $ f: F \to P $. Wir erhalten eine exakte Sequenz $\begin{tikzcd}
 	0  \arrow{r} & \ker f \arrow{r} & F \arrow{r} & P \arrow{r} & 0
-	\end{tikzcd} $, diese spaltet nach $(iv)$ , das heißt $ f \simeq P \oplus \ker f $\\
-	$(v) \Ra (iii)$ Sei $ \pi: M \to N$ ein Epimorphismus von $R$-Moduln, $\phi: P \to N $ ein Homomorphimus. 
-	Wegen $(v)$ existiert ein $R$-Modul $P' $ sodass $F:= P \oplus P' $ frei ist, Setze $\phi': F \to N (x,y) \mapsto \phi(x). $ Sei $ (b_i)_{i \in I} $ eine Basis von F, wähle für $i \in I $ jeweils ein $ z_i \in \pi^{-1}(\phi'(b_i)) .$ Durch $\psi': F \to M , b_i \mapsto z_i $ wird ein Homomorphismus definiert mit $ \pi \circ \psi' = \phi'.$ Setze $\psi: P \to M , x \mapsto \psi'((x,0)) ,$ dann gilt für $x \in P: \pi(\psi(x)) = \pi(\psi'((x,0)))= \phi'((x,0)) = \phi(x) $ das heißt $\pi \circ \psi = \phi.$
-	$$\begin{tikzcd}[column sep = large]
-	P \oplus P' = I \arrow{dr}{\phi '} \arrow{d}{\psi'} \arrow{r} & P \arrow{d}{p} \arrow[dashed, bend right = 50]{l} \\
+	\end{tikzcd} $, diese spaltet nach $(iv)$ , das heißt $ F \simeq P \oplus \ker f $\\
+	
+	\begin{minipage}[t]{0.7\textwidth}
+		$(v) \Ra (iii)$ Sei $ \pi: M \to N$ ein Epimorphismus von $R$-Moduln, $\phi: P \to N $ ein Homomorphimus. 
+		Wegen $(v)$ existiert ein $R$-Modul $P' $ sodass $F:= P \oplus P' $ frei ist, Setze $$\phi': F \to N, \quad  (x,y) \mapsto \phi(x)$$
+		Sei $ (b_i)_{i \in I} $ eine Basis von F, wähle für $i \in I $ jeweils ein $ z_i \in \pi^{-1}(\phi'(b_i)) .$ Durch $\psi': F \to M , b_i \mapsto z_i $ wird ein Homomorphismus definiert mit $ \pi \circ \psi' = \phi'.$ Setze
+	\end{minipage}
+	\begin{minipage}[t]{0.3\textwidth} 
+		$$\begin{tikzcd}[column sep = large, row sep = large]
+	P \oplus P' = F \arrow{dr}{\phi '} \arrow{d}{\psi'} \arrow{r} & P \arrow{d}{\phi} \arrow[dashed, bend right = 50]{l} \\
 	M \arrow{r}{\pi} & N
 	\end{tikzcd}$$
-	%hier fehlt diargamm 3
+	\end{minipage}
+ $$\psi: P \to M ,\quad  x \mapsto \psi'((x,0))$$ dann gilt für $x \in P: \pi(\psi(x)) = \pi(\psi'((x,0)))= \phi'((x,0)) = \phi(x) $ das heißt $\pi \circ \psi = \phi.$
 \end{proof}
 \begin{fo}
 	\begin{enumerate} [label= \alph*)]
@@ -764,7 +771,7 @@
 		$\begin{tikzcd}
 		0  \arrow{r} & Hom_{R}(M'',N) \arrow{r}{g_{*}^{M}} & Hom_{R}(M,N)  \arrow{r}{f_{*}^{M}} & Hom_{R}(M',N) \end{tikzcd}$ exakt.
 	\end{enumerate}
-	Insbesondere ist der kovariante Funktor: $Hom_R(-,N): R-Mod \to \Z-Mod $ linksexakt.
+	Insbesondere ist der kovariante Funktor: $Hom_R(-,N): R$-Mod $\to \Z$-Mod  linksexakt.
 \end{sa}
 \begin{proof}
 	Übungsaufgabe.
@@ -774,16 +781,16 @@
 \end{anm}
 \begin{bsp}
 	Sei $ R= \Z , N = \Z $. Wir betrachten die exakte Sequenz \\
-	 $\begin{tikzcd}
+	 $$\begin{tikzcd}
 	0  \arrow{r} & \Z \arrow{r}{f} & \Z \arrow{r}{\pi} & \QR{\Z}{2\Z} \arrow{r} & 0
-	\end{tikzcd} $ von $\Z$-Moduln mit $f: \Z \to \Z , x \mapsto 2x, \pi $ kanomische Projektion. Die Abbildung $ f_{\Z}^{*} : Hom_{\Z}(\Z,\Z) \to Hom_{\Z}(\Z,\Z)$ ist nicht surjektiv, denn für alle $\phi \in Hom_{\Z}(\Z,\Z)$ ist $ (f_{\Z}^{*}(\phi))(x) = (\phi \circ f)(x) = \phi(2x) =2 \phi(x) \in 2\Z$, isbesondere ist $ f_{\Z}^{*}(\phi) \neq id_{\Z}. $ \\
-	Mit anderen Worten: $\Z$ ist kein injektiver $\Z$-Modul.
+	\end{tikzcd} $$ von $\Z$-Moduln mit $f: \Z \to \Z ,\; x \mapsto 2x$ und $ \pi $ der kanonischen Projektion. Die Abbildung $ f_{\Z}^{*} : Hom_{\Z}(\Z,\Z) \to Hom_{\Z}(\Z,\Z)$ ist nicht surjektiv, denn für alle $\phi \in Hom_{\Z}(\Z,\Z)$ ist $$ (f_{\Z}^{*}(\phi))(x) = (\phi \circ f)(x) = \phi(2x) =2 \phi(x) \in 2\Z$$
+	insbesondere ist $ f_{\Z}^{*}(\phi) \neq id_{\Z}$. Mit anderen Worten: $\Z$ ist kein injektiver $\Z$-Modul.
 \end{bsp}
 \begin{sa}
 	Sei $Q$ ein $R$-Modul. Dann sind äquivalent:
 	\begin{enumerate} [label= \roman*)]
 		\item $Q$ ist ein injektiver $R$-Modul 
-		\item $Hom_{R}(-,Q): R-Mod \to \Z-Mod $ ist exakt.
+		\item $Hom_{R}(-,Q): R-$Mod $\to \Z-$Mod ist exakt.
 		\item Für jeden Monomorphismus $\iota: L \to M $ von $R$-Moduln und jedem Homomorphismus $\phi: L \to Q $ exsistiert ein Homomorphismus $\psi: M \to Q $ von $R$-Moduln  mit $ \psi \circ \iota = \phi $
 		$$\begin{tikzcd}
 		L \arrow{r} {\iota} \arrow{d}& M \arrow[dashed]{dl}{\psi} \\
@@ -800,32 +807,44 @@
 	$(iii) \Ra (iv) $ Sei $\begin{tikzcd}
 	0  \arrow{r} & L \arrow{r} & M \arrow{r} & P \arrow{r} & 0
 	\end{tikzcd} $ eine exakte Sequenz von $R$-Moduln.
+	Nach $(iii)$ existiert zum Monomorphismus $f: Q \to M $ von $R$-Moduln und zum Homomorphismus $ id_Q : Q \to Q $ ein Homomorphismus $\psi: M \to Q$ mit $ \psi \circ f = id_Q $. das heißt die Sequenz spaltet.
 	$$\begin{tikzcd}
 	0\arrow{r} & Q \arrow[swap]{d}{\id_Q} \arrow{r}{f} & M \arrow[dashed]{dl}{\psi} \arrow{r}{g} & N \arrow{r} & 0\\& Q & & &
 	\end{tikzcd}
-	$$
-	Nach $(iii)$ existiert zum Monomorphismus $f: Q \to M $ von $R$-Moduln und zum Homomorphismus $ id_Q : Q \to Q $ ein Homomorphismus $\psi: M \to Q$ mit $ \psi \circ f = id_Q $. das heißt die Sequenz spaltet. \\
-	$(iv) \Ra (iii) $ Sei $\iota : L \to M $ ein Monomorphismus, $ \phi: L \to Q $ ein Homomorphismus von $R$-Moduln. Setze $ S := \{ (\phi(x), \iota(x))| x \in L\} \subseteq Q \oplus M $(ist ein Untermodul). $M' := \QR{(Q \oplus M)}{S}, N := \QR{M}{\im \iota}, \, \pi: M \to n  $ kanonische Projektion. 
+	$$ 
+	$(iv) \Ra (iii) $ Sei $\iota : L \to M $ ein Monomorphismus, $ \phi: L \to Q $ ein Homomorphismus von $R$-Moduln. Setze 
+ \begin{align*} S &:= \{ (\phi(x), - \iota(x))| \, x \in L\} \subseteq Q \oplus M & M' &:= \QR{(Q \oplus M)}{S},& N &:= \QR{M}{\im \iota}\end{align*} $\pi: M \to N$  kanonische Projektion. 
 	\begin{enumerate}
-		\item  Wir erhalten eine exakte Sequenz $\begin{tikzcd}	0  \arrow{r} & Q \arrow{r}{f} & M' \arrow{r}{g} & N \arrow{r} & 0 
-		%hier fehlt was
-		\end{tikzcd} $ von $R$-Moduln. denn: 
+		\item  Wir erhalten eine exakte Sequenz
+		 $$\begin{tikzcd}[row sep = 0.1ex]	0  \arrow{r} & Q \arrow{r}{f} & M' \arrow{r}{g} & N \arrow{r} & 0 \\
+		 & y \arrow[mapsto]{r} & \bar{(y,0)} & & \\
+		 & & \bar{(y,z)} \arrow[mapsto]{r} & \pi(z) & 
+		\end{tikzcd} $$
+		 von $R$-Moduln. denn: 
 			\begin{itemize}
-			\item $g$ ist wohldefiniert, denn:$\pi \circ \iota = 0$
+			\item $g$ ist wohldefiniert, denn: $\pi \circ \iota = 0$
 			\item $f$ ist injektiv, denn $ (y,0) = (0,0)  \Ra $ Es existiert ein $ x \in L $ mit $ y= \phi(x), 0 = - \iota(x)$. Wegen $\iota$ injektiv, folgt $ x = 0 \Ra y = \phi(0) = 0 $
 			\item $g$ surjektiv, klar
-			\item $\im f = \ker g: $ "'$\subseteq$"' klar, wegen $g \circ f = 0 $ 
-			"'$\subseteq$"' Sei $(y,z) \in \ker g \Ra \pi(z) = 0 \Ra z \in \im \iota,$ das heißt es existiert ein $ x \in L $  mit $ z = \iota(x) = -\iota(-x) \Ra (y,z) = (y, -\iota(-x)) = (y+\phi(x), 0) +(\phi(-x), -\iota(-x)) = (y+\phi(x), 0) = f(y+ \phi(x)) \in \im f.$
+			\item $\im f = \ker g: $\\ "'$\subseteq$"' klar, wegen $g \circ f = 0 $\\ 
+			"'$\subseteq$"' Sei $\bar{(y,z)} \in \ker g \Ra \pi(z) = 0 \Ra z \in \im \iota,$ das heißt es existiert ein $ x \in L $  mit $ z = \iota(x) = -\iota(-x)$Dann gilt
+			\begin{eqnarray*}
+				 \bar{(y,z)} &=& \bar{(y, -\iota(-x))} = \bar{(y+\phi(x), 0)} +\bar{(\phi(-x), -\iota(-x))}\\
+				 & =& \bar{(y+\phi(x), 0)} = f(y+ \phi(x)) \in \im f.
+			\end{eqnarray*}
 		\end{itemize}
-	\item Wegen (iv) spaltet die Sequenz, das heißt es existiert ein R-Modulhomomorphisumus $ h: M \to Q $ mit $h \circ f = id_Q$. Setze $\psi: M \to Q, z \mapsto h((0,z)), \psi $ ist ein $R$-Modulhomomorphismus. Für $x \in L $ ist $(\psi \circ \iota)(x) = h((0,\iota(x))) = h((0, \iota(x))) + h(\phi(x),-\iota(x)) = H((\phi(x),0)) = h(f(\phi(x))) = \phi(x). \Ra \psi \circ \iota = \phi. $
+	\item Wegen (iv) spaltet die Sequenz, das heißt es existiert ein R-Modulhomomorphisumus $ h: M' \to Q $ mit $h \circ f = id_Q$. Setze $$\psi: M \to Q, z \mapsto h((0,z))$$
+	$\psi $ ist ein $R$-Modulhomomorphismus. Für $x \in L $ ist \begin{eqnarray*}
+		(\psi \circ \iota)(x)& =& h((0,\iota(x))) = h((0, \iota(x))) + h(\phi(x),-\iota(x))\\
+		& =& h((\phi(x),0)) = h(f(\phi(x))) = \phi(x)
+		\end{eqnarray*}
+	Also ist $\psi \circ \iota = \phi$
+	
 	\end{enumerate}
 \end{proof}
 \begin{bsp}
 	Sei $K$ ein Körper und $V$ ein $K$-Vektorraum. Dann ist $V$ ein injektiver $K$-Modul, denn für jede exakte Folge $\begin{tikzcd}	0  \arrow{r} & V \arrow{r}{f} & M \arrow{r}{g} & N \arrow{r} & 0 \end{tikzcd}$ von $K$-Moduln, ist $N$ ein freier $K$-Modul, d.h. die Folge spaltet.
 \end{bsp}
-\begin{sa}
-	(Baer-Kriterium) \\
-	Sei $Q$ ein $R$-Modul. Dann sind äquivalent: 
+\begin{sa}[Baer-Kriterium] Sei $Q$ ein $R$-Modul. Dann sind äquivalent: 
 	\begin{enumerate} [label= \roman*)]
 		\item $Q$ ist ein injektiver $R$-Modul
 		\item Für jedes Linksideal $I \subseteq R $ und jede $R$-lineare Abbildung $\phi: I \to Q $ existiert eine $R$-lineare Abbildung $\psi: R \to Q $ mit $ \psi\big|_{I} = \phi$. 
@@ -849,7 +868,7 @@
 		Sei $ (L_i,\phi_i)_{i \in I } $ eine totalgeordnete Familie von Elementen aus $\mathcal{X}. $ Setze $ L' := \bigcup_{i \in I} L_i$. $L'$ ist Untermodul von $M$ ( beachte: $a,b \in L' \Ra $ Es existieren $i,j$ mit $ a \in L_i, b \in L_j, $ohne Einschränkung: $ L_i \subseteq L_j  \Ra a+b \in L_j \subseteq L' $) und es ist $L \subseteq L'.$ Außerdem kann die $R$-lineare Abbildung $\phi':L' \to Q $ mit $\phi'|_{L_i} := \phi_i $ für alle $i \in I $ definieren. (wohldefiniert, denn: Für $i,j \in I$, ohne Einschränkung: $(L_i,\phi_i) \subseteq (L_j, \phi_j) $ ist $\phi_j|_{L_i} = \phi _i)$ $\Ra  (L',\phi') $ ist obere Schranke für die Familie$(L_i,\phi_i)_{i \in I}. $ Mit dem Zornshen Lemma folgt, dass ein maximales Element $(L',\phi')$ in $\mathcal{X}$ exsitiert.
 		\item Behauptung: $L' = M $, denn: \\
 		\begin{minipage}[t]{0.7\textwidth}
-		Sei $x \in M $. Setze $I:= \{a \in R|\, ax \in L'\} \subseteq R. I $ ist Linksideal in $R$, und die Abbildung $f:I \to Q, a \mapsto \phi'(ax) $ ist $R$-linear. Mit (ii) folgt, dass eine $R$-lineare Abbildung $g:R \to Q $ mit $ g|_I=f. $ Setze:
+		Sei $x \in M $. Setze $I:= \{a \in R|\, ax \in L'\} \subseteq R\cdot I $ ist Linksideal in $R$, und die Abbildung $f:I \to Q, a \mapsto \phi'(ax) $ ist $R$-linear. Mit (ii) folgt, dass eine $R$-lineare Abbildung $g:R \to Q $ mit $ g|_I=f. $ Setze:
 		\end{minipage}
 		\begin{minipage}[t]{0.3\textwidth} 
 			$$\begin{tikzcd}
@@ -859,7 +878,7 @@
 	 $$\psi': L' \oplus R \to Q,\quad (y,a) \mapsto \phi'(y) + g(a) $$
 	und 
 	$$\pi: L' \oplus R \to M,\quad(y,a) \mapsto y +ax$$
-		welche beide $r$-Modulhomomorphismen sind. Es ist $\psi'(\ker\pi) = 0$, denn für $(y,a) \in \ker\pi$ ist $ y+ax=0, also ax=-y \in L'$, das heißt $a \in I, also g(a)=f(a)=\phi'(ax)=\phi'(-y) = -\phi'(y) $und somit $\psi'(y,a) = \phi'(y)+g(a) = 0 \Ra \psi'$ induziert $R$-Modulhomomorphismus $$\QR{L' \oplus R}{\ker\pi} \to Q, \quad(y,a) \mapsto \phi'(y)+g(a)$$
+		welche beide $r$-Modulhomomorphismen sind. Es ist $\psi'(\ker\pi) = 0$, denn für $(y,a) \in \ker\pi$ ist $ y+ax=0,$ also $ax=-y \in L'$, das heißt $a \in I,$ also $g(a)=f(a)=\phi'(ax)=\phi'(-y) = -\phi'(y) $und somit $\psi'(y,a) = \phi'(y)+g(a) = 0 \Ra \psi'$ induziert $R$-Modulhomomorphismus $$\QR{L' \oplus R}{\ker\pi} \to Q, \quad(y,a) \mapsto \phi'(y)+g(a)$$
 		 Außerdem ist $$L'+Rx = \im\pi \simeq \QR{L' \oplus R}{\ker\pi} \quad \text{via}\quad y+ax \mapsto (y,a)$$
 		 Wir erhalten den Homomorphismus $$\psi:L'+Rx \to Q \quad \text{mit} \quad\psi(y+ax) = \phi'(y)+g(a) $$ für alle $a \in R, y \in L' $, das heißt $\psi|_{L'} = \phi' \Ra (L',\phi') \leq (L'+Rx, \psi) $ Wegen $(L',\phi') $ maximal folgt dass $ L'=L'+Rx \Ra x \in L' $. Somit $M \subseteq L' \subseteq M, $ also $M = L'$.
 	\end{enumerate}
@@ -871,7 +890,7 @@
 	Sei $A$ ein Integritätsbereich, $M$ ein injektiver $A$-Modul. Dann ist $M$ teilbar.
 \end{bem}
 \begin{proof}
-	Sei $x \in M , a \in A \backslash \{0\}$. Wir betrachten die Abbildung $$\phi: Aa \to m, ra \mapsto rx$$ $\phi$ ist wohldefiniert, denn: $ r_1a= r_2a \Ra (r_1-r_2)a =0 $ Da $A$ nullterilerfrei ist folgt $r_1=r_2 $. $ \phi$ ist $A$-linear, so folgt mit Satz 6.9, dass eine $A$-lineare Abbildung $\psi: A \to M $ mit $\psi|_{Aa} = \phi$. Setze $y:= \psi(1)$, dann ist $ x = \phi(a)=\psi(a) = \psi(a 1) = a\psi(1)=ay.$
+	Sei $x \in M , a \in A \backslash \{0\}$. Wir betrachten die Abbildung $$\phi: Aa \to M, \quad ra \mapsto rx$$ $\phi$ ist wohldefiniert, denn: $ r_1a= r_2a \Ra (r_1-r_2)a =0 $ Da $A$ nullterilerfrei ist folgt $r_1=r_2 $. $ \phi$ ist $A$-linear, so folgt mit Satz 6.9, dass eine $A$-lineare Abbildung $\psi: A \to M $ mit $\psi|_{Aa} = \phi$. Setze $y:= \psi(1)$, dann ist $ x = \phi(a)=\psi(a) = \psi(a 1) = a\psi(1)=ay.$
 \end{proof}
 \begin{bem}
 	Sei $A$ ein Hauptidealring, $M$ ein $A$-Modul. Dann sind äquivalent: 
@@ -887,7 +906,7 @@
 \end{proof}
 \begin{bsp}
 	\begin{enumerate} [label= \alph*)]
-		\item Sei $K$ ein Körper, $V$ein $K$-VR $\Ra V$ ist teilbarer $K$-Modul, also injektiver $K$-Modul. Ist $\cha K = 0 $ dann ist $V$ teilbarer $\Z$-Modul, also injektiver $\Z$-Modul. 
+		\item Sei $K$ ein Körper, $V$ ein $K$-VR $\Ra V$ ist teilbarer $K$-Modul, also injektiver $K$-Modul. Ist $\cha K = 0 $ dann ist $V$ teilbarer $\Z$-Modul, also injektiver $\Z$-Modul. 
 		\item Faktormoduln teilbarer $\Z$-Moduln sind teilbar, somit sind Faktormoduln inketiver $\Z$-Moduln wieder injektive $\Z$-Moduln. 
 		\item Nach (a) sind $\Q, \R $ injektive $\Z$-Moduln, nach (b) also auch $\QR{\Q}{\Z}, \QR{\R}{\Z}$
 	\end{enumerate}
@@ -902,7 +921,7 @@
 	Sei $M$ ein injektiver $\Z$-Modul. Dann ist $Hom_{\Z}(R,M)$ ein injektiver $R$-Modul. Insbesondere ist $R^{v} := Hom_{\Z}(R, \QR{\Q}{\Z}) $ ein injektiver $R$-Modul.
 \end{bem}
 \begin{proof}
-	Sei $ I \subseteq R $ ein Linksideal, $\phi: I \to Hom_{\Z}(R,M) $ $R$-linear. Nach 6.9, genügt es zu zeigen: $\phi$ lässt sich auf $R$ fortsetzen. Setze $$f: I \to M ,\quad a \mapsto \phi(a)(1)$$ Dann ist $f $ ist $\Z$-linear und für $r \in R , a \in I $ gilt: $ f(ra) = \phi(ra)(1)= (r\phi(a))(1) = \phi(a)(1 r) = \phi(a)(r)$. Da $M$ ein injektiver $\Z$-Modul, existiert eine $\Z$-lineare Abbilsung $g: R \to M $ mit $g\big|_y=f $. Wir setzen $\psi: R \to Hom_{\Z}(R,M), a \mapsto ag $. $\psi$ ist $R$-linear, und für $a\in I, r \in R $ ist $\psi(a)(r) =(ag)(r) = g(ra) = f(ra) = \phi(a)(r)$, das heißt $\psi\big|_{I}=\phi.$
+	Sei $ I \subseteq R $ ein Linksideal, $\phi: I \to Hom_{\Z}(R,M) $ $R$-linear. Nach 6.9, genügt es zu zeigen: $\phi$ lässt sich auf $R$ fortsetzen. Setze $$f: I \to M ,\quad a \mapsto \phi(a)(1)$$ Dann ist $f $ ist $\Z$-linear und für $r \in R , a \in I $ gilt: $ f(ra) = \phi(ra)(1)= (r\phi(a))(1) = \phi(a)(1 r) = \phi(a)(r)$. Da $M$ ein injektiver $\Z$-Modul, existiert eine $\Z$-lineare Abbildung $g: R \to M $ mit $g\big|_I=f $. Wir setzen $\psi: R \to Hom_{\Z}(R,M), a \mapsto ag $. $\psi$ ist $R$-linear, und für $a\in I, r \in R $ ist $\psi(a)(r) =(ag)(r) = g(ra) = f(ra) = \phi(a)(r)$, das heißt $\psi\big|_{I}=\phi.$
 \end{proof}
 \begin{df}
 	Sei $M$ ein $R$-Modul. $M$ heißt "kofrei"' $\defi$ Es existiert eine Menge $ I$ mit $M \simeq (R^{v})^I = \prod_{i \in I} R^{v} $.
@@ -931,7 +950,19 @@
 		\item Die Abbildung $$\theta: \Hom_{\Z}(M ,\QR{\Q}{\Z}) \to \Hom_{R}(M, R^{v}), \psi \mapsto (m \mapsto \phi_m: R \to \QR{\Q}{\Z}, r \mapsto \psi(rm))$$
 		ist ein Homomorphismus von $\Z$-Moduln (tatsächlich sogar ein Isomorphismus).
 		\item Ist $\psi: M \to \QR{\Q}{\Z} $ ein $\Z$-Modulhomomorphismus mit $ \psi(m) \neq 0$ dann ist $\theta(\psi)(m) = \phi_m \neq 0$ wegen $\phi_m(1)= \psi(m) \neq 0, $ das heißt: $\theta(\psi): M \to R^{v} $ ist ein $R$-Modulhomomorphismus mit $\theta(\psi)(m) \neq 0$
-		\item Nach 2 genügt es zu zeigen: Es existiert ein $\Z$-Modulhomomorphimus $\psi: M \to \QR{\Q}{\Z} $ mit $ \psi(m) \neq 0. $ Setze $N := \langle m\rangle_{\Z}$. 1.Fall: $N \simeq \QR{\Z}{n\Z} $ für ein $n \in N $. Setze $\psi^{~}: N \to \QR{\Z}{n\Z} \to \QR{\Q}{\Z} $ mit $ 1 \mapsto \frac{1}{n} + \Z.$ $ \Ra \psi^{~}(m)\neq 0 $ und da $\QR{\Q}{\Z} $ injektiver $\Z$-Modul ist, setzt sich $\psi^{~} $ auf $M$ fort.
+		\item Nach 2 genügt es zu zeigen: Es existiert ein $\Z$-Modulhomomorphimus $\psi: M \to \QR{\Q}{\Z} $ mit $ \psi(m) \neq 0. $ Setze $N := \langle m\rangle_{\Z}$. \\
+		1.Fall: $N \simeq \QR{\Z}{n\Z} $ für ein $n \in N $. Setze
+		$$\begin{tikzcd}[column sep = small, row sep = 0.1 ex]
+		\tilde{\psi}: N \arrow{r}{\sim} & \QR{\Z}{n \Z} \arrow{r} & \QR{\Q}{\Z} \\
+		& 1 \arrow[mapsto]{r} & \frac{1}{n} + \Z
+		\end{tikzcd}$$
+		 Dann ist $\psi^{~}(m)\neq 0 $ und, da $\QR{\Q}{\Z} $ injektiver $\Z$-Modul ist, setzt sich $\tilde{\psi} $ auf $M$ fort.\\
+		2. Fall: $N \cong \Z$. Setze dann 
+		$$\begin{tikzcd}[column sep = small, row sep = 0.1 ex]
+		\tilde{\psi}: N \arrow{r}{\sim} & \Z \arrow{r} & \QR{\Q}{\Z} \\
+		& 1 \arrow[mapsto]{r} & \frac{1}{2} + \Z
+		\end{tikzcd}$$
+		Dann ist $\tilde{\psi} (m) \neq 0$, also weiter wie in Fall 1.
 	\end{enumerate}, 
 \end{proof}
 \begin{sa}
@@ -943,18 +974,18 @@
 	Dann gilt
 	\begin{itemize}
 		\item $f$ ist ein $R$-Modulhomomorphismus
-		\item $f$ ist injekitv, denn: Sei $x\in M$ mit $f(x) = 0$. Dann ist $\phi_m(x) = 0$ für alle $m\in M\backslash \{0\}$. Wäre $x\neq 0$, dann wäre $\phi_m(x) = 0$, Widerspruch!
+		\item $f$ ist injekitv, denn: Sei $x\in M$ mit $f(x) = 0$. Dann ist $\phi_m(x) = 0$ für alle $m\in M\backslash \{0\}$. Wäre $x\neq 0$, dann wäre $\phi_x(x) = 0$, Widerspruch!
 	\end{itemize}
 \end{proof}
 \begin{fo}
 	Sei $Q$ ein $R$-Modul. Dann sind äquivalent:
 	\begin{enumerate}[label= \roman*)]
 		\item $Q$ ist injektiv
-		\item Es gibt einen $R$-Modul $Q'$, sodass $Q \times Q'$ ein kofreier $R$-Modul ist(d.h. $Q$ ist direkter Faktor eines kofreien $R$-Moduls)
+		\item Es gibt einen $R$-Modul $Q'$, sodass $Q \times Q'$ ein kofreier $R$-Modul ist (d.h. $Q$ ist direkter Faktor eines kofreien $R$-Moduls)
 	\end{enumerate}
 \end{fo}
 \begin{proof}
-	$i) \Ra ii)$ NAch 6.19 existert ein kofreier $R$-Modul $N$, sodass $Q$ Untermodul von $N$ ist. Die exakte Folge 
+	$i) \Ra ii)$ Nach 6.19 existiert ein kofreier $R$-Modul $N$, sodass $Q$ Untermodul von $N$ ist. Die exakte Folge 
 	$$\begin{tikzcd}
 	0 \arrow{r} & Q \arrow{r} & N \arrow{r} & \QR{N}{Q} \arrow{r} & 0
 	\end{tikzcd}$$
@@ -1090,8 +1121,8 @@
 \end{proof}
 \begin{sa}[Hufeisenlemma]
 	$\mathcal{A}$ habe genügend viele Injektive. Gegeben sei ein Diagramm (Schwarz)
-	$$\begin{tikzcd}
-	& 0\arrow{d} &0 \arrow{d} & 0 \arrow{d} & \\
-	0 \arrow{r}\arrow{d} & A'\arrow{d} \arrow{r} & I'^0\arrow{d} \arrow{r} & I'^1 \arrow{d} \arrow{r} & \ldots
-	\end{tikzcd}$$
+%	$$\begin{tikzcd}
+%	& 0\arrow{d} &0 \arrow{d} & 0 \arrow{d} & \\
+%	0 \arrow{r}\arrow{d} & A'\arrow{d} \arrow{r} & I'^0\arrow{d} \arrow{r} & I'^1 \arrow{d} \arrow{r} & \ldots
+%	\end{tikzcd}$$
 \end{sa}
