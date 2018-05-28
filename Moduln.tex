@@ -4,15 +4,15 @@
 	\textbf{In dieser Vorlesung steht die Bezeichnung "'Ring"' stets für einen (nicht notwendig kommutativen) Ring mit 1. In diesem Kapitel sei $R$ ein Ring.}
 \end{center}
 \subsection{Grundlagen über Moduln}
-\begin{df}
-	Ein "'$R$-Linksmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abbildung $R\times M \to M, \, (a,x) \mapsto ax$ (skalare Multiplikation), sodass für alle $a,b\in R, \, x,y\in M$ gilt:
+\begin{df}\label{df1.1}
+	Ein \define{$R$-Linksmodul\index{Linksmodul}} ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abbildung $R\times M \to M, \, (a,x) \mapsto ax$ (skalare Multiplikation), sodass für alle $a,b\in R, \, x,y\in M$ gilt:
 	\begin{enumerate}[label= \alph*)]
 		\item $a(x+y) = ax + ay$
 		\item $(a+b)x = ax+bx$
 		\item $a(bx) = (ab)x$
 		\item $1x = x$
 	\end{enumerate}
-Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abbildung $M\times R \to M, \, (x,a) \mapsto xa$, sodass für alle $a,b\in R, \, x,y\in M$ gilt:
+Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abbildung $M\times R \to M, \, (x,a) \mapsto xa$, sodass für alle $a,b\in R, \, x,y\in M$ gilt:
 \begin{enumerate}
 	\item[$a')$] $(x+y)a = xa+ yb$
 	\item[$b')$] $x(a+b) = xa + xb$
@@ -32,7 +32,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		\item Für alle $x\in M$ ist $0x=0, \, (-1)x=-x$, und für alle $a\in R$ ist $a0=0$ 
 	\end{itemize}
 \end{anm}
-\begin{bsp}
+\begin{bsp}\label{bsp1.2}
 	\begin{enumerate}[label=\alph*)]
 		\item Ist $K$ ein Körper, dann sind $K$-Moduln die $K$-Vektorräume.
 		\item Jede abelsche Gruppe $G$ ist ein $\Z$-Modul via
@@ -43,8 +43,8 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		Für jeden Ring $R$ gibt es genau einen Ringhomomorphismus $\Z\to R$ (analog zur Algebra 1), insbesondere gibt es für jede abelsche Gruppe $G$ genau einen Ringhomomorphismus $\Z\to \text{End}(G)$, d.h. genau eine Struktur als $\Z-$Modul, sodass die Moduladdition mit der gegebenen Addition auf $G$ überein einstimmt (nämlich obige).
 	\end{enumerate}
 \end{bsp}
-\begin{df}
-	Seien $M,M'$ $R$-Moduln, $\phi:M \to M'$. Dann heißt $\phi$ "$R$-Modul-\\homomorphismus" ($R$-linear), wenn für alle $x,y\in M, \, a,b\in R$ gilt: 
+\begin{df}\label{df1.3}
+	Seien $M,M'$ $R$-Moduln, $\phi:M \to M'$. Dann heißt $\phi$ \define{$R$-Modul-\\homomorphismus\index{Modulhomomorphismus}} ($R$-linear), wenn für alle $x,y\in M, \, a,b\in R$ gilt: 
 	\begin{enumerate}[label=\alph*)]
 		\item $\phi(x+y) = \phi(x) + \phi(y)$
 		\item $\phi(ax) = a\phi(x)$
@@ -61,12 +61,12 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	$$\Psi:R[X] \to \text{End}(M), \quad \sum_{i=0}^n a_i X^i \mapsto \sum_{i=0}^n a_i \phi^i$$
 	ist ein Ringhomomorphismus, da $\phi$ $R$-linear ist. Somit wird $M$ zum $R[X]$-Modul.
 \end{bsp}
-\begin{df}
+\begin{df}\label{df1.5}
 	Seien $M,M'$ $R$-Moduln, $\phi:M\to M'$ $R$-linear. $\phi$ heißt 
 	\begin{enumerate}
-		\item[] "'Monomorphismus"' $\defi \phi$ ist injektiv (Notation: $M \hookrightarrow M'$)
-		\item[] "'Epimorphismus"' $\defi \phi$ ist surjektiv (Notation: $M \twoheadrightarrow M'$)
-		\item[] "'Isomorphismus"' $\defi \phi$ ist bijektiv (Notation: $M \overset{\sim}{\ra} M'$)
+		\item[] \define{Monomorphismus\index{Monomorphismus}} $\defi \phi$ ist injektiv (Notation: $M \hookrightarrow M'$)
+		\item[] \define{Epimorphismus\index{Epimorphismus}} $\defi \phi$ ist surjektiv (Notation: $M \twoheadrightarrow M'$)
+		\item[] \define{Isomorphismus\index{Isomorphismus}} $\defi \phi$ ist bijektiv (Notation: $M \overset{\sim}{\ra} M'$)
 	\end{enumerate}
 	Existiert ein Isomorphismus zwischen $M,M'$, so heißen $M,M'$ "'isomorph"' (Notation: $M \cong M'$)
 \end{df}
@@ -94,8 +94,8 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		\end{eqnarray*}
 	\end{enumerate}
 \end{proof}
-\begin{df}
-	Sei $M$ ein $R$-Modul, $N\subseteq M$. $N$ heißt $R$-Untermodul von $M$, wenn gilt:
+\begin{df}\label{df1.7}
+	Sei $M$ ein $R$-Modul, $N\subseteq M$. $N$ heißt \define{$R$-Untermodul\index{Untermodul}} von $M$, wenn gilt:
 	\begin{enumerate}[label= \alph*)]
 		\item $0\in N$
 		\item $x+y\in N$ für alle $x,y\in N$
@@ -108,14 +108,14 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		\item Ist $M$ ein $R$-Modul, dann sind $\{0\}$ (meist als $0$ geschrieben) und $M\subseteq M$ die trivialen Untermoduln. Ist $(M_i)_{i\in I}$ eine Familie von Untermoduln von $M$, dann ist $\bigcap_{i\in I} M_I\subseteq M$ ein Untermodul, sowie $\sum_{i\in I} M_i = \{\sum_{i\in I} x_i|\, x_i \in M_i, \, x_i=0 \text{ für fast alle } i\in I\}$
 		\item Sind $M, M'$ $R$-Moduln, $\phi\in \text{Hom}_R(M, M'), \, N\subseteq M$ ein Untermodul, $N' \subseteq M'$ ein Untermodul, dann sind $\phi(N) \subseteq M'$ und $\phi^{-1}(N') \subseteq M$ Untermoduln. 
 		\begin{enumerate}
-			\item[] $\im \phi:= \phi(M)$ heißt das "'Bild"' von $\phi$
-			\item[] $\ker \phi:= \phi^{-1}(\{0\})$ heißt der "'Kern"' von $\phi$
+			\item[] $\im \phi:= \phi(M)$ heißt das \define{Bild\index{Bild}} von $\phi$
+			\item[] $\ker \phi:= \phi^{-1}(\{0\})$ heißt der \define{Kern\index{Kern}} von $\phi$
 		\end{enumerate}
 	Es gilt: $\phi$ ist injektiv $\Lra \ker \phi =0$ und $\phi$ surjektiv $\Lra \im \phi = M'$
 	\end{enumerate}
 \end{bsp}
-\begin{bem+df}
-	Sei $M$ ein $R$-Modul, $N\subseteq M$ ein Untermodul. Dann ist die Faktorgruppe $\QR{M}{N}$ via $a(x+N) = ax+N, \, a\in R, \,x\in M$ ein $R$-Modul,der "'Faktormodul"' von $M$ nach $N$. Die kanonische Abbildung $\pi:M \to \QR{M}{N}, \; m \mapsto m+N$ ist ein Modulepimorphismus mit $\ker \pi = N$.
+\begin{bem+df}\label{bemdf1.9}
+	Sei $M$ ein $R$-Modul, $N\subseteq M$ ein Untermodul. Dann ist die Faktorgruppe $\QR{M}{N}$ via $a(x+N) = ax+N, \, a\in R, \,x\in M$ ein $R$-Modul, der \define{Faktormodul\index{Faktormodul}} von $M$ nach $N$. Die kanonische Abbildung $\pi:M \to \QR{M}{N}, \; m \mapsto m+N$ ist ein Modulepimorphismus mit $\ker \pi = N$.
 \end{bem+df}
 \begin{bsp}
 	Sei $I\subseteq R$ ein Linksideal, $M$ ein $R$-Modul. Dann ist 
@@ -129,7 +129,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	\emph{Die nächsten Sätze zeigt man wie für Gruppen ($K$-VR,...)}
 \end{center}
 \ 
-\begin{sa}
+\begin{sa}\label{sa1.11}
 	Seien $M, M^{’} $ $R$-Moduln, $N \subseteq M $ ein Untermodul, $ \pi: M \to \QR{M}{N} $ die kanonische Projektion, $\phi: M \to M^{’} $ $R$-Modulhomomorphismus. Dann sind äquivalent: 
 \begin{enumerate}[label= \roman*)]
 	\item $N \subseteq ker\phi$
@@ -140,10 +140,9 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	\end{tikzcd}$$
 	\end{enumerate}
 \end{sa}
-\begin{sa}[Homomorphiesatz] Seien $M, M^{’} $ $R$-Moduln,  $\phi: M \to M^{’} $ ein $R$-Modulhomomorphismus. Dann existiert ein $R$-Modulisomorphismus $\overline{\phi}: \QR{M}{ker\phi} \overset{\sim}{\longrightarrow} \im\phi $ mit $\overline{\phi}(x+ker\phi)=\phi(x) $ für alle $ x \in M$.
+\begin{sa}[Homomorphiesatz] Seien $M, M^{’} $ $R$-Moduln,  $\phi: M \to M^{’} $ ein $R$-Modulhomomorphismus. Dann existiert ein $R$-Modulisomorphismus $$\overline{\phi}: \QR{M}{ker\phi} \overset{\sim}{\longrightarrow} \im\phi \quad \text{mit} \quad \overline{\phi}(x+ker\phi)=\phi(x)$$ für alle $ x \in M$.
 \end{sa}
-\begin{sa}
-	(Isomorphiesätze) Sein $M$ ein $R$-Modul, $N_1, N_2 \subseteq M$ Untermoduln. Dann gilt:
+\begin{sa}[Isomorphiesaätze]\label{sa1.13}Sei $M$ ein $R$-Modul, $N_1, N_2 \subseteq M$ Untermoduln. Dann gilt:
 	\begin{enumerate}[label=\alph*)]
 		\item Die Abbildung$$\QR{N_1}{N_1 \cap N_2} \overset{\sim}{\longrightarrow} \QR{(N_1+N_2)}{N_2} \qquad x + N_1\cap N_2  \mapsto x +N_2$$ ist ein Isomorphismus.
 		\item Ist $ N_2 \subseteq N_1$, so ist
@@ -151,7 +150,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		 ein Isomorphismus.
 	\end{enumerate}
 \end{sa}
-\begin{sa}
+\begin{sa}\label{sa1.14}
 	Sei $M$ ein $R$-Modul, $N \subseteq M$ ein Untermodul, $ \pi: M \to \QR{M}{N} $ die kanonische Projektion. Dann gibt es eine Bijektion 
 	\begin{eqnarray*}
 		\{\text{Untermoduln} \ M^{’} \text{von} \  M \text{mit} \ N \subseteq M^{’} \} &\longrightarrow &\{\text{Untermoduln } \text{ von } \QR{M}{N}\}\\
@@ -160,20 +159,20 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	\end{eqnarray*}
 	die inklusionserhaltend ist.
 \end{sa}
-\begin{bem+df}
-	Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: $\prod_{i \in I} M_i$ ist ein $R$-Modul mit komponentenweiser Addition und skalarer Multiplikation und heißt das "'direkte Produkt"' der $M_{i}$. Die Projektionsabbildungen $p_{j}: \prod_{i \in I} M_i \to M_{j} $ mit $(m_i)_{i \in I} \mapsto m_j $ sind $R$-Modulhomomorphismen.
+\begin{bem+df}\label{bemdf1.15}
+	Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: $\prod_{i \in I} M_i$ ist ein $R$-Modul mit komponentenweiser Addition und skalarer Multiplikation und heißt das \define{direkte Produkt\index{direktes Produkt}} der $M_{i}$. Die Projektionsabbildungen $p_{j}: \prod_{i \in I} M_i \to M_{j} $ mit $(m_i)_{i \in I} \mapsto m_j $ sind $R$-Modulhomomorphismen.
 \end{bem+df}
-\begin{sa}[Universelle Eingenschaft des Produkts] Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: Für jeden $R$-Modul $M$ ist die Abbildung $$ Hom_{R}(M,\prod_{i \in I} M_i) \to \prod_{i \in I} Hom_{R}(M,M_i) \qquad \phi \mapsto (p_i \circ \phi)_{i \in I}$$
+\begin{sa}[Universelle Eingenschaft des Produkts]\label{sa1.16} Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: Für jeden $R$-Modul $M$ ist die Abbildung $$ Hom_{R}(M,\prod_{i \in I} M_i) \to \prod_{i \in I} Hom_{R}(M,M_i) \qquad \phi \mapsto (p_i \circ \phi)_{i \in I}$$
 	eine Bijektion, d.h. für jede Familie $(\phi_i)_{i \in I}$ von $R$-Modulhomomorphismen $\phi_i: M \to M_i $ ex. genau ein $R$-Modulhomomorphismus $\phi: M \to \prod_{i \in I} M_i$ mit $ p_i \circ \phi = \phi_i$ für alle $i \in I$ (nämlich der durch $\phi(x) := ((\phi_i(x))_{i\in I}) $
 \end{sa}
-\begin{df}
+\begin{df}\label{df1.17}
 	Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Der Untermodul $$ \bigoplus_{i \in I} M_i := \{(m_i)_{i \in I} \in \prod_{i \in I} M_i \ | \text{ fast alle }  m_i =0\} \subseteq \prod_{i \in I} M_i $$ 
-	heißt die "'direkte Summe"' der $M_i$. Die Inklusionsabbildungen $$q_j: M_j \to \bigoplus_{i \in I} M_i, \quad x \mapsto (x_i)_{i \in I} \quad \text{mit} \quad x_i=\begin{cases} x & i = j \\ 0 & \text{sonst.} \end{cases}$$ sind $R$-Modulhomomorphismen.
+	heißt die \define{direkte Summe\index{direkte Summe}} der $M_i$. Die Inklusionsabbildungen $$q_j: M_j \to \bigoplus_{i \in I} M_i, \quad x \mapsto (x_i)_{i \in I} \quad \text{mit} \quad x_i=\begin{cases} x & i = j \\ 0 & \text{sonst.} \end{cases}$$ sind $R$-Modulhomomorphismen.
 \end{df}
 \begin{anm}
 	Ist $I$ endlich, dann ist $\bigoplus_{i \in I}M_i = \prod_{i \in I} M_i$.
 \end{anm}
-\begin{sa}[Universelle Eingenschaft der Summe] Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: Für jeden $R$-Modul $M$ ist die Abbildung $$ Hom_{R}(\bigoplus_{i \in I} M_i,M) \to \prod_{i \in I} Hom_{R}(M_i,M) \quad \text{mit} \quad \psi \mapsto (\psi \circ q_i)_{i \in I}$$
+\begin{sa}[Universelle Eingenschaft der Summe]\label{sa1.18} Sei $(M_i)_{i \in I}$ eine Familie von $R$-Moduln. Dann gilt: Für jeden $R$-Modul $M$ ist die Abbildung $$ Hom_{R}(\bigoplus_{i \in I} M_i,M) \to \prod_{i \in I} Hom_{R}(M_i,M) \quad \text{mit} \quad \psi \mapsto (\psi \circ q_i)_{i \in I}$$
 	eine Bijektion, d.h. für jede Familie $(\psi_i)_{i \in I}$ von $R$-Modulhomomorphismen $\psi_i: M_i \to M $ ex. genau ein $R$-Modulhomomorphismus $\psi: \bigoplus_{i \in I}M_i \to M$ mit $ \psi \circ q_i = \psi_i$ für alle $i \in I$ (nämlich der durch $\psi((m_i)_{i \in I}) := \sum_{i\in I} \psi_i(m_i)$ definierte).
 \end{sa}
 \begin{anm}
@@ -182,32 +181,32 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	 M^I &:= \prod_{i \in I}M, & M^{(I)} &:= \bigoplus_{i \in I}M, & M^{r} &:= M^{\{1,..,r\}}=M^{(\{1,..,r\})}
 	 \end{align*}
 \end{anm}
-\begin{bem}
+\begin{bem}\label{bem1.19}
 	Sei $M$ ein $R$-Modul, $(M_i)_{i \in I}$ eine Familie von Untermoduln von M. Dann erhalten wir (aus der Universellen Eigenschaft von $\bigoplus$ mit $\psi_i:M_i\hookrightarrow M$ Inklusionsabbildung) einen $R$-Modulhomomorphismus $$ \psi:\bigoplus_{i \in I} M_i \to M, \quad (m_i)_{i \in I} \mapsto \sum_{i\in I}m_i \quad \text{mit} \quad\im\psi = \sum_{i\in I}M_i $$
 	Ist $\psi$ injekitv, so heißt die Summe $\sum_{i\in I}M_i $ "'direkt"', und wir schreiben auch $\bigoplus_{i \in I}M_i $ für $ \sum_{i\in I}M_i$.
 \end{bem}
-\begin{anm} In der Situation von 1.19 gilt:
+\begin{anm} In der Situation von \ref{bem1.19} gilt:
 	\begin{itemize}
 		\item $\sum_{i\in I}M_i $ direkt $\Longleftrightarrow \sum_{i\in J}M_i $ \ direkt für alle Teilmengen $J \subseteq I$ 
 		\item $M_1+M_2 = M_1 \bigoplus M_2 \Longleftrightarrow M_1 \cap M_2 =0$
 	\end{itemize}
 \end{anm}
-\begin{df}
-	Sei $M$ ein $R$-Modul und sei $x \in M$. Die Abbildung $f_{x}:R \to M, a \mapsto ax$ ist ein $R$-Modulhomomorphismus, das Linksideal $$ ann_{R}(x) := \ker f_x = \{a \in R \ | \  ax=0\}$$ heißt der "'Annulator" von $x$. Das Bild $\im f_x = Rx=\{ax \ | \ a \in R\} $ heißt der von $x$ erzeugte Untermodul von M. Allgemeiner heißt für eine Teilmenge $X \subseteq M$ $$ RX := \langle X\rangle_{R} := \sum_{x\in X} Rx = \im(R^{(X)} \to M) = \bigcap_{X \subseteq N \subseteq M \atop N \text{Untermodul} \text{ mit } X \subseteq N}N $$
-	Der von X erzeugte Untermodul von M.
+\begin{df}\label{df1.20}
+	Sei $M$ ein $R$-Modul und sei $x \in M$. Die Abbildung $f_{x}:R \to M, a \mapsto ax$ ist ein $R$-Modulhomomorphismus, das Linksideal $$ ann_{R}(x) := \ker f_x = \{a \in R \ | \  ax=0\}$$ heißt der \define{Annulator\index{Annulator}} von $x$. Das Bild $\im f_x = Rx=\{ax \ | \ a \in R\} $ heißt der von $x$ erzeugte Untermodul von M. Allgemeiner heißt für eine Teilmenge $X \subseteq M$ $$ RX := \langle X\rangle_{R} := \sum_{x\in X} Rx = \im(R^{(X)} \to M) = \bigcap_{X \subseteq N \subseteq M \atop N \text{Untermodul} \text{ mit } X \subseteq N}N $$
+	Der von X \define{erzeugte Untermodul\index{erzeugter Untermodul}} von M.
 \end{df}
-\begin{df}
+\begin{df}\label{df1.21}
 	Sei $M$ ein $R$-Modul, $(x_i)_{i \in I} $ Familie von Elementen aus $M$, $\psi:R^{(I)} \to M, (a_i)_{i \in I} \mapsto \sum_{i\in I}a_ix_i$.
 	$(x_i)_{i \in I} $ heißt 
 	\begin{enumerate}
-		\item[] "'Erzeugendensystem"' von $M$ mit $R$ $\defi$  $\psi $ surjektiv $\Longleftrightarrow$ $M$ stimmt mit dem von $(x_i)_{i \in I} $ erzeugten Untermodul überein
-		\item[]	"'linear abhängig"' $\Longleftrightarrow$ $\psi $ injektiv 
-		\item[] "'Basis"' von $M$ über $R$ $\Longleftrightarrow$ $\psi$ bijektiv 
+		\item[] \define{Erzeugendensystem\index{Erzeugendensystem}} von $M$ mit $R$ $\defi$  $\psi $ surjektiv $\Longleftrightarrow$ $M$ stimmt mit dem von $(x_i)_{i \in I} $ erzeugten Untermodul überein
+		\item[]	\define{linear abhängig\index{linear abhängig}} $\Longleftrightarrow$ $\psi $ injektiv 
+		\item[] \define{Basis\index{Basis}} von $M$ über $R$ $\Longleftrightarrow$ $\psi$ bijektiv 
 	\end{enumerate}
 	$M$ heißt
 	\begin{enumerate}
-		\item[]	 "'endlich erzeugt"' $\Longleftrightarrow$ $M$ besitzt ein endliches Erzeugendensystem 
-		\item[] "'frei"' $\Longleftrightarrow$ $M$ besitzt eine Basis
+		\item[]	 \define{endlich erzeugt\index{endlich erzeugter Modul}} $\Longleftrightarrow$ $M$ besitzt ein endliches Erzeugendensystem 
+		\item[] \define{frei\index{freier Modul}} $\Longleftrightarrow$ $M$ besitzt eine Basis
 	\end{enumerate}
 \end{df}
 \begin{anm}
@@ -218,26 +217,27 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		\item Basen eines freien $R$-Moduls können unterschiedliche Länge haben.
 	\end{itemize}
 \end{anm}
-\begin{sa}
+\begin{sa}\label{sa1.22}
 	Sei $A$ ein kommutativer Ring, $A \neq 0$, $n_1,n_2 \in N $. Dann gilt: \\
 	$$ A^{n_1} \simeq A^{n_2} \Longleftrightarrow n_1 =n_2 $$
 \end{sa}
 \begin{proof}
 	Vorüberlegung: nach Algebra 1, 4.18 ex in $A$ ein maximales Ideal $J$ . Sei $n \in \N$. Dann ist $\QR{A^{n}}{JA^{n}}$ ein $\QR{A}{J}$-Modul (vgl Beispiel 1.10) und $\QR{A}{J}$ ist ein Körper. Die Abbildung $\QR{A^{n}}{JA^{n}} \to (\QR{A}{J})^{n}, (x_1,..,x_n) +JA^{n} \mapsto (x_1+J,...,x_n+J) $ ist ein Isomorphismus von $\QR{A}{J}$-Moduln, d.h. $\QR{A^{n}}{JA^{n}} \simeq (\QR{A}{J})^{n} $ ist ein n-dimensionaler $\QR{A}{J}$-Vektorraum. Aus $ A^{n_1} \simeq A^{n_2}$ folgt $\QR{A^{n_1}}{JA^{n_1}} \simeq \QR{A^{n_2}}{JA^{n_2}}$, also $ (\QR{A}{J})^{n_1} \simeq (\QR{A}{J})^{n_2}$ (als $\QR{A}{J}$-Vektorraum)
 \end{proof}
-\begin{df}
-	Sei $A$ ein kommutativer Ring, $M$ ein freier $A$-Modul mit endlicher Basis. Die Kardinalität dieser Basis heißt der "Rang" von M (unabhängig von der Wahl einer endlichen Basis nach 1.22)
+\begin{df}\label{df1.23}
+	Sei $A$ ein kommutativer Ring, $M$ ein freier $A$-Modul mit endlicher Basis. Die Kardinalität dieser Basis heißt der \define{Rang\index{Rang eines Moduls}} von M (unabhängig von der Wahl einer endlichen Basis nach \ref{sa1.22})
 \end{df}
 \newpage
 \subsection{Exakte Folgen}
-\begin{df}
-	Eine "’exakte Folge (exakte Sequenz) "’ von $R$-Moduln ist eine Familie $(f_i)_{i \in I}$ von $R$-Modulhomomorphismen $f_i: M_i \to M_{i+1} $ für ein (endliches oder unendliches) Intervall $I \in \Z $, sodass: $$ \im f_i = \ker f_{i+1} \quad \text{für alle } i \in I \text{mit} \ i+1 \in I $$ gilt. \\
+\begin{df}\label{df2.1}
+	Eine \define{exakte Folge\index{exakte Sequent}} (\define{exakte Sequenz}) von $R$-Moduln ist eine Familie $(f_i)_{i \in I}$ von $R$-Modulhomomorphismen $f_i: M_i \to M_{i+1} $ für ein (endliches oder unendliches) Intervall $I \in \Z $, sodass: $$ \im f_i = \ker f_{i+1} \quad \text{für alle } i \in I \text{mit} \ i+1 \in I $$ gilt. \\
 	Schreibweise: \quad  $\begin{tikzcd}
 	\ldots \arrow{r}{}& M_{i-1} \arrow{r}{f_{i-1}}& M_i \arrow{r}{f_i} & M_{i+1} \arrow{r} & \ldots
-	\end{tikzcd}$.	Eine exakte Folge der Form: $$\begin{tikzcd}
+	\end{tikzcd}$.\\
+	Eine exakte Folge der Form: $$\begin{tikzcd}
 	0  \arrow{r} & M^{’} \arrow{r}{f} & M \arrow{r}{g} & M^{''} \arrow{r} & 0
 	\end{tikzcd}  \quad (\ast) $$
-	heißt eine "'kurze exakte Folge"' (hierbei sind die äußeren Abbildungen die Nullabbildungen). Die Exaktheit von $ (\ast)$ bedeutet explizit:
+	heißt eine \define{kurze exakte Folge\index{kurze exakte Sequenz}} (hierbei sind die äußeren Abbildungen die Nullabbildungen). Die Exaktheit von $ (\ast)$ bedeutet explizit:
 	\begin{itemize}
 		\item $f$ injektiv
 		\item $g$ surjektiv
@@ -273,7 +273,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		(mit der komponentenweisen Abbildungen) exakt.\\
 	\end{itemize}
 \end{anm}
-\begin{sa}
+\begin{sa}\label{sa2.2}
 	Sei $\begin{tikzcd}
 	0  \arrow{r} & M^{’} \arrow{r}{f} & M \arrow{r}{g}\arrow[bend right = 50,swap, dashed]{l}{t} & M^{''}\arrow[bend right = 50,swap, dashed]{l}{s} \arrow{r} & 0
 	\end{tikzcd}$ eine kurze exakte Sequenz von $R$-Moduln. Dann sind äquivalent:
@@ -294,7 +294,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	$$0 =t(m) = (t\circ f)(m') = \id_{M'}(m') = m'$$
 	also auch $m=0$. Damit ist $M= N' \oplus \im f$.
 \end{proof}
-\begin{sa}
+\begin{sa}\label{sa2.3}
 	Sei$\begin{tikzcd}
 	0  \arrow{r} & M^{’} \arrow{r}{f} & M \arrow{r}{g} & M^{''} \arrow{r} & 0
 	\end{tikzcd} $ eine exakte Sequenz von $R$-Moduln, $M''$ ein freier $R$-Modul. Dan spaltet die obige Folge.
@@ -304,7 +304,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	$$(g\circ s) (v_i) = g(m_i) = v_i, \quad \forall i\in I$$
 	Also ist $g\circ s = \id_{M''}$
 \end{proof}
-\begin{fo}
+\begin{fo}\label{fo2.4}
 	Sei $\begin{tikzcd}
 	0  \arrow{r} & M^{’} \arrow{r} & M \arrow{r} & M^{''} \arrow{r} & 0
 	\end{tikzcd} $ eine kurze exakte Sequenz von $R$-Moduln, $M', M''$ freie $R$-Moduln. Dann ist auch $M$ frei.
@@ -317,7 +317,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	Ist $R$ kommutativ, und haben $M,M'$ endliche Basen, dann zeigt der Beweis: 
 	$$\text{rang}(M) = \text{rang}(M') + \text{rang}(M'')$$
 \end{anm}
-\begin{bem}
+\begin{bem}\label{bem2.5}
 	Sei $\begin{tikzcd}
 	0  \arrow{r} & M^{’} \arrow{r}{f} & M \arrow{r}{g} & M^{''} \arrow{r} & 0
 	\end{tikzcd} $ ein kurze exakte Sequenz von $R$-Moduln. Dann gilt: 
@@ -338,10 +338,11 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	Aus $M$ endlich erzeugt, folgt im Allgemeinen nicht, dass $M'$ endlich erzeugt ist.
 \end{anm}
 \begin{bsp}
-	Sei $K$ ein Körper, $R=K[X_1, X_2, \ldots]$. Dann ist $R$ als $R$-Modul offensichtlich endlich erzeugt (von 1). Setze $I:= \{f\in R \ | \ \text{konstanter Term von } f \text{ ist } =0\}$. Dann ist $I$ ein Ideal in $R$, aber $I$ ist nicht endlich erzeugt als $R$-Modul, denn angenommen ex existieren $f_1, \ldots, f_r\in I$ mit $I = \sum_{i=1}^rRf_i$. Dann existiert ein $n\in \N$, sodass $f_1, \ldots, f_r\in K[X_1, \ldots, X_n] \subseteq R$. \\
+	Sei $K$ ein Körper, $R=K[X_1, X_2, \ldots]$. Dann ist $R$ als $R$-Modul offensichtlich endlich erzeugt (von 1). Setze $$I:= \{f\in R \ | \ \text{konstanter Term von } f \text{ ist } =0\}$$
+	Dann ist $I$ ein Ideal in $R$, aber $I$ ist nicht endlich erzeugt als $R$-Modul, denn angenommen ex existieren $f_1, \ldots, f_r\in I$ mit $I = \sum_{i=1}^rRf_i$. Dann existiert ein $n\in \N$, sodass $f_1, \ldots, f_r\in K[X_1, \ldots, X_n] \subseteq R$. \\
 	Problem: $X_{n+1} \notin I$, denn andernfalls wäre $X^{n+1} = a_1 f_1 + \ldots + a_rf_r$ mit $a_1, \ldots, a_r \in R$ und setze $X_1 = \ldots = X_n = 0, \ X_{n+1} = 1$, also $1=0$ Widerspruch!		
 \end{bsp}
-\begin{bem}
+\begin{bem}\label{bem2.7}
 	Seien $M_1, \ldots, M_r$ $R$-Moduln. Dann sind äquivalent:
 	\begin{enumerate}[label=\roman*)]
 		\item $M= \bigoplus_{i=1}^r M_i$ ist endlich erzeugt.
@@ -361,7 +362,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 \begin{anm}
 	Ist $M= \bigoplus_{i\in I} M_I$ mit $|I| = \infty, \ M_i \neq 0$ für alle $i\in I$, dann ist $M$ nicht endlich erzeugt, dann für $x_1, \ldots, x_s\in M$ existiert ein $J\subsetneq I$ mit $ x_1, \ldots, x_s \in \bigoplus_{j\in J} M_j$, also $\sum_{i=1}^s R_i \subseteq \bigoplus_{j\in J} M_j\subsetneq \bigoplus_{i\in I} M_i$
 \end{anm}
-\begin{bem}[Fünferlemma] Ist ein kommutatives Diagramm von $R$-Modulhomomorphismen mit exakten Zeilen 
+\begin{bem}[Fünferlemma]\label{bem2.8}\index{Fünferlemma} Ist ein kommutatives Diagramm von $R$-Modul-homomorphismen mit exakten Zeilen 
 	$$\begin{tikzcd}
 	M_1 \arrow{r} \arrow{d}{\phi_1}& M_2 \arrow{r}\arrow{d}{\phi_2}& M_3 \arrow{r} \arrow{d}{\phi_3} & M_4 \arrow{r} \arrow{d}{\phi_4} & M_5 \arrow{d}{\phi_5}\\
 	N_1 \arrow{r}& N_2 \arrow{r}& N_3 \arrow{r} & N_4 \arrow{r} & N_5
@@ -374,7 +375,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 \begin{anm}
 	Wir meist in der Situation $M_1 = N_1 = M_5 = N_5$ angewandt.
 \end{anm}
-\begin{bem}[Schlangenlemma]
+\begin{bem}[Schlangenlemma]\label{bem2.9}\index{Schlangenlemma}
 	Sei folgendes kommutatives Diagramm von $R$ Modulhomomorphismen mit exakten Zeilen gegeben:
 	$$\begin{tikzcd}
 & M^{'} \arrow{r}{f'}\arrow{d}{\phi'}& M \arrow{r}{f} \arrow{d}{\phi} & M^{''} \arrow{d}{\phi''} \arrow{r}& 0\\
@@ -435,23 +436,23 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 \end{proof}
 \newpage
 \subsection{Noethersche und Artinsche Moduln}
-\begin{df}
-	Sei $M$ ein $R$-Modul. $M$ heißt "'noethersch"' $\defi$ jeder Untermodul von $M$ ist endlich erzeugt.
+\begin{df}\label{df3.1}
+	Sei $M$ ein $R$-Modul. $M$ heißt \define{noethersch\index{noetherscher Modul}} $\defi$ jeder Untermodul von $M$ ist endlich erzeugt.
 \end{df}
 \begin{anm}
-	$M$ noetersch $\Ra $ $M$ ist endlich erzeugt.
+	$M$ noethersch $\Ra $ $M$ ist endlich erzeugt.
 \end{anm}
 \begin{bsp}
 	Sei $K$ ein Körper, $V$ ein $K$-VR. Dann gilt: $V$ noethersch $\Lra$ $V$ ist endlich dimensional
 \end{bsp}
-\begin{sa}
+\begin{sa}\define{sa3.3}
 	Sei $M$ ein $R$-Modul. Dann sind äquivalent:
 	\begin{enumerate}[label= \roman*)]
 		\item $M$ ist noethersch
 		\item Jede aufsteigende Kette $M_0 \subseteq M_1 \subseteq M_2 \subseteq \dots $ von Untermoduln wird stationär, d.h. es existiert ein $ n \in \N_0$, sodass $M_i = M_n$ für alle $i \geq n $.
 		\item Jede nichtleere Menge von Untermoduln von $M$ enthält ein maximales Element.
 	\end{enumerate}
-	Man sagt in diesem Fall auch: die Untermoduln von $M$ erfüllen die "'aufsteigende Kettenbedigung"'.
+	Man sagt in diesem Fall auch: die Untermoduln von $M$ erfüllen die \define{aufsteigende Kettenbedingung\index{aufsteigende Kettenbedingung}}.
 \end{sa}
 	\begin{proof} 
 		$i) \Ra ii)$ Sei $M_0 \subseteq M_1 \subseteq M_2 \subseteq \dots $ eine Kette von Untermoduln von $M$. Setze $N := \bigcup_{i \in \N_0} M_i \subseteq M$. $N$ ist Untermodul von $M$ (beachte: $ a,b \in N \Ra $ Es existieren $i,j \in \N_0$ mit $a \in M_i$, $b \in M_j$, o.E. gilt: $i\leq j \Ra M_i \subseteq M_j$, $a,b \in M_j \Ra a+b \in M_j \subseteq N$). Da $M$ noethersch, ist $N$ endlich erzeugt, d.h. es existiert ein endliches Erzeugendensystem $x_1, \dots x_r$ von $N$. Für jedes $i \in \{1,\dots r\} $ exsistieren $j_i \in \N_0 $ mit $x_i \in M_{j_i}$. Setze $n:= max\{j_i \ | \ i = 1, \dots r \} \Ra x_1,\dots, x_r \in M_n$ $ \Ra N \subseteq M_n \subseteq N \Ra N = M_n \Ra $ für alle $i \geq n $ ist $ M _i=M_n$.\\
@@ -459,7 +460,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		$iii) \Ra i)$ Sei $N \subseteq M $ ei Untermodul. Setze $$\mathcal{X} := \{M' \subseteq M \text {Untermodul} \ | \ M' \text{endlich erzeugt}, M' \subseteq N\}$$Wegen $0 \in \mathcal{X}$ ist $\mathcal{X} \neq \emptyset $ $\overset{(iii)}{\Ra}$ Es existiert ein maximales Element $\tilde{M} $ in $\mathcal{X}$. \\
 		Behauptung: $\tilde{M} = N$, denn: Sei $ x \in N \Ra Rx+\tilde{M} \in \mathcal{X} $ und $ \tilde{M} \subseteq Rx+\tilde{M} \overset{\tilde{M} max.}{\Ra} Rx+\tilde{M} = \tilde{M} \Ra x \in \tilde{M}$.
 	\end{proof}
-\begin{bem}
+\begin{bem}\label{bem3.4}
 	Sei $\begin{tikzcd}
 	0  \arrow{r} & M' \arrow{r} & M \arrow{r} & M'' \arrow{r} & 0
 	\end{tikzcd} $ ein kurze exakte Sequenz von $R$-Moduln. Dann sind äquivalent: 
@@ -477,7 +478,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	0  \arrow{r} & M' \cap N \arrow{r}{} & M' \arrow{r}{} & \QR{M'}{M' \cap N} \arrow{r} & 0
 	\end{tikzcd} $$wobei $M' \cap N $ endlich erzeugt, da $N$ noethersch. Außerdem ist $$\QR{M'}{M' \cap N} \simeq \QR{(M'+N)}{N} \subseteq \QR{M}{N} $$ endlich erzeugt, da $\QR{M}{N} $ noethersch. $\Ra M' $ ist endlich erzeugt nach 2.5
 \end{proof}
-\begin{bem}
+\begin{bem}\label{bem3.5}
 	$M_1,...,M_r$ $R$-Moduln. Dann sind äquivalent: 
 	\begin{enumerate} [label= \roman*)]
 		\item $\bigoplus_{i=1}^r M_i $ noethersch 
@@ -487,8 +488,8 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 \begin{proof}
 	Analog zum Beweis von 2.7 unter Verwendung von 3.4
 \end{proof}
-\begin{df}
-	$R$ heißt "'linksnoethersch"' (bzw. "'rechtsnoethersch"'), wenn $R$ als Links-(bzw. Rechts-) Modul über sich selbst noethersch ist. $R$ heißt "'noethersch"', wenn $R$ links-und rechtsnoethersch ist.
+\begin{df}\label{3.6}
+	$R$ heißt \define{linksnoethersch\index{noetherscher Ring}} (bzw. \define{rechtsnoethersch}), wenn $R$ als Links-(bzw. Rechts-) Modul über sich selbst noethersch ist. $R$ heißt \define{noethersch\index{noetherscher Ring}}, wenn $R$ links-und rechtsnoethersch ist.
 \end{df}
 \begin{anm}
 	Es gibt Ringe, die rechtsnoethersch, aber nicht linksnoethersch sind (und umgekehrt)
@@ -499,14 +500,14 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		\item Sei $K$ ein Körper, $ R= K [ X_1,X_2,\dots ]$ ist nicht noethersch nach Beispiel 2.6.
 	\end{enumerate}
 \end{bsp}
-\begin{bem}
+\begin{bem}\label{bem3.8}
 	Sei $R$ ein linksnoetherscher Ring, M ein endlich erzeugtes $R$-Modul. Dann ist $M$ noethersch. 
 \end{bem}
 \begin{proof}
 	%hier ist es ein surjektionspfeil
 	Wegen $M$ endlich erzeugt, existiert ein Epimorphismus $R^n \twoheadrightarrow M $ für geeignetes n. Nach Vorraussetzung ist $R$ als $R$-Modul noethersch $\overset{3.5}{\Ra} $ $R^n $ noetherscher $R$-Modul $\overset{3.4}{\Ra}$ $M$ noethersch.
 \end{proof}
-\begin{bem}
+\begin{bem}\label{bem3.9}
 	Sei $R$ linksnoetherscher Ring, $I \subseteq R $ zweiseitiges Ideal. Dann ist $\QR{R}{I} $ linksnoethersch.
 \end{bem}
 \begin{proof}
@@ -526,7 +527,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 \begin{anm}
 	Unterringe noetherscher Ringe sind im Allgemeinen nicht noethersch (siehe Übungsaufgaben)
 \end{anm}
-\begin{bem}
+\begin{bem}\label{bem3.10}
 	Seien $M,N \ R$-Moduln mit $M \cong M \oplus N, N \neq 0$. Dann ist $M$ nicht noethersch. 
 \end{bem}
 \begin{proof} 
@@ -535,7 +536,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	Angenommen $M$ ist noethersch. Dann enthält $\mathcal{X}$ ein maximales Element $N'$, also  existiert ein $M' \subseteq M$ mit $M = M' \oplus N'$ und $M' \cong M$. Nach Voraussetzung existiert ein $\phi : M \bigoplus N \iso M \iso M'$. Also ist 
 	$$M' = \phi(M) \oplus \phi(N) \Ra M = M' \oplus N' = \underbrace{\phi(M)}_{=:M''} \oplus \underbrace{\phi(N) \oplus N'}_{=:N''} $$ Es ist $M \cong \phi(M) = M''$, somit $ N'' \in \mathcal{X}$. Außerdem ist $\phi(N) \neq 0 $ wegen $ N \neq 0 $ und $\phi$ injektiv. Damit folgt $N' \subsetneq N'' $ im Widerspruch zur Maximalität von $N'$.
 \end{proof}
-\begin{sa}
+\begin{sa}\label{sa3.11}
 	Sei $R$ linksnoetherscher Ring, $R \neq 0$, $n_1,n_2 \in N$. Dann gilt: $ R^{n_1} \simeq R^{n_2} \Ra n_1 = n_2 $.
 \end{sa}
 \begin{proof}
@@ -547,7 +548,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		\item Jeder Körper ist linksnoethersch $\Ra$ So erhält man einen neuen Beweis für Ergebnis aus LA1
 	\end{itemize}
 \end{anm}
-\begin{sa}[Hilbertscher Basissatz]
+\begin{sa}[Hilbertscher Basissatz]\label{sa3.12}\index{Hilbertscher Basissatz}
 	Sei $R$ ein linksnoetherscher Ring. Dann ist $R[X]$ linksnoethersch.
 \end{sa}
 \begin{proof}
@@ -568,7 +569,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 	d.h. $I$ ist endlich erzeugt als $R[X]$-Modul.
 	\end{enumerate}
 \end{proof}
-\begin{fo}
+\begin{fo}\label{fo2.13}
 	\begin{enumerate}[label= \alph*)]
 		\item Ist $R$ ein linksnoetherscher Ring, dann ist $R[X_1, \ldots, X_n]$ linksnoethersch
 		\item Sind $A,\, B$ kommutative Ring, $\phi:A \to B$ ein Ringhomomorphismus, sodass $B$ von $\phi(A)$ und einer endlichen Menge $\{x_1, \ldots, x_r\}\subseteq B$ als Ring erzeugt wird. Dann gilt: $A$ ist nothersch $\Ra B$ noethersch.
@@ -582,11 +583,11 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		Ist $A$ noethersch, dann ist $A[X_1, \ldots, X_r]$ nothersch nach $a)$ und nach 3.9 ist $B$ noethersch.
 	\end{enumerate}
 \end{proof}
-\begin{df}
-	Sei $M$ ein $R$-Modul. $M$ heißt "'artinsch"' $\defi$ für jede absteigende Kette $M_1 \supseteq M_2 \supseteq \ldots$ von Untermoduln von $M$ gibt es ein $n\in \N$ mit $M_i = M_n$ für alle $i\geq n$ ("'absteigende Kettenbedingung"').
+\begin{df}\label{df3.14}
+	Sei $M$ ein $R$-Modul. $M$ heißt \define{artinsch\index{artinsch}} $\defi$ für jede absteigende Kette $M_1 \supseteq M_2 \supseteq \ldots$ von Untermoduln von $M$ gibt es ein $n\in \N$ mit $M_i = M_n$ für alle $i\geq n$ ("'absteigende Kettenbedingung"').
 \end{df}
-\begin{df}
-	$R$ heißt "'linksartinsch"' (bzw. "'rechtsartinsch"') $\defi R$ ist als Links- bzw. Rechtsmodul über sich selber artinsch. $R$ heißt "'artinsch"' $\defi R$ ist links- und rechtsartinsch.
+\begin{df}\label{df3.15}
+	$R$ heißt \define{linksartinsch\index{artinscher Ring}} (bzw. \define{rechtsartinsch}) $\defi R$ ist als Links- bzw. Rechtsmodul über sich selber artinsch. $R$ heißt \define{artinsch} $\defi R$ ist links- und rechtsartinsch.
 \end{df}
 \begin{bsp}
 	\begin{enumerate}[label= \alph*)]
@@ -595,7 +596,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		\item Sei $M$ ein endliches Monoid, $K$ ein Körper, $R= K[M]$ sei der Monoidring (vgl. Algebra 1-Übungen). Dann ist $R$ linksartinsch, denn: $K[M]$ ist ein endlichdimensionaler $K$-Vektorraum, jeder $K[M]$-Untermodul von $K[M]$ ist ein $K$-Untervektorraum von $K[M]$, also ist jede absteigende Kette von Untermoduln eine absteigende Kette von Untervektorräumen, die stationär ist. Ebenso ist $K[M]$ rechtsartinsch, $K[M]$ also artinsch.
 	\end{enumerate}
 \end{bsp}
-\begin{bem}
+\begin{bem}\label{bem3.17}
 	Sei $\begin{tikzcd}
 	0 \arrow{r} & M' \arrow{r} & M\arrow{r}  & M'' \arrow{r} & 0
 	\end{tikzcd}$ eine exakte Folge vn $R$-Moduln. Dann sind äquivalent:
@@ -618,18 +619,18 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		\item["'$\supseteq$"'] Sei $x\in M_n$. Dann existieen $x' \in M, \, y\in N$ mit $x = x' + y$ (wegen $M_i + N = M_n + N$), also $y= \underbrace{x}_{\in M_n} - \underbrace{x'}_{\in M_i \subseteq M_n} \in M_n \cap N = M_i \cap N \Ra  x= \underbrace{x'}_{\in M_i} + \underbrace{y}_{\in M_i} \in M_i$ 
 	\end{enumerate}
 \end{proof}
-\begin{fo}
+\begin{fo}\label{fo3.18}
 	Seien $M_1, \ldots, M_n$ $R$-Moduln. Dann sind äquivalent:
 	\begin{enumerate}[label= \roman*)]
 		\item $\bigoplus_{i=1}^n M_i$ ist artinsch
 		\item $M_1, \ldots, M_n$ sind artinsch.
 	\end{enumerate}
 \end{fo}
-\begin{fo}
+\begin{fo}\label{fo3.19}
 	Sei $R$ linksartinsch, $M$ ein endlich erzeugter $R$-Modul. Dann ist $M$ artinsch.
 \end{fo}
-\begin{df}
-	Sei $M$ ein $R$-Modul. Dann heißt $M$ "'endlich koerzeugt"' $\defi $ für jede Familie $(M_i)_{i\in I}$ von Untermoduln von $M$ mit $\bigcap_{i\in I} M_i = 0$ existiert eine endliche Teilmenge $J\subseteq I$ mit $\bigcap_{j\in J} M_j = 0$
+\begin{df}\label{df3.20}
+	Sei $M$ ein $R$-Modul. Dann heißt $M$ \define{endlich  koerzeugt\index{endlich koerzeugt}} $\defi $ für jede Familie $(M_i)_{i\in I}$ von Untermoduln von $M$ mit $\bigcap_{i\in I} M_i = 0$ existiert eine endliche Teilmenge $J\subseteq I$ mit $\bigcap_{j\in J} M_j = 0$
 \end{df}
 \begin{anm}
 	\begin{itemize}
@@ -637,7 +638,7 @@ Ein "'$R$-Rechtsmodul"' ist eine abelsche Gruppe $(M, +)$ zusammen mit einer Abb
 		\item $N$ ist endlich erzeugt $\Lra$ Für jede Familie $(M_i)_{i\in I}$ von Untermoduln von $M$ mit $\sum_{i\in I} M_I = N$ existiert eine endliche Teilmenge $J\subseteq I$ mit $\sum_{j\in J} M_j = N$.
 	\end{itemize}
 \end{anm}
-\begin{sa}
+\begin{sa}\label{sa3.21}
 	Sei $M$ ein $R$-Modul. Dann sind äquivalent:
 	\begin{enumerate}[label= \alph*)]
 		\item $M$ ist artinsch

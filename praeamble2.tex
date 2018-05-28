@@ -8,12 +8,14 @@ linkcolor = black,
 plainpages = false,
 hypertexnames = false,
 citecolor = black] {hyperref}
-\usepackage{amsmath,amssymb,amsthm,mathrsfs,amsfonts} 
+\usepackage{amsmath,amssymb,mathrsfs,amsfonts} 
+\usepackage[amsmath, thmmarks]{ntheorem}
 \usepackage[ngerman]{babel}
 \usepackage{tikz-cd}
 \usepackage{amstext}
 \usepackage{mathtools}
 \usepackage{color}
+\usepackage{xcolor}
 \usepackage[utf8]{inputenc}
 \usepackage{pgfplots}
 \usepackage[autooneside=false,headsepline,markcase=noupper]{scrlayer-scrpage}
@@ -22,7 +24,10 @@ citecolor = black] {hyperref}
 \usepackage{verbatim}
 \usepackage{graphicx}
 \usepackage{mathtools}
+\usepackage{makeidx}
 \usepackage{tikz}
+
+
 \usetikzlibrary{%
 	matrix,%
 	calc,%
@@ -43,6 +48,14 @@ citecolor = black] {hyperref}
 \setlength{\headheight}{1.1\baselineskip}
 
 
+\definecolor{mycolor}{RGB}{196,19,47} 
+
+\setkomafont{section}{\normalfont\LARGE\bfseries}
+\setkomafont{subsection}{\normalfont\large\bfseries}
+\setkomafont{pagehead}{\normalfont\bfseries}
+\setkomafont{title}{\normalfont\bfseries\Large}
+ 
+
 %----------Kopfzeile-------------
 \automark[subsection]{section}
 \pagestyle{scrheadings}
@@ -51,10 +64,12 @@ citecolor = black] {hyperref}
 \ohead{  \ifstr{\rightbotmark}{\leftmark}{}{\rightbotmark}}
 \ihead{\leftmark}
 
-
+\title{Algebra 2}
+\author{Dr. Denis Vogel}
 \makeatletter
 % Damit die letzte (\botmark) statt der ersten (\firstmark) Marke auf
 % einer Seite für die "rechte Marke" genommen wird:
 \providecommand*{\rightbotmark}{\expandafter\@rightmark\botmark\@empty\@empty}
 \makeatother
+\makeindex
 

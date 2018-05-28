@@ -1,17 +1,78 @@
 %---------Umgebungen---------
+\theorembodyfont{\slshape}
+\theoremheaderfont{\normalfont\bfseries}
+\theoremseparator{.} 
 \newtheorem{df}{Definition}[subsection]
+
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\slshape} 
+\theoremseparator{.}
 \newtheorem{sa}[df]{Satz}
+
+\theoremstyle{plain} 
+\theoremindent0.5cm 
+\theoremseparator{.}
 \newtheorem{lem}[df]{Lemma}
+
+\theoremindent0cm 
+\theoremseparator{.}
 \newtheorem{fo}[df]{Folgerung}
+
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\slshape} 
+\theoremseparator{.}
 \newtheorem{bem}[df]{Bemerkung}
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\slshape} 
+\theoremseparator{.}
 \newtheorem{bem+df}[df]{Bemerkung + Definition}
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\slshape} 
+\theoremseparator{.}
 \newtheorem{sa+df}[df]{Satz + Definition}
+
+\theoremstyle{marginbreak}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\slshape} 
+\theoremseparator{.}
 \newtheorem{fo+df}[df]{Folgerung + Definition}
-\newtheoremstyle{bsp_bem}{5pt}{3pt}{}{}{\bfseries}{:}{ }{}
-\theoremstyle{bsp_bem}
+
+
+\theoremstyle{plain}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\slshape} 
+\theoremseparator{.}
 \newtheorem{bsp}[df]{Beispiel}
+
+
+
+\theoremstyle{marginbreak}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\slshape} 
+\theoremseparator{}
 \newtheorem{alg}[df]{Algorithmus}
-\newenvironment{anm}{\textbf{Anmerkung:}}{\medskip}
+
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\normalfont\bfseries}
+\theorembodyfont{\slshape}
+\theoremseparator{.}
+\newtheorem{anm}{Anmerkung}
+
+
+\theoremheaderfont{\itshape}
+\theoremseparator{.}
+\theoremsymbol{\ensuremath{\color{lightgray}\blacksquare}}
+\newtheorem{proof}{Beweis}
+\addtokomafont{subsection}{\Large}
+
 \newenvironment{Ziel}{\textbf{Ziel}}{\medskip}
 
 %---------Layout---------
@@ -26,10 +87,12 @@
 \newcommand{\defi}{\ensuremath{\overset{\text{Def}}{\Leftrightarrow}}}
 \newcommand{\norm}{\mathrel{\text{$\unlhd$}}\!}
 \newcommand{\iso}{\ensuremath{\overset{\sim}{\longrightarrow}}}
+\newcommand{\define}[1]{\textbf{#1}}
 %------griechische Buchstaben-----
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\phi}{\varphi}
 \renewcommand{\rho}{\varrho}
+
 
 %----------Operatoren-------
 \DeclareMathOperator{\sgn}{sgn}
@@ -64,6 +127,7 @@
 
 %--------Ableitungen----------
 \renewcommand{\bar}{\overline}
+\renewcommand{\indexname}{Stichwortverzeichnis}
 
 \begin{comment}
 Beispielschablonen für Diagramme etc.
