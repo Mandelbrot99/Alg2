@@ -724,17 +724,15 @@
 	0  \arrow{r} & L \arrow{r} & M \arrow{r} & P \arrow{r} & 0
 	\end{tikzcd} $
 	%hier fehlt diagramm 2
-	 eine kurze exakte Sequenz von $R$-Moduln. Nach $(iii)$ existiert ein Epimorphismus $ g: M \to P $ um zum Homomorphismus $\id_P: P \to P $ ein Homomorphismus $ \psi: P \to M $  mit $ g \circ \psi = \id_P$, das heißt die Sequenz spaltet. \\
+	 eine kurze exakte Sequenz von $R$-Moduln. Nach $(iii)$ existiert ein Epimorphismus $ g: M \to P $ um zum Homomorphismus $\id_P: P \to P $ ein Homomorphismus $ \psi: P \to M $  mit $ g \circ \psi = \id_P$, das heißt die Sequenz spaltet. 
+	 	$$\begin{tikzcd}
+	 0 \arrow{r} & L \arrow{r}{f} & M \arrow{r}{g} & P \arrow{r} & 0 \\
+	 & & & P \arrow[dashed]{ul}{\psi} \arrow[swap]{u}{\id} & 
+	 \end{tikzcd}$$
 	$(iv) \Ra (v) $ Es existiert ein freier $R$-Modul $F$ und ein Epimorphismus $ f: F \to P $. Wir erhalten eine exakte Sequenz $\begin{tikzcd}
 	0  \arrow{r} & \ker f \arrow{r} & F \arrow{r} & P \arrow{r} & 0
-	\end{tikzcd} $, diese spaltet nach $(iv)$ , das heißt $ f \simeq P \oplus \ker f $
+	\end{tikzcd} $, diese spaltet nach $(iv)$ , das heißt $ f \simeq P \oplus \ker f $\\
 	$(v) \Ra (iii)$ Sei $ \pi: M \to N$ ein Epimorphismus von $R$-Moduln, $\phi: P \to N $ ein Homomorphimus. 
-	%diagramm 
-	$$\begin{tikzcd}
-	0 \arrow{r} & L \arrow{r}{f} & M \arrow{r}{g} & P \arrow{r} & 0 \\
-	& & & P \arrow[dashed]{ul}{\psi} \arrow[swap]{u}{\id} & 
-	\end{tikzcd}$$
-	
 	Wegen $(v)$ existiert ein $R$-Modul $P' $ sodass $F:= P \oplus P' $ frei ist, Setze $\phi': F \to N (x,y) \mapsto \phi(x). $ Sei $ (b_i)_{i \in I} $ eine Basis von F, wähle für $i \in I $ jeweils ein $ z_i \in \pi^{-1}(\phi'(b_i)) .$ Durch $\psi': F \to M , b_i \mapsto z_i $ wird ein Homomorphismus definiert mit $ \pi \circ \psi' = \phi'.$ Setze $\psi: P \to M , x \mapsto \psi'((x,0)) ,$ dann gilt für $x \in P: \pi(\psi(x)) = \pi(\psi'((x,0)))= \phi'((x,0)) = \phi(x) $ das heißt $\pi \circ \psi = \phi.$
 	$$\begin{tikzcd}[column sep = large]
 	P \oplus P' = I \arrow{dr}{\phi '} \arrow{d}{\psi'} \arrow{r} & P \arrow{d}{p} \arrow[dashed, bend right = 50]{l} \\
@@ -814,10 +812,10 @@
 		\end{tikzcd} $ von $R$-Moduln. denn: 
 			\begin{itemize}
 			\item $g$ ist wohldefiniert, denn:$\pi \circ \iota = 0$
-			\item $f$ ist injektiv, denn $ (y,0) = (0,0)  \Ra $ Es existiert ein $ x \in L $ mit $ y= \phi(x), 0 = - \iota(x) \overset{ \iota injektiv}{\Ra} x = 0 \Ra y = \phi(0) = 0 $
+			\item $f$ ist injektiv, denn $ (y,0) = (0,0)  \Ra $ Es existiert ein $ x \in L $ mit $ y= \phi(x), 0 = - \iota(x)$. Wegen $\iota$ injektiv, folgt $ x = 0 \Ra y = \phi(0) = 0 $
 			\item $g$ surjektiv, klar
 			\item $\im f = \ker g: $ "'$\subseteq$"' klar, wegen $g \circ f = 0 $ 
-			"'$\subseteqq$"' Sei $(y,z) \in \ker g \Ra \pi(z) = 0 \Ra z \in \im \iota,$ das heißt es existiert ein $ x \in L $  mit $ z = \iota(x) = -\iota(-x) \Ra (y,z) = (y, -\iota(-x)) = (y+\phi(x), 0) +(\phi(-x), -\iota(-x)) = (y+\phi(x), 0) = f(y+ \phi(x)) \in \im f.$
+			"'$\subseteq$"' Sei $(y,z) \in \ker g \Ra \pi(z) = 0 \Ra z \in \im \iota,$ das heißt es existiert ein $ x \in L $  mit $ z = \iota(x) = -\iota(-x) \Ra (y,z) = (y, -\iota(-x)) = (y+\phi(x), 0) +(\phi(-x), -\iota(-x)) = (y+\phi(x), 0) = f(y+ \phi(x)) \in \im f.$
 		\end{itemize}
 	\item Wegen (iv) spaltet die Sequenz, das heißt es existiert ein R-Modulhomomorphisumus $ h: M \to Q $ mit $h \circ f = id_Q$. Setze $\psi: M \to Q, z \mapsto h((0,z)), \psi $ ist ein $R$-Modulhomomorphismus. Für $x \in L $ ist $(\psi \circ \iota)(x) = h((0,\iota(x))) = h((0, \iota(x))) + h(\phi(x),-\iota(x)) = H((\phi(x),0)) = h(f(\phi(x))) = \phi(x). \Ra \psi \circ \iota = \phi. $
 	\end{enumerate}
@@ -904,7 +902,7 @@
 	Sei $M$ ein injektiver $\Z$-Modul. Dann ist $Hom_{\Z}(R,M)$ ein injektiver $R$-Modul. Insbesondere ist $R^{v} := Hom_{\Z}(R, \QR{\Q}{\Z}) $ ein injektiver $R$-Modul.
 \end{bem}
 \begin{proof}
-	Sei $ I \subseteq R $ ein Linksideal, $\phi: I \to Hom_{\Z}(R,M) $ $R$-linear. Nach 6.9, genügt es zu zeigen: $\phi$ lässt sich auf $R$ fortsetzen. Setze $$f: I \to M ,\quad a \mapsto \phi(a)(1)$$ Dann ist $f $ ist $\Z$-linear und für $r \in R , a \in I $ gilt: $ f(ra) = \phi(ra)(1)= (r\phi(a))(1) = \phi(a)(1 r) = \phi(a)(r)$. Da $M$ ein injektiver $\Z$-Modul, existiert eine $\Z$-lineare Abbilsung $g: R \to M $ mit $g|_y=f $. Wir setzen $\psi: R \to Hom_{\Z}(R,M), a \mapsto ag $. $\psi$ ist $R$-linear, und für $a\in I, r \in R $ ist $\psi(a)(r) =(ag)(r) = g(ra) = f(ra) = \phi(a)(r)$, das heißt $\psi|_{I}=\phi.$
+	Sei $ I \subseteq R $ ein Linksideal, $\phi: I \to Hom_{\Z}(R,M) $ $R$-linear. Nach 6.9, genügt es zu zeigen: $\phi$ lässt sich auf $R$ fortsetzen. Setze $$f: I \to M ,\quad a \mapsto \phi(a)(1)$$ Dann ist $f $ ist $\Z$-linear und für $r \in R , a \in I $ gilt: $ f(ra) = \phi(ra)(1)= (r\phi(a))(1) = \phi(a)(1 r) = \phi(a)(r)$. Da $M$ ein injektiver $\Z$-Modul, existiert eine $\Z$-lineare Abbilsung $g: R \to M $ mit $g\big|_y=f $. Wir setzen $\psi: R \to Hom_{\Z}(R,M), a \mapsto ag $. $\psi$ ist $R$-linear, und für $a\in I, r \in R $ ist $\psi(a)(r) =(ag)(r) = g(ra) = f(ra) = \phi(a)(r)$, das heißt $\psi\big|_{I}=\phi.$
 \end{proof}
 \begin{df}
 	Sei $M$ ein $R$-Modul. $M$ heißt "kofrei"' $\defi$ Es existiert eine Menge $ I$ mit $M \simeq (R^{v})^I = \prod_{i \in I} R^{v} $.
@@ -912,8 +910,8 @@
 \begin{bem}
 	Sei $(M_i)_{i \in I} $eine Familie von $R$-Moduln. Dann gilt:
 	\begin{enumerate} [label= \alph*)]
-		\item $\bigoplus_{i \in I} M_i $ ist ein projektiver $R$-Modul $\defi M_i $ projektive $R$-Moduln für alle $ i \in I $.
-		\item $\prod_{i \in I} M_i $ ist ein injektiver R-Modul $\defi$ $M_i $ ist injektiver $R$-Modul für alle $i  \in I $.
+		\item $\bigoplus_{i \in I} M_i $ ist ein projektiver $R$-Modul $\Lra M_i $ projektive $R$-Moduln für alle $ i \in I $.
+		\item $\prod_{i \in I} M_i $ ist ein injektiver R-Modul $\Lra$ $M_i $ ist injektiver $R$-Modul für alle $i  \in I $.
 	\end{enumerate}
 \end{bem}
 \begin{proof}
@@ -936,3 +934,164 @@
 		\item Nach 2 genügt es zu zeigen: Es existiert ein $\Z$-Modulhomomorphimus $\psi: M \to \QR{\Q}{\Z} $ mit $ \psi(m) \neq 0. $ Setze $N := \langle m\rangle_{\Z}$. 1.Fall: $N \simeq \QR{\Z}{n\Z} $ für ein $n \in N $. Setze $\psi^{~}: N \to \QR{\Z}{n\Z} \to \QR{\Q}{\Z} $ mit $ 1 \mapsto \frac{1}{n} + \Z.$ $ \Ra \psi^{~}(m)\neq 0 $ und da $\QR{\Q}{\Z} $ injektiver $\Z$-Modul ist, setzt sich $\psi^{~} $ auf $M$ fort.
 	\end{enumerate}, 
 \end{proof}
+\begin{sa}
+	Jeder $R$-Modul ist Untermodul eines kofreien, also insbesondere eines injektiven, $R$-Moduls.
+\end{sa}
+\begin{proof}
+	Sei $0\neq M$ ein $R$-Modul. Nach 6.18 existiert zu jedem $m\in M$ ein $R$-Modulhomomorphismus $\phi_m:M \to R^v$ mit $\phi_m(m) \neq 0$. Wir setzen
+	$$f:M \longrightarrow \prod_{m\in M\backslash \{0\}} R^v, \quad x \mapsto ((\phi_m(x))_{m\in M \backslash \{0\}}$$
+	Dann gilt
+	\begin{itemize}
+		\item $f$ ist ein $R$-Modulhomomorphismus
+		\item $f$ ist injekitv, denn: Sei $x\in M$ mit $f(x) = 0$. Dann ist $\phi_m(x) = 0$ für alle $m\in M\backslash \{0\}$. Wäre $x\neq 0$, dann wäre $\phi_m(x) = 0$, Widerspruch!
+	\end{itemize}
+\end{proof}
+\begin{fo}
+	Sei $Q$ ein $R$-Modul. Dann sind äquivalent:
+	\begin{enumerate}[label= \roman*)]
+		\item $Q$ ist injektiv
+		\item Es gibt einen $R$-Modul $Q'$, sodass $Q \times Q'$ ein kofreier $R$-Modul ist(d.h. $Q$ ist direkter Faktor eines kofreien $R$-Moduls)
+	\end{enumerate}
+\end{fo}
+\begin{proof}
+	$i) \Ra ii)$ NAch 6.19 existert ein kofreier $R$-Modul $N$, sodass $Q$ Untermodul von $N$ ist. Die exakte Folge 
+	$$\begin{tikzcd}
+	0 \arrow{r} & Q \arrow{r} & N \arrow{r} & \QR{N}{Q} \arrow{r} & 0
+	\end{tikzcd}$$
+	spaltet nach 6.7, da $Q$ injektiv ist, d.h. $N \cong Q \oplus \QR{N}{Q}  = Q \times \QR{N}{Q}$\\
+	$ii) \Ra i)$ Ist $Q\times Q'$ kofrei, dann ist nach 6.17 $Q \times Q'$ injektiv und nach 6.16 $Q$ injektiv.
+\end{proof}
+\newpage
+\subsection{Komplexe}
+\begin{center}
+	\textbf{In diesem Abschnitt sei $\mathcal{A}$ stets eine abelsche Kategorie}
+\end{center}
+\begin{df}
+	Ein "'Komplex"' $A^{^\bullet}$ in $\mathcal{A}$ ist eine Familie $(A^i, d_i)_{i\in \Z}$ von Objekten $A^i \in \ObA$ und Morphismen $d_i: A^i \to A^{i+1}$ ("'Differentiale"')
+	$$\begin{tikzcd}
+	\ldots \arrow{r} & A^{-1} \arrow{r}{d_{-1}}& A^0 \arrow{r}{d_0} & A^1 \arrow{r}{d_1} & A^2 \arrow{r} & \ldots
+	\end{tikzcd}$$
+	sodass $d_i \circ d_{i-1} =0$ für alle $i\in \Z$ gilt. Ein "'Komplexhomomorphismus"' $f:A^{^\bullet} \to B^{^\bullet}$ in einem Komplexe $B^{^\bullet}$ in $\mathcal{A}$ ist eine Familie $f=(f_i)_{i\in \Z}$ von Homomorphismen $f_i : A^i \to B^i$, sodass für alle $i\in \Z$ gilt:
+	$$d_i \circ f_i = f_{i+1} \circ d_i$$
+	d.h. das Diagramm 
+	$$\begin{tikzcd}
+	\ldots \arrow{r} & A^{i-1}\arrow{d}{f_{i-1}} \arrow{r}{d_{-1}}& A^i \arrow{d}{f_i}\arrow{r}{d_0} & A^{i+1} \arrow{d}{f_{i+1}} \arrow{r}{d_1} & \ldots\\
+	\ldots \arrow{r} & B^{i-1} \arrow[swap]{r}{d_{i-1}} & B^i \arrow[swap]{r}{d_i} & B^{i+1} \arrow{r} & \ldots
+	\end{tikzcd}$$
+	kommutiert.
+\end{df}
+\begin{anm}
+	Komplexe in $\mathcal{A}$ zusammen mit Komplexhomomorphismenbilden eine abelsche Kategorie (Kerne, Kokerne, endliche Produkte separat an jeder Stelle bilden).
+\end{anm}
+\begin{bem}
+	Sei $A^{^\bullet}$ ein Komplex in $\mathcal{A}$. Dann induzieren die Differentiale in natürlicher Weise Monomorphismen $\im d_{i-1} \longleftarrow \ker d_i$ für $i\in \Z$.
+\end{bem}
+\begin{proof}
+	Wir betrachten das Diagramm
+	$$\begin{tikzcd}[column sep = large]
+	A^{i-1} \arrow[swap]{d}{q_{i-1}} \arrow{r}{d_{i-1}} & A^i \arrow{r}{d_i} & A^{i+1} \\
+	\text{coim} \, d_{i-1} \arrow[swap]{r}{\bar{d}_{i-1}} & \im d_{i-1} \arrow{u}{k_{i-1}}\arrow[dashed]{r}{l_i} & \ker d_i \arrow[swap]{ul}{j_i}
+	\end{tikzcd}$$
+	(Nach dem Homomorphiesatz ist $k_{i-1}$ ein Mono-, $q_{i-1}$ ein Epi- und $\bar{d}_{i-1}$ ein Isomorphismus). Es ist $D= d_i \circ d_{i-1} = d_i \circ k_{i-1} \circ \bar{d}_{i-1} \circ q_{i-1}$ und, da $q_{i-1}$ Epi, $d_{i-1}$ Iso, folgt $d_i \circ k_{i-1} =0$. Es existiert ein $l_i : \im d_{i-1} \to \ker d_i$ mit $k_{i-1} = j_i \circ l_i$. $l_i$ ist ein Monomorphismus, da $k_{i-1} = j_i \circ l_i$ Monomorphismus.
+\end{proof}
+\begin{df}
+	Sei $A^{^\bullet}$ ein Komplex in $\mathcal{A}$.
+	\begin{enumerate}
+		\item[] $\mathcal{Z}^i(A^{^\bullet}):= \ker d_i$ \hfill ($i$-Kozykel)
+		\item[] $\mathcal{B}^i(A^{^\bullet}) := \im d_{i-1}$ \hfill ($i$-Koränder)
+		\item[] $\mathcal{H}^i(A^{^\bullet}) := \coker (\im d_{i-1} \to \ker d_i) = \coker(\mathcal{B}^i(A^{^\bullet}) \to \mathcal{Z}^i(A^{^\bullet}))$ \hfill ($i$-te Kohomologie)
+	\end{enumerate}
+\end{df}
+\begin{anm}
+	Ein Komplexhomomorphismus $f:A^{^\bullet} \to B^{^\bullet}$ induziert Homomorphismen $\mathcal{Z}^i(f): Z^i(A^{^\bullet}) \to \mathcal{Z}^i(B^{^\bullet})$, $\mathcal{B}^i(f): \mathcal{B}^iA^{^\bullet} \to \mathcal{B}^i (B^{^\bullet})$, $\mathcal{H}^i(f): \mathcal{H}^i(A^{^\bullet}) \to \mathcal{H}^i(B^{^\bullet})$
+\end{anm}
+\begin{sa}[Lange exakte Kohomologiefolge]
+	Sei $$\begin{tikzcd}
+	0 \arrow{r} & A^{^\bullet} \arrow{r} & B^{^\bullet} \arrow{r} & C^{^\bullet} \arrow{r} & 0
+	\end{tikzcd}$$
+	eine kurze exakte Folge von Komplexen in $\mathcal{A}$ (d.h. die Morphisemen sind Komplexhomomorphismen und für jedes $i\in \Z$ ist 
+	$$\begin{tikzcd}
+	0 \arrow{r} & A^i \arrow{r} & B^i \arrow{r} & C^i \arrow{r} & 0
+	\end{tikzcd}$$
+	exakt). Dann existiert eine natürliche lange exakte Folge 
+	$$\begin{tikzcd}[column sep = small]
+	\ldots \arrow{r} & \mathcal{H}^i(A^{^\bullet}) \arrow{r} & \mathcal{H}^i(B^{^\bullet}) \arrow{r} & \mathcal{H}^i(C^{^\bullet}) \arrow{r} & \mathcal{H}^{i+1}(A^{^\bullet}) \arrow{r}& \mathcal{H}^{i+1}(B^{^\bullet}) \arrow{r} & \mathcal{H}^{i+1}(C^{^\bullet}) \arrow{r}& \ldots
+	\end{tikzcd}$$
+\end{sa}
+\begin{proof}[Beweisskizze]
+	\begin{enumerate}
+		\item $M^{^\bullet}$ ein Komplex in $\mathcal{A}$. Setze 
+		$$Q^i(M^{^\bullet}) := \coker( \im d_{i-1} \to M^i) \quad \text{für } i\in \Z$$
+		Dann induzieren die Differentiale natürliche Morphismen 
+		$$\bar{d}_i: Q^i(M^{^\bullet}) \longrightarrow \mathcal{Z}^{i+1}(M^{^\bullet})$$
+		mit $\ker \bar{d}_i = \mathcal{H}^i(M^{^\bullet})$ und $\coker(\bar{d}_i) = \mathcal{H}^{i+1}(M^{^\bullet})$
+		\item Wir erhalten für $i\in \Z$ ein kommutatives Diagramm mit exakten Zeilen:
+		$$\begin{tikzcd}
+		& Q^i(A^{^\bullet}) \arrow{r}\arrow{d}{\bar{d}_i} & Q^i(B^{^\bullet}) \arrow{r}\arrow{d}{\bar{d}_i} & Q^i(C^{^\bullet}) \arrow{r}\arrow{d}{\bar{d}_i} & 0\\
+		0 \arrow{r} & \mathcal{Z}^{i+1}(A^{^\bullet}) \arrow{r}  & \mathcal{Z}^{i+1}(B^{^\bullet})  \arrow{r} & \mathcal{Z}^{i+1}(C^{^\bullet}) &
+		\end{tikzcd} $$
+		\item Das Schlangenlemma liefert nach 1. für jedes $i\in \Z$ eine exakte Folge 
+			$$\begin{tikzcd}[column sep = small]
+		 \mathcal{H}^i(A^{^\bullet}) \arrow{r} & \mathcal{H}^i(B^{^\bullet}) \arrow{r} & \mathcal{H}^i(C^{^\bullet}) \arrow{r} & \mathcal{H}^{i+1}(A^{^\bullet}) \arrow{r}& \mathcal{H}^{i+1}(B^{^\bullet}) \arrow{r} & \mathcal{H}^{i+1}(C^{^\bullet})
+		\end{tikzcd}$$
+		Diese setzen sich zu einer langen exakten Folge aus der Behauptung zusammen.
+	\end{enumerate}
+\end{proof}
+\begin{df}
+	Sei $A\in \ObA$. Eine "'injektive Auflösung"' von $A$ ist ein Komplex 
+	$$I^{^\bullet}: \begin{tikzcd}
+	I^0\arrow{r}{d_0} & I^1 \arrow{r}{d_1}& I^2\arrow{r} & \ldots
+	\end{tikzcd}$$
+	bestehend aus injektiven Objekten $I^i$ aus $\mathcal{A}$ mit $I^i=0$ für $i<0$ zusammen mit einem Morphismus $\epsilon : A\longrightarrow I^0$, so dass der "'augmentierte Komplex"'
+	$$\begin{tikzcd}
+	0 \arrow{r}& A \arrow{r}{\epsilon} &I^0\arrow{r}{d_0} & I^1 \arrow{r}{d_1}& I^2\arrow{r} & \ldots
+	\end{tikzcd}$$
+	exakt ist (Notation: $A\longrightarrow I^{^\bullet}$ injektive Auflösung von $A$).\\
+	Eine "'projektive Auflösung"' von $A$ ist eine injektive Auflösung von $A$ in $\mathcal{A}^\text{op}$, d.h. ein Komplex 
+	$$P^{^\bullet}: \begin{tikzcd}
+	\ldots \arrow{r} &P^{-2} \arrow{r} & P^{-1} \arrow{r} & P^0
+	\end{tikzcd}$$
+	aus projektiven Objekten $P^i$ aus $\mathcal{A}$ mit $P^i=0$ für $i>0$ zusammen mit einem Morphismus $\epsilon:P^0 \to A$, sodass der augmentierte Komplex
+	$$\begin{tikzcd}
+	\ldots \arrow{r} & P^{-2} \arrow{r} &P^{-1} \arrow{r} & P^0 \arrow{r}{\epsilon} & A \arrow{r} & 0
+		\end{tikzcd}$$
+	exakt ist (Notation: $P^{^\bullet} \longrightarrow A$ projektive Auflösung).
+\end{df}
+\begin{anm}
+	Man schreibt in obiger Situation auch $P_i = P^{-i}$ und $\mathcal{H}_i(-) = \mathcal{H}^{-i}(-)$.
+\end{anm}
+\begin{df}
+	$\mathcal{A}$ hat "'genügend viele Injektive"' $\defi$ Für jedes $A\in \ObA$ existiert ein injektives Objekt $I\in \ObA$ und ein Monomorphismus $\iota:A \to I$.\\
+	$\mathcal{A}$ hat "'genügend viele Projektive"' $\defi \mathcal{A}^\text{op}$ hat genügend viele Injektive
+\end{df}
+\begin{bsp}
+	$R$-Mod hat nach 6.19 genügend viele Injektive und nach 6.4 genügend viele Projektive.
+\end{bsp}
+\begin{bem}
+	Sei $A\in \ObA$. Dann gilt:
+	\begin{enumerate}[label = \alph*)]
+		\item Hat $\mathcal{A}$ genügend viele Injektive, dann hat $A$ eine injektive Auflösung
+		\item Hat $\mathcal{A}$ genügend viele Projektive, dann hat $A$ eine projektive Auflösung
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	Es genüge $a)$ zu zeigen, $b)$ folgt dual.
+	\begin{enumerate}
+		\item Die Situation ist:
+		$$\begin{tikzcd}
+		0 \arrow{r} & A \arrow{r}{\epsilon}& I^0 \arrow{dr}{\pi_0} \arrow{rr}{d_0} & & I^1\arrow{dr}{\pi_1} \arrow{rr}{d_1} & & I^2 \\
+		& & & M^0 \arrow[hook]{ur}{\iota_0} & & M^1 \arrow{ur}{\iota_1}  &		
+		\end{tikzcd}$$
+		Nach Voraussetzung existiert ein injektives Objekt $I^0 \in \ObA$ und ein Monomorphismus $\epsilon:A \to I^0$. Sei $\coker \epsilon= (M^0, \pi_0)$. Es existiert ein injektives Objekt $I^1$ und ein Monomorphismus $\iota_0:M^0 \hookrightarrow I_1$. Iteriere dieses Verfahren: $\coker(d_0) = (M^1, \pi_1)$, es existiert ein injektives Objekt $I^2$ und ein Monomorphismus $\iota_1:M^1\hookrightarrow I^2$, setze $d_1:= \iota_1 \circ \pi_1$.
+		\item Exaktheit: bei $I^0$ gilt:
+		$$\im \epsilon = \ker (\coker \epsilon) = \ker \pi_0 \underset{\text{Mono}}{\overset{\iota}{=}} \ker (\iota_0 \circ \pi_0) = \ker d_0$$
+		analog bei den anderen Stellen
+	\end{enumerate}
+\end{proof}
+\begin{sa}[Hufeisenlemma]
+	$\mathcal{A}$ habe genügend viele Injektive. Gegeben sei ein Diagramm (Schwarz)
+	$$\begin{tikzcd}
+	& 0\arrow{d} &0 \arrow{d} & 0 \arrow{d} & \\
+	0 \arrow{r}\arrow{d} & A'\arrow{d} \arrow{r} & I'^0\arrow{d} \arrow{r} & I'^1 \arrow{d} \arrow{r} & \ldots
+	\end{tikzcd}$$
+\end{sa}
