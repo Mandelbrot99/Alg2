@@ -1,5 +1,5 @@
 %---------Umgebungen---------
-\theorembodyfont{\slshape}
+\theorembodyfont{\normalfont}
 \theoremheaderfont{\normalfont\bfseries}
 \theoremseparator{.} 
 \newtheorem{df}{Definition}[subsection]
@@ -7,7 +7,7 @@
 
 \theoremstyle{plain}
 \theoremheaderfont{\normalfont\bfseries}
-\theorembodyfont{\slshape} 
+\theorembodyfont{\itshape} 
 \theoremseparator{.}
 \newtheorem{sa}[df]{Satz}
 
@@ -23,32 +23,32 @@
 
 \theoremstyle{plain}
 \theoremheaderfont{\normalfont\bfseries}
-\theorembodyfont{\slshape} 
+\theorembodyfont{\itshape} 
 \theoremseparator{.}
 \newtheorem{bem}[df]{Bemerkung}
 
 \theoremstyle{plain}
 \theoremheaderfont{\normalfont\bfseries}
-\theorembodyfont{\slshape} 
+\theorembodyfont{\normalfont} 
 \theoremseparator{.}
 \newtheorem{bem+df}[df]{Bemerkung + Definition}
 
 \theoremstyle{plain}
 \theoremheaderfont{\normalfont\bfseries}
-\theorembodyfont{\slshape} 
+\theorembodyfont{\normalfont} 
 \theoremseparator{.}
 \newtheorem{sa+df}[df]{Satz + Definition}
 
 \theoremstyle{marginbreak}
 \theoremheaderfont{\normalfont\bfseries}
-\theorembodyfont{\slshape} 
+\theorembodyfont{\normalfont} 
 \theoremseparator{.}
 \newtheorem{fo+df}[df]{Folgerung + Definition}
 
 
 \theoremstyle{plain}
 \theoremheaderfont{\normalfont\bfseries}
-\theorembodyfont{\slshape} 
+\theorembodyfont{\normalfont} 
 \theoremseparator{.}
 \newtheorem{bsp}[df]{Beispiel}
 
@@ -62,14 +62,14 @@
 
 \theoremstyle{nonumberplain}
 \theoremheaderfont{\normalfont\bfseries}
-\theorembodyfont{\slshape}
+\theorembodyfont{\normalfont}
 \theoremseparator{.}
 \newtheorem{anm}{Anmerkung}
 
 
 \theoremheaderfont{\itshape}
 \theoremseparator{.}
-\theoremsymbol{\ensuremath{\color{lightgray}\blacksquare}}
+\theoremsymbol{\ensuremath{\blacksquare}}
 \newtheorem{proof}{Beweis}
 \addtokomafont{subsection}{\Large}
 
@@ -77,6 +77,7 @@
 
 %---------Layout---------
 \newcommand{\charp}[2][Endo]{\ensuremath{\chi_#2^\text{char}}}
+\newcommand{\komp}[1]{#1^{^\bullet}}
 \newcommand{\QR}[2]{
 	\raisebox{0.8ex}{\ensuremath{#1}}
 	\ensuremath{\mkern-3mu}\big/\ensuremath{\mkern-1mu}
@@ -87,7 +88,7 @@
 \newcommand{\defi}{\ensuremath{\overset{\text{Def}}{\Leftrightarrow}}}
 \newcommand{\norm}{\mathrel{\text{$\unlhd$}}\!}
 \newcommand{\iso}{\ensuremath{\overset{\sim}{\longrightarrow}}}
-\newcommand{\define}[1]{\textbf{#1}}
+\newcommand{\define}[1]{\emph{#1}}
 %------griechische Buchstaben-----
 \renewcommand{\epsilon}{\varepsilon}
 \renewcommand{\phi}{\varphi}
