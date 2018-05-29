@@ -659,7 +659,7 @@
 %hier fehlen überall die striche bei restklassen
 \begin{sa}\label{6.1}
 	Sei $\begin{tikzcd}
-	0  \arrow{r} & N' \arrow{r}{f} & N \arrow{r}{g} & N'' \arrow{r} & 0
+	0  \arrow{r} & N' \arrow{r}{f} & N \arrow{r}{g} & N'' 
 	\end{tikzcd} $ eine Folge von $R$-Moduln. Dann sind äquivalent: 
 	\begin{enumerate} [label= \roman*)]
 		\item $\begin{tikzcd}
@@ -669,7 +669,7 @@
 		0  \arrow{r} & Hom_{R}(M,N') \arrow{r}{f_{*}^{M}} & Hom_{R}(M,N)  \arrow{r}{g_{*}^{M}} & Hom_{R}(M,N'') 
 		\end{tikzcd} $$ ist exakt.
 	\end{enumerate}
-	insbesondere ist der Funktor $Hom_R(M,-): R-Mod \to \Z$-Mod linksexakt
+	insbesondere ist der kovariante Funktor $Hom_R(M,-): R-Mod \to \Z$-Mod linksexakt
 \end{sa}
 \begin{proof}
 	$(i) \Ra (ii)$ Sei $\begin{tikzcd}
@@ -695,13 +695,13 @@
 	\end{enumerate}
 \end{proof}
 \begin{anm}
-	Der Funktor $\Hom_R(M,-) $ ist im Allgemeinen nicht exakt.
+	Der kovariante Funktor $\Hom_R(M,-) $ ist im Allgemeinen nicht exakt.
 \end{anm}
 \begin{bsp}
 	Sei $ R = \Z  ,M = \QR{\Z}{2\Z}. $ Wir betrachten die exakte Sequenz  \\ $$\begin{tikzcd}
 	0  \arrow{r} & \Z \arrow{r} & \Z \arrow{r} & \QR{\Z}{2\Z} \arrow{r} & 0
 	\end{tikzcd}$$ von $\Z$-Moduln  mit $f: \Z \to \Z, x \mapsto 2x, \pi $ kanonische projektion. Die Abbildung $ \pi_{*}^{M}: Hom_{\Z}\left(\QR{\Z}{2\Z}, \Z\right) \to Hom_{\Z}\left(\QR{\Z}{2\Z},\QR{\Z}{2\Z}\right) $ ist nicht surjektiv, denn:  Für $ \phi \in Hom_{\Z}(\QR{\Z}{2\Z}, \Z) $ gilt: 
-	$$0 = \phi(0) = \phi( 1 +1) = \phi(2\cdot 1) = 2\phi(1)$$, also $ \phi(1)= 0$, das heißt $\phi = 0$. Insbesondere ist $\pi_{*}^{M}(\phi) = \pi_{*}^{M}(0) =0 = \id_{\QR{\Z}{2\Z}} . $ Mit anderen Worten $\QR{\Z}{2\Z}$ ist kein projektiver $\Z$-Modul. 
+	$$0 = \phi(0) = \phi( 1 +1) = \phi(2\cdot 1) = 2\phi(1)$$, also $ \phi(1)= 0$, das heißt $\phi = 0$. Insbesondere ist $\pi_{*}^{M}(\phi) = \pi_{*}^{M}(0) =0 \neq \id_{\QR{\Z}{2\Z}} . $ Mit anderen Worten $\QR{\Z}{2\Z}$ ist kein projektiver $\Z$-Modul. 
 \end{bsp}
 \begin{sa}\label{6.3}
 	Sei $P$ ein $R$-Modul. Dann sind äquivalent:
@@ -769,15 +769,15 @@
 		\end{tikzcd} $ ist exakt.
 		\item Für jeden $R$-Modul $N$ ist die Sequenz abelscher Gruppen: \\
 		$\begin{tikzcd}
-		0  \arrow{r} & Hom_{R}(M'',N) \arrow{r}{g_{*}^{M}} & Hom_{R}(M,N)  \arrow{r}{f_{*}^{M}} & Hom_{R}(M',N) \end{tikzcd}$ exakt.
+		0  \arrow{r} & Hom_{R}(M'',N) \arrow{r}{g_{N}^{*}} & Hom_{R}(M,N)  \arrow{r}{f_{N}^{*}} & Hom_{R}(M',N) \end{tikzcd}$ exakt.
 	\end{enumerate}
-	Insbesondere ist der kovariante Funktor: $Hom_R(-,N): R$-Mod $\to \Z$-Mod  linksexakt.
+	Insbesondere ist der kontravariante Funktor: $Hom_R(-,N): R-Mod^{op} \to \Z$-Mod  linksexakt.
 \end{sa}
 \begin{proof}
 	Übungsaufgabe.
 \end{proof}
 \begin{anm}
-	$Hom_R(-,N) $ ist im Allgemeinen nicht exakt.
+	Der kontravariante Funktor $Hom_R(-,N) $ ist im Allgemeinen nicht exakt.
 \end{anm}
 \begin{bsp}
 	Sei $ R= \Z , N = \Z $. Wir betrachten die exakte Sequenz \\
