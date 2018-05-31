@@ -1002,11 +1002,11 @@
 	$$\begin{tikzcd}
 	\ldots \arrow{r} & A^{-1} \arrow{r}{d_{-1}}& A^0 \arrow{r}{d_0} & A^1 \arrow{r}{d_1} & A^2 \arrow{r} & \ldots
 	\end{tikzcd}$$
-	sodass $d_i \circ d_{i-1} =0$ für alle $i\in \Z$ gilt. Ein "'Komplexhomomorphismus"' $f:A^{^\bullet} \to B^{^\bullet}$ in einem Komplexe $B^{^\bullet}$ in $\mathcal{A}$ ist eine Familie $f=(f_i)_{i\in \Z}$ von Homomorphismen $f_i : A^i \to B^i$, sodass für alle $i\in \Z$ gilt:
+	sodass $d_i \circ d_{i-1} =0$ für alle $i\in \Z$ gilt. Ein \define{Komplexhomomorphismus\index{Komplexhomomorphismus}}  $f:A^{^\bullet} \to B^{^\bullet}$ in einem Komplexe $B^{^\bullet}$ in $\mathcal{A}$ ist eine Familie $f=(f_i)_{i\in \Z}$ von Homomorphismen $f_i : A^i \to B^i$, sodass für alle $i\in \Z$ gilt:
 	$$d_i \circ f_i = f_{i+1} \circ d_i$$
 	d.h. das Diagramm 
 	$$\begin{tikzcd}
-	\ldots \arrow{r} & A^{i-1}\arrow{d}{f_{i-1}} \arrow{r}{d_{-1}}& A^i \arrow{d}{f_i}\arrow{r}{d_0} & A^{i+1} \arrow{d}{f_{i+1}} \arrow{r}{d_1} & \ldots\\
+	\ldots \arrow{r} & A^{i-1}\arrow{d}{f_{i-1}} \arrow{r}{d_{i-1}}& A^i \arrow{d}{f_i}\arrow{r}{d_i} & A^{i+1} \arrow{d}{f_{i+1}} \arrow{r}{d_{i+1}} & \ldots\\
 	\ldots \arrow{r} & B^{i-1} \arrow[swap]{r}{d_{i-1}} & B^i \arrow[swap]{r}{d_i} & B^{i+1} \arrow{r} & \ldots
 	\end{tikzcd}$$
 	kommutiert.
@@ -1095,7 +1095,7 @@
 \begin{anm}
 	Man schreibt in obiger Situation auch $P_i = P^{-i}$ und $\mathcal{H}_i(-) = \mathcal{H}^{-i}(-)$.
 \end{anm}
-\begin{df}
+\begin{df}\label{7.7}
 	$\mathcal{A}$ hat
 	\begin{enumerate}
 		\item[] \define{genügend viele Injektive\index{genügend viele Injektive}}"' $\defi$ Für jedes $A\in \ObA$ existiert ein injektives Objekt $I\in \ObA$ und ein Monomorphismus $\iota:A \to I$.
@@ -1141,52 +1141,55 @@
 	in den Standardwerken über homologische Algebra (zumindest für $R$-Mod). Für den Beweis einer Verallgemeinerung in Kontext abelsche Kategorien siehe Stacks-Project 013P.
 \end{proof}
 \textbf{Frage:} in welchem Verhältnis stehen zwei injektive Auflösungen eines Objekts? 
-\begin{df}
-	Seien $A^{\bullet}, B^{\bullet} $ Komplexe in $\mathcal{A}, f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen. $f,g $ heißen $\define{homotop} \defi $es existieren Homomorphismen$ s^{i}: A^{i+1} \to B^i $ für alle $i \in \Z $ mit$ f_i  -g_i = d_{i-1} \circ s^{i-1} + s^i \circ d_i $
+\begin{df}\label{7.10}
+	Seien $A^{\bullet}, B^{\bullet} $ Komplexe in $\mathcal{A}, f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen. $f,g $ heißen \define{homotop\index{homotope Komplexhomomomorphismen}} $\defi $ es existieren Homomorphismen $ s^{i}: A^{i+1} \to B^i $ für alle $i \in \Z $ mit $$ f_i  -g_i = d_{i-1} \circ s^{i-1} + s^i \circ d_i $$
 	(Notation: $f \sim g$)
 	%Diagramm Hier müssen doppel und Querpfeile ergänzt werden 
-	$$\begin{tikzcd}
-	\ldots \arrow{r} & A^{i-1}\arrow[xshift = -2 ex]{d}{f_{i-1}} \arrow[xshift = 2 ex]{d}{g_{i-1}} \arrow{r}{d_{-1}}& A^i \arrow[green]{dl}{s_{i-1}} \arrow[xshift = -1.2 ex]{d}{f_i} \arrow[xshift = 1.2 ex]{d}{g_i} \arrow{r}{d_0} & A^{i+1} \arrow[green]{dl}{s_i} \arrow[xshift = -2 ex]{d}{f_{i+1}} \arrow[xshift = 2 ex]{d}{g_{i+1}}\arrow{r} & \ldots\\
+	$$\begin{tikzcd}[column sep = large, row sep = large]
+	\ldots \arrow{r} & A^{i-1}\arrow[xshift = -0.8 ex, swap]{d} \arrow[xshift = 0.8 ex]{d} \arrow{r}{d_{i-1}}& A^i \arrow[red, near end]{dl}{s^{i-1}} \arrow[xshift = -0.8 ex, swap]{d}{f_i} \arrow[xshift = 0.8ex]{d}{g_i} \arrow{r}{d_0} & A^{i+1} \arrow[red]{dl}{s^i} \arrow[xshift = -0.8 ex, swap]{d} \arrow[xshift = 0.8 ex]{d}\arrow{r} & \ldots\\
 	\ldots \arrow{r} & B^{i-1} \arrow[swap]{r}{d_{i-1}} & B^i \arrow[swap]{r}{d_i} & B^{i+1} \arrow{r} & \ldots
 	\end{tikzcd}$$
 \end{df}
 \begin{anm}
 	Homotopie von Komplexhomomorphismen ist eine Äquivalenzrelation. Sind $f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen mit $ f \sim g $ und $F: \mathcal{A} \to \mathcal{B} $ ein additiver Funktor von $\mathcal{A} $ in eine abelsche Kategorie $\mathcal{B} $, dann erhalten wir einen Komplexhomomorphismus $ Ff, Fg: FA^{\bullet} \to FB^{\bullet} $ mit$ Ff \sim Fg$.
 \end{anm}
-\begin{bem}
-	Seien $A^{\bullet}, B^{\bullet} $ Komplexe in $\mathcal{A}, f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen mit $ f\sim g $. Dann gilt: $ H^i(f) = H^i(g): H^i(A^{\bullet}) \to H^i(B^{\bullet}) $
+\begin{bem}\label{7.8}
+	Seien $A^{\bullet}, B^{\bullet} $ Komplexe in $\mathcal{A}, f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen mit $ f\sim g $. Dann gilt: $ \mathcal{H}^i(f) = \mathcal{H}^i(g): \mathcal{H}^i(A^{\bullet}) \to \mathcal{H}^i(B^{\bullet}) $
 \end{bem}
 \begin{proof}
-	Wir setzen $h:= f-g: A^{\bullet} \to B^{\bullet} $. Offenbar genügt zu zeigen: $H^i(h) = 0 $ für alle $ i \in \Z$. 
+	Wir setzen $h:= f-g: A^{\bullet} \to B^{\bullet} $. Offenbar genügt zu zeigen: $\mathcal{H}^i(h) = 0 $ für alle $ i \in \Z$. 
 	\begin{enumerate}
-		\item Der Morphismus $ Z^i(h): Z^iA^{\bullet} \to Z^iB^{\bullet} $ faktorisiert über $B^iB^{\bullet},$ denn: \\
-		%Diagramm
-		$$\begin{tikzcd}
-		\ker d_i = Z^iA^{\bullet} \arrow[dashed, green]{d}{Z^ih} \arrow[hook]{r}{\alpha_i} \arrow[dashed,red, bend right = 75]{dd}{\lambda_i}& A^i \arrow{d}{h_i}\arrow{r}{d_i} & A^{i+1} \arrow{d}{h_{i+1}} & \\
-		\ker d_i =Z^iB^{\bullet} \arrow[hook]{r}{\beta_i} & B^i \arrow[swap]{r}{d_i}\arrow{dr}{\gamma_i} & B^{i+1} & \\
-		\im d_{i-1} = B^iB^{\bullet} = \ker \gamma_i \arrow{u}{\theta_i} \arrow{ur}{\delta_i} &  &\coker d_{i-1} &
+		\item Der Morphismus $ \mathcal{Z}^i(h): \mathcal{Z}^iA^{\bullet} \to \mathcal{Z}^iB^{\bullet} $ faktorisiert über $\BB^iB^{\bullet},$ denn: \\
+		$$\begin{tikzcd}[row sep = large]
+		\ker d_i = Z^iA^{\bullet} \arrow[dashed, blue]{d}{\ZZ^ih} \arrow[hook]{r}{\alpha_i} \arrow[dashed,red, bend right = 75]{dd}{\lambda_i}& A^i \arrow{d}{h_i}\arrow{rr}{d_i} & & A^{i+1} \arrow{d}{h_{i+1}} \\
+		\ker d_i =\ZZ^iB^{\bullet} \arrow[hook]{r} & B^i \arrow[swap]{rr}{d_i}\arrow[two heads]{dr}{\gamma_i} & & B^{i+1}  \\
+		\im d_{i-1} = \BB^iB^{\bullet} = \ker \gamma_i \arrow{u}{\theta_i} \arrow[swap, hook]{ur}{\delta_i} &  &\coker d_{i-1} &
 		\end{tikzcd}$$
 		
-		$Z^i(h) $ ist der eindutig bestimmte Morphismus $ Z^iA^{\bullet} \to Z^iB^{\bullet} $ mit $h_i \circ \alpha_i = \beta_i \circ Z^ih $ (beachte: $d_i \circ h_i \circ \alpha_i = h_{i+1} \circ d_i \circ \alpha_i = 0$). Wegen $ f \sim g $ existiert eine Famillie $(si)_{i \in \Z} $ von Homomorphismen $s_i: A^{i+1} \to B^i $ mit $ h_i=f_i -g_i = d_{i -1} \circ s^{i-1} + s_i \circ d_i $ für alle $i \in \Z. \Ra h_i \circ \alpha_i = d_{i-1} \circ s^{i-1} \circ \alpha_i + s_i \circ d_i \circ \alpha_i = d_{i-1} \circ s^{i-1} \circ \alpha_i$ Wegen $ \gamma_i \circ d_{i-1}= 0 $ ist $ \gamma_i \circ d_{i-1} \circ s^{i-1} \circ \alpha_i = 0, $ also $ \gamma_i \circ h_i \alpha_i = 0$ Aus der Univesellen eigenschaft des Kerns von $\gamma_i $, existiert ein eindeutig bestimmtes $ \lambda_i : Z^iA^{\bullet} \to B^iB^{\bullet} = \ker \gamma_i $ mit $ h_i \circ \alpha_i = \delta_i \circ \lambda_i $ und mit $\delta_i = \beta_i \circ \theta_i \Ra \beta_i \circ \theta_i \circ \lambda_i = h_i \circ \alpha_i = \beta_i \circ Z^ih $ da $\beta_i$ ein Monomorphismus folgt: $ \theta_i \circ \lambda_i = Z^ih.$
-		\item $H^ih = 0$, denn betrachte die Situation:\\
-		%Diagramm
-		$$\begin{tikzcd}
-		B^iA^{\bullet} \arrow{d}{B^ih} \arrow{r}{\theta_i^{'}} & Z^iA^{\bullet} \arrow{d}{Z^ih} \arrow[green]{dl}{\lambda_i} \arrow{r}{\epsilon_i^{'}} & H^iA^{\bullet} = \coker \theta_i^{'} \arrow{d}{H^ih} & \\
-		B^iB^{\bullet} \arrow{r}{\theta_i} & Z^iB^{\bullet} \arrow[swap]{r}{\epsilon_i} & H^iB^{\bullet} = \coker \theta_i& 
+		$Z^i(h) $ ist der eindutig bestimmte Morphismus $ \ZZ^iA^{\bullet} \to \ZZ^iB^{\bullet} $ mit $h_i \circ \alpha_i = \beta_i \circ \ZZ^ih $ (beachte: $d_i \circ h_i \circ \alpha_i = h_{i+1} \circ d_i \circ \alpha_i = 0$). Wegen $ f \sim g $ existiert eine Famillie $(si)_{i \in \Z} $ von Homomorphismen $s_i: A^{i+1} \to B^i $ mit $ h_i=f_i -g_i = d_{i -1} \circ s^{i-1} + s_i \circ d_i $ für alle $i \in \Z$. Dann ist
+		$$h_i \circ \alpha_i = d_{i-1} \circ s^{i-1} \circ \alpha_i + s_i \circ \underbrace{d_i \circ \alpha_i}_{=0} = d_{i-1} \circ s^{i-1} \circ \alpha_i$$ Wegen $ \gamma_i \circ d_{i-1}= 0 $ ist $ \overbrace{\gamma_i \circ d_{i-1}}^{=0} \circ s^{i-1} \circ \alpha_i = 0, $ also $ \gamma_i \circ h_i \alpha_i = 0$ Aus der Univesellen Eigenschaft des Kerns von $\gamma_i $, existiert ein eindeutig bestimmtes $ \lambda_i : \ZZ^iA^{\bullet} \to \BB^iB^{\bullet} = \ker \gamma_i $ mit $ h_i \circ \alpha_i = \delta_i \circ \lambda_i $ und mit $\delta_i = \beta_i \circ \theta_i \Ra \beta_i \circ \theta_i \circ \lambda_i = h_i \circ \alpha_i = \beta_i \circ \ZZ^ih $ da $\beta_i$ ein Monomorphismus folgt: $ \theta_i \circ \lambda_i = \ZZ^ih.$
+		\item $\HH^ih = 0$, denn betrachte die Situation:
+		$$\begin{tikzcd}[row sep = large]
+		\BB^iA^{\bullet} \arrow{d}{\BB^ih} \arrow{r}{\theta_i^{'}} & \ZZ^iA^{\bullet} \arrow{d}{\ZZ^ih} \arrow[blue]{dl}{\lambda_i} \arrow[two heads]{r}{\epsilon_i^{'}} & \HH^iA^{\bullet} = \coker \theta_i^{'} \arrow{d}{\HH^ih} & \\
+		B^iB^{\bullet} \arrow{r}{\theta_i} & Z^iB^{\bullet} \arrow[swap, two heads]{r}{\epsilon_i} & \HH^iB^{\bullet} = \coker \theta_i& 
 		\end{tikzcd}$$
-		$H^ih$ ist der eindeutig bestimmte Morphismus $H^iA^{\bullet} \to H^iB^{\bullet} $ mit $H^ih \circ \epsilon_i^{'} = \epsilon_i \circ Z^ih = \epsilon_i \circ \theta_i \circ \lambda_i = 0$, denn $\epsilon_i \circ \theta_i =0 $,somit $H^ih=0 $.
+		$\HH^ih$ ist der eindeutig bestimmte Morphismus $\HH^iA^{\bullet} \to \HH^iB^{\bullet} $ mit $\HH^ih \circ \epsilon_i^{'} = \epsilon_i \circ \ZZ^ih = \epsilon_i \circ \theta_i \circ \lambda_i = 0$, denn $\epsilon_i \circ \theta_i =0 $,somit $\HH^ih=0 $.
 	\end{enumerate}
 \end{proof}
-\begin{df}
-	Seien $A^{\bullet}, B^{\bullet} $ Komplexe in $\mathcal{A}, f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen. \\
-	f heißt $\define{Homotopieäquivalenz} \defi $ es existiert ein $g: B^{\bullet} \to A^{\bullet} $ Komplexhomomorphismus mit $g \circ f \sim id_{A^{\bullet}} $ und $f \circ g \sim id_{B^{\bullet}} . \\
-	\define{Quasiisomorphismus} \defi $ Für alle $i \in \Z $ ist $H^if:  H^iA^{\bullet} \to H^iB^{\bullet} $ ein Isomorphismus.
+\begin{df}\label{7.12}
+	Seien $A^{\bullet}, B^{\bullet} $ Komplexe in $\mathcal{A}, f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen. $f$ heißt
+	\begin{enumerate}
+	\item[] \define{Homotopieäquivalenz\index{Homotopieäquivalenz}} $\defi $ es existiert ein $g: B^{\bullet} \to A^{\bullet} $ Komplexhomomorphismus mit $g \circ f \sim id_{A^{\bullet}} $ und $f \circ g \sim id_{B^{\bullet}}$
+	\item[] \define{Quasiisomorphismus\index{Quasiisomorphismus}} $\defi $ Für alle $i \in \Z $ ist $\HH^if:  \HH^iA^{\bullet} \to \HH^iB^{\bullet} $ ein Isomorphismus.
+\end{enumerate}
 \end{df}
-\begin{bem}
+\begin{bem}\label{7.13}
 	Seien $A^{\bullet}, B^{\bullet} $ Komplexe in $\mathcal{A}, f: A^{\bullet} \to B^{\bullet} $ Homotopieäquivalenz. Dann ist $f$ ein Quasiisomorphismus. 
 \end{bem}
 \begin{proof}
-	Nach Vorraussetzung existiert ein $g: B^{\bullet} \to A^{\bullet} $ Komplexhomomorphismus mit $g \circ f \sim id_{A^{\bullet}} $ und $f \circ g \sim id_{B^{\bullet}} \Ra H^i(g) \circ H^i(f) = H^i(g \circ f ) = H^i(id_{A^{\bullet}}) = id_{H^iA^{\bullet}}, $ analog: $H^i(f) \circ H^i(g) = id_{H^iB^{\bullet}} \Ra H^i(f) $ ist isomorphismus.
+	Nach Vorraussetzung existiert ein $g: B^{\bullet} \to A^{\bullet} $ Komplexhomomorphismus mit $g \circ f \sim id_{A^{\bullet}} $ und $f \circ g \sim id_{B^{\bullet}}$. Dann ist
+	$$\HH^i(g) \circ \HH^i(f) = \HH^i(g \circ f ) = \HH^i(id_{A^{\bullet}}) = id_{\HH^iA^{\bullet}}$$
+	analog: $\HH^i(f) \circ \HH^i(g) = id_{\HH^iB^{\bullet}}$. Also ist  $\HH^i(f) $ ein Isomorphismus.
 \end{proof}
 \begin{anm}
 	Nicht jeder Quasiisomorphismus ist eine Homotopieäquivalenz.
@@ -1198,14 +1201,13 @@
 	0 \arrow{r} & A \arrow{d}{\phi} \arrow{r}{\epsilon}& E^0 \arrow[dashed,red]{d}{f_0}\arrow{r} & E^1 \arrow[dashed,red]{d}{f_1} \arrow{r} & \ldots\\
 	0 \arrow{r} & B \arrow[swap]{r}{\eta} & I^0 \arrow[swap]{r} & I^1 \arrow{r} & \ldots
 	\end{tikzcd}$$
-	sodass gilt: \begin{enumerate}
+	sodass gilt: \begin{itemize}
 		\item die obere Zeile ist exakt
-		\item Alle $J^i, i \leq 0,$ sind injektiv. Dann existiert ein Komplexhomomorphismus $f: B^{\bullet} \to J^{\bullet}, $ der $\phi$ fortsetzt, in dem Sinne, dass $ f_0 \circ \epsilon = \eta \circ \phi $ ist. Ist $g:E^{0} \to I^0 $ ein weiterer solcher Komplexhomomorphismus, dann ist $g \sim f$.
-	\end{enumerate}
+		\item Alle $J^i, i \leq 0,$ sind injektiv.
+	\end{itemize}
+	Dann existiert ein Komplexhomomorphismus $f: B^{\bullet} \to J^{\bullet}, $ der $\phi$ fortsetzt, in dem Sinne, dass $ f_0 \circ \epsilon = \eta \circ \phi $ ist. Ist $g:E^{0} \to I^0 $ ein weiterer solcher Komplexhomomorphismus, dann ist $g \sim f$.
 \end{sa}
-\begin{proof}
-	(Beweisskizze) \\
-	Für die Existenz von f: 
+\begin{proof}[Beweisskizze für die Existenz von f:] 
 	\begin{enumerate}
 		\item Wir konstruieren zunächst $f_0$. Situation: 
 		%Diagramm 
@@ -1216,35 +1218,41 @@
 		Da $I^{0} $ injektiv und $\epsilon $ ein Monomorphismus, existiert ein $f: E^{0} \to I^{0} $, sodass $\eta \circ \phi = f_0 \circ epsilon.$
 		\item Konstruktion von $f_1$: Situation: \\
 		%Diagramm
-		$$\begin{tikzcd}
-		A \arrow{d}{\phi} \arrow{r}{\epsilon}& E^0 \arrow{d}{f_0} \arrow{r}{d_0} & E^1 \arrow[dashed,red]{d}{f_1} & \\ 
-		B \arrow[swap]{r}{\eta} & I^0 \arrow[swap]{r}{d_0^{'}} & I^1 
+		$$\begin{tikzcd}[row sep = large, column sep = large]
+		A \arrow{ddd}{\phi} \arrow{r}{\epsilon} & E^0 \arrow{ddd}{f_0}\arrow[two heads]{dr}{\pi_0}\arrow{rrr}{d_0} & & & E^1\arrow[red, dashed]{ddd}{f_1} \\
+		& & \coker \epsilon\arrow[dashed, blue]{d}{\tilde{f}_0} \arrow[blue, dashed, hook]{urr}{\iota_0}\\
+		& & \coker \eta\arrow[dashed, blue, hook]{drr}{{\iota_0}'} & & \\
+		B\arrow{r}{\eta} & I^0\arrow[two heads]{ur}{{\pi_0}'}\arrow[swap]{rrr}{{d_0}'} & & &I^1
 		\end{tikzcd}$$
-		Wegen der Kommutativität von Diagramm (I): $ \pi_0^{'} \circ f_0 \circ \epsilon = \pi_0^{'} \circ \eta \circ \phi = 0 $ existiert ein endeutig bestimmtes $ \tilde{f_0}: \coker\epsilon \to \coker \eta$, sodass (II) kommutiert. Da $ d_0 \circ \epsilon = 0, d_0^{'} \eta = 0, $existieren nach der Universellen Eigenschft des Kokerns eindeutig bestimmtes $ \iota_0: \coker\epsilon \to E^{1}, \iota_0^{'}: \coker \eta \to I^{1}$, sodass (III) und (vier) kommutieren. Behauotung: $\iota_0$ ist ein Monomorphismus. Denn: $\coker \epsilon = \im \pi_0 \simeq \coim \pi_0 = \coker(\ker \pi_0) = \coker(\im\epsilon) \simeq \coker(\ker d_0) =\coim(d_0) \simeq \im d_0$ was aus dem Homomorphiesatz und der Exaktheit bei $E^{0}$ folgt. Und man verifiziert, dass \\
-		%Diagramm 
+		Wegen der Kommutativität vom linken Rechteck, also
+		$$ \pi_0^{'} \circ f_0 \circ \epsilon = \pi_0^{'} \circ \eta \circ \phi = 0 $$ existiert ein eindeutig bestimmtes $ \tilde{f}_0: \coker\epsilon \to \coker \eta$, sodass das linke Trapez kommutiert. Da $ d_0 \circ \epsilon = 0$ und $ d_0^{'} \circ \eta = 0, $ existieren nach der Universellen Eigenschaft des Kokerns eindeutig bestimmte $ \iota_0: \coker\epsilon \to E^{1}, \, \iota_0^{'}: \coker \eta \to I^{1}$, sodass das obere und untere Dreieck kommutieren.\\ \emph{Behauptung:} $\iota_0$ ist ein Monomorphismus, denn: \begin{eqnarray*}
+			\coker \epsilon &=& \im \pi_0 \simeq \coim \pi_0 = \coker(\underbrace{\ker \pi_0}_{=\im \epsilon}) = \coker(\im\epsilon)\\ &\simeq& \coker(\ker d_0)
+		 =\coim(d_0) \simeq \im d_0
+		\end{eqnarray*}
+		was aus dem Homomorphiesatz und der Exaktheit bei $E^{0}$ folgt. Nun verifiziert man, dass 
 		$$\begin{tikzcd}
 		 \coker \epsilon \arrow{rr}{\sim} \arrow{dr}{\iota_0} && \im d_0 \arrow[hook]{dl}\\
 		 & E^1 &
 		\end{tikzcd}$$
-		kommutiert. Das heißt $\iota_0$ ist ein Monomorphismus. Da $I^1 $ injektiv und $\iota_0$ ein Monomorphismus, existiert ein $f_1: E^1 \to I^1$, sodass (fünf) kommutiert. $ \Ra f_1 \circ d_0 = d_0^{'} \circ f_0 $. 
+		kommutiert, das heißt, dass $\iota_0$ ein Monomorphismus ist. Da $I^1 $ injektiv und $\iota_0$ ein Monomorphismus, existiert ein $f_1: E^1 \to I^1$, sodass auch das rechte Trapez kommutiert. Also ist $f_1 \circ d_0 = d_0^{'} \circ f_0 $. 
 		\item Iteriere das Verfahren.
 	\end{enumerate}
 \end{proof}
 \begin{fo}\label{7.15}
-	Sei $A \in \ObA, \epsilon: A \to I^{\bullet}, \eta: A \to J^{\bullet}$ injektive Auflösungen von $A$. Dann existiert eine Homotopieäquivalenz $f:I^{\bullet} \to J^{\bullet} $ mit $ f_0 \circ \epsilon = \eta$, diese ist eindeutig bestimmt bis auf Homotopie.
+	Sei $A \in \ObA, \,\epsilon: A \to I^{\bullet}, \,\eta: A \to J^{\bullet}$ injektive Auflösungen von $A$. Dann existiert eine Homotopieäquivalenz $f:I^{\bullet} \to J^{\bullet} $ mit $ f_0 \circ \epsilon = \eta$. Diese ist eindeutig bestimmt bis auf Homotopie.
 \end{fo}
 \begin{proof}
 	Wir betrachten das Diagramm von Komplexen: \\
 	%Diagramm 
-	$$\begin{tikzcd}
-	\tilde{I^{\bullet}}: &0 \arrow{r} & A \arrow[xshift= -1.6 ex]{d}{\id_A} \arrow{r}{\epsilon}& I^0 \arrow[dashed,red, xshift= -2.5 ex]{d}{f_0}\arrow{r} & I^1 \arrow[dashed,red,xshift= -2.5 ex]{d}{f_1} \arrow{r} & \ldots\\
-	\tilde{J^{\bullet}}:& 0 \arrow{r} & A \arrow[xshift=1.6 ex]{u}\arrow[swap]{r}{\eta} & J^0 \arrow[dashed, green, xshift = 2.5 ex]{u}{g_0} \arrow[swap]{r} & J^1 \arrow[dashed, green, xshift=2.5 ex]{u}{g_1} \arrow{r} & \ldots
+	$$\begin{tikzcd}[column sep = large, row sep = large]
+	\tilde{I^{\bullet}}: &0 \arrow{r} & A \arrow[xshift= -0.8 ex, swap]{d}{\id_A} \arrow{r}{\epsilon}& I^0 \arrow[dashed,red, swap, xshift= -0.8 ex]{d}{f_0}\arrow{r} & I^1 \arrow[dashed,red,xshift= -0.8 ex, swap ]{d}{f_1} \arrow{r} & \ldots\\
+	\tilde{J^{\bullet}}:& 0 \arrow{r} & A \arrow[xshift=0.8 ex]{u}\arrow[swap]{r}{\eta} & J^0 \arrow[dashed, blue, xshift = 0.8 ex, swap]{u}{g_0} \arrow[swap]{r} & J^1 \arrow[dashed, blue, swap, xshift=0.8 ex]{u}{g_1} \arrow{r} & \ldots
 	\end{tikzcd}$$
-	mit exakten Zeilen. Nach \ref{7.14} existiert ein Komplexhomomorphismus $ f: I^{0} \to J^{0} $, der $id_A $ fortsetzt und es existiert ein Komplexhomomorphismus $g: J^{\bullet} \to I^{\bullet}$, der $id_A $ fortsetzt. $g \circ f: I^{\bullet} \to I^{\bullet} $ ist eine Fortsetzung von $id_A$, ebenso wie $id_{J^{\bullet}}$.Aus der Einduetigkeit in \ref{7.14} ist $ g \circ f \sim id_{I^{\bullet}}.$ Analog: $f \circ g \sim id_{J^{\bullet}}.$ Somit: $f$ ist Homotopieäquivalenz. Eindeutigkeit folgt aus \ref{7.14}.
+	mit exakten Zeilen. Nach \ref{7.14} existiert ein Komplexhomomorphismus $ f: I^{0} \to J^{0} $, der $\id_A $ fortsetzt und es existiert ein Komplexhomomorphismus $g: J^{\bullet} \to I^{\bullet}$, der $\id_A $ fortsetzt. Dann ist aber auch $g \circ f: I^{\bullet} \to I^{\bullet} $ eine Fortsetzung von $id_A$, ebenso wie $id_{J^{\bullet}}$. Aus der Einduetigkeit in \ref{7.14} ist $ g \circ f \sim id_{I^{\bullet}}.$ Analog ist $f \circ g \sim id_{J^{\bullet}}.$ Somit folgt, dass $f$ eine Homotopieäquivalenz ist. Die Eindeutigkeitsaussage folgt aus \ref{7.14}.
 \end{proof}
 \begin{fo}
-	Sei $I^{\bullet} $ ein exakter Komplex von injektiven Objekten in $\mathcal{A} $ mit $ I^i = 0 $ für $ i << 0$. Dann ist $0^{\bullet} \to I^{\bullet} $ eine Homotopieäquivalenz. 
+	Sei $I^{\bullet} $ ein exakter Komplex von injektiven Objekten in $\mathcal{A} $ mit $ I^i = 0 $ für $ i \ll 0$. Dann ist $0^{\bullet} \to I^{\bullet} $ eine Homotopieäquivalenz. 
 \end{fo}
 \begin{proof}
-	Ohne Einschränkung ist $ I^i = 0 $ für $ i < 0 $(Komplex verschieben) $ \Ra 0^{\bullet}, I^{\bullet} $ sind injektive Auflösung von 0. Aus \ref{7.15} folgt: $0^{\bullet} \to I^{\bullet} $ist eine Homotopieäquivalenz.
+	Ohne Einschränkung ist $ I^i = 0 $ für $ i < 0 $ (durch Verschiebung des Komplexes) Dann sind $ 0^{\bullet}, I^{\bullet} $ injektive Auflösungen von 0. Aus \ref{7.15} folgt: $0^{\bullet} \to I^{\bullet} $ist eine Homotopieäquivalenz.
 \end{proof} 
