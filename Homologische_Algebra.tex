@@ -1023,7 +1023,7 @@
 	A^{i-1} \arrow[swap]{d}{q_{i-1}} \arrow{r}{d_{i-1}} & A^i \arrow{r}{d_i} & A^{i+1} \\
 	\text{coim} \, d_{i-1} \arrow[swap]{r}{\bar{d}_{i-1}} & \im d_{i-1} \arrow{u}{k_{i-1}}\arrow[dashed]{r}{l_i} & \ker d_i \arrow[swap]{ul}{j_i}
 	\end{tikzcd}$$
-	(Nach dem Homomorphiesatz ist $k_{i-1}$ ein Mono-, $q_{i-1}$ ein Epi- und $\bar{d}_{i-1}$ ein Isomorphismus). Es ist $D= d_i \circ d_{i-1} = d_i \circ k_{i-1} \circ \bar{d}_{i-1} \circ q_{i-1}$ und, da $q_{i-1}$ Epi, $d_{i-1}$ Iso, folgt $d_i \circ k_{i-1} =0$. Es existiert ein $l_i : \im d_{i-1} \to \ker d_i$ mit $k_{i-1} = j_i \circ l_i$. $l_i$ ist ein Monomorphismus, da $k_{i-1} = j_i \circ l_i$ Monomorphismus.
+	(Nach dem Homomorphiesatz ist $k_{i-1}$ ein Mono-, $q_{i-1}$ ein Epi- und $\bar{d}_{i-1}$ ein Isomorphismus). Es ist $0= d_i \circ d_{i-1} = d_i \circ k_{i-1} \circ \bar{d}_{i-1} \circ q_{i-1}$ und, da $q_{i-1}$ Epi, $d_{i-1}$ Iso, folgt $d_i \circ k_{i-1} =0$. Es existiert ein $l_i : \im d_{i-1} \to \ker d_i$ mit $k_{i-1} = j_i \circ l_i$. $l_i$ ist ein Monomorphismus, da $k_{i-1} = j_i \circ l_i$ Monomorphismus.
 \end{proof}
 \begin{df}\label{7.3}
 	Sei $A^{^\bullet}$ ein Komplex in $\mathcal{A}$.
@@ -1203,9 +1203,9 @@
 	\end{tikzcd}$$
 	sodass gilt: \begin{itemize}
 		\item die obere Zeile ist exakt
-		\item Alle $J^i, i \leq 0,$ sind injektiv.
+		\item Alle $I^i, i \leq 0,$ sind injektiv.
 	\end{itemize}
-	Dann existiert ein Komplexhomomorphismus $f: B^{\bullet} \to J^{\bullet}, $ der $\phi$ fortsetzt, in dem Sinne, dass $ f_0 \circ \epsilon = \eta \circ \phi $ ist. Ist $g:E^{0} \to I^0 $ ein weiterer solcher Komplexhomomorphismus, dann ist $g \sim f$.
+	Dann existiert ein Komplexhomomorphismus $f: E^{\bullet} \to I^{\bullet}, $ der $\phi$ fortsetzt, in dem Sinne, dass $ f_0 \circ \epsilon = \eta \circ \phi $ ist. Ist $g:E^{\bullet} \to I^{\bullet} $ ein weiterer solcher Komplexhomomorphismus, dann ist $g \sim f$.
 \end{sa}
 \begin{proof}[Beweisskizze für die Existenz von f:] 
 	\begin{enumerate}
@@ -1215,7 +1215,7 @@
 		 A \arrow{d}{\phi} \arrow{r}{\epsilon}& E^0 \arrow[dashed,red]{d}{f_0} \\
 		 B \arrow[swap]{r}{\eta} & I^0 
 		\end{tikzcd}$$
-		Da $I^{0} $ injektiv und $\epsilon $ ein Monomorphismus, existiert ein $f: E^{0} \to I^{0} $, sodass $\eta \circ \phi = f_0 \circ epsilon.$
+		Da $I^{0} $ injektiv und $\epsilon $ ein Monomorphismus, existiert ein $f_0: E^{0} \to I^{0} $, sodass $\eta \circ \phi = f_0 \circ \epsilon.$
 		\item Konstruktion von $f_1$: Situation: \\
 		%Diagramm
 		$$\begin{tikzcd}[row sep = large, column sep = large]
@@ -1248,7 +1248,7 @@
 	\tilde{I^{\bullet}}: &0 \arrow{r} & A \arrow[xshift= -0.8 ex, swap]{d}{\id_A} \arrow{r}{\epsilon}& I^0 \arrow[dashed,red, swap, xshift= -0.8 ex]{d}{f_0}\arrow{r} & I^1 \arrow[dashed,red,xshift= -0.8 ex, swap ]{d}{f_1} \arrow{r} & \ldots\\
 	\tilde{J^{\bullet}}:& 0 \arrow{r} & A \arrow[xshift=0.8 ex]{u}\arrow[swap]{r}{\eta} & J^0 \arrow[dashed, blue, xshift = 0.8 ex, swap]{u}{g_0} \arrow[swap]{r} & J^1 \arrow[dashed, blue, swap, xshift=0.8 ex]{u}{g_1} \arrow{r} & \ldots
 	\end{tikzcd}$$
-	mit exakten Zeilen. Nach \ref{7.14} existiert ein Komplexhomomorphismus $ f: I^{0} \to J^{0} $, der $\id_A $ fortsetzt und es existiert ein Komplexhomomorphismus $g: J^{\bullet} \to I^{\bullet}$, der $\id_A $ fortsetzt. Dann ist aber auch $g \circ f: I^{\bullet} \to I^{\bullet} $ eine Fortsetzung von $id_A$, ebenso wie $id_{J^{\bullet}}$. Aus der Einduetigkeit in \ref{7.14} ist $ g \circ f \sim id_{I^{\bullet}}.$ Analog ist $f \circ g \sim id_{J^{\bullet}}.$ Somit folgt, dass $f$ eine Homotopieäquivalenz ist. Die Eindeutigkeitsaussage folgt aus \ref{7.14}.
+	mit exakten Zeilen. Nach \ref{7.14} existiert ein Komplexhomomorphismus $ f: I^{\bullet} \to J^{\bullet} $, der $\id_A $ fortsetzt und es existiert ein Komplexhomomorphismus $g: J^{\bullet} \to I^{\bullet}$, der $\id_A $ fortsetzt. Dann ist aber auch $g \circ f: I^{\bullet} \to I^{\bullet} $ eine Fortsetzung von $id_A$, ebenso wie $id_{J^{\bullet}}$. Aus der Einduetigkeit in \ref{7.14} ist $ g \circ f \sim id_{I^{\bullet}}.$ Analog ist $f \circ g \sim id_{J^{\bullet}}.$ Somit folgt, dass $f$ eine Homotopieäquivalenz ist. Die Eindeutigkeitsaussage folgt aus \ref{7.14}.
 \end{proof}
 \begin{fo}
 	Sei $I^{\bullet} $ ein exakter Komplex von injektiven Objekten in $\mathcal{A} $ mit $ I^i = 0 $ für $ i \ll 0$. Dann ist $0^{\bullet} \to I^{\bullet} $ eine Homotopieäquivalenz. 
