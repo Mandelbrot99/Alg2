@@ -24,7 +24,7 @@
 \end{df}
 \begin{anm}
 	\begin{itemize}
-		\item Man sagt "Klasse"' statt Menge, um Paradoxa, wie "' die Menge aller Mengen"' zu vermeiden.
+		\item Man sagt \define{Klasse\index{Klasse}} statt Menge, um Paradoxa, wie "'die Menge aller Mengen"' zu vermeiden.
 		\item Trotzdem schreiben wir $A \in \ObC$ um zu sagen dass $A$ zu $\ObC$ gehört (und werden $\ObC$ im Folgenden wie eine Menge behandeln).
 		\item In den folgenden Abschnitten werden wir mengentheoretische Probleme ignorieren und häufig von Mengen sprechen auch wenn es sich nur um Klassen handelt.
 		\item Für $f \in \Mor_{\mathcal{C}}(A,B)$ schreiben wir auch $f: A \to B $. $A$ heißt \emph{Quelle} und $B$ heißt \emph{Ziel} von $f$; wegen $(K1)$ sind diese eindeutig bestimmt.
@@ -98,7 +98,7 @@
 	Seien $\mathcal{C},\mathcal{D} $ Kategorien. Das \define{Produkt\index{Produkt von Kategorien}} \,$\mathcal{C} \times \mathcal{D} $ ist diejenige Kategorie mit $ Ob(\mathcal{C} \times \mathcal{D}) = Ob(\mathcal{C}) \times \text{Ob}(\mathcal{D}) $ und $ Mor_{\mathcal{C} \times \mathcal{D}}((A_1,B_1),(A_2,B_2)) = Mor_{\mathcal{C}}(A_1,A_2) \times Mor_{\mathcal{D}}(B_1,B_2)$ und "komponentenweisen $\circ"$.
 \end{df}
 \begin{df}\label{4.9}
-	Seien $\mathcal{C},\mathcal{D}, \mathcal{E}$ Kategorien. Ein \define{Bifunktor} \ $F$ "von $\mathcal{C}$ kreuz $\mathcal{D} $ nach $\mathcal{E}$ "' ist ein Funktor $F: \mathcal{C} \times \mathcal{D} \to \mathcal{E}$
+	Seien $\mathcal{C},\mathcal{D}, \mathcal{E}$ Kategorien. Ein \define{Bifunktor} \ $F$ "'von $\mathcal{C}$ kreuz $\mathcal{D} $ nach $\mathcal{E}$ "' ist ein Funktor $F: \mathcal{C} \times \mathcal{D} \to \mathcal{E}$
 \end{df}
 \begin{bsp}
 	\begin{enumerate}  [label= \alph*)]
@@ -124,7 +124,7 @@
 	\end{itemize}
 \end{anm}
 \begin{bem}\label{4.12}
-	Sei $\mathcal{C}$ eine Kategorie, $A,B \in \ObC, f:A \to B $ ein Isomorphismus. Dann ist $f$ ein Monomorphismus und Ein Epimorphismus.
+	Sei $\mathcal{C}$ eine Kategorie, $A,B \in \ObC, f:A \to B $ ein Isomorphismus. Dann ist $f$ ein Monomorphismus und ein Epimorphismus.
 	\begin{proof}
 		Seien $ C \in \ObC , g_1,g_2:C \to A $ mit $ f \circ g_1 = f \circ g_2 \Ra f^{-1} \circ (f \circ g_1) = f^{-1} \circ (f \circ g_2) \Ra (f^{-1} \circ f) \circ g_1 = (f^{-1} \circ f) \circ g_2 \Ra g_1=g_2 \Ra f $ Monomorphimus. Analog wird gezeigt dass $f$ ein Epimorphimus. 
 	\end{proof}
@@ -240,7 +240,7 @@
 \end{proof}
 \begin{anm}
 	\begin{itemize}
-		\item Folgerung \ref{4.21} liefert einen sogenannten volltreuen Funktor $\mathcal{C}^\text{op} \to \text{Funk}(\mathcal{C}, \text{Mengen})$, wobei $A\mapsto \Mor_{\mathcal{C}}(A,-)$, wobei $\text{Funk}(\mathcal{C}, \text{Mengen})$ die Funktorkategorie von $\mathcal{C}$ nach Mengen bezeichnet (Objekte sind Funktoren: $\mathcal{C} \to $ Mengen, und Morphismen die natürlichen Transformationen) ("'Yoneda-Einbettung"')
+		\item Folgerung \ref{4.21} liefert einen sogenannten volltreuen Funktor $\mathcal{C}^\text{op} \to \text{Funk}(\mathcal{C}, \text{Mengen})$, wobei $A\mapsto \Mor_{\mathcal{C}}(A,-)$, wobei $\text{Funk}(\mathcal{C}, \text{Mengen})$ die Funktorkategorie von $\mathcal{C}$ nach Mengen bezeichnet (Objekte sind Funktoren: $\mathcal{C} \to $ Mengen, und Morphismen die natürlichen Transformationen) (\define{Yoneda-Einbettung\index{Yoneda-Einbettung}})
 		\item Folgerung \ref{4.21} liefert insbesondere eine Verallgemeinerung des Satzes von Caley aus der Gruppentheorie: Für eine Gruppe $G$ ist $G \hookrightarrow S(G), \; g \mapsto \tau_G$ (Linkstranslation mit $g\in G$) ein injektiver Gruppehomomorphismus. Wende \ref{4.21} an auf: \begin{itemize}
 			\item $\mathcal{C} = $ Kategorie mit $\ObC = \{ \cdot  \}$, $\Mor_{\mathcal{C}}( \cdot , \cdot ) = G$
 			\item $A=B= \cdot $
@@ -274,7 +274,7 @@
 	& \tilde{0} \arrow{ur} &
 	\end{tikzcd}$$
 \end{anm}
-\begin{bsp}
+\begin{bsp}\label{5.3}
 	\begin{enumerate}[label=\alph*)]
 		\item In Mengen ist $\emptyset$ ein Anfangsobjekt, jede einelementige Menge ist ein Endobjekt, insbesondere existiert in Mengen kein Nullobjekt
 		\item in Ringe ist $\Z$ ein Anfangsobjekt, und der Nullring ist ein Endobjekt. In Ringe existiert ebenfalls ein Nullobjekt
@@ -284,7 +284,7 @@
 \begin{df}\label{5.4}
 	Sei $\mathcal{C}$ eine Kategorie. $(A_i)_{i \in I} $ eine Familie von Objekten aus $\mathcal{C}$. Ein \define{Produkt\index{Produkt}} $(A, (p_i)_{i \in I})$ von $(A_i)_{i \in I}$ ist ein Objekt $A\in \mathcal{C} $ zusammen mit Morphismen $p_i:A \to A_i $, sodass für alle $B \in \ObC $die Abbildung $$ Mor_C(B,A) \to \prod_{i \in I} Mor_C(B,A_i) , \quad f \mapsto (p_i \circ f) _{i \in I} $$ bijektiv ist, das heißt für jede Familie $(f_i)_{i \in I}$ von Morphismen $f_i: B \to A_i $ existiert ein eindeutig bestimmtes $f:B \to A $ mit $ f_i = p_i \circ f $ für alle $ i \in I$.
 \end{df}
-\begin{bem}\label{bem}
+\begin{bem}\label{5.5}
 	Sei $\mathcal{C}$ eine Kategorie, $(A_i)_{i \in I}$ eine Familie von Objekten aus $\mathcal{C}$, $(A, (p_i)_{i \in I}), (A', (p_i')_{i \in I}),$ Produkte von $(A_i)_{i \in I}. $Dann existiert ein eindeutig bestimmter Isomorphismus $ f:A \to A' $, sodass für alle $i \in I $ gilt: $p_i' \circ f = p_i$
 	$$\begin{tikzcd}
 	A \arrow{rr}{f} \arrow[swap]{dr}{p_i} & & A' \arrow{dl}{p_i'	}\\
@@ -307,7 +307,7 @@
 	\end{enumerate}
 \end{bsp}
 \begin{bem+df}\label{5.7}
-	Sei $\mathcal{C} $ eine Kategorie, $ (A_i)_{i \in I}$ eine Familie von Objekten  aus $ \mathcal{C}$. Ein "'Koprodukt"' $(A, (q_i)_{i \in I})$ von $(A_i)_{i \in I}$ ist ein Objekt $ A \in \ObC $ zusammen mit Morphismen $ q_i: A_i \to A$ , sodass $(A, (q_i)_{i \in I})$ Ein Produkt von $(A_i)_{i \in I } $ in $ \mathcal{C}^{op} $ ist, das heißt für alle $ B \in \ObC $ ist die Abbildung $$ Mor_C(A,B) \to \prod_{i \in I} Mor_C(A_i,B) , \quad f \mapsto (f \circ q_i) _{i \in I} $$ bijektiv. Falls es existiert ist ein Koprodukt von $(A_i)_{i \in I }$ eindeutig bestimmt bis auf Isomorphie (analog 5.5). Wir sprechen dan von dem \define{Koprodukt\index{Koprodukt}} und schreiben $ A = \bigoplus_{i \in I} A_i $ ($=\coprod_{i\in I} A_i$)
+	Sei $\mathcal{C} $ eine Kategorie, $ (A_i)_{i \in I}$ eine Familie von Objekten  aus $ \mathcal{C}$. Ein \emph{Koprodukt\index{kategorielles Koprodukt}} $(A, (q_i)_{i \in I})$ von $(A_i)_{i \in I}$ ist ein Objekt $ A \in \ObC $ zusammen mit Morphismen $ q_i: A_i \to A$ , sodass $(A, (q_i)_{i \in I})$ Ein Produkt von $(A_i)_{i \in I } $ in $ \mathcal{C}^{op} $ ist, das heißt für alle $ B \in \ObC $ ist die Abbildung $$ Mor_C(A,B) \to \prod_{i \in I} Mor_C(A_i,B) , \quad f \mapsto (f \circ q_i) _{i \in I} $$ bijektiv. Falls es existiert ist ein Koprodukt von $(A_i)_{i \in I }$ eindeutig bestimmt bis auf Isomorphie (analog zu \ref{5.5}). Wir sprechen dan von dem \define{Koprodukt\index{Koprodukt}} und schreiben $ A = \bigoplus_{i \in I} A_i $ ($=\coprod_{i\in I} A_i$)
 \end{bem+df}
 \begin{bsp}
 	\begin{enumerate} [label=\alph*)]
@@ -331,7 +331,7 @@
 \begin{bsp}
 	\begin{enumerate} [label=\alph*)]
 		\item $R$-Mod ist eine additive Kategorie
-		\item Ringe sind keine additive Kategorie (kein Nullobjekt, vgl 5.3(b)).
+		\item Ringe sind keine additive Kategorie (kein Nullobjekt, vgl \ref{5.3}(b)).
 	\end{enumerate}
 \end{bsp}
 \begin{sa}\label{5.11}
@@ -446,7 +446,7 @@
 	\end{enumerate}
 \end{bsp}
 \begin{anm}
-	Ist $\A$ eine abelsche Kategorie, dann ist auch $\A^\text{op}$ abelsche Kategorie (einziger nichttrivialer Punkt: Existenz endlicher Produkte, was jedoch aus 5.11 folgt).
+	Ist $\A$ eine abelsche Kategorie, dann ist auch $\A^\text{op}$ abelsche Kategorie (einziger nichttrivialer Punkt: Existenz endlicher Produkte, was jedoch aus \ref{5.11} folgt).
 \end{anm}
 \begin{sa}\label{5.23}
 	Sei $\A$ eine abelsche Kategorie, $A,A' \in \ObA$, $f:A \to A'$ Mono- und Epimorphsimus. Dann ist $f$ ein Isomorphismus.
@@ -494,7 +494,7 @@
 \begin{sa}\label{5.26}
 	Sei $\A$ eine abelsche Kategorie. Dann gilt:
 	\begin{enumerate}[label= \alph*)]
-		\item In $\A$ gilt das Fünferlemme
+		\item In $\A$ gilt das Fünferlemma
 		\item In $\A$ gilt das Schlangenlemma
 		\item Eine Folge $\begin{tikzcd}
 		M' \arrow{r}{f} & M \arrow{r}{g} & M'' \arrow{r} & 0
@@ -625,7 +625,7 @@
 	\begin{enumerate}[label= \alph*)]
 		\item Sei $\begin{tikzcd}
 		A' \arrow{r} & A \arrow{r} & A'' \arrow{r} & 0
-		\end{tikzcd}$ eine exakte Folge in $\A$. Nach 5.26 $c)$ ist 
+		\end{tikzcd}$ eine exakte Folge in $\A$. Nach \ref{5.26} $c)$ ist 
 			$$\begin{tikzcd}
 		0 \arrow{r}& \Hom_\A(A'', GB) \arrow{r} & \Hom_\A(A,GB) \arrow{r} & \Hom_\A(A',GB)
 		\end{tikzcd}$$
@@ -633,13 +633,13 @@
 		$$\begin{tikzcd}
 		0 \arrow{r}& \Hom_\mathcal{B}(FA'', B) \arrow{r} & \Hom_\mathcal{B}(FA,B) \arrow{r} & \Hom_\mathcal{B}(FA',B)
 		\end{tikzcd}$$
-		exakt für alle $B\in \text{Ob }\mathcal{B}$. Damit ist nach 5.26 $c)$
+		exakt für alle $B\in \text{Ob }\mathcal{B}$. Damit ist nach \ref{5.26} $c)$
 		$$\begin{tikzcd}
 		FA' \arrow{r} & FA \arrow{r} & FA'' \arrow{r} & 0
 		\end{tikzcd}$$
 		exakt.
-		\item Sei $I\in \text{Ob } \mathcal{B}$ injektiv.
-		 TODO
+		\item Sei $I\in \text{Ob } \mathcal{B}$ injektiv. Es ist zu zeigen, dass $GI\in \ObA$ injektiv ist, d.h. der Funktor $\Hom_\A(-, GJ): \A^\text{op}\to \Z$-Mod ist exakt. Allerdings gilt $\Hom_\A(-,GJ ) \overset{\sim}{\Ra} \Hom_\mathcal{B}(F-,J)$ und letzterer ist exakt, da $F$ exakt und $I$ injektiv.
+		
 	\end{enumerate}
 \end{proof}
 \begin{df}\label{5.34}
@@ -651,7 +651,7 @@
 \begin{anm}
 	\begin{itemize}
 		\item $F$ induziert eine Äquivalenz zwischen $\mathcal{A}$ und einer vollen Unterkategorie von $R-Mod $ ( das heißt $\mathcal{C} $ ist eine Unterkategorie von $R-Mod $ mit $ Hom_{\mathcal{C}}(A,B)= Hom_{R-Mod}(A,B) $ für alle $ A,B \in \ObC$)
-		\item In $\mathcal{A} $ berechnete Kerne und Kokerne entsprechen über diese Äquivalenz Kernen und Kokernen in $R-Mod$. ( Achtung: injektive/projektive Objekte korrespondieren im Allgemeinen nicht zu injektiven/projektiven $R-Moduln$)
+		\item In $\mathcal{A} $ berechnete Kerne und Kokerne entsprechen über diese Äquivalenz Kernen und Kokernen in $R-Mod$. ( Achtung: injektive/projektive Objekte korrespondieren im Allgemeinen nicht zu injektiven/projektiven $R$-Moduln)
 	\end{itemize}
 \end{anm}
 \newpage 
@@ -755,7 +755,7 @@
 \end{fo}
 \begin{proof}
 	\begin{enumerate} [label= \alph*)]
-		\item klar nach 6.3
+		\item klar nach \ref{6.3}.
 		\item da jeder $R$-Modul Faktormodul eines freien $R$-Moduls ist. 
 	\end{enumerate}
 \end{proof}
@@ -803,7 +803,7 @@
 	\end{enumerate}
 \end{sa}
 \begin{proof}
-	$(i) \Lra (ii) \Lra (iii) $ folgt aus 5.29 \\
+	$(i) \Lra (ii) \Lra (iii) $ folgt aus \ref{5.29} \\
 	$(iii) \Ra (iv) $ Sei $\begin{tikzcd}
 	0  \arrow{r} & L \arrow{r} & M \arrow{r} & P \arrow{r} & 0
 	\end{tikzcd} $ eine exakte Sequenz von $R$-Moduln.
@@ -890,7 +890,7 @@
 	Sei $A$ ein Integritätsbereich, $M$ ein injektiver $A$-Modul. Dann ist $M$ teilbar.
 \end{bem}
 \begin{proof}
-	Sei $x \in M , a \in A \backslash \{0\}$. Wir betrachten die Abbildung $$\phi: Aa \to M, \quad ra \mapsto rx$$ $\phi$ ist wohldefiniert, denn: $ r_1a= r_2a \Ra (r_1-r_2)a =0 $ Da $A$ nullterilerfrei ist folgt $r_1=r_2 $. $ \phi$ ist $A$-linear, so folgt mit Satz 6.9, dass eine $A$-lineare Abbildung $\psi: A \to M $ mit $\psi|_{Aa} = \phi$. Setze $y:= \psi(1)$, dann ist $ x = \phi(a)=\psi(a) = \psi(a 1) = a\psi(1)=ay.$
+	Sei $x \in M , a \in A \backslash \{0\}$. Wir betrachten die Abbildung $$\phi: Aa \to M, \quad ra \mapsto rx$$ $\phi$ ist wohldefiniert, denn: $ r_1a= r_2a \Ra (r_1-r_2)a =0 $ Da $A$ nullterilerfrei ist folgt $r_1=r_2 $. $ \phi$ ist $A$-linear, so folgt mit Satz \ref{6.9}, dass eine $A$-lineare Abbildung $\psi: A \to M $ mit $\psi|_{Aa} = \phi$. Setze $y:= \psi(1)$, dann ist $ x = \phi(a)=\psi(a) = \psi(a 1) = a\psi(1)=ay.$
 \end{proof}
 \begin{bem}\label{6.12}
 	Sei $A$ ein Hauptidealring, $M$ ein $A$-Modul. Dann sind äquivalent: 
@@ -921,7 +921,7 @@
 	Sei $M$ ein injektiver $\Z$-Modul. Dann ist $Hom_{\Z}(R,M)$ ein injektiver $R$-Modul. Insbesondere ist $R^{v} := Hom_{\Z}(R, \QR{\Q}{\Z}) $ ein injektiver $R$-Modul.
 \end{bem}
 \begin{proof}
-	Sei $ I \subseteq R $ ein Linksideal, $\phi: I \to Hom_{\Z}(R,M) $ $R$-linear. Nach 6.9, genügt es zu zeigen: $\phi$ lässt sich auf $R$ fortsetzen. Setze $$f: I \to M ,\quad a \mapsto \phi(a)(1)$$ Dann ist $f $ ist $\Z$-linear und für $r \in R , a \in I $ gilt: $ f(ra) = \phi(ra)(1)= (r\phi(a))(1) = \phi(a)(1 r) = \phi(a)(r)$. Da $M$ ein injektiver $\Z$-Modul, existiert eine $\Z$-lineare Abbildung $g: R \to M $ mit $g\big|_I=f $. Wir setzen $\psi: R \to Hom_{\Z}(R,M), a \mapsto ag $. $\psi$ ist $R$-linear, und für $a\in I, r \in R $ ist $\psi(a)(r) =(ag)(r) = g(ra) = f(ra) = \phi(a)(r)$, das heißt $\psi\big|_{I}=\phi.$
+	Sei $ I \subseteq R $ ein Linksideal, $\phi: I \to Hom_{\Z}(R,M) $ $R$-linear. Nach \ref{6.9}, genügt es zu zeigen: $\phi$ lässt sich auf $R$ fortsetzen. Setze $$f: I \to M ,\quad a \mapsto \phi(a)(1)$$ Dann ist $f $ ist $\Z$-linear und für $r \in R , a \in I $ gilt: $ f(ra) = \phi(ra)(1)= (r\phi(a))(1) = \phi(a)(1 r) = \phi(a)(r)$. Da $M$ ein injektiver $\Z$-Modul, existiert eine $\Z$-lineare Abbildung $g: R \to M $ mit $g\big|_I=f $. Wir setzen $\psi: R \to Hom_{\Z}(R,M), a \mapsto ag $. $\psi$ ist $R$-linear, und für $a\in I, r \in R $ ist $\psi(a)(r) =(ag)(r) = g(ra) = f(ra) = \phi(a)(r)$, das heißt $\psi\big|_{I}=\phi.$
 \end{proof}
 \begin{df}\label{6.15}
 	Sei $M$ ein $R$-Modul. $M$ heißt \define{kofrei\index{kofreier Modul}} $\defi$ Es existiert eine Menge $ I$ mit $M \simeq (R^{v})^I = \prod_{i \in I} R^{v} $.
@@ -985,11 +985,11 @@
 	\end{enumerate}
 \end{fo}
 \begin{proof}
-	$i) \Ra ii)$ Nach 6.19 existiert ein kofreier $R$-Modul $N$, sodass $Q$ Untermodul von $N$ ist. Die exakte Folge 
+	$i) \Ra ii)$ Nach \ref{6.19} existiert ein kofreier $R$-Modul $N$, sodass $Q$ Untermodul von $N$ ist. Die exakte Folge 
 	$$\begin{tikzcd}
 	0 \arrow{r} & Q \arrow{r} & N \arrow{r} & \QR{N}{Q} \arrow{r} & 0
 	\end{tikzcd}$$
-	spaltet nach 6.7, da $Q$ injektiv ist, d.h. $N \cong Q \oplus \QR{N}{Q}  = Q \times \QR{N}{Q}$\\
+	spaltet nach \ref{6.7}, da $Q$ injektiv ist, d.h. $N \cong Q \oplus \QR{N}{Q}  = Q \times \QR{N}{Q}$\\
 	$ii) \Ra i)$ Ist $Q\times Q'$ kofrei, dann ist nach 6.17 $Q \times Q'$ injektiv und nach 6.16 $Q$ injektiv.
 \end{proof}
 \newpage
@@ -1023,7 +1023,7 @@
 	A^{i-1} \arrow[swap]{d}{q_{i-1}} \arrow{r}{d_{i-1}} & A^i \arrow{r}{d_i} & A^{i+1} \\
 	\text{coim} \, d_{i-1} \arrow[swap]{r}{\bar{d}_{i-1}} & \im d_{i-1} \arrow{u}{k_{i-1}}\arrow[dashed]{r}{l_i} & \ker d_i \arrow[swap]{ul}{j_i}
 	\end{tikzcd}$$
-	(Nach dem Homomorphiesatz ist $k_{i-1}$ ein Mono-, $q_{i-1}$ ein Epi- und $\bar{d}_{i-1}$ ein Isomorphismus). Es ist $0= d_i \circ d_{i-1} = d_i \circ k_{i-1} \circ \bar{d}_{i-1} \circ q_{i-1}$ und, da $q_{i-1}$ Epi, $d_{i-1}$ Iso, folgt $d_i \circ k_{i-1} =0$. Es existiert ein $l_i : \im d_{i-1} \to \ker d_i$ mit $k_{i-1} = j_i \circ l_i$. $l_i$ ist ein Monomorphismus, da $k_{i-1} = j_i \circ l_i$ Monomorphismus.
+	(Es ist $k_{i-1}$ ein Mono-, $q_{i-1}$ ein Epi- und der durch den Homomorphiesatz induzierte Pfeil $\bar{d}_{i-1}$ ein Isomorphismus). Damit ist $0= d_i \circ d_{i-1} = d_i \circ k_{i-1} \circ \bar{d}_{i-1} \circ q_{i-1}$ und, da $q_{i-1}$ Epi, $d_{i-1}$ Iso, folgt $d_i \circ k_{i-1} =0$. Nach der Universellen Eigenschaft des Kerns existiert ein $l_i : \im d_{i-1} \to \ker d_i$ mit $k_{i-1} = j_i \circ l_i$. Nun ist $l_i$ ein Monomorphismus, da $k_{i-1} = j_i \circ l_i$ Monomorphismus.
 \end{proof}
 \begin{df}\label{7.3}
 	Sei $A^{^\bullet}$ ein Komplex in $\mathcal{A}$.
@@ -1077,7 +1077,7 @@
 	$$I^{^\bullet}: \begin{tikzcd}
 	I^0\arrow{r}{d_0} & I^1 \arrow{r}{d_1}& I^2\arrow{r} & \ldots
 	\end{tikzcd}$$
-	bestehend aus injektiven Objekten $I^i$ aus $\mathcal{A}$ mit $I^i=0$ für $i<0$ zusammen mit einem Morphismus $\epsilon : A\longrightarrow I^0$, so dass der "'augmentierte Komplex"'
+	bestehend aus injektiven Objekten $I^i$ aus $\mathcal{A}$ mit $I^i=0$ für $i<0$ zusammen mit einem Morphismus $\epsilon : A\longrightarrow I^0$, so dass der \define{augmentierte Komplex\index{augmentiere Komplex}}
 	$$\begin{tikzcd}
 	0 \arrow{r}& A \arrow{r}{\epsilon} &I^0\arrow{r}{d_0} & I^1 \arrow{r}{d_1}& I^2\arrow{r} & \ldots
 	\end{tikzcd}$$
@@ -1146,18 +1146,21 @@
 	(Notation: $f \sim g$)
 	%Diagramm Hier müssen doppel und Querpfeile ergänzt werden 
 	$$\begin{tikzcd}[column sep = large, row sep = large]
-	\ldots \arrow{r} & A^{i-1}\arrow[xshift = -0.8 ex, swap]{d} \arrow[xshift = 0.8 ex]{d} \arrow{r}{d_{i-1}}& A^i \arrow[red, near end]{dl}{s^{i-1}} \arrow[xshift = -0.8 ex, swap]{d}{f_i} \arrow[xshift = 0.8ex]{d}{g_i} \arrow{r}{d_0} & A^{i+1} \arrow[red]{dl}{s^i} \arrow[xshift = -0.8 ex, swap]{d} \arrow[xshift = 0.8 ex]{d}\arrow{r} & \ldots\\
-	\ldots \arrow{r} & B^{i-1} \arrow[swap]{r}{d_{i-1}} & B^i \arrow[swap]{r}{d_i} & B^{i+1} \arrow{r} & \ldots
+	\ldots \arrow{r} & A^{i-1}\arrow[xshift = -0.8 ex, swap]{d} \arrow[xshift = 0.8 ex]{d} \arrow{r}& A^i \arrow[red, near end]{dl}{s^{i-1}} \arrow[xshift = -0.8 ex, swap]{d}{f_i} \arrow[xshift = 0.8ex]{d}{g_i} \arrow{r}{d_i} & A^{i+1} \arrow[red]{dl}{s^i} \arrow[xshift = -0.8 ex, swap]{d} \arrow[xshift = 0.8 ex]{d}\arrow{r} & \ldots\\
+	\ldots \arrow{r} & B^{i-1} \arrow[swap]{r}{d_{i-1}} & B^i \arrow[swap]{r} & B^{i+1} \arrow{r} & \ldots
 	\end{tikzcd}$$
 \end{df}
 \begin{anm}
-	Homotopie von Komplexhomomorphismen ist eine Äquivalenzrelation. Sind $f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen mit $ f \sim g $ und $F: \mathcal{A} \to \mathcal{B} $ ein additiver Funktor von $\mathcal{A} $ in eine abelsche Kategorie $\mathcal{B} $, dann erhalten wir einen Komplexhomomorphismus $ Ff, Fg: FA^{\bullet} \to FB^{\bullet} $ mit$ Ff \sim Fg$.
+	\begin{itemize}
+		\item Homotopie von Komplexhomomorphismen ist eine Äquivalenzrelation.
+		\item Sind $f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen mit $ f \sim g $ und $F: \mathcal{A} \to \mathcal{B} $ ein additiver Funktor von $\mathcal{A} $ in eine abelsche Kategorie $\mathcal{B} $, dann erhalten wir einen Komplexhomomorphismus $ Ff, Fg: FA^{\bullet} \to FB^{\bullet} $ mit$ Ff \sim Fg$.
+	\end{itemize}
 \end{anm}
 \begin{bem}\label{7.8}
-	Seien $A^{\bullet}, B^{\bullet} $ Komplexe in $\mathcal{A}, f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen mit $ f\sim g $. Dann gilt: $ \mathcal{H}^i(f) = \mathcal{H}^i(g): \mathcal{H}^i(A^{\bullet}) \to \mathcal{H}^i(B^{\bullet}) $
+	Seien $A^{\bullet}, B^{\bullet} $ Komplexe in $\mathcal{A},\,  f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen mit $ f\sim g $. Dann gilt: $ \mathcal{H}^i(f) = \mathcal{H}^i(g): \mathcal{H}^i(A^{\bullet}) \to \mathcal{H}^i(B^{\bullet}) $
 \end{bem}
 \begin{proof}
-	Wir setzen $h:= f-g: A^{\bullet} \to B^{\bullet} $. Offenbar genügt zu zeigen: $\mathcal{H}^i(h) = 0 $ für alle $ i \in \Z$. 
+	Wir setzen $h:= f-g: A^{\bullet} \to B^{\bullet} $. Offenbar genügt es zu zeigen: $\mathcal{H}^i(h) = 0 $ für alle $ i \in \Z$. 
 	\begin{enumerate}
 		\item Der Morphismus $ \mathcal{Z}^i(h): \mathcal{Z}^iA^{\bullet} \to \mathcal{Z}^iB^{\bullet} $ faktorisiert über $\BB^iB^{\bullet},$ denn: \\
 		$$\begin{tikzcd}[row sep = large]
@@ -1203,7 +1206,7 @@
 	\end{tikzcd}$$
 	sodass gilt: \begin{itemize}
 		\item die obere Zeile ist exakt
-		\item Alle $I^i, i \leq 0,$ sind injektiv.
+		\item Alle $I^i, i \geq 0,$ sind injektiv.
 	\end{itemize}
 	Dann existiert ein Komplexhomomorphismus $f: E^{\bullet} \to I^{\bullet}, $ der $\phi$ fortsetzt, in dem Sinne, dass $ f_0 \circ \epsilon = \eta \circ \phi $ ist. Ist $g:E^{\bullet} \to I^{\bullet} $ ein weiterer solcher Komplexhomomorphismus, dann ist $g \sim f$.
 \end{sa}
@@ -1248,7 +1251,7 @@
 	\tilde{I^{\bullet}}: &0 \arrow{r} & A \arrow[xshift= -0.8 ex, swap]{d}{\id_A} \arrow{r}{\epsilon}& I^0 \arrow[dashed,red, swap, xshift= -0.8 ex]{d}{f_0}\arrow{r} & I^1 \arrow[dashed,red,xshift= -0.8 ex, swap ]{d}{f_1} \arrow{r} & \ldots\\
 	\tilde{J^{\bullet}}:& 0 \arrow{r} & A \arrow[xshift=0.8 ex]{u}\arrow[swap]{r}{\eta} & J^0 \arrow[dashed, blue, xshift = 0.8 ex, swap]{u}{g_0} \arrow[swap]{r} & J^1 \arrow[dashed, blue, swap, xshift=0.8 ex]{u}{g_1} \arrow{r} & \ldots
 	\end{tikzcd}$$
-	mit exakten Zeilen. Nach \ref{7.14} existiert ein Komplexhomomorphismus $ f: I^{\bullet} \to J^{\bullet} $, der $\id_A $ fortsetzt und es existiert ein Komplexhomomorphismus $g: J^{\bullet} \to I^{\bullet}$, der $\id_A $ fortsetzt. Dann ist aber auch $g \circ f: I^{\bullet} \to I^{\bullet} $ eine Fortsetzung von $id_A$, ebenso wie $id_{J^{\bullet}}$. Aus der Einduetigkeit in \ref{7.14} ist $ g \circ f \sim id_{I^{\bullet}}.$ Analog ist $f \circ g \sim id_{J^{\bullet}}.$ Somit folgt, dass $f$ eine Homotopieäquivalenz ist. Die Eindeutigkeitsaussage folgt aus \ref{7.14}.
+	mit exakten Zeilen. Nach \ref{7.14} existiert ein Komplexhomomorphismus $ f: I^{\bullet} \to J^{\bullet} $, der $\id_A $ fortsetzt und es existiert ein Komplexhomomorphismus $g: J^{\bullet} \to I^{\bullet}$, der $\id_A $ fortsetzt. Dann ist aber auch $g \circ f: I^{\bullet} \to I^{\bullet} $ eine Fortsetzung von $id_A$, ebenso wie $id_{J^{\bullet}}$. Aus der Eindeutigkeit in \ref{7.14} ist $ g \circ f \sim id_{I^{\bullet}}.$ Analog ist $f \circ g \sim id_{J^{\bullet}}.$ Somit folgt, dass $f$ eine Homotopieäquivalenz ist. Die Eindeutigkeitsaussage folgt aus \ref{7.14}.
 \end{proof}
 \begin{fo}
 	Sei $I^{\bullet} $ ein exakter Komplex von injektiven Objekten in $\mathcal{A} $ mit $ I^i = 0 $ für $ i \ll 0$. Dann ist $0^{\bullet} \to I^{\bullet} $ eine Homotopieäquivalenz. 

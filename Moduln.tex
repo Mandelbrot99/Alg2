@@ -225,12 +225,12 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 	Vorüberlegung: nach Algebra 1, 4.18 ex in $A$ ein maximales Ideal $J$ . Sei $n \in \N$. Dann ist $\QR{A^{n}}{JA^{n}}$ ein $\QR{A}{J}$-Modul (vgl Beispiel 1.10) und $\QR{A}{J}$ ist ein Körper. Die Abbildung $\QR{A^{n}}{JA^{n}} \to (\QR{A}{J})^{n}, (x_1,..,x_n) +JA^{n} \mapsto (x_1+J,...,x_n+J) $ ist ein Isomorphismus von $\QR{A}{J}$-Moduln, d.h. $\QR{A^{n}}{JA^{n}} \simeq (\QR{A}{J})^{n} $ ist ein n-dimensionaler $\QR{A}{J}$-Vektorraum. Aus $ A^{n_1} \simeq A^{n_2}$ folgt $\QR{A^{n_1}}{JA^{n_1}} \simeq \QR{A^{n_2}}{JA^{n_2}}$, also $ (\QR{A}{J})^{n_1} \simeq (\QR{A}{J})^{n_2}$ (als $\QR{A}{J}$-Vektorraum)
 \end{proof}
 \begin{df}\label{1.23}
-	Sei $A$ ein kommutativer Ring, $M$ ein freier $A$-Modul mit endlicher Basis. Die Kardinalität dieser Basis heißt der \define{Rang\index{Rang eines Moduls}} von M (unabhängig von der Wahl einer endlichen Basis nach \ref{sa1.22})
+	Sei $A$ ein kommutativer Ring, $M$ ein freier $A$-Modul mit endlicher Basis. Die Kardinalität dieser Basis heißt der \define{Rang\index{Rang eines Moduls}} von M (unabhängig von der Wahl einer endlichen Basis nach \ref{1.22})
 \end{df}
 \newpage
 \subsection{Exakte Folgen}
 \begin{df}\label{2.1}
-	Eine \define{exakte Folge\index{exakte Sequent}} (\define{exakte Sequenz}) von $R$-Moduln ist eine Familie $(f_i)_{i \in I}$ von $R$-Modulhomomorphismen $f_i: M_i \to M_{i+1} $ für ein (endliches oder unendliches) Intervall $I \in \Z $, sodass: $$ \im f_i = \ker f_{i+1} \quad \text{für alle } i \in I \text{mit} \ i+1 \in I $$ gilt. \\
+	Eine \define{exakte Folge\index{exakte Sequent}} (\define{exakte Sequenz}) von $R$-Moduln ist eine Familie $(f_i)_{i \in I}$ von $R$-Modulhomomorphismen $f_i: M_i \to M_{i+1} $ für ein (endliches oder unendliches) Intervall $I \in \Z $, sodass: $$ \im f_i = \ker f_{i+1} \quad \text{für alle } i \in I \text{mit } \ i+1 \in I $$ gilt. \\
 	Schreibweise: \quad  $\begin{tikzcd}
 	\ldots \arrow{r}{}& M_{i-1} \arrow{r}{f_{i-1}}& M_i \arrow{r}{f_i} & M_{i+1} \arrow{r} & \ldots
 	\end{tikzcd}$.\\
@@ -282,10 +282,10 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 		\item Es gibt einen $R$-Moduolhomomorphismus $s:M''\to M$ mit $g \circ s = \id_{M''}$
 		\item Es existiert ein $R$-Modulhomomorphismus $t:M \to M'$ mit $t\circ f = \id_{M'}$
 	\end{enumerate}
-	Ist eine dieser äquivalenten Bedingungen erfüllt, sagt man, das die kurze exakte Sequenz "'spaltet"'. In diesem Fall gilt: $M \cong M' \oplus M''$. Der Homomorphismus $s$ heißt ein "'Schnitt"' von $g$.
+	Ist eine dieser äquivalenten Bedingungen erfüllt, sagt man, das die kurze exakte Sequenz "'spaltet"'. In diesem Fall gilt: $M \cong M' \oplus M''$. Der Homomorphismus $s$ heißt ein "'Schnitt\index{Schnitt einer exakten Sequenz}"' von $g$.
 \end{sa}
 \begin{proof}
-	$i) \Ra ii)$ Sei $N'\subseteq M$ ein Untermodul mit $M= \ker g \oplus N'$. Dann ist $N'\cap \ker g = 0$. Dann ist $g\big|_{N'} : N' \to M''$ injektiv. Außerdem gilt: $M''= g(M) = g(N')$, also ist $G\big|_{N'} : N' \overset{\sim}{\longrightarrow} M''$ ein Isomorphismus. Setze $s:M'' \to N' \hookrightarrow M$. Dann ist $s$ ein $R$-Modulhomomorphismus mit $g\circ s = \id_{M''}$. Außerdem ist $M= \ker g \oplus N' = \ker g \oplus \im s = \im f \oplus \im s = f(M') \oplus s(M'') \underset{f,s\text{ inj}}{\cong} M' \oplus M''$\\
+	$i) \Ra ii)$ Sei $N'\subseteq M$ ein Untermodul mit $M= \ker g \oplus N'$. Dann ist $N'\cap \ker g = 0$. Dann ist $g\big|_{N'} : N' \to M''$ injektiv. Außerdem gilt: $M''= g(M) = g(N')$, also ist $G\big|_{N'} : N' \overset{\sim}{\longrightarrow} M''$ ein Isomorphismus. Setze $s:M'' \to N' \hookrightarrow M$. Dann ist $s$ ein $R$-Modulhomomorphismus mit $g\circ s = \id_{M''}$. Außerdem ist $$M= \ker g \oplus N' = \ker g \oplus \im s = \im f \oplus \im s = f(M') \oplus s(M'') \underset{f,s\text{ inj}}{\cong} M' \oplus M''$$
 	$ii) \Ra iii)$ Sei $s:M'' \to M$ ein Modulhomomorphismus mit $g\circ s= \id_{M''}$. Sei $h:f(M') \to M'$ invers zu $f\big|^{f(M)}: M' \overset{\sim}{\longrightarrow} f(M')$. Für $m\in M$ ist 
 	$$g\circ (\id_M - s\circ g))(m) = g(m) - g\circ (s\circ g)(m) = g(m) - ((\underbrace{g\circ s}_{=\id_{M''}}) \circ g)(m) = 0$$
 	Also ist $(\id_{M} - s\circ g)(m) \in \ker g = \im f$. Wir setzen $t:M \xrightarrow{\id_M - s\circ g} f(M') \xrightarrow{h} M'$, welcher ein $R$-Modulhomomorphisus ist mit 
@@ -337,7 +337,7 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 \begin{anm}
 	Aus $M$ endlich erzeugt, folgt im Allgemeinen nicht, dass $M'$ endlich erzeugt ist.
 \end{anm}
-\begin{bsp}
+\begin{bsp}\label{2.6}
 	Sei $K$ ein Körper, $R=K[X_1, X_2, \ldots]$. Dann ist $R$ als $R$-Modul offensichtlich endlich erzeugt (von 1). Setze $$I:= \{f\in R \ | \ \text{konstanter Term von } f \text{ ist } =0\}$$
 	Dann ist $I$ ein Ideal in $R$, aber $I$ ist nicht endlich erzeugt als $R$-Modul, denn angenommen ex existieren $f_1, \ldots, f_r\in I$ mit $I = \sum_{i=1}^rRf_i$. Dann existiert ein $n\in \N$, sodass $f_1, \ldots, f_r\in K[X_1, \ldots, X_n] \subseteq R$. \\
 	Problem: $X_{n+1} \notin I$, denn andernfalls wäre $X^{n+1} = a_1 f_1 + \ldots + a_rf_r$ mit $a_1, \ldots, a_r \in R$ und setze $X_1 = \ldots = X_n = 0, \ X_{n+1} = 1$, also $1=0$ Widerspruch!		
@@ -360,7 +360,7 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 	Damit folgt die Behauptung aus \ref{2.5}
 \end{proof}
 \begin{anm}
-	Ist $M= \bigoplus_{i\in I} M_I$ mit $|I| = \infty, \ M_i \neq 0$ für alle $i\in I$, dann ist $M$ nicht endlich erzeugt, dann für $x_1, \ldots, x_s\in M$ existiert ein $J\subsetneq I$ mit $ x_1, \ldots, x_s \in \bigoplus_{j\in J} M_j$, also $\sum_{i=1}^s R_i \subseteq \bigoplus_{j\in J} M_j\subsetneq \bigoplus_{i\in I} M_i$
+	Ist $M= \bigoplus_{i\in I} M_I$ mit $|I| = \infty, \ M_i \neq 0$ für alle $i\in I$, dann ist $M$ nicht endlich erzeugt, dann für $x_1, \ldots, x_s\in M$ existiert ein $J\subsetneq I$ mit $ x_1, \ldots, x_s \in \bigoplus_{j\in J} M_j$, also $$\sum_{i=1}^s R_i \subseteq \bigoplus_{j\in J} M_j\subsetneq \bigoplus_{i\in I} M_i$$
 \end{anm}
 \begin{bem}[Fünferlemma]\label{2.8}\index{Fünferlemma} Ist ein kommutatives Diagramm von $R$-Modul-homomorphismen mit exakten Zeilen 
 	$$\begin{tikzcd}
@@ -445,7 +445,7 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 \begin{bsp}
 	Sei $K$ ein Körper, $V$ ein $K$-VR. Dann gilt: $V$ noethersch $\Lra$ $V$ ist endlich dimensional
 \end{bsp}
-\begin{sa}\define{3.3}
+\begin{sa}\label{3.3}
 	Sei $M$ ein $R$-Modul. Dann sind äquivalent:
 	\begin{enumerate}[label= \roman*)]
 		\item $M$ ist noethersch
@@ -455,10 +455,10 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 	Man sagt in diesem Fall auch: die Untermoduln von $M$ erfüllen die \define{aufsteigende Kettenbedingung\index{aufsteigende Kettenbedingung}}.
 \end{sa}
 	\begin{proof} 
-		$i) \Ra ii)$ Sei $M_0 \subseteq M_1 \subseteq M_2 \subseteq \dots $ eine Kette von Untermoduln von $M$. Setze $N := \bigcup_{i \in \N_0} M_i \subseteq M$. $N$ ist Untermodul von $M$ (beachte: $ a,b \in N \Ra $ Es existieren $i,j \in \N_0$ mit $a \in M_i$, $b \in M_j$, o.E. gilt: $i\leq j \Ra M_i \subseteq M_j$, $a,b \in M_j \Ra a+b \in M_j \subseteq N$). Da $M$ noethersch, ist $N$ endlich erzeugt, d.h. es existiert ein endliches Erzeugendensystem $x_1, \dots x_r$ von $N$. Für jedes $i \in \{1,\dots r\} $ exsistieren $j_i \in \N_0 $ mit $x_i \in M_{j_i}$. Setze $n:= max\{j_i \ | \ i = 1, \dots r \} \Ra x_1,\dots, x_r \in M_n$ $ \Ra N \subseteq M_n \subseteq N \Ra N = M_n \Ra $ für alle $i \geq n $ ist $ M _i=M_n$.\\
+		$i) \Ra ii)$ Sei $M_0 \subseteq M_1 \subseteq M_2 \subseteq \dots $ eine Kette von Untermoduln von $M$. Setze $N := \bigcup_{i \in \N_0} M_i \subseteq M$. $N$ ist Untermodul von $M$ (beachte: $ a,b \in N \Ra $ Es existieren $i,j \in \N_0$ mit $a \in M_i$, $b \in M_j$, \OE gilt: $i\leq j \Ra M_i \subseteq M_j$, $a,b \in M_j \Ra a+b \in M_j \subseteq N$). Da $M$ noethersch, ist $N$ endlich erzeugt, d.h. es existiert ein endliches Erzeugendensystem $x_1, \dots x_r$ von $N$. Für jedes $i \in \{1,\dots r\} $ exsistieren $j_i \in \N_0 $ mit $x_i \in M_{j_i}$. Setze $n:= max\{j_i \ | \ i = 1, \dots r \} \Ra x_1,\dots, x_r \in M_n$ $ \Ra N \subseteq M_n \subseteq N \Ra N = M_n \Ra $ für alle $i \geq n $ ist $ M _i=M_n$.\\
 		$ii) \Ra iii)$ Sei $\mathcal{X}$ eine nichtleere Menge von Untermoduln von $M$, die kein maximales Element hat. Insbesondere existiert zu jedem $ M' \in \mathcal{X} $ ein $M'' \in \mathcal{X} $ mit $M' \subsetneq M''$. $\Ra$ Es existiert eine Kette von Untermoduln $M_0 \subsetneq M_1 \subsetneq M_2 \subsetneq \dots $ von $M$ , die nicht stationär wird.\\
 		$iii) \Ra i)$ Sei $N \subseteq M $ ei Untermodul. Setze $$\mathcal{X} := \{M' \subseteq M \text {Untermodul} \ | \ M' \text{endlich erzeugt}, M' \subseteq N\}$$Wegen $0 \in \mathcal{X}$ ist $\mathcal{X} \neq \emptyset $ $\overset{(iii)}{\Ra}$ Es existiert ein maximales Element $\tilde{M} $ in $\mathcal{X}$. \\
-		Behauptung: $\tilde{M} = N$, denn: Sei $ x \in N \Ra Rx+\tilde{M} \in \mathcal{X} $ und $ \tilde{M} \subseteq Rx+\tilde{M} \overset{\tilde{M} max.}{\Ra} Rx+\tilde{M} = \tilde{M} \Ra x \in \tilde{M}$.
+		Behauptung: $\tilde{M} = N$, denn: Sei $ x \in N \Ra Rx+\tilde{M} \in \mathcal{X} $ und $ \tilde{M} \subseteq Rx+\tilde{M}$. Aufgrund der Maximalität von $\tilde{M}$, folgt $Rx+\tilde{M} = \tilde{M}$, als $x \in \tilde{M}$.
 	\end{proof}
 \begin{bem}\label{3.4}
 	Sei $\begin{tikzcd}
@@ -472,11 +472,11 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 \begin{proof}
 	Es genügt den Fall der Folge $\begin{tikzcd}
 	0  \arrow{r} & M' \arrow{r} & M \arrow{r} & M'' \arrow{r} & 0
-	\end{tikzcd} $  für einen Untermodul $N \subseteq M $ zu betrachten. (Vgl. Anmerkung nach 2.1)\\
+	\end{tikzcd} $  für einen Untermodul $N \subseteq M $ zu betrachten. (Vgl. Anmerkung nach \ref{2.1})\\
 	$i) \Ra ii)$ Sei $N' \subseteq N $ Untermodul $\Ra N' $ Untermodul von $M$ $\overset{M \text{noet.}}{\Longrightarrow} $ $N' $ endlich erzeugt. Sei $N'' \subseteq \QR{M}{N}$ Untermodul. Also ist $\pi^{-1}(N'') \twoheadrightarrow N''$ ein Epimorphismus und damit $ N'' $ endlich erzeugt nach 2.5 (a). \\
 	$ii) \Ra i)$ Seien $N, \QR{M}{N}$ noethersch, und sei $M' \subseteq M $ Untermodul. Wir erhalten eine kurze exakte Sequenz von $R$-Moduln  $$\begin{tikzcd}
 	0  \arrow{r} & M' \cap N \arrow{r}{} & M' \arrow{r}{} & \QR{M'}{M' \cap N} \arrow{r} & 0
-	\end{tikzcd} $$wobei $M' \cap N $ endlich erzeugt, da $N$ noethersch. Außerdem ist $$\QR{M'}{M' \cap N} \simeq \QR{(M'+N)}{N} \subseteq \QR{M}{N} $$ endlich erzeugt, da $\QR{M}{N} $ noethersch. $\Ra M' $ ist endlich erzeugt nach 2.5
+	\end{tikzcd} $$wobei $M' \cap N $ endlich erzeugt, da $N$ noethersch. Außerdem ist $$\QR{M'}{M' \cap N} \simeq \QR{(M'+N)}{N} \subseteq \QR{M}{N} $$ endlich erzeugt, da $\QR{M}{N} $ noethersch. $\Ra M' $ ist endlich erzeugt nach \ref{2.5}
 \end{proof}
 \begin{bem}\label{3.5}
 	$M_1,...,M_r$ $R$-Moduln. Dann sind äquivalent: 
@@ -497,7 +497,7 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 \begin{bsp}
 	\begin{enumerate} [label=\alph*)]
 		\item Ist $R$ ein Schiefkörper (Divisionsring) (d.h. $R \backslash \{0\}$ ist eine Gruppe bzgl. "."), dann ist $R$ noethersch, denn wegen $Ra=R=aR$ für alle $ a \in R \backslash \{0\}$ sind die einzigen Linksideale (Rechtsideale) in $R$ durch $0,R$ gegeben, diese sind endlich erzeugt.
-		\item Sei $K$ ein Körper, $ R= K [ X_1,X_2,\dots ]$ ist nicht noethersch nach Beispiel 2.6.
+		\item Sei $K$ ein Körper, $ R= K [ X_1,X_2,\dots ]$ ist nicht noethersch nach Beispiel \ref{2.6}.
 	\end{enumerate}
 \end{bsp}
 \begin{bem}\label{3.8}
@@ -505,7 +505,7 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 \end{bem}
 \begin{proof}
 	%hier ist es ein surjektionspfeil
-	Wegen $M$ endlich erzeugt, existiert ein Epimorphismus $R^n \twoheadrightarrow M $ für geeignetes n. Nach Vorraussetzung ist $R$ als $R$-Modul noethersch $\overset{3.5}{\Ra} $ $R^n $ noetherscher $R$-Modul $\overset{3.4}{\Ra}$ $M$ noethersch.
+	Wegen $M$ endlich erzeugt, existiert ein Epimorphismus $R^n \twoheadrightarrow M $ für geeignetes n. Nach Vorraussetzung ist $R$ als $R$-Modul noethersch $\overset{\ref{3.5}}{\Ra} $ $R^n $ noetherscher $R$-Modul $\overset{\ref{3.4}}{\Ra}$ $M$ noethersch.
 \end{proof}
 \begin{bem}\label{3.9}
 	Sei $R$ linksnoetherscher Ring, $I \subseteq R $ zweiseitiges Ideal. Dann ist $\QR{R}{I} $ linksnoethersch.
@@ -540,7 +540,7 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 	Sei $R$ linksnoetherscher Ring, $R \neq 0$, $n_1,n_2 \in N$. Dann gilt: $ R^{n_1} \simeq R^{n_2} \Ra n_1 = n_2 $.
 \end{sa}
 \begin{proof}
-	ohne Einschränkung gelte $n_1 \geq n_2  \Ra R^{n_2} \simeq R^{n_1} \simeq R^{n_2} \simeq R^{n_1 - n_2} $. Wegen $R^{n_2}$ noethersch, folgt mit 3.10 : $R^{n_1 - n_2} =0$, also $ n_1=n_2$
+	ohne Einschränkung gelte $n_1 \geq n_2  \Ra R^{n_2} \simeq R^{n_1} \simeq R^{n_2} \simeq R^{n_1 - n_2} $. Wegen $R^{n_2}$ noethersch, folgt mit \ref{3.10} : $R^{n_1 - n_2} =0$, also $ n_1=n_2$
 \end{proof}
 \begin{anm}
 	\begin{itemize}
@@ -564,7 +564,7 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 			$m\leq n$: klar.\\
 			$m >n:$ Sei $f\in I_m$. Dann ist $b_m(f) \in B_m  = B_n = b_n(I_n)$, also existiert ein Polynom $f_1\in I_n$ mit $b_m(f) = b_n(f_1)= b_m(X^{m-n}f_1)$. Also ist $f- X^{m-n} f_1 \in I_{m-1} \overset{\text{IV}}{\subseteq } R[X] I_n$. Wegen $X^{m-n} f_1 \in R[X] I_n$, folgt $f\in R[X] I_n$
 		\end{enumerate}
-	\item $I_n$ ist endlich erzeugt als $R$-Modul, denn: $I_n \subseteq \sum_{i=0}^n RX^i$, und $\sum_{i=0}^n RX^i$ ist ein endlich erzeugter $R$-Modul, also insbesondere noethersch nach 3.8, weshalb $I_n$ als Untermodul endlich erzeugt ist, d.h. es existieren $g_1, \ldots, g_r\in I_n $ mit $I_n = \sum_{i=1}^r Rg_i$, also 
+	\item $I_n$ ist endlich erzeugt als $R$-Modul, denn: $I_n \subseteq \sum_{i=0}^n RX^i$, und $\sum_{i=0}^n RX^i$ ist ein endlich erzeugter $R$-Modul, also insbesondere noethersch nach \ref{3.8}, weshalb $I_n$ als Untermodul endlich erzeugt ist, d.h. es existieren $g_1, \ldots, g_r\in I_n $ mit $I_n = \sum_{i=1}^r Rg_i$, also 
 	$$I \overset{2.}{=} R[X]I_n = \sum_{i=1}^r R[X] g_i $$
 	d.h. $I$ ist endlich erzeugt als $R[X]$-Modul.
 	\end{enumerate}
