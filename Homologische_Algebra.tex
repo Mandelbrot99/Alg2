@@ -1156,7 +1156,7 @@
 		\item Sind $f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen mit $ f \sim g $ und $F: \mathcal{A} \to \mathcal{B} $ ein additiver Funktor von $\mathcal{A} $ in eine abelsche Kategorie $\mathcal{B} $, dann erhalten wir einen Komplexhomomorphismus $ Ff, Fg: FA^{\bullet} \to FB^{\bullet} $ mit$ Ff \sim Fg$.
 	\end{itemize}
 \end{anm}
-\begin{bem}\label{7.8}
+\begin{bem}\label{7.11}
 	Seien $A^{\bullet}, B^{\bullet} $ Komplexe in $\mathcal{A},\,  f,g: A^{\bullet} \to B^{\bullet} $ Komplexhomomorphismen mit $ f\sim g $. Dann gilt: $ \mathcal{H}^i(f) = \mathcal{H}^i(g): \mathcal{H}^i(A^{\bullet}) \to \mathcal{H}^i(B^{\bullet}) $
 \end{bem}
 \begin{proof}
@@ -1259,3 +1259,166 @@
 \begin{proof}
 	Ohne Einschränkung ist $ I^i = 0 $ für $ i < 0 $ (durch Verschiebung des Komplexes) Dann sind $ 0^{\bullet}, I^{\bullet} $ injektive Auflösungen von 0. Aus \ref{7.15} folgt: $0^{\bullet} \to I^{\bullet} $ist eine Homotopieäquivalenz.
 \end{proof} 
+\newpage
+\subsection{Abgeleitete Funktoren}
+\begin{center}
+	\textbf{In diesem Abschnitt sei $\mathcal{A}$ eine abelsche Kategorie mit genügend vielen Injektive, $\mathcal{B}$ eine abelsche Kategorie und $F:\mathcal{A} \to \BB$ ein linksexakter Funktor}
+\end{center}
+\begin{bem+df}\label{8.1}
+	Für $i\in \N_0$ und jedes Objekt $A\in \ObA$ fixieren wir eine injektive Auflösung $A\to I^\bullet$ von $A$ und setzen 
+	$$R^iF(A):= \HH^i(FI^\bullet)$$
+	Ist $\phi:A \to A'$ ein Morphismus in $\mathcal{A}$ und sind $A\to I^\bullet$, $A'\to I'^\bullet$ injektive Auflösungen von $A,A'$, dann existiert ein bis auf Homotopie eindeutiger Komplexhomomorphismus $f:I^\bullet \to I'^\bullet$, der $\phi$ fortsetzt. Wir setzen 
+	$$R^iF(\phi) := \HH^i(Ff).$$
+	Auf diese Weise wird $R^iF:\AA \to \BB$ zu einem additiven Funktor. Wird auf dieselbe Art und Weise mit einer anderen Wahl von injektiven Auflösungen ein Funktor $\widehat{R}^iF:\AA\to \BB$ konstruiert, dann sind $R^iF(A)$ und $\hat R^iF(A)$ kanonisch isomroph für alle $a\in \ObA$, und es gibt eine natürliche Äquivalenz $R^iF\overset{\sim}{\Ra} \hat R^iF$. $R^iF$ heißt der \define{i-te rechtsabgeleitete Funktor\index{rechtsabgeleiteter Funktor}}
+\end{bem+df}
+\begin{proof}
+	\begin{itemize}
+		\item Wohldefiniertheit von $R^iF(\phi)$: Ist $g:I^\bullet\to I'^\bullet$ eine weitere Fortsetzung von $\phi$, dann ist $f \sim g$ nach \ref{7.14} und somit $Ff\sim Fg$. Mit \ref{7.11} folgt $\HH^i(Ff) = \HH^i(Fg)$ für alle $i\geq 0$.
+		\item $R^iF$ ist ein Funktor, denn für $\phi:A \to A', \, \psi:A' \to A''$ mit Fortsetzungen $f:I^\bullet\to I'^\bullet, \, g:I'^\bullet \to I''^\bullet$ auf injektiven Auflösungen $A\to I^\bullet, \, A'\to I^\bullet, \, A'' \to I''^\bullet$ von $A,A',A'''$ ist $g\circ f:I^\bullet\to I''^\bullet$ ein Fortsetzung von $\psi \circ \phi:A \to A''$, also 
+		\begin{eqnarray*}
+			(R^iF)(\psi \circ \phi) &=& \HH^i(F(g\circ f)) = \HH^i(Fg\circ Ff) = \HH^iFg \circ \HH^iFf\\
+			& =& R^iF(\psi) \circ R^iF(\phi)
+		\end{eqnarray*}
+		\item $R^iF$ ist additiv, denn sind $\phi:A\to A', \, \psi :A \to A'$ mit Fortsetzungen $f:I \to I'^\bullet, \, g:I^\bullet\to I'^\bullet$ auf injektiven Auflösungen $A\to I^\bullet, \, A' \to I'^\bullet$ von $A, A'$, so ist $f-g :I^\bullet\to I'^\bullet$ eine Fortsetzung von $\phi + \psi:A\to A'$. Der Rest ist klar, da $F, \,\HH^i$ additiv.
+		\item Unabhängigkeit von der Wahl der Auflösungen im obigen Sinne: Für $A\in \ObA$ sei $A\xrightarrow{\epsilon} I_A^\bullet$ die injektive Auflösung, mit der $R^iF$ berechnet wird und $A\xrightarrow{\eta} J_A^\bullet$ die injektive Auflösung von $A$, mit der $\hat R^i F$ berechnet wird. Da nach \ref{7.15} eine Homotopieäquivalenz $h_A:I_A^\bullet\to J_A^\bullet$ existiert mit $h_A^0 \circ \epsilon = \eta$. Wir definieren
+		$$t_A^i:R^iF(A) = \HH^i(FI_A^\bullet)\longrightarrow \hat R^iF(A) = \HH^i(FJ_A^\bullet) \quad \text{mit} \quad t_A^i:= \HH^iFh_A$$
+		Dann ist $t^i_A$ nach \ref{7.13} ein Isomorphismus, da $Fh_A$ eine Homotopieäquivalenz ist. Durch $t^i=(t_A^i)_{A\in \ObA}:R^iF\Ra \hat R^iF$ ist eine natürliche Äquivalenz gegeben, denn für alle $A,A'\in \ObA, \, \phi:A \to A'$ kommutiert das Diagramm
+		$$\begin{tikzcd}[row sep = large]
+		R^iF(A) \arrow{r}{t_A^i} \arrow[swap]{d}{\HH^iFf_I} & \hat R^iF(A) \arrow{d}{\HH^iFf_J}\\
+		R^iF(A') \arrow[swap]{r}{t^i_{A'}} & \hat R^iF(A')
+		\end{tikzcd}$$
+		wobei $f_I:I_A^\bullet\to J_A^\bullet, \, f_J:J_A^\bullet \to J_A'^\bullet$ Fortsetzungen von $\phi$ sind), denn $f_J \circ h_A, \, h_{A'} \circ f_I: I_A^\bullet \to J_A'^{\bullet}$ sind beides Fortsetzungen von $\phi=\phi \circ \id_A = \id_{A'} \circ \phi$, somit $f_J \circ h_A \sim h_A' \circ f_I$, also $Ff_J \circ Fh_A \sim Fh_{A'} \circ Ff_I$ und damit $\HH^iFf_J \circ t^i_A = t^i_{A'} \circ \HH^iFf_I$.
+	\end{itemize}
+\end{proof}
+\begin{bem}\label{8.2}
+	Es gilt:
+	\begin{enumerate}[label= \alph*)]
+		\item $R^0F=F$
+		\item Ist $F$ exakt, dann ist $R^iF=0$ für alle $i>0$.
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	Für $A\in \ObA$ ist $R^iF(A) = \HH^i(FI^\bullet)$, wobei $A\xrightarrow{\epsilon} I^\bullet$ eine injektive Auflösung von $A$ ist. Wir wissen: Ist $\begin{tikzcd}
+	0 \arrow{r} & A \arrow{r}{\epsilon} & I^0 \arrow{r}{d_0} & I^1
+	\end{tikzcd}$ exakt, dann ist ohnehin $\begin{tikzcd}
+	0 \arrow{r} & FA \arrow{r}{F\epsilon} & FI^0 \arrow{r}{Fd_0} & FI^1
+	\end{tikzcd}$ exakt.
+	$$\begin{tikzcd}
+	FI^\bullet: & \ldots \arrow{r} & 0 \arrow{r} & 0 \arrow{r}& FI^0 \arrow{r}{Fd_0} & FI^1\arrow{r}{Fd_1}& FI^2\arrow{r} & \ldots
+	\end{tikzcd}$$
+	mit \begin{eqnarray*}
+		R^0F(A) &=& \HH^0(FI^\bullet) = \coker(0 \ra \ker Fd_0) = \ker Fd_0
+		= \im F\epsilon\\
+		&=& \coim F\epsilon = FA
+	\end{eqnarray*}
+	Falls $F$ exakt, dann ist 
+	$$\begin{tikzcd}
+	0\arrow{r} & FA \arrow{r}{F\epsilon} & FI^0 \arrow{r}{Fd_0} & FI^1\arrow{r}{Fd_1}& \ldots
+	\end{tikzcd}$$
+	exakt, also $R^iF(A) = \HH^i(FI^\bullet) = 0$ für $i>0$.
+\end{proof}
+\begin{sa}\label{8.3}
+	Sei $\begin{tikzcd}
+	0\arrow{r} & A'\arrow{r} & A \arrow{r} & A''\arrow{r} & 0
+	\end{tikzcd}$ eine exakte Folge in $\AA$. Dann existieren natürliche Morphismen 
+	$$\delta^i:R^iF(A'') \longrightarrow R^{i+1}F(A') \quad \text{für alle } i\geq 0$$
+	sodass die Folge 
+	$$\begin{tikzcd}
+	0 \arrow{r} & FA'\arrow{r} & FA \arrow{r} & FA''\\
+	\arrow{r} & R^1FA' \arrow{r} & R^1FA \arrow{r} & R^1FA''\\
+	\arrow{r} & \ldots & & \\
+	\vdots & \vdots & \vdots & \vdots \\
+	\arrow{r}{\delta^i} & R^{i+1}FA' \arrow{r} & R^{i+1}FA \arrow{r} & R^{i+1}FA''
+	\end{tikzcd}$$
+	exakte ist. Ist 
+	$$\begin{tikzcd}
+	0 \arrow{r} & A' \arrow{d}\arrow{r} & A \arrow{d}\arrow{r} & A'' \arrow{d}\arrow{r} & 0\\
+	0 \arrow{r} & B'\arrow{r} & B \arrow{r} & B'' \arrow{r} & 0
+	\end{tikzcd}$$
+	ein kommutatives Diagramm, wobei die untere Zeile exakt ist, so kommutiert für alle $i\geq 0$ das Diagramm
+	$$\begin{tikzcd}
+	R^iF(A'') \arrow{r}{\delta^i} \arrow{d} & R^{i+1}F(A') \arrow{d} \\
+	R^iF(B'') \arrow[swap]{r}{\delta^i} & R^{i+1}F(B')
+	\end{tikzcd}$$
+\end{sa}
+\begin{proof}[Beweisskizze]
+	Nach dem Hufeisenlemma existieren kompatible injektive Auflösungen $A'\to I'^\bullet, \, A\to I^\bullet, \, A''\to I''^\bullet$ in dem Sinne, dass
+	$$\begin{tikzcd}
+	0 \arrow{r} & I'^\bullet\arrow{r} & I^\bullet\arrow{r} & I''^\bullet \arrow{r} & 0
+	\end{tikzcd}$$
+	eine exakte Folge von Komplexen ist. $I'^i$ ist injektiv für alle $i\geq 0$, also spaltet die Folge
+	$$ \begin{tikzcd}
+	0 \arrow{r} & I'^i\arrow{r} & I^i\arrow{r} &I''^i \arrow{r} & 0
+	\end{tikzcd}$$
+	(wobei Spaltung in abelschen Kategorien analog zu $R$-Mod definiert ist und analoge Resultate gelten). Dann ist 
+	$I^i= I'^i \oplus I''^i$ und, da $F$ additiv, $F(I^i) = F(I'^i) \oplus F(I''^i)$, womit
+	$$\begin{tikzcd}
+	0 \arrow{r} & FI'^i \arrow{r} & FI^i \arrow{r} & FI''^i \arrow{r} & 0
+	\end{tikzcd}$$ exakt ist. Insbesondere existiert ein exakte Folge von Komplexen 
+	$$\begin{tikzcd}
+	0 \arrow{r} & FI'^\bullet\arrow{r} & FI^\bullet\arrow{r} & FI''^\bullet \arrow{r} & 0
+	\end{tikzcd}$$
+	woraus wir eine lange exakte Kohomologiefolge erhalten, was die Behauptung liefert.
+\end{proof}
+\begin{df}\label{8.4}
+	Sei $A\in \ObA$. Dann heißt $A$ \define{$F$-azylisch\index{azyklische Objekte}} $\defi R^iF(A) = 0$ für alle $i>1$.
+\end{df}
+\begin{bem}\label{8.5}
+	Ist $A\in \ObA$ injektiv, dann ist $A$ $F$-azyklisch.
+\end{bem}
+\begin{proof}
+	Offenbar ist $\begin{tikzcd}
+	A \arrow{r}{\id} & (A \arrow{r} & 0 \arrow{r} & 0 \arrow{r} & \ldots)
+	\end{tikzcd}$ eine injektive Auflösung von $A$. Damit ist 
+	$$R^iF(A) = \HH^i(\begin{tikzcd}
+	FA \arrow{r} & 0 \arrow{r} & 0\arrow{r} & \ldots)
+	\end{tikzcd} =0 \quad \text{für }i\geq 1$$
+	woraus die Behauptung folgt.
+\end{proof}
+\begin{sa}\label{8.6}
+	Sei $A\to J^\bullet$ eine injektive Auflösung von $A$ durch $F$-azyklische Objekte, d.h. $J^\bullet$ ist ein Komplex mit $J^i=0$ für $i<0$ und $J^i$ $F$-azyklisch für $i\geq 0$, sodass der augmentierte Komplex $$\begin{tikzcd}
+	0 \arrow{r} & A \arrow{r} & J^1 \arrow{r} & J^2 \arrow{r} & \ldots
+	\end{tikzcd}$$
+	exakt ist. Dann gibt es einen kanonischen Isomorphismus $R^iF(A) \cong \HH^i(FJ^\bullet)$ für alle $i\geq 0$.
+\end{sa}
+\begin{proof}
+	(für $R$-Mod in S.Lang "'Algebra"')
+\end{proof}
+\begin{anm}
+	Die Theorie der Linksableitung rechtsexakter Funktoren lässt sich analog entwickeln: Sei $\AA$ eine abelsche Kategorie mit genügend vielen Projektiven, $\BB$ eine abelsche Kategorie, $F:\AA\to \BB$ ein rechtsexakter Funktor. Wir wählen für jedes $A\in \ObA$ eine projektive Auflösung $P_\bullet \to A$ und setzen 
+	$$L_iF(A):= \HH_i(FP_\bullet)$$
+	Rest analog.
+\end{anm}
+\newpage
+\subsection{$\delta$-Funktoren}
+\begin{center}
+	\textbf{In Folgenden seien $\AA, \BB$ abelsche Kategorien}
+\end{center}
+\begin{df}
+	Ein \define{$\delta$-Funktor\index{$\delta$-Funktor}} $H=(H^n)_{n\geq 0}$ ist eine Familie additiver Funktoren $H^n:\AA\to \BB$ zusammen mit Homomorphismen $\delta:H^n(C) \to H^{n+1}(A)$ für alle $n\geq 0$ und jede kurze exakte Folge $\begin{tikzcd}
+	0\arrow{r} & A \arrow{r} & B\arrow{r} & C \arrow{r} & 0
+	\end{tikzcd}$, sodass gilt:
+	\begin{enumerate}
+		\item[(D1)] $\delta$ ist funktoriell, d.h. ist 
+		$$\begin{tikzcd}
+		0\arrow{r} & A\arrow{d} \arrow{r} & B\arrow{r} \arrow{d}& C\arrow{d} \arrow{r} & 0\\
+		0\arrow{r} & A' \arrow{r} & B'\arrow{r} & C' \arrow{r} & 0
+		\end{tikzcd} $$
+		ein kommutatives Diagramm in $\AA$ mit exakten Zeilen, dann kommutiert 
+		$$\begin{tikzcd}
+		H^n(C) \arrow{d}\arrow{r}{\delta} & H^{n+1}(A) \arrow{d} \\
+		H^n(C') \arrow{r}{\delta} & H^{n+1}(A')
+		\end{tikzcd}$$
+		in $\BB$ für alle $n\geq 0$
+		\item[(D2)] Für jede kurze exakte Folge $\begin{tikzcd}
+		0\arrow{r} & A \arrow{r} & B\arrow{r} & C \arrow{r} & 0
+		\end{tikzcd}$ in $\AA$ ist die lange exakte Folge 
+		$$\begin{tikzcd}
+		\ldots \arrow{r} & H^n(A) \arrow{r} & H^n(B) \arrow{r}& H^n(C) \arrow{r}{\delta} & H^{n+1}(A) \arrow{r} & \ldots
+		\end{tikzcd}$$
+		exakt in $\BB$.
+	\end{enumerate}
+\end{df}
+\begin{bsp}
+	$\AA$ habe genügend viele Injektive, $F:\AA\to \BB$ linksexakt. Dann ist $H:=(R^nF)_{n\geq 0}$ ein $\delta$-Funktor nach \ref{8.3}
+\end{bsp}
