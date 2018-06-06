@@ -1279,7 +1279,7 @@
 			(R^iF)(\psi \circ \phi) &=& \HH^i(F(g\circ f)) = \HH^i(Fg\circ Ff) = \HH^iFg \circ \HH^iFf\\
 			& =& R^iF(\psi) \circ R^iF(\phi)
 		\end{eqnarray*}
-		\item $R^iF$ ist additiv, denn sind $\phi:A\to A', \, \psi :A \to A'$ mit Fortsetzungen $f:I \to I'^\bullet, \, g:I^\bullet\to I'^\bullet$ auf injektiven Auflösungen $A\to I^\bullet, \, A' \to I'^\bullet$ von $A, A'$, so ist $f-g :I^\bullet\to I'^\bullet$ eine Fortsetzung von $\phi + \psi:A\to A'$. Der Rest ist klar, da $F, \,\HH^i$ additiv.
+		\item $R^iF$ ist additiv, denn sind $\phi:A\to A', \, \psi :A \to A'$ mit Fortsetzungen $f:I \to I'^\bullet, \, g:I^\bullet\to I'^\bullet$ auf injektiven Auflösungen $A\to I^\bullet, \, A' \to I'^\bullet$ von $A, A'$, so ist $f+g :I^\bullet\to I'^\bullet$ eine Fortsetzung von $\phi + \psi:A\to A'$. Der Rest ist klar, da $F, \,\HH^i$ additiv.
 		\item Unabhängigkeit von der Wahl der Auflösungen im obigen Sinne: Für $A\in \ObA$ sei $A\xrightarrow{\epsilon} I_A^\bullet$ die injektive Auflösung, mit der $R^iF$ berechnet wird und $A\xrightarrow{\eta} J_A^\bullet$ die injektive Auflösung von $A$, mit der $\hat R^i F$ berechnet wird. Da nach \ref{7.15} eine Homotopieäquivalenz $h_A:I_A^\bullet\to J_A^\bullet$ existiert mit $h_A^0 \circ \epsilon = \eta$. Wir definieren
 		$$t_A^i:R^iF(A) = \HH^i(FI_A^\bullet)\longrightarrow \hat R^iF(A) = \HH^i(FJ_A^\bullet) \quad \text{mit} \quad t_A^i:= \HH^iFh_A$$
 		Dann ist $t^i_A$ nach \ref{7.13} ein Isomorphismus, da $Fh_A$ eine Homotopieäquivalenz ist. Durch $t^i=(t_A^i)_{A\in \ObA}:R^iF\Ra \hat R^iF$ ist eine natürliche Äquivalenz gegeben, denn für alle $A,A'\in \ObA, \, \phi:A \to A'$ kommutiert das Diagramm
@@ -1294,7 +1294,7 @@
 	Es gilt:
 	\begin{enumerate}[label= \alph*)]
 		\item $R^0F=F$
-		\item Ist $F$ exakt, dann ist $R^iF=0$ für alle $i>0$.
+		\item Ist $F$ exakt, dann ist $R^iF=0$ für alle $i >0$.
 	\end{enumerate}
 \end{bem}
 \begin{proof}
@@ -1361,7 +1361,7 @@
 	woraus wir eine lange exakte Kohomologiefolge erhalten, was die Behauptung liefert.
 \end{proof}
 \begin{df}\label{8.4}
-	Sei $A\in \ObA$. Dann heißt $A$ \define{$F$-azylisch\index{azyklische Objekte}} $\defi R^iF(A) = 0$ für alle $i>1$.
+	Sei $A\in \ObA$. Dann heißt $A$ \define{$F$-azylisch\index{azyklische Objekte}} $\defi R^iF(A) = 0$ für alle $i \geq 1$.
 \end{df}
 \begin{bem}\label{8.5}
 	Ist $A\in \ObA$ injektiv, dann ist $A$ $F$-azyklisch.
@@ -1487,18 +1487,20 @@
 		$$R^{n}Hom_R(-,N)(M) \simeq F(M) = R^{n}Hom_R(M,-)(N) = Ext^{n}_R(M,N)$$
 	\end{enumerate}
 \end{proof}
-\begin{sa}
+\begin{sa}\label{10.3}
 	Sei $A$ ein Hauptidealring, $M,N$, seinen $R$-Moduln. Dann gilt: $Ext^{n}_A(M,N) =0 $
 	 für alle $ n \geq 2$.
 \end{sa}
-\begin{proof}\label{10.3}
+\begin{proof}
 	\begin{enumerate}
 		\item Wir konstruieren eine injektive Auflösung von $N$. Es existiert ein injektiver $A$-Modul $I^{0}, $ und ein Monomorphismus $\epsilon: N \hookrightarrow I^{0}.$ 
-		%diagramm 
-		$I^{0} $ injektiv, dann folgt mit \ref{6.11} $I^{0} $ ist teilbar $\Ra \coker \epsilon = \QR{I^0}{im \epsilon } $ teilbar, damit folt aus \ref{6.12} und da A ein HIR, dass der $\coker \epsilon $ injektiv ist.  Setze ..
-		% nicht mitgekommen 
-		\item Für -...
-		%fehlt
+		$$\begin{tikzcd}
+		0\arrow{r} & N \arrow{r}{\epsilon} & I^{0} \arrow{r} & I^1 \arrow{r} & 0 
+		\end{tikzcd}$$
+		$I^{0} $ injektiv, dann folgt mit \ref{6.11} $I^{0} $ ist teilbar $\Ra \coker \epsilon = \QR{I^0}{im \epsilon } $ teilbar, damit folt aus \ref{6.12} und da A ein HIR, dass der $\coker \epsilon $ injektiv ist.  Setze $I^1 := \coker \epsilon$, dann ist $\begin{tikzcd}
+		N \arrow{r}{\epsilon} & I^{0} \arrow{r} & I^1 \arrow{r} & 0 \arrow{r}  & 0 \dots
+		\end{tikzcd}$ eine injektive Auflösung von $N$. 
+		\item Für $n \geq 2 $ ist $ Ext^{n}_A(M,N) = H^{n}(Hom_R(M,J^{\bullet})) = 0.$
 		
 	\end{enumerate}
 \end{proof}
