@@ -1392,10 +1392,10 @@
 \newpage
 \subsection{$\delta$-Funktoren}
 \begin{center}
-	\textbf{In Folgenden seien $\AA, \BB$ abelsche Kategorien}
+	\textbf{In Folgenden seien $\A, \BB$ abelsche Kategorien}
 \end{center}
 \begin{df}
-	Ein \define{$\delta$-Funktor\index{$\delta$-Funktor}} $H=(H^n)_{n\geq 0}$ ist eine Familie additiver Funktoren $H^n:\AA\to \BB$ zusammen mit Homomorphismen $\delta:H^n(C) \to H^{n+1}(A)$ für alle $n\geq 0$ und jede kurze exakte Folge $\begin{tikzcd}
+	Ein \define{$\delta$-Funktor\index{$\delta$-Funktor}} $H=(H^n)_{n\geq 0}$ ist eine Familie additiver Funktoren $H^n:\A \to \BB$ zusammen mit Homomorphismen $\delta:H^n(C) \to H^{n+1}(A)$ für alle $n\geq 0$ und jede kurze exakte Folge $\begin{tikzcd}
 	0\arrow{r} & A \arrow{r} & B\arrow{r} & C \arrow{r} & 0
 	\end{tikzcd}$, sodass gilt:
 	\begin{enumerate}
@@ -1420,5 +1420,105 @@
 	\end{enumerate}
 \end{df}
 \begin{bsp}
-	$\AA$ habe genügend viele Injektive, $F:\AA\to \BB$ linksexakt. Dann ist $H:=(R^nF)_{n\geq 0}$ ein $\delta$-Funktor nach \ref{8.3}
+	$\A$ habe genügend viele Injektive, $F:\A \to \BB$ linksexakt. Dann ist $H:=(R^nF)_{n\geq 0}$ ein $\delta$-Funktor nach \ref{8.3}
 \end{bsp}
+\begin{df}
+	Sei $H=(H^n)_{n\geq 0}: \A \to \BB $ ein $\delta$-Funktor. H heißt \define{universell} $\defi $ Für jeden $\delta$-Funktor $H'=(H^{'n})_{n\geq 0}: \A \to \BB $ setzt sich jede natürliche Transformation $ f^{\circ}: H^{\circ} \Ra H^{'\circ} $ eindeutig zueinem Homomorphismus von $\delta$-Funktoren fort, d.h. zu einer Familie $f=(f^{n})_{n \geq 0}$ von natürlichen Transformationen $f^{n}: H^{n} \Ra H^{'n} $ die auf naheliegende Weise mit den $\delta^{'}$ verträglich sind.
+\end{df}
+\begin{bem}\label{9.4}
+	Sind $F,G$ universelle $\delta$-Funktoren mit $F^{0} = G^{0}$, dann gibt es eine kanonische natürliche Äquivalenz von $\delta$-Funktoren $ F \overset{\sim}{\Ra} G.$
+\end{bem}
+\begin{proof}
+	$id: F^{0} \Ra G^{0} $ setzt sich fort zu einem Homomorphismus $\Phi: (\Phi_n)_{n \geq 0}, \Phi_n: F_n \Ra G_n $ von $\delta$-Funktoren. $id: G^{0} \Ra F^{0} $ setzt sich fort zu einem Homomorphismus $\Psi = (\Psi_n)_{n \geq 0}, \Psi_n: G_n\Ra F_n $von $\delta$-Funktoren. $\Psi \circ \Phi := (\Psi_n \circ \Phi_n)_{n \geq 0}$ ist eine Fortsetzung von $id: F^{0} \Ra F^{0}.$ Aus der Eindeutigekeit in der Universellen Eigenschaft folgt. $\Psi \circ \Phi = id_F.$ Analog $ \Phi \circ \Psi = id_G$
+\end{proof}
+\begin{df}
+	Sei $ F: \A \to \BB $ ein additiver Funktor.  F heißt \define{auslöschbar} $\defi $ Für jedes $A \in \ObA $ existiert ein $A' \in \ObA $ und ein Monomorphismus $ u: A \hookrightarrow A'$ mit $ F(u)= 0 $. 
+\end{df}
+\begin{sa}\label{9.6}
+	Sei $H=(H^n)_{n\geq 0}: \A \to \BB $ ein $\delta$-Funktor, sodass $H^n $ auslöschbar für alle $ n \geq 1$. Dann ist $H$ universell. 
+\end{sa}
+\begin{proof}
+	(Beweisskizze)\\
+	Sei $H^{'}=(H^{'n})_{n\geq 0}: \A \to \BB $ ein $\delta$-Funktor, $f^{0}: H^{0} \Ra H^{'n}$ eine natürliche Transformation. Wir konstruieren die natürliche Transformation $f^n: H^n \Ra H^{'n} $ die mit $\delta$ kommutieren, per Induktion nach n. Seien $f^{0},\dots f^{n}$ bereits konstruiert. Sei $A \in \ObA $. Da $H^{n+1} $ auslöschbar, gibt es eine exakte Folge:\\ $\begin{tikzcd}
+	0\arrow{r} & A \arrow{r}{u} & A^{'}\arrow{r} & B \arrow{r} & 0
+	\end{tikzcd}$ mit $H^{n+1}(n) = 0$. So erhalten wir Diagramm: 
+	$$\begin{tikzcd}
+	H^{n}A^{'}\arrow{d} \arrow{r} & H^{n}B\arrow{r}{\delta} \arrow{d}& H^{n+1}A \arrow[dashed]{d} \arrow{r} & 0\\
+	H^{'n}A' \arrow{r} & h^{'n}B\arrow{r}{\delta^{'}} & H^{'n+1}A
+	\end{tikzcd} $$
+	konstruiere mit den üblichen Argumenten einen Morphismus $f^{n+1}_A : H^{n+1}A \to H^{'n+1}A, $ der mit den $\delta$'s vertauscht, und so dass $f^{n+1} = (f^{n+1}_A)_{A \in \ObA}:H^{n+1} \Ra H^{'n+1} $ eine natürliche Transformation ist. 
+\end{proof}
+\begin{fo}\label{9.7}
+	Habe $\A $ genügend viele Injektive, $F: \A \to \BB $ linksexakter Funktor. Dann ist $(R^{n}F)_{n \geq 0}$ ein universeller $\delta$-Funktor. 
+\end{fo}
+\begin{proof}
+	Nach \ref{9.6} genügt es zu zeigen: $R^{n}F$ ist auslöschbar für alle $ n \geq 1$. Sein $n \geq 1, A \in \ObA $. Dann esistiert ein injektives Objekt $I \in \ObA$ und ein Monomorphismus $u: A \hookrightarrow I $. 
+	$\Ra R^{n}F(u): R^{n}F(A) \to R^{n}F(I) = 0 $nach \ref{8.5} ist der Nullmorphismus für $n \geq 1$.
+\end{proof}
+\newpage
+\subsection{Ext und Erweiterungen}
+\begin{df}
+	Seien $M,N$ $R$-Moduln. Wir setzen: $$Ext^{n}_R(M,N) := R^{n}Hom_R(M,-)(N) $$ für $ n \geq 0$. Explizit: wähle eine injektive Auflösung $N \to I^{\bullet} $ von $N$, dann ist $$Ext^{n}_R(M,N)=H^{n}(Hom_R(M,I^{\bullet}))$$
+\end{df}
+\begin{sa}\label{10.2}
+	Seien $M,N$ $R$-Moduln. Dann gibt es kanonische Isomorphismen $$Ext^{n}_R(M,N) \simeq R^{n}Hom_R(-,N)(M)$$ für alle $ n \geq 0$, insbesondere kann $Ext^{n}_R(M,N)$ auch über eine projektive Auflösung $P_{\bullet} \to M $ von $M$ betrachtet werden via $Ext^{n}_R(M,N)=H^{n}(Hom_R(P_{\bullet},N))$.
+\end{sa}
+\begin{proof}
+	Sei $N$ fixiert. \\
+	\begin{enumerate}
+		\item Die Familie kontravarianter Funktoren $(R^{n}Hom_R(-,N))_{n \geq 0}$ ist ein kontravarianter universeller $\delta$-Funktor mit $ R^{0}Hom_R(-,N)= Hom_R(-,N)$ (analoge Aussage zu \ref{9.7}). Denn: $(R^{n}Hom_R(-,N))_{n \geq 0}$ ist ein  kontravarianter $\delta$-Funktor nach der kontravaritanten version von \ref{8.3}. Es bleibt noch zu zeigen: $(R^{n}Hom_R(N,-))_{n \geq 0}$ ist universell. Dafür genügt es nach \ref{9.6} zu zeigen, dass $R^{n}Hom_R(-,N)$ koauslöschbar für alle $n \geq 1$. Sei $M$ ein $R$-Modul. Dann existiert ein projektiver $R$-Modul $P$ und ein Epimorphismus $u: P \to M $
+		%epi
+		So erhält man: $R^{n}Hom_R(-,N)(u) : R^{n}Hom_R(-,N)(M) \to R^{n}Hom_R(-,N)(P). P $ ist $Hom_R(-,N)$-zyklisch, da ( $\dots 0 \to 0 \to P) \overset{id_P}{\to} P $ eine projektive Auflösung von $P$ ist und $R^{n}Hom_R(-,N)(P) =H^{n}(Hom_R(P,N) \to 0 \to 0 \to \dots ) =0 $ für $ n \geq 1$ ist. Daraus folgt: $R^{n}Hom_R(-,N)(n) = 0,$ das heißt $R^{n}Hom_R(-,N) $ ist koauslöschbar für $n \geq 1 $. 
+		\item Wir setzen: $$F^{n}: R-Mod \to \Z-Mod, M \mapsto R^{n}Hom_R(M,-)(N) = H^{n}(Hom_R(M,I^{\bullet}))$$ wobei $N \to I^{\bullet} $ eine injektive Auflösung von $N$ ist. Dann ist $(F^{n})_{n \geq 0} $ ebenfalls ein kontravarianter universeller $\delta$-Funktor mit $F^{0} = Hom_R(-,N),$ da:
+		$(F_n)_{n \geq 0} $ ist ein kontravarianter $\delta$-Funktor, denn:
+		\begin{itemize}
+			\item $F^{n}$ ist kontravarianter additver Funktor: klar
+			\item Sei $\begin{tikzcd}
+			0\arrow{r} & M' \arrow{r} & M \arrow{r} & M'' \arrow{r} & 0
+			\end{tikzcd}$ eine exakte Sequenz von $R$-Moduln, so erhält man eine Sequenz von Komplexen:$$\begin{tikzcd}
+			0\arrow{r} & Hom_R(M'',I^{\bullet}) \arrow{r} & Hom_R(M,I^{\bullet})\arrow{r} & Hom_R(M', I^{\bullet}) \arrow{r} & 0
+			\end{tikzcd}$$ (beachte: $Hom_R(-,I)$ exakt für injektive $R$-Moduln I). Die lange exakte Kohomologiefolge liefert die Behauptung. 
+		\end{itemize}
+		$(F_n)_{n \geq 0} $ ist ein universell: nach \ref{9.6} genpgt zu zeigen, dass $F_n$ koauslöschbar für alle $n \geq 1$. sei $M$ ein $R$-Modul. Dann existiert ein projektiver $R$-Modul $P$ und ein Epimorphismus $u: P \to M $ 
+		%epi
+		Damit erhält man $F^{n}(u): F^{n}(M) = R^{n}Hom_R(m,-)(N) \to R^{n}Hom_R(P,-)(N) = F^{n}(P). $ Wegen der Projektivität von $P$ ist $Hom_R(p,-) $exakt und deshalb ist $R^{n}Hom_R(P,-)= 0 $ für $n \geq 1$ Daraus folgt $F^{n}(u) = 0$, das heißt $F_n $ ist koauslöschbar für $ n \geq 1$. 
+		\item nach 1 und 2 sind $(R^{n}Hom_R(-,N))_{n \geq 0} $ und $ (F^{n})_{n \geq 0} $ beides kontravariante $\delta$-Funktoren, mit $ R^{0}Hom_R(-,N) = Hom_R(-,N)= F^{0}. 
+		$ Mit \ref{9.4} folgt, dass es für alle $R$-Moduln M eine kanonische Isomorphie: 
+		$$R^{n}Hom_R(-,N)(M) \simeq F(M) = R^{n}Hom_R(M,-)(N) = Ext^{n}_R(M,N)$$
+	\end{enumerate}
+\end{proof}
+\begin{sa}
+	Sei $A$ ein Hauptidealring, $M,N$, seinen $R$-Moduln. Dann gilt: $Ext^{n}_A(M,N) =0 $
+	 für alle $ n \geq 2$.
+\end{sa}
+\begin{proof}\label{10.3}
+	\begin{enumerate}
+		\item Wir konstruieren eine injektive Auflösung von $N$. Es existiert ein injektiver $A$-Modul $I^{0}, $ und ein Monomorphismus $\epsilon: N \hookrightarrow I^{0}.$ 
+		%diagramm 
+		$I^{0} $ injektiv, dann folgt mit \ref{6.11} $I^{0} $ ist teilbar $\Ra \coker \epsilon = \QR{I^0}{im \epsilon } $ teilbar, damit folt aus \ref{6.12} und da A ein HIR, dass der $\coker \epsilon $ injektiv ist.  Setze ..
+		% nicht mitgekommen 
+		\item Für -...
+		%fehlt
+		
+	\end{enumerate}
+\end{proof}
+\begin{bem+df}
+	Seien $M,N $ $R$-Moduln. \\
+	$ \mathcal{E}(M,N) = \{exakte Sequenzen \begin{tikzcd}
+	0\arrow{r} & N \arrow{r} & E\arrow{r} & M \arrow{r} & 0
+	\end{tikzcd} von R-Moduln\}. $ Wir definieren auf $\mathcal{E}(M,N) $ eine Relation "$\sim$" wie folgt: \\
+	$\begin{tikzcd}
+	0\arrow{r} & N \arrow{r} & E\arrow{r} & M \arrow{r} & 0
+	\end{tikzcd} \sim \begin{tikzcd}
+	0\arrow{r} & N \arrow{r} & E'\arrow{r} & M \arrow{r} & 0
+	\end{tikzcd}$ 
+	$\defi$ Es exsistiert ein Homomorphismus $\alpha:E \to E'$, sodass: 
+	$$\begin{tikzcd}
+	0\arrow{r} & N\arrow{d}{id} \arrow{r} & E\arrow{r} \arrow{d}{\alpha}& M\arrow{d}{id} \arrow{r} & 0\\
+	0\arrow{r} & N \arrow{r} & E'\arrow{r} & M \arrow{r} & 0
+	\end{tikzcd} $$ 
+	kommutiert (nach Fünferlemma ist $\alpha$ ein Isomorphismus). $"\sim"$ ist eine Äquivalenzrelation auf $\mathcal{E}(M,N)$, wir setzen: $E(M,N) := \QR{\mathcal{E}(M,N)}{\sim}$. \\
+	$E(M,N)$ enthält ein ausgezeichentes Element, die Äquivalenzklasse der spaletenden exakten Sequenzen $\begin{tikzcd}
+	0\arrow{r} & N \arrow{r} & N \oplus M \arrow{r} & M \arrow{r} & 0
+	\end{tikzcd}$.
+\end{bem+df}
