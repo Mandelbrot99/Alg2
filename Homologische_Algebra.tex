@@ -1165,7 +1165,7 @@
 		\item Der Morphismus $ \mathcal{Z}^i(h): \mathcal{Z}^iA^{\bullet} \to \mathcal{Z}^iB^{\bullet} $ faktorisiert über $\BB^iB^{\bullet},$ denn: \\
 		$$\begin{tikzcd}[row sep = large]
 		\ker d_i = Z^iA^{\bullet} \arrow[dashed, blue]{d}{\ZZ^ih} \arrow[hook]{r}{\alpha_i} \arrow[dashed,red, bend right = 75]{dd}{\lambda_i}& A^i \arrow{d}{h_i}\arrow{rr}{d_i} & & A^{i+1} \arrow{d}{h_{i+1}} \\
-		\ker d_i =\ZZ^iB^{\bullet} \arrow[hook]{r} & B^i \arrow[swap]{rr}{d_i}\arrow[two heads]{dr}{\gamma_i} & & B^{i+1}  \\
+		\ker d_i =\ZZ^iB^{\bullet} \arrow[hook]{r}{\beta_i} & B^i \arrow[swap]{rr}{d_i}\arrow[two heads]{dr}{\gamma_i} & & B^{i+1}  \\
 		\im d_{i-1} = \BB^iB^{\bullet} = \ker \gamma_i \arrow{u}{\theta_i} \arrow[swap, hook]{ur}{\delta_i} &  &\coker d_{i-1} &
 		\end{tikzcd}$$
 		
@@ -1280,14 +1280,14 @@
 			& =& R^iF(\psi) \circ R^iF(\phi)
 		\end{eqnarray*}
 		\item $R^iF$ ist additiv, denn sind $\phi:A\to A', \, \psi :A \to A'$ mit Fortsetzungen $f:I \to I'^\bullet, \, g:I^\bullet\to I'^\bullet$ auf injektiven Auflösungen $A\to I^\bullet, \, A' \to I'^\bullet$ von $A, A'$, so ist $f+g :I^\bullet\to I'^\bullet$ eine Fortsetzung von $\phi + \psi:A\to A'$. Der Rest ist klar, da $F, \,\HH^i$ additiv.
-		\item Unabhängigkeit von der Wahl der Auflösungen im obigen Sinne: Für $A\in \ObA$ sei $A\xrightarrow{\epsilon} I_A^\bullet$ die injektive Auflösung, mit der $R^iF$ berechnet wird und $A\xrightarrow{\eta} J_A^\bullet$ die injektive Auflösung von $A$, mit der $\hat R^i F$ berechnet wird. Da nach \ref{7.15} eine Homotopieäquivalenz $h_A:I_A^\bullet\to J_A^\bullet$ existiert mit $h_A^0 \circ \epsilon = \eta$. Wir definieren
+		\item Unabhängigkeit von der Wahl der Auflösungen im obigen Sinne: Für $A\in \ObA$ sei $A\xrightarrow{\epsilon} I_A^\bullet$ die injektive Auflösung, mit der $R^iF$ berechnet wird und $A\xrightarrow{\eta} J_A^\bullet$ die injektive Auflösung von $A$, mit der $\hat R^i F$ berechnet wird. Nach \ref{7.15} existiert eine Homotopieäquivalenz $h_A:I_A^\bullet\to J_A^\bullet$ existiert mit $h_A^0 \circ \epsilon = \eta$. Wir definieren
 		$$t_A^i:R^iF(A) = \HH^i(FI_A^\bullet)\longrightarrow \hat R^iF(A) = \HH^i(FJ_A^\bullet) \quad \text{mit} \quad t_A^i:= \HH^iFh_A$$
 		Dann ist $t^i_A$ nach \ref{7.13} ein Isomorphismus, da $Fh_A$ eine Homotopieäquivalenz ist. Durch $t^i=(t_A^i)_{A\in \ObA}:R^iF\Ra \hat R^iF$ ist eine natürliche Äquivalenz gegeben, denn für alle $A,A'\in \ObA, \, \phi:A \to A'$ kommutiert das Diagramm
 		$$\begin{tikzcd}[row sep = large]
 		R^iF(A) \arrow{r}{t_A^i} \arrow[swap]{d}{\HH^iFf_I} & \hat R^iF(A) \arrow{d}{\HH^iFf_J}\\
 		R^iF(A') \arrow[swap]{r}{t^i_{A'}} & \hat R^iF(A')
 		\end{tikzcd}$$
-		wobei $f_I:I_A^\bullet\to J_A^\bullet, \, f_J:J_A^\bullet \to J_A'^\bullet$ Fortsetzungen von $\phi$ sind), denn $f_J \circ h_A, \, h_{A'} \circ f_I: I_A^\bullet \to J_A'^{\bullet}$ sind beides Fortsetzungen von $\phi=\phi \circ \id_A = \id_{A'} \circ \phi$, somit $f_J \circ h_A \sim h_A' \circ f_I$, also $Ff_J \circ Fh_A \sim Fh_{A'} \circ Ff_I$ und damit $\HH^iFf_J \circ t^i_A = t^i_{A'} \circ \HH^iFf_I$.
+		(wobei $f_I:I_A^\bullet\to J_A^\bullet, \, f_J:J_A^\bullet \to J_A'^\bullet$ Fortsetzungen von $\phi$ sind), denn $f_J \circ h_A, \, h_{A'} \circ f_I: I_A^\bullet \to J_A'^{\bullet}$ sind beides Fortsetzungen von $\phi=\phi \circ \id_A = \id_{A'} \circ \phi$, somit $f_J \circ h_A \sim h_A' \circ f_I$, also $Ff_J \circ Fh_A \sim Fh_{A'} \circ Ff_I$ und damit $\HH^iFf_J \circ t^i_A = t^i_{A'} \circ \HH^iFf_I$.
 	\end{itemize}
 \end{proof}
 \begin{bem}\label{8.2}
@@ -1326,11 +1326,12 @@
 	$$\begin{tikzcd}
 	0 \arrow{r} & FA'\arrow{r} & FA \arrow{r} & FA''\\
 	\arrow{r} & R^1FA' \arrow{r} & R^1FA \arrow{r} & R^1FA''\\
-	\arrow{r} & \ldots & & \\
 	\vdots & \vdots & \vdots & \vdots \\
-	\arrow{r}{\delta^i} & R^{i+1}FA' \arrow{r} & R^{i+1}FA \arrow{r} & R^{i+1}FA''
+	\arrow{r} & R^iFA' \arrow{r} & R^iFA \arrow{r} & R^iFA''\\
+	\arrow{r}{\delta^i} & R^{i+1}FA' \arrow{r} & R^{i+1}FA \arrow{r} & R^{i+1}FA''\\
+	\vdots & \vdots & \vdots & \vdots \\
 	\end{tikzcd}$$
-	exakte ist. Ist 
+	exakt ist. Ist 
 	$$\begin{tikzcd}
 	0 \arrow{r} & A' \arrow{d}\arrow{r} & A \arrow{d}\arrow{r} & A'' \arrow{d}\arrow{r} & 0\\
 	0 \arrow{r} & B'\arrow{r} & B \arrow{r} & B'' \arrow{r} & 0
@@ -1394,7 +1395,7 @@
 \begin{center}
 	\textbf{In Folgenden seien $\A, \BB$ abelsche Kategorien}
 \end{center}
-\begin{df}
+\begin{df}\label{9.1}
 	Ein \define{$\delta$-Funktor\index{$\delta$-Funktor}} $H=(H^n)_{n\geq 0}$ ist eine Familie additiver Funktoren $H^n:\A \to \BB$ zusammen mit Homomorphismen $\delta:H^n(C) \to H^{n+1}(A)$ für alle $n\geq 0$ und jede kurze exakte Folge $\begin{tikzcd}
 	0\arrow{r} & A \arrow{r} & B\arrow{r} & C \arrow{r} & 0
 	\end{tikzcd}$, sodass gilt:
@@ -1422,23 +1423,22 @@
 \begin{bsp}
 	$\A$ habe genügend viele Injektive, $F:\A \to \BB$ linksexakt. Dann ist $H:=(R^nF)_{n\geq 0}$ ein $\delta$-Funktor nach \ref{8.3}
 \end{bsp}
-\begin{df}
-	Sei $H=(H^n)_{n\geq 0}: \A \to \BB $ ein $\delta$-Funktor. H heißt \define{universell} $\defi $ Für jeden $\delta$-Funktor $H'=(H^{'n})_{n\geq 0}: \A \to \BB $ setzt sich jede natürliche Transformation $ f^{\circ}: H^{\circ} \Ra H^{'\circ} $ eindeutig zueinem Homomorphismus von $\delta$-Funktoren fort, d.h. zu einer Familie $f=(f^{n})_{n \geq 0}$ von natürlichen Transformationen $f^{n}: H^{n} \Ra H^{'n} $ die auf naheliegende Weise mit den $\delta^{'}$ verträglich sind.
+\begin{df}\label{9.3}
+	Sei $H=(H^n)_{n\geq 0}: \A \to \BB $ ein $\delta$-Funktor. H heißt \define{universell\index{universeller Funktor}} $\defi $ Für jeden $\delta$-Funktor $H'=(H^{'n})_{n\geq 0}: \A \to \BB $ setzt sich jede natürliche Transformation $ f^{\circ}: H^{\circ} \Ra H^{'\circ} $ eindeutig zu einem Homomorphismus von $\delta$-Funktoren fort, d.h. zu einer Familie $f=(f^{n})_{n \geq 0}$ von natürlichen Transformationen $f^{n}: H^{n} \Ra H^{'n} $ die auf naheliegende Weise mit den $\delta^{'}$ verträglich sind.
 \end{df}
 \begin{bem}\label{9.4}
 	Sind $F,G$ universelle $\delta$-Funktoren mit $F^{0} = G^{0}$, dann gibt es eine kanonische natürliche Äquivalenz von $\delta$-Funktoren $ F \overset{\sim}{\Ra} G.$
 \end{bem}
 \begin{proof}
-	$id: F^{0} \Ra G^{0} $ setzt sich fort zu einem Homomorphismus $\Phi: (\Phi_n)_{n \geq 0}, \Phi_n: F_n \Ra G_n $ von $\delta$-Funktoren. $id: G^{0} \Ra F^{0} $ setzt sich fort zu einem Homomorphismus $\Psi = (\Psi_n)_{n \geq 0}, \Psi_n: G_n\Ra F_n $von $\delta$-Funktoren. $\Psi \circ \Phi := (\Psi_n \circ \Phi_n)_{n \geq 0}$ ist eine Fortsetzung von $id: F^{0} \Ra F^{0}.$ Aus der Eindeutigekeit in der Universellen Eigenschaft folgt. $\Psi \circ \Phi = id_F.$ Analog $ \Phi \circ \Psi = id_G$
+	$id: F^{0} \Ra G^{0} $ setzt sich fort zu einem Homomorphismus $\Phi: (\Phi_n)_{n \geq 0}, \Phi_n: F_n \Ra G_n $ von $\delta$-Funktoren. $id: G^{0} \Ra F^{0} $ setzt sich fort zu einem Homomorphismus $\Psi = (\Psi_n)_{n \geq 0}, \Psi_n: G_n\Ra F_n $von $\delta$-Funktoren. $\Psi \circ \Phi := (\Psi_n \circ \Phi_n)_{n \geq 0}$ ist eine Fortsetzung von $id: F^{0} \Ra F^{0}.$ Aus der Eindeutigekeit in der Universellen Eigenschaft folgt $\Psi \circ \Phi = id_F.$ Analog $ \Phi \circ \Psi = id_G$
 \end{proof}
-\begin{df}
+\begin{df}\label{9.5}
 	Sei $ F: \A \to \BB $ ein additiver Funktor.  F heißt \define{auslöschbar} $\defi $ Für jedes $A \in \ObA $ existiert ein $A' \in \ObA $ und ein Monomorphismus $ u: A \hookrightarrow A'$ mit $ F(u)= 0 $. 
 \end{df}
 \begin{sa}\label{9.6}
 	Sei $H=(H^n)_{n\geq 0}: \A \to \BB $ ein $\delta$-Funktor, sodass $H^n $ auslöschbar für alle $ n \geq 1$. Dann ist $H$ universell. 
 \end{sa}
-\begin{proof}
-	(Beweisskizze)\\
+\begin{proof}[Beweisskizze]
 	Sei $H^{'}=(H^{'n})_{n\geq 0}: \A \to \BB $ ein $\delta$-Funktor, $f^{0}: H^{0} \Ra H^{'n}$ eine natürliche Transformation. Wir konstruieren die natürliche Transformation $f^n: H^n \Ra H^{'n} $ die mit $\delta$ kommutieren, per Induktion nach n. Seien $f^{0},\dots f^{n}$ bereits konstruiert. Sei $A \in \ObA $. Da $H^{n+1} $ auslöschbar, gibt es eine exakte Folge:\\ $\begin{tikzcd}
 	0\arrow{r} & A \arrow{r}{u} & A^{'}\arrow{r} & B \arrow{r} & 0
 	\end{tikzcd}$ mit $H^{n+1}(n) = 0$. So erhalten wir Diagramm: 
@@ -1458,7 +1458,8 @@
 \newpage
 \subsection{Ext und Erweiterungen}
 \begin{df}
-	Seien $M,N$ $R$-Moduln. Wir setzen: $$Ext^{n}_R(M,N) := R^{n}Hom_R(M,-)(N) $$ für $ n \geq 0$. Explizit: wähle eine injektive Auflösung $N \to I^{\bullet} $ von $N$, dann ist $$Ext^{n}_R(M,N)=H^{n}(Hom_R(M,I^{\bullet}))$$
+	Seien $M,N$ $R$-Moduln. Wir setzen: $$Ext^{n}_R(M,N)\index{Ext-Funktor} := R^{n}Hom_R(M,-)(N), \quad \text{für }n\geq 0 $$
+	Explizit: wähle eine injektive Auflösung $N \to I^{\bullet} $ von $N$, dann ist $$Ext^{n}_R(M,N)=H^{n}(Hom_R(M,I^{\bullet}))$$
 \end{df}
 \begin{sa}\label{10.2}
 	Seien $M,N$ $R$-Moduln. Dann gibt es kanonische Isomorphismen $$Ext^{n}_R(M,N) \simeq R^{n}Hom_R(-,N)(M)$$ für alle $ n \geq 0$, insbesondere kann $Ext^{n}_R(M,N)$ auch über eine projektive Auflösung $P_{\bullet} \to M $ von $M$ betrachtet werden via $Ext^{n}_R(M,N)=H^{n}(Hom_R(P_{\bullet},N))$.
