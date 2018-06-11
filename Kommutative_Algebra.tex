@@ -1,1 +1,59 @@
 \newpage
+\section{Kommutative Algebra}
+\begin{center}
+	\textbf{In diesem Kapitel sei $A$ stets ein kommutativer Ring (mit Eins)}
+\end{center}
+\setcounter{subsection}{10}
+\subsection{Grundlagen}
+\begin{df}\label{11.1}
+	$A$ heißt \define{lokal\index{lokal}} $\defi A$ besitzt genau ein maximales Ideal $\mathfrak{m}$. In diesem Fall heißt $k= \QR{A}{\mathfrak{m}}$ der \define{Restklassenkörper\index{Restklassenkörper}} von $A$.
+\end{df}
+\begin{bem}\label{11.2}
+	Sei $\mathfrak{m}\subseteq A$ ein maximales Ideal. Dann sind äquivalent:
+	\begin{enumerate}[label= \roman*)]
+		\item $A$ ist lokal mit einem maximalen Ideal $\mathfrak{m}$
+		\item $\QR{A}{\mathfrak{m}} \subseteq A^*$
+		\item $\QR{A}{\m} = A^*$
+		\item $1+ \m \subseteq A^*$
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	$i) \Ra ii)$ Sei $x\in A\backslash \m$. Falls $x\notin A^*$, dann existiert nach Algebra 1 ein maximales Ideal $\tilde{\m} \subseteq A$ mit $x\in \m$. Insbesondere ist $\tilde{\m} \neq \m$, d.h. $A$ ist nicht lokal.\\
+	$ii) \Ra i)$ Es gelte $A\backslash \m \subseteq A^*$. Sei $\a\subsetneq A$ ein Ideal. Dann ist $\a \cap A^*= \emptyset$, also $\a \cap (A\backslash \m) = \emptyset$. Damit ist $\a \subseteq \m$. Somit ist $\m$ das einzige maximale Ideal in $A$.\\
+	$ii) \Ra iii)$ klar: $x\in A^* \Ra x\in A \backslash \m$.\\
+	$iii) \Ra iv)$ Sei $x\in 1+ \m$. Falls $x\in \m$, dann ist $1\in \m$, Widerspruch! Also $x\in A \backslash \m \overset{iii)}{=} A^*$.\\
+	$iv) \Ra ii)$ Es gelte $1+ \m \subseteq A^*$. Sei $x\in A \backslash m$. Dann ist $Ax+ \m$ ein Ideal mit $Ax+ \m \supsetneq \m$, also $Ax+ \m =(1)$. Damit existiert ein $a\in A, \, y\in \m$ mit $ax+y =1$, also $ax=1-y\in 1+ \m \subseteq A^* \Ra x\in A^*$.
+\end{proof}
+\begin{df}\label{11.3}
+	Sei $x\in A$. $x$ heißt \define{nilpotent\index{nilpotentes Element}} $\defi$ Es existiert ein $n\in \N$ mit $x^n=0$.
+\end{df}
+\begin{anm}
+	Ist $A\neq 0$, dann ist jedes nilpotentes Element ein Nullteiler, die Umkehrung ist im Allgemeinen jedoch falsch.
+\end{anm}
+\begin{bem+df}
+	$$\NN(A) := \{x\in A|\, x\text{ ist nilpotent}\}$$
+	ist ein Ideal in $A$, das \define{Nilradikal\index{Nilradikal}} in $A$. Der Ring $\QR{A}{\NN(A)}$ hat keine nilpotenten Elemente $\neq 0$.
+\end{bem+df}
+\begin{proof}
+	\begin{enumerate}
+		\item $\NN(A)$ ist ein Ideal:
+		\begin{itemize}
+			\item $0\in \NN(A)$
+			\item Seien $x,y\in \NN(A)$. Dann existiert ein $n\in \N$ mit $x^n=0$ und $y^n=0$, womit $(x+y)^{2n-1} =0$ (aus der binomischen Formel) folgt. Damit ist $x+y \in \NN(A)$.
+			\item Sei $x\in \NN(A)\, a\in A$. Dann existiert ein $n\in \N$ mit $x^n=0$, also $a^nx^n = (ax)^n=0$, womit $ax \in \NN(A)$ gilt.
+		\end{itemize}
+	\item Sei $\bar x \in \QR{A}{\NN(A)}$ nilpotent. Dann existiert ein $n\in \N$ mit $\bar x^n=0$, also $x^n \in \NN(A)$, also existiert ein $m\in \N$ mit $(x^n)^m=0$, also $x^{nm} = 0$, woraus $x\in \NN(A)$, also $\bar x=0$ folgt.
+	\end{enumerate}
+Damit folgt die Aussage
+\end{proof}
+\begin{sa}\label{11.5}
+	Es gilt
+	$$\NN(A) = \bigcap_{\p \subseteq A\atop \text{Primideal}} \p$$
+\end{sa}
+\begin{proof}
+	Wir setzen $\NN'(A)= \bigcap\limits_{\p \subseteq A\atop \text{Primideal}} \p$. Zeige, dass $\NN(A) = \NN'(A)$.\\
+	"'$\subseteq$"' Sei $x\in \NN(A)$. Dann existiert ein $n\in \N$ mit $x^n=0$. Für jedes Primideal $\p\subseteq A$ ist dann $x^n\in \p$, also $x\in \p$. Damit ist auch $x\in \NN'(A)$.\\
+	"'$\supseteq$"' Angenommen es existiert ein $x\in \NN'(A) \backslash \NN(A)$ mit $x^n\neq 0$ für alle $n\in \N$. Setze
+	$$\Sigma:= \{\a\in A \text{ Ideal}|\, x^n\notin \a \text{ für alle }n\in \N\}$$
+	Dann ist $\Sigma$ eine bezüglich Inklusion induktiv geordnete Menge $\neq \emptyset$ (Standardargument mit $\cup$). Nach dem Zornschen Lemma existiert ein maximales Element $\p$ in $\Sigma$. Diese $\p$ ist ein Primideal, denn: Seien $s,t\notin \p$. Dann ist $\p \subsetneq As+ \p$ und $\p\subsetneq At+\p$. Also ist $as+ \p, \, At + \p \notin\Sigma$. Damit existieren $m,n\in \N$ mit $x^n\in As+\p, \, x^m \in At+ \p$. Also liegt $x^{n+m} \in Ast+ \p$, weshalb $Ast + \p \notin\Sigma$. Falls $st \in \p$, dann wäre $Ast + \p = \p \in \Sigma$, Widersprch! Also ist $st \notin \p$, also ist $\p$ ein Primideal. Wegen $\p \in \Sigma$ folgt $x\notin \p$, also $x\notin \NN'(A)$. Widerpsruch!
+\end{proof}

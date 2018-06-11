@@ -1513,7 +1513,7 @@
 		
 	\end{enumerate}
 \end{proof}
-\begin{bem+df}
+\begin{bem+df}\label{10.4}
 	Seien $M,N $ $R$-Moduln.
 	$$\mathcal{E}(M,N) := \{\text{exakte Sequenzen }\begin{tikzcd}[column sep = small]
 	0\arrow{r} & N \arrow{r} & E\arrow{r} & M \arrow{r} & 0
@@ -1533,3 +1533,84 @@
 	0\arrow{r} & N \arrow{r} & N \oplus M \arrow{r} & M \arrow{r} & 0
 	\end{tikzcd}$$
 \end{bem+df}
+\begin{sa}\label{10.5}
+	Seien $M,N$ $R$-Moduln. Dann gibt es eine Bijektion $$\Psi:E(M,N) \to \Ext_R^1(M,N).$$
+\end{sa}
+\begin{proof}
+	Wir fixieren einen projektiven $R$-Modul $P$ und einen Epimorphismus $\epsilon:P \twoheadrightarrow M$.
+	\begin{enumerate}
+		\item Konstruktion von $\Psi$: \\
+		Setze $K:= \ker \epsilon$. Damit erhalten wir eine exakte Folge 
+		$$\begin{tikzcd}
+		0 \arrow{r} & K \arrow{r}{\mu} & P \arrow{r}{\epsilon} & M \arrow{r} & 0, \quad \mu \text{ Inklusion}
+		\end{tikzcd}$$
+		Durch Anwendung des $\Hom$-Funktors erhalten wir insbesondere eine exakte Folge
+		$$\begin{tikzcd}
+		\Hom_R(P,N) \arrow{r}{\mu_N^*} & \Hom_R(K,N) \arrow{r} & \Ext_R^1(M,N) \arrow{r} & \underbrace{\Ext_R^1(P,N)}_{=0, \text{ da }  P \atop \text{projektiv}}
+		\end{tikzcd}$$
+		(hierbei ist $\mu_N^* =$ "'$\big|_K$"'). Also ist 
+		$$\Ext_R^1(M,N) \cong \QR{\Hom_R(K,N)}{\underbrace{\ker(\Hom_R(K,N) \to \Ext_R^1(M,N))}_{=\im \mu_N^*}} = \coker \mu_N^*$$
+		Sei nun $x\in E(M,N)$ die Äquivalenzklasse von 
+		$$\begin{tikzcd}
+		0 \arrow{r} & N \arrow{r}{\iota} & E \arrow{r}{\psi} & M \arrow{r} & 0 \\
+		& & & P \arrow[dashed]{ul}{\phi} \arrow[two heads]{u}{\epsilon} & 
+		\end{tikzcd}$$
+		Da $P$ projektiv existiert ein Homomorphismus $\phi : P \to E$ mit $\psi \circ \phi = \epsilon$. Es ist $0= \epsilon(K) = \psi(\phi(K))$, also $\phi(K) = \subseteq \ker \psi = \im \iota$. Setze 
+		$$\delta:K \xrightarrow{\phi|_K^{\im \iota}} \im \iota \underset{\sim}{\xrightarrow{(\iota|^{\im \iota})^{-1} }} N, \quad \text{insbesondere } \iota \circ \delta = \phi \circ \mu$$
+		Wir setzen 
+		$$\Psi(x) := \text{ Bild von } \delta \text{ in }\coker(\mu_N^*) \cong \Ext_R^1(M,N)$$
+		\item $\Psi$ ist wohldefiniert, d.h. $\Psi$ ist unabhängig von der Wahl eines Vertreters (und von der Wahl von $\phi$). Sei dazu 
+				$$\begin{tikzcd}[column sep = small]
+			0\arrow{r} & N \arrow{r}{\iota} & E\arrow{r}{\psi} & M \arrow{r} & 0
+			\end{tikzcd}\quad  \sim \quad \begin{tikzcd}[column sep = small]
+			0\arrow{r} & N \arrow{r}{\iota'} & E'\arrow{r}{\psi'} & M \arrow{r} & 0
+			\end{tikzcd}$$
+			Daraus erhalten wir ein kommutatives Diagramm
+			$$\begin{tikzcd}
+			0 \arrow{r} & K \arrow{d}{\delta'} \arrow{r} & P \arrow{d}{\phi'} \arrow{r} & M \arrow{r}\arrow[equal]{d} &0\\
+			0 \arrow{r} & N \arrow[equal]{d} \arrow{r}{\iota'} & E' \arrow{d}{\alpha} \arrow{r}{\psi'} & M \arrow[equal]{d} \arrow{r} & 0 \\
+			0 \arrow{r} & N \arrow[swap]{r}{\iota} &E \arrow[swap]{r}{\psi} & M \arrow{r} & 0 \\
+			0 \arrow{r} & K \arrow[swap]{r}{\mu}\arrow{u}{\delta} & P \arrow{u}{\phi} \arrow{r}{\epsilon} & M \arrow{r}\arrow[equal]{u} & 0
+			\end{tikzcd}$$
+			TODO weiteres Diagramm.\\
+			Wegen $\psi \circ \tilde{\phi} = \epsilon, \, \psi \circ \phi = \epsilon$, folgt $\psi \circ (\tilde{\phi} - \phi) = 0$, d.h. $\im(\tilde{\phi} - \phi) \subseteq \ker \psi = \im \iota$. Setze
+			$$\gamma: P \xrightarrow{(\tilde{\phi} - \phi)|^{\im \iota}} \im \iota \xrightarrow{(\psi|^{\im \iota})^{-1}} N$$
+			dann ist $\mu_N^*(\gamma) = \gamma\big|_K = \tilde{\delta} - \delta = \delta' - \delta$, also $\delta' = \delta - \mu_N^*(\gamma)$, d.h die Bilder von $\delta, \delta'$ in $\coker \mu_N^*$ stimmen überein.
+		\item Wir konstruieren eine zu $\Psi$ inverse Abbildung $\Phi:\Ext_R^1(M,N) \to E(M,N)$. Sei $y\in \Ext_R^1(M,N) \cong \coker \mu_N^*$, $\phi: K \to N$ ein Vertreter von $y$. Setze 
+		$$L_\phi:= \{(-\phi(k), \mu(k))|\, k\subseteq K\}, \qquad E:= \QR{N \times P}{L_\phi}$$
+		und $$\iota:N \longrightarrow E, \quad n \mapsto(n,0) + L_\phi$$
+		$$\psi:E \longrightarrow M, \quad (n,p) + L_\phi \mapsto \epsilon(p) $$
+		$$\sigma:P \longrightarrow E, \quad p \mapsto (0,p) + L_\phi$$
+		Erhalte damit ein kommutatives Diagramm mit exakten Zeilen
+		$$\begin{tikzcd}
+		0 \arrow{r} & K \arrow{d}{\phi} \arrow{r}{\mu} & P \arrow{d}{\sigma} \arrow{r}{\epsilon} & M \arrow{r}\arrow[equal]{d} & 0 \\
+		0 \arrow{r} & N \arrow{r}{\iota} & E \arrow{r}{\psi} & M \arrow{r} & 0
+		\end{tikzcd}$$
+		denn:
+		\begin{itemize}
+			\item $\psi$ ist wohldefiniert wegen $\epsilon \circ \mu =0$
+			\item Für $k\in K$ ist 
+			$$(\iota \circ \phi)(k) = (\phi(k), 0) + L_\phi = (0, \mu(k)) + L_\phi = \sigma(\mu(k))$$
+			und für $p\in P$ ist 
+			$$(\psi\circ \sigma)(p) = \psi((0,p) + L_\phi) = \epsilon(p)$$
+			\item $\iota$ ist injektiv, denn sei $n\in N$ mit $(n,0) + L_\phi = L_\phi$, d.h. es existiert ein $k\in K$ mit $(n,0) = (-\phi(k), \mu(k))$, also $\mu(k) =0$, woraus $k=0$ und damit $n= -\phi(k) = 0$ folgt.
+			\item $\psi$ ist surjektiv, da $\epsilon$ surjektiv
+			\item $\im \iota = \ker \psi$:\\
+			"'$\subseteq$"' $(\psi \circ \iota)(u) = \psi((n,0) + L_\phi)= \epsilon(0) =0$\\
+			"'$\supseteq$"' Sei $z=(n,p) + L_\phi\subseteq \ker \psi$, also $\epsilon(p) = 0$. Damit existiert ein $k\in K$ mit $p = \mu(k)$, das heißt 
+			\begin{eqnarray*}
+				(n,p) + L_\phi &=& ((n,p) + L_\phi) + (-\phi(-k), \mu(-k)) + L_\phi)\\
+				&=& (n+ \phi(k) , 0) + L_\phi= \iota(n+p(k))
+			\end{eqnarray*}
+		Setze 
+		$$\Phi:= \text{Restklasse von } \begin{tikzcd}
+		0 \arrow{r} & N \arrow{r}{\iota} & E \arrow{r}{\psi} & M \arrow{r} & 0 
+		\end{tikzcd} \quad \text{in }E$$
+		\end{itemize}
+	\item Nachrechnen. dass $\Phi$ wohldefiniert und $\Phi, \Psi$ invers zu einander sind (Übung)
+	\end{enumerate}
+	Fertig.
+\end{proof}
+\begin{anm}
+	Das im Beweis konstruierte $\Psi$ ist unabhängig von der Wahl $\epsilon:P \twoheadrightarrow M$ und bildet die Klasse der spaltenden Erweiterungen auf das Nullelement in $\Ext_R^1(M,N)$ ab.
+\end{anm}
