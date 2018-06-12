@@ -12,8 +12,8 @@
 	Sei $\mathfrak{m}\subseteq A$ ein maximales Ideal. Dann sind äquivalent:
 	\begin{enumerate}[label= \roman*)]
 		\item $A$ ist lokal mit einem maximalen Ideal $\mathfrak{m}$
-		\item $\QR{A}{\mathfrak{m}} \subseteq A^*$
-		\item $\QR{A}{\m} = A^*$
+		\item $A\backslash \m \subseteq A^*$
+		\item $A \backslash \m = A^*$
 		\item $1+ \m \subseteq A^*$
 	\end{enumerate}
 \end{bem}
@@ -53,7 +53,7 @@ Damit folgt die Aussage
 \begin{proof}
 	Wir setzen $\NN'(A)= \bigcap\limits_{\p \subseteq A\atop \text{Primideal}} \p$. Zeige, dass $\NN(A) = \NN'(A)$.\\
 	"'$\subseteq$"' Sei $x\in \NN(A)$. Dann existiert ein $n\in \N$ mit $x^n=0$. Für jedes Primideal $\p\subseteq A$ ist dann $x^n\in \p$, also $x\in \p$. Damit ist auch $x\in \NN'(A)$.\\
-	"'$\supseteq$"' Angenommen es existiert ein $x\in \NN'(A) \backslash \NN(A)$ mit $x^n\neq 0$ für alle $n\in \N$. Setze
+	"'$\supseteq$"' Angenommen es existiert ein $x\in \NN'(A) \backslash \NN(A)$. Dann gilt $x^n\neq 0$ für alle $n\in \N$. Setze
 	$$\Sigma:= \{\a\in A \text{ Ideal}|\, x^n\notin \a \text{ für alle }n\in \N\}$$
 	Dann ist $\Sigma$ eine bezüglich Inklusion induktiv geordnete Menge $\neq \emptyset$ (Standardargument mit $\cup$). Nach dem Zornschen Lemma existiert ein maximales Element $\p$ in $\Sigma$. Diese $\p$ ist ein Primideal, denn: Seien $s,t\notin \p$. Dann ist $\p \subsetneq As+ \p$ und $\p\subsetneq At+\p$. Also ist $as+ \p, \, At + \p \notin\Sigma$. Damit existieren $m,n\in \N$ mit $x^n\in As+\p, \, x^m \in At+ \p$. Also liegt $x^{n+m} \in Ast+ \p$, weshalb $Ast + \p \notin\Sigma$. Falls $st \in \p$, dann wäre $Ast + \p = \p \in \Sigma$, Widersprch! Also ist $st \notin \p$, also ist $\p$ ein Primideal. Wegen $\p \in \Sigma$ folgt $x\notin \p$, also $x\notin \NN'(A)$. Widerpsruch!
 \end{proof}
