@@ -1572,7 +1572,12 @@
 			0 \arrow{r} & N \arrow[swap]{r}{\iota} &E \arrow[swap]{r}{\psi} & M \arrow{r} & 0 \\
 			0 \arrow{r} & K \arrow[swap]{r}{\mu}\arrow{u}{\delta} & P \arrow{u}{\phi} \arrow{r}{\epsilon} & M \arrow{r}\arrow[equal]{u} & 0
 			\end{tikzcd}$$
-			TODO weiteres Diagramm.\\
+			Mittels $\tilde{\delta} := \delta'$ und $\tilde{\phi}:= a\circ \phi'$ liefert dies ein weiteres Diagramm:
+			$$\begin{tikzcd}
+			0 \arrow{r} & K \arrow{d}{\tilde{\delta}} \arrow{r}{\mu} & P \arrow{d}{\phi'} \arrow{r}{\epsilon} & M \arrow{r}\arrow[equal]{d} &0\\
+			0 \arrow{r} & N \arrow{r}{\iota} & E \arrow{r}{\psi} & M \arrow[equal]{d} \arrow{r} & 0 \\
+			0 \arrow{r} & K \arrow{u}{\delta} \arrow{r}{\mu} & P \arrow{u}{\phi} \arrow{r}{\epsilon}& M \arrow{r} & 0
+			\end{tikzcd}$$
 			Wegen $\psi \circ \tilde{\phi} = \epsilon, \, \psi \circ \phi = \epsilon$, folgt $\psi \circ (\tilde{\phi} - \phi) = 0$, d.h. $\im(\tilde{\phi} - \phi) \subseteq \ker \psi = \im \iota$. Setze
 			$$\gamma: P \xrightarrow{(\tilde{\phi} - \phi)|^{\im \iota}} \im \iota \xrightarrow{(\psi|^{\im \iota})^{-1}} N$$
 			dann ist $\mu_N^*(\gamma) = \gamma\big|_K = \tilde{\delta} - \delta = \delta' - \delta$, also $\delta' = \delta - \mu_N^*(\gamma)$, d.h die Bilder von $\delta, \delta'$ in $\coker \mu_N^*$ stimmen überein.
