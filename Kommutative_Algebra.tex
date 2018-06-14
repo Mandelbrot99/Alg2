@@ -58,60 +58,61 @@ Damit folgt die Aussage
 	Dann ist $\Sigma$ eine bezüglich Inklusion induktiv geordnete Menge $\neq \emptyset$ (Standardargument mit $\cup$). Nach dem Zornschen Lemma existiert ein maximales Element $\p$ in $\Sigma$. Diese $\p$ ist ein Primideal, denn: Seien $s,t\notin \p$. Dann ist $\p \subsetneq As+ \p$ und $\p\subsetneq At+\p$. Also ist $as+ \p, \, At + \p \notin\Sigma$. Damit existieren $m,n\in \N$ mit $x^n\in As+\p, \, x^m \in At+ \p$. Also liegt $x^{n+m} \in Ast+ \p$, weshalb $Ast + \p \notin\Sigma$. Falls $st \in \p$, dann wäre $Ast + \p = \p \in \Sigma$, Widersprch! Also ist $st \notin \p$, also ist $\p$ ein Primideal. Wegen $\p \in \Sigma$ folgt $x\notin \p$, also $x\notin \NN'(A)$. Widerpsruch!
 \end{proof}
 \begin{bem} \label{11.6}
-	Seinen $ \p_1, \dots \p_n $ Primideale in A, $\a \subseteq A $ Ideal mit $\a \subseteq \bigcup_{i = 0}^{n} \p_i$. Dann existiert ein $j \in \{1,\dots,n \} $ mit $ \a \subseteq \p_j$.
+	Seien $ \p_1, \dots \p_n $ Primideale in A, $\a \subseteq A $ Ideal mit $\a \subseteq \bigcup_{i = 0}^{n} \p_i$. Dann existiert ein $j \in \{1,\dots,n \} $ mit $ \a \subseteq \p_j$.
 \end{bem}
 \begin{proof}
-	Zeigen per Induktion nach n: $ \a \not \subseteq \p_i $ für $ i = 1,...,n  \Ra \a \not \subseteq \bigcup_{i = 0}^{n} \p_i $. \\
+	per Induktion nach n: $ \a \not \subseteq \p_i $ für $ i = 1,...,n  \Ra \a \not \subseteq \bigcup_{i = 0}^{n} \p_i $. \\
 	n=1: trivial\\
-	$n>1$: Sei $\a \not \subseteq \p_i $ für $i = 1,...,n$ mit Induktionsvorrausetzung folgt: $\a \not \subseteq \p_1 \cup ... \cup \p_{i-1} \cup \p_{i+1} \cup ... \cup \p_n $ für alle $i=1,...,n  \Ra $ Für alle $ i = 1,...,n $ existiert ein $ x_i \in \a $ mit $ x_i \notin \p_j $ für $ j \neq i $ \\
+	$n>1$: Sei $\a \not \subseteq \p_i $ für $i = 1,...,n$. Mit der Induktionsvoraussetzung folgt: $\a \not \subseteq \p_1 \cup ... \cup \p_{i-1} \cup \p_{i+1} \cup ... \cup \p_n $ für alle $i=1,...,n  \Ra $ Für alle $ i = 1,...,n $ existiert ein $ x_i \in \a $ mit $ x_i \notin \p_j $ für $ j \neq i $ \\
 	1.Fall: Es existiert ein $ i \in \{1,...n\} $ mit $ x_i \notin \p_i.$ Dann $x \notin \bigcup_{j = 0}^{n} \p_j, $ fertig. \\
-	2.Fall: $x_i \in \p_i $ für alle $i \in \{1,...n\} $. Setze $ y:= \sum_{j=1}^{n} x_1 \cdot ... \cdot x_{j-1} \cdot x_{j+1}  \cdot ... \cdot x_n$  dann ist $y \in \a, y \notin \p_i $ für  alle $i \in \{1,...n\} $ ( "'Alle Summanden bis auf einen in $\p_i$"). Also $ \a \not \subseteq \bigcup_{i = 0}^{n} \p_i.$
+	2.Fall: $x_i \in \p_i $ für alle $i \in \{1,...n\} $. Setze $ y:= \sum_{j=1}^{n} x_1 \cdot ... \cdot x_{j-1} \cdot x_{j+1}  \cdot ... \cdot x_n$. Dann ist $y \in \a,\, y \notin \p_i $ für  alle $i \in \{1,...n\} $ ( "'Alle Summanden bis auf einen in $\p_i$"). Also $ \a \not \subseteq \bigcup_{i = 0}^{n} \p_i.$
 \end{proof}
 \begin{bem} \label{11.7}
-	Seinen $ \a_1, \dots \a_n \subseteq A$ Ideale, $\p $ ein Primideal in $A$ mit $ \bigcap_{i = 0}^{n} \a_i \subseteq \p$. Dann existiert ein $j \in \{1,...n\} $ mit $\a_j  \subseteq \p$. Ist $\p =\bigcap_{i = 0}^{n} \a_i$, dann existiert ein $j \in \{1,...n\} $ mit $\a_j = \p$.
+	Seinen $ \a_1, \dots \a_n \subseteq A$ Ideale, $\p $ ein Primideal in $A$ mit $\p \supseteq \bigcap_{i = 0}^{n} \a_i$.  Dann existiert ein $j \in \{1,...n\} $ mit $\a_j  \subseteq \p$. Ist $\p =\bigcap_{i = 0}^{n} \a_i$, dann existiert ein $j \in \{1,...n\} $ mit $\a_j = \p$.
 \end{bem}
 \begin{proof}
-	Annahme: für alle $i \in \{1,...n\} $gilt $ \a_i \not \subseteq \p. \Ra $ Für alle $i \in \{1,...n\} $ existiert ein $x_i \in \a_i, x_i \notin \p \Ra \underbrace{x_1 \cdot ... \cdot x_n}_{\notin \p, \ da \ \p \  Primideal} \in \bigcap_{i = 0}^{n} \a_i \subseteq \p. $ (Widerspruch)\\
-	Sei nun $ y = \bigcap_{i = 0}^{n} \a_i \Ra $ 	Es existiert ein $j \in \{1,...n\} $ mit $ \a_j \subseteq \p.  \\
+	Angenommen  für alle $i \in \{1,...n\} $ gilt $ \a_i \not \subseteq \p. \Ra $ Für alle $i \in \{1,...n\} $ existiert ein $x_i \in \a_i, x_i \notin \p$. Dann ist  $x_1 \cdots x_n \notin \p$, da $ \p$ ein Primideal ist. Andererseits ist jedoch $x_1 \cdots x_n \in \bigcap_{i = 0}^{n} \a_i \subseteq \p.$, Widerspruch! Sei nun $ y = \bigcap_{i = 0}^{n} \a_i $ Dann existiert ein $j \in \{1,...n\} $ mit $ \a_j \subseteq \p.  \\
 	\Ra \p =\bigcap_{i = 0}^{n} \a_i \subseteq \a_j \subseteq \p \Ra y = \a_j.$ 
 \end{proof}
 \begin{bem+df}
 	Seinen $\a, \b \subseteq A $ Ideale, $a \in A $.
 	\begin{itemize}
-		\item[] $\a : \b := \{x \in A | \ x \b \subseteq \a \} $ heißt \define{Idealquotient} $\a $ durch $\b$. $\a : \b $ ist ein Ideal in $A$. 
-		\item[] $ann(\a) := (0) : \a = \{x \in A | \ x \a = 0\} $ heißt der \define{Annulator} von $\a$.
-		\item[] $ann(a) := ann((a)) = \{x \in A| \ xa = 0\} $.
+		\item[] $\a : \b := \{x \in A | \ x \b \subseteq \a \} $ heißt \define{Idealquotient\index{Idealquotients}} $\a $ durch $\b$. $\a : \b $ ist ein Ideal in $A$. 
+		\item[] $\ann(\a) := (0) : \a = \{x \in A | \ x \a = 0\} $ heißt der \define{Annulator\index{Annulator eines Ideals}} von $\a$.
+		\item[] $\ann(a) := \ann((a)) = \{x \in A| \ xa = 0\} $.
 	\end{itemize}
 \end{bem+df}
 \begin{anm}
 	\begin{itemize}
-		\item $\a \b \subseteq \c \defi \a \subseteq \c : \b $
-		\item Die Menge der Nullteiler von $A$ ist gegeben durch $\bigcup_{ x \in A \backslash{0}} ann(x)$
+		\item $\a \b \subseteq \c \Lra \a \subseteq \c : \b $
+		\item Die Menge der Nullteiler von $A$ ist gegeben durch $\bigcup_{ x \in A \backslash\{0\}} ann(x)$
 	\end{itemize}
 \end{anm}
 \begin{bsp}
-	$A = \Z, m,n \in \Z $ mit $(m,n) \neq (0) \Ra (m): (n) = (\frac{m}{ggt(m,n)})$.
+	$A = \Z, m,n \in \Z $ mit $(m,n) \neq (0) \Ra (m): (n) = \left(\frac{m}{ggt(m,n)}\right)$.
 \end{bsp}
 \begin{df}
 	Sei $\a \subseteq A$ ein Ideal. 
 	\begin{itemize}
-		\item[] $\sqrt{\a} := \{x \in A | \ \text{Es existiert ein } n \in \N \ \text{mit } x^n \in \a \} $ heißt das \define{Radikal} von $\a $. 
+		\item[] $\sqrt{\a} := \{x \in A | \ \text{Es existiert ein } n \in \N \ \text{mit } x^n \in \a \} $ heißt das \define{Radikal\index{Radikal eines Ideals}} von $\a $. 
 	\end{itemize}
 \end{df}
 \begin{anm} 
 	\begin{itemize}
 		\item $\sqrt{(0)} = \NN(A)$
-		\item  Ist $\pi: A \to \QR{A}{\a} $ die kanonische Projektion, dann ist: \\
-		$\sqrt{\a} = \{x \in A | \ \text{Es existiert ein } n \in \N \ \text{mit} \ x^n \in \a \} = \{x \in A| \pi(x) \in \NN(\QR{A}{\a})\} $ $$
-		 = \pi^{-1}(\NN(\QR{A}{\a}))= \pi^{-1}(\bigcap_{\p \subseteq \QR{A}{\a} \atop \text{Primideal} } \p ) = \bigcap_{\p \subseteq A \atop \text{Primideal mit} \a \subseteq \p} \p  $$ \\
+		\item  Ist $\pi: A \to \QR{A}{\a} $ die kanonische Projektion, dann ist:
+		\begin{eqnarray*}
+			\sqrt{\a} &=& \{x \in A | \ \text{Es existiert ein } n \in \N \ \text{mit} \ x^n \in \a \} = \{x \in A| \pi(x) \in \NN\left(\QR{A}{\a}\right)\}\\
+		 &=& \pi^{-1}(\NN(\QR{A}{\a}))= \pi^{-1}\left(\bigcap_{\p \subseteq A/\a \atop \text{Primideal} } \p \right) = \bigcap_{\p \subseteq A \text{ PI}\atop \text{mit} \a \subseteq \p} \p
+		\end{eqnarray*}
 		Insbesondere ist $\sqrt{\a}$ ein Ideal.
 	\end{itemize}
 \end{anm}
 \begin{df}
 	Sei $B$ ein kommutativer Ring, $ f: A \to B $ ein Ringhomomorphimsus, $\a \subseteq A, \b \subseteq B $ Ideale. \\
 	\begin{itemize}
-		\item[] $\a^e := Bf(\a) = \{\sum_{endl.} b_i f(a_i)| b_i \in B, a_i \in \a \} $ heißt die \define{Erweiterung } von $\a$ auf $B$.
-		\item[] $\b^c := f^{-1}(\b) $ heißt die \define{Kontraktion} von $\b$ auf A.
+		\item[] $\a^e := Bf(\a) = \{\sum_{endl.} b_i f(a_i)| b_i \in B, a_i \in \a \} $ heißt die \define{Erweiterung\index{Erweiterung von Idealen}} von $\a$ auf $B$.
+		\item[] $\b^c := f^{-1}(\b) $ heißt die \define{Kontraktion\index{Kontraktion von Idealen}} von $\b$ auf A.
 	\end{itemize}
 \end{df}
 \begin{anm}
@@ -119,7 +120,7 @@ Damit folgt die Aussage
 		\item $\a^{e}, f^{c} $ sind Ideale in $B$ bzw. in $A$. 
 		\item Wir können $f$ faktorisieren in $ A \xrightarrow{p} \im f \xhookrightarrow{\iota} B $. Die Situation für $p$ ist einfach die für $ \iota $ ist kompliziert. 
 		\item $\q \in B $ Primideal $\Ra \q^{c} \subseteq A $ Primideal wegen $ \QR{A}{f^{-1}(\q)} \xhookrightarrow{} \underbrace{\QR{B}{\q}}_{\text{nullteilerfrei}}$ \\(beachte $f^{-1}(\q) = \q^c$)
-		\item Ist $ \p \subseteq A $ ein Primideal, dann ist $ \p^e \subseteq B$ im Allgemeinen kein Primideal. ( Übung: $p$ Primzahl mit $p \equiv 1 (mod \ 4 )$. Unter $ f: \Z \to \Z[i] $ ist $(p)^e$ ein Produkt zweier verschiedener Primideale.)
+		\item Ist $ \p \subseteq A $ ein Primideal, dann ist $ \p^e \subseteq B$ im Allgemeinen kein Primideal. (Übung: $p$ Primzahl mit $p \equiv 1 \mod  4$. Unter $ f: \Z \to \Z[i] $ ist $(p)^e$ ein Produkt zweier verschiedener Primideale.)
 		 % hier auch
 	\end{itemize}
 \end{anm}
@@ -138,7 +139,7 @@ Damit folgt die Aussage
 	(d) analog. 
 \end{proof}
 \begin{sa} \label{11.13}
-	Sei $B$ ein kommutativer Ring, $f: A \to B $ ein Ringhomomorphismus. \\
+	Sei $B$ ein kommutativer Ring, $f: A \to B $ ein Ringhomomorphismus. Setze
 	$$C := \{ \a \subseteq A \ \text{Ideal} \ | \ \a \ \text{ist Kontraktion eines Ideals aus }B \} $$
 	$$E:= \{\b \subseteq B \ \text{Ideal} \ | \ \b \ \text{ist Erweiterung eines Ideals aus } A\} $$. Dann gilt:
 	\begin{enumerate} [label= \alph*)]
@@ -155,42 +156,39 @@ Damit folgt die Aussage
 	\end{enumerate}
 \end{proof}
 \begin{anm}
-	Erinnerung an LA1: $T \in M(n \times n, A)$, dann existiert Komplementäre Matrix $T^{\#} \in M(n \times n, A)$ zu $T$. Es ist $T^{\#}T = TT^{\#} = det(T)E_n.$ (La1: Satz 17.20)
+	Erinnerung an LA1: $T \in M(n \times n, A)$, dann existiert eine komplementäre Matrix $T^{\#} \in M(n \times n, A)$ zu $T$. Es ist $T^{\#}T = TT^{\#} = det(T)E_n.$ (LA1: Satz 17.20)
 \end{anm}
-\begin{sa} \label{11.14}
-	Sei $M$ ein endlich erzeugter $A$-Modul, $\a \subseteq A $ ein Ideal,$\phi \in End_A(M)$ mit $ \phi(M) \subseteq \a M$. Dann existiert ein $ n \in N, a_0,...,a_{n-1} \in \a $ mit: 
+\begin{sa}\label{11.14}
+	Sei $M$ ein endlich erzeugter $A$-Modul, $\a \subseteq A $ ein Ideal, $\phi \in End_A(M)$ mit $ \phi(M) \subseteq \a M$. Dann existiert ein $ n \in N, a_0,...,a_{n-1} \in \a $ mit: 
 	$$ \phi^{n} + a_{n-1}\phi^{n-1}+...+ a_1\phi + a_0id_M  = 0 $$
 \end{sa} 
 \begin{proof}
-	Sei $x_1,...,x_n $ ein Erzeugendensystem von $M. \\
-	\Ra \phi(x_i) \in \a M = \{ \sum_{endl.} \alpha_i y_i | \alpha_i \in \a, y_i \in M \},$ insbesondere existieren $a_{i1},...,a_{in} \in \a $ mit $ \phi(x_i) = \sum_{j=1}^{n} a_{ij} x_j$ (stelle $y_i$ als Linearkombination von $x_1,...,x_n$ dar). \\
-	$\Ra \sum_{j=1}^{n} ( \delta_{ij}\phi - a_{ij}id_M)(x_j) = 0 $ für alle $i=1,...,n $. \\ Wir betrachten $ A[\phi] = \{b_n \phi^n + b_{n-1}\phi^{n-1} +...+b_1\phi + b_0 id_M \ | \ n \in \N_0, b_i \in A \} $. (kommutativer Unterring von $End_A(M); $ Konvention: $\phi^0 = id_M $). \\
-	Setze $T:= ( \delta_{ij} \phi - a_{ij})_{ij} \in M(n \times n, A[\phi]). \ M $ wird via $ (\sum b_i \phi^i)x = \sum b_i \phi^i(x) $ zum $A[\phi]$-Modul. \\
-	$$T \cdot \left( \begin{array}{c}x_1\\:\\ x_n\end{array} \right) = 0
-	\Ra  0 = T^{\#}T \left( \begin{array}{c}x_1\\:\\ x_n\end{array} \right)= det(T)\left( \begin{array}{c}x_1\\:\\ x_n\end{array} \right) $$ da $x_1,...,x_n $ ein Erzeugendensytem von M ist folgt: $ det(T) x = 0 $ für alle $x \in M. \\
-	\Ra det(T) = 0 $. \\
-	Andererseits: $det(T) = det(\delta_{ij} \phi - a_{ij})_{ij}) = \phi^{n} + a_{n-1}\phi^{n-1}+...+ a_1\phi + a_0id_M $ mit $a_0,...,a_{n-1} \in \a $ nach Leibniz-Formel.
+	Sei $x_1,...,x_n $ ein Erzeugendensystem von $M$. Dann ist $\phi(x_i) \in \a M = \{ \sum_{endl.} \alpha_i y_i | \alpha_i \in \a, y_i \in M \},$ insbesondere existieren $a_{i1},...,a_{in} \in \a $ mit $ \phi(x_i) = \sum_{j=1}^{n} a_{ij} x_j$ (stelle $y_i$ als Linearkombination von $x_1,...,x_n$ dar). Damit ist $$\sum_{j=1}^{n} ( \delta_{ij}\phi - a_{ij}id_M)(x_j) = 0, \quad \forall i=1,...,n $$ Betrachte $ A[\phi] = \{b_n \phi^n + b_{n-1}\phi^{n-1} +...+b_1\phi + b_0 id_M \ | \ n \in \N_0, b_i \in A \} $, ( was ein kommutativer Unterring von $End_A(M); $ ist mit der Konvention: $\phi^0 = id_M $). 
+	Setze nun $$T:= ( \delta_{ij} \phi - a_{ij})_{ij} \in M(n \times n, A[\phi])$$
+	$M $ wird via $ (\sum b_i \phi^i)x = \sum b_i \phi^i(x) $ zum $A[\phi]$-Modul. $$T \cdot \left( \begin{array}{c}x_1\\:\\ x_n\end{array} \right) = 0
+	\Ra  0 = T^{\#}T \left( \begin{array}{c}x_1\\:\\ x_n\end{array} \right)= \det(T)\left( \begin{array}{c}x_1\\:\\ x_n\end{array} \right)$$
+	Da $x_1,...,x_n $ ein Erzeugendensytem von $M$ ist folgt: $ det(T) x = 0 $ für alle $x \in M$, also $det(T) = 0 $. Andererseits gilt aber auch: $$det(T) = det(\delta_{ij} \phi - a_{ij})_{ij}) = \phi^{n} + a_{n-1}\phi^{n-1}+...+ a_1\phi + a_0id_M$$ mit $a_0,...,a_{n-1} \in \a $ nach Leibniz-Formel.
 \end{proof}
 \begin{fo} \label{11.15}
 	Sei $M$ ein endlich erzeugter $A$-Modul, $\a \subseteq A $ ein Ideal, mit $\a M = M$. 
-	Dann existiert ein $a \in A $ mit $ a = 1 (mod \ \a)$ mit $ aM = 0. $
+	Dann existiert ein $a \in A $ mit $ a = 1 \mod \a$ mit $ aM = 0. $
 \end{fo}
 \begin{proof}
-	Mit $ \phi = id_M$ ist $\phi(M) = M = \a M \Ra$ es existieren  $a_0,..,a_{n-1} \in \a$, sodass $0 = id_M^{n} + a_{n-1}id_M^{n-1}+...+ a_1\phi + a_0id_M, $ das heißt: 
-	$ 0 = x + a_{n-1}x +...+ a_1x+a_0x = \underbrace{(1+ a_{n-1}+...+a_1 +a_0)}_{:=a} x \Ra a \equiv 1 \text{mod} \  \a, ax =0 $
+	Mit $ \phi = id_M$ ist $\phi(M) = M = \a M $ Dann existieren  $a_0,..,a_{n-1} \in \a$, sodass $0 = id_M^{n} + a_{n-1}id_M^{n-1}+...+ a_1\phi + a_0id_M, $ das heißt: 
+	$ 0 = x + a_{n-1}x +...+ a_1x+a_0x = \underbrace{(1+ a_{n-1}+...+a_1 +a_0)}_{:=a} x \Ra a \equiv 1 \mod \a,\, ax =0 $
 \end{proof}
-\begin{sa} \label{11.16}
-	(Nakayama-Lemma)\\
+\begin{sa}[Nakayama-Lemma] \label{11.16}\index{Nakayama-Lemma}
 	Sei $ A $ ein lokaler Ring mit maximalen Ideal $\m$, $M$ ein endlich erzeugter $A$-Modul, $ \QR{M}{\m M } = 0$. Dann ist $ M = 0$. 
 \end{sa}
 \begin{proof}
-	 $ \QR{M}{\m M } = 0 \Ra M = \m M$ mit \ref{11.15} folgt: es existiert ein $a \in A, a \equiv 1 (\text{mod} \ \m) $ mit $ aM = 0 $. Wegen  $a \equiv 1 (\text{mod} \ \m ) $ ist $ a \in A^{*} $ wegen \ref{11.2} $\Ra M = 0 $. 
+	 Aus $ \QR{M}{\m M } = 0$ folgt $M = \m M$. Nach \ref{11.15} folgt, dassein $a \in A, a \equiv 1 (\text{mod} \ \m) $ existiert mit $ aM = 0 $. Wegen  $a \equiv 1 \mod \m$ ist $ a \in A^{*} $. Mit \ref{11.2} folgt $M = 0 $. 
 \end{proof}
 \begin{fo} \label{11.17}
 	Sei $A$ ein lokaler Ring mit maximalen Ideal $ \m$, $M$ ein endlich erzeugter $A$-Modul, $N \subseteq M $ Untermodul mit $ M = \m M + N $. Dann ist $M = N $.
 \end{fo}
 \begin{proof}
-	Es ist $ \m(\QR{M}{N}) = \QR{(\m M + N)}{N} = \QR{M}{N}$ mit dem Nakayama-Lemma folgt: $\QR{M}{N} = 0 \Ra M = N. $
+	Es ist $$\m(\QR{M}{N}) = \QR{(\m M + N)}{N} = \QR{M}{N}$$
+	Mit dem Nakayama-Lemma folgt unmittelbar: $\QR{M}{N} = 0$, also $ M = N. $
 \end{proof}
 \begin{fo} \label{11.18}
 	Sei $A$ ein lokaler Ring mit maximalen Ideal $\m$, $M$ ein endlcih erzeugter $A$-Modul, $x_1,...,x_n \in M $. Dann sind äquivalent: 
@@ -201,7 +199,8 @@ Damit folgt die Aussage
 \end{fo}
 \begin{proof}
 	(i)$\Ra $(ii)  klar. \\
-	(ii)$\Ra$(i) Setze $N:= \sum_{i = 1}^{n} A x_i.$ Nach Voraussetzung ist $ \QR{(N + \m M )}{\m M} = \QR{M}{\m M} \Ra N + \m M  = M. $ Mit \ref{11.17} folgt: $N=M$.
+	(ii)$\Ra$(i) Setze $N:= \sum_{i = 1}^{n} A x_i.$ Nach Voraussetzung ist $$ \QR{(N + \m M )}{\m M} = \QR{M}{\m M} \Longrightarrow N + \m M  = M$$
+	Mit \ref{11.17} folgt: $N=M$.
 \end{proof}
 \begin{anm}
 	Wichtig: $M$ endlich erzeugt ist eine Voraussetzung in \ref{11.18}.
