@@ -146,7 +146,7 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 	\begin{enumerate}[label=\alph*)]
 		\item Die Abbildung$$\QR{N_1}{N_1 \cap N_2} \overset{\sim}{\longrightarrow} \QR{(N_1+N_2)}{N_2} \qquad x + N_1\cap N_2  \mapsto x +N_2$$ ist ein Isomorphismus.
 		\item Ist $ N_2 \subseteq N_1$, so ist
-		 $$\QR{M/N_2}{M/N_1} \overset{\sim}{\longrightarrow} \QR{M}{N_1}\qquad (x+N_2)+\QR{N_1}{N_2} \mapsto x+N_1$$
+		 $$\QR{M/N_2}{N_1/N_2} \overset{\sim}{\longrightarrow} \QR{M}{N_1}\qquad (x+N_2)+\QR{N_1}{N_2} \mapsto x+N_1$$
 		 ein Isomorphismus.
 	\end{enumerate}
 \end{sa}
@@ -261,7 +261,7 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 		\end{tikzcd}$$
 		ist ein kommutatives Diagramm mit exakten Zeilen.)
 		\item Ist $\begin{tikzcd}
-		0  \arrow{r} & M_i \arrow{r} & M_i^{'} \arrow{r} & M_i^{''} \arrow{r} & 0
+		 M_i \arrow{r} & M_i^{'} \arrow{r} & M_i^{''} 
 		\end{tikzcd}, \; i \in I$ eine Familie exakter Folgen von $R$-Moduln, dann sind auch die Folgen 
 		$$ \begin{tikzcd}
 		\prod_{i\in I} M_i^{'} \arrow{r}& \prod_{i\in I} M_i \arrow{r}& \prod_{i\in I} M_i^{''}
@@ -471,8 +471,8 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 \end{bem}
 \begin{proof}
 	Es genügt den Fall der Folge $\begin{tikzcd}
-	0  \arrow{r} & M' \arrow{r} & M \arrow{r} & M'' \arrow{r} & 0
-	\end{tikzcd} $  für einen Untermodul $N \subseteq M $ zu betrachten. (Vgl. Anmerkung nach \ref{2.1})\\
+	0  \arrow{r} & N \arrow{r} & M \arrow{r} & \QR{M}{N} \arrow{r} & 0
+	\end{tikzcd} $  für einen Untermodul $N \subseteq M $ zu betrachten. (Vgl. Anmerkung nach \ref{2.1}).\\
 	$i) \Ra ii)$ Sei $N' \subseteq N $ Untermodul $\Ra N' $ Untermodul von $M$ $\overset{M \text{noet.}}{\Longrightarrow} $ $N' $ endlich erzeugt. Sei $N'' \subseteq \QR{M}{N}$ Untermodul. Also ist $\pi^{-1}(N'') \twoheadrightarrow N''$ ein Epimorphismus und damit $ N'' $ endlich erzeugt nach 2.5 (a). \\
 	$ii) \Ra i)$ Seien $N, \QR{M}{N}$ noethersch, und sei $M' \subseteq M $ Untermodul. Wir erhalten eine kurze exakte Sequenz von $R$-Moduln  $$\begin{tikzcd}
 	0  \arrow{r} & M' \cap N \arrow{r}{} & M' \arrow{r}{} & \QR{M'}{M' \cap N} \arrow{r} & 0
@@ -540,7 +540,7 @@ Ein \define{$R$-Rechtsmodul\index{Rechtsmodul}} ist eine abelsche Gruppe $(M, +)
 	Sei $R$ linksnoetherscher Ring, $R \neq 0$, $n_1,n_2 \in N$. Dann gilt: $ R^{n_1} \simeq R^{n_2} \Ra n_1 = n_2 $.
 \end{sa}
 \begin{proof}
-	ohne Einschränkung gelte $n_1 \geq n_2  \Ra R^{n_2} \simeq R^{n_1} \simeq R^{n_2} \simeq R^{n_1 - n_2} $. Wegen $R^{n_2}$ noethersch, folgt mit \ref{3.10} : $R^{n_1 - n_2} =0$, also $ n_1=n_2$
+	ohne Einschränkung gelte $n_1 \geq n_2  \Ra R^{n_2} \simeq R^{n_1} \simeq R^{n_2} \oplus R^{n_1 - n_2} $. Wegen $R^{n_2}$ noethersch, folgt mit \ref{3.10} : $R^{n_1 - n_2} =0$, also $ n_1=n_2$
 \end{proof}
 \begin{anm}
 	\begin{itemize}
