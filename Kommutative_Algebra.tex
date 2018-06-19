@@ -71,8 +71,8 @@ Damit folgt die Aussage
 	Seinen $ \a_1, \dots \a_n \subseteq A$ Ideale, $\p $ ein Primideal in $A$ mit $\p \supseteq \bigcap_{i = 0}^{n} \a_i$.  Dann existiert ein $j \in \{1,...n\} $ mit $\a_j  \subseteq \p$. Ist $\p =\bigcap_{i = 0}^{n} \a_i$, dann existiert ein $j \in \{1,...n\} $ mit $\a_j = \p$.
 \end{bem}
 \begin{proof}
-	Angenommen  für alle $i \in \{1,...n\} $ gilt $ \a_i \not \subseteq \p. \Ra $ Für alle $i \in \{1,...n\} $ existiert ein $x_i \in \a_i, x_i \notin \p$. Dann ist  $x_1 \cdots x_n \notin \p$, da $ \p$ ein Primideal ist. Andererseits ist jedoch $x_1 \cdots x_n \in \bigcap_{i = 0}^{n} \a_i \subseteq \p.$, Widerspruch! Sei nun $ y = \bigcap_{i = 0}^{n} \a_i $ Dann existiert ein $j \in \{1,...n\} $ mit $ \a_j \subseteq \p.  \\
-	\Ra \p =\bigcap_{i = 0}^{n} \a_i \subseteq \a_j \subseteq \p \Ra y = \a_j.$ 
+	Angenommen  für alle $i \in \{1,...n\} $ gilt $ \a_i \not \subseteq \p. \Ra $ Für alle $i \in \{1,...n\} $ existiert ein $x_i \in \a_i, x_i \notin \p$. Dann ist  $x_1 \cdots x_n \notin \p$, da $ \p$ ein Primideal ist. Andererseits ist jedoch $x_1 \cdots x_n \in \bigcap_{i = 0}^{n} \a_i \subseteq \p.$, Widerspruch! Sei nun $ \p = \bigcap_{i = 0}^{n} \a_i $ Dann existiert ein $j \in \{1,...n\} $ mit $ \a_j \subseteq \p.  \\
+	\Ra \p =\bigcap_{i = 0}^{n} \a_i \subseteq \a_j \subseteq \p \Ra \p = \a_j.$ 
 \end{proof}
 \begin{bem+df}
 	Seinen $\a, \b \subseteq A $ Ideale, $a \in A $.
@@ -205,5 +205,192 @@ Damit folgt die Aussage
 \begin{anm}
 	Wichtig: $M$ endlich erzeugt ist eine Voraussetzung in \ref{11.18}.
 \end{anm}
+\newpage
+\subsection{Lokalisierung}
+\textbf{Erinnerung} (an Algebra 1): Sei $S\subseteq A$ ein Untermonoid bezüglich "'$\cdot$"' (d.h. $1\in S$ und $a,b\in S\Ra ab\in S$). Definiere eine Relation "'$\sim$"' auf $A\times S$ wie folgt:
+$$(a_1, s_1) \sim (a_2,s_2) \defi \text{Es existiert ein }t\in S \text{ mit } ta_2s_1 = ta_1s_2$$
+"'$\sim$"' ist eine Äquivalenzrelation, setze $S^{-1}A:= \QR{A\times S}{\sim}$, wobei $\frac{a}{s}$ die Äquivalenzklasse von $(a,s)\in A\times S$ ist. Dann ist $S^{-1}A$ ein kommutativer Ring via
+\begin{align*}
+\frac{a_1}{s_1} + \frac{a_2}{s_2} &:= \frac{a_1s_2+a_2s_1}{s_1s_2},&\frac{a_1}{s_1} \cdot \frac{a_2}{s_2} &:= \frac{a_1a_2}{s_1s_2}
+\end{align*}
+Ferner gibt es einen Ringhomomorphismus $\tau:A \to S^{-1}A, \; a \mapsto \frac{a}{1}$. Diese ist genau dann injektiv, wenn $S$ nur aus Nichtnullteilern besteht.\\
+\begin{center}
+	\textbf{Im Folgenden sei $S\subseteq A$ ein Untermonoid bezüglich "'$\cdot$"', Erweiterung und Kontraktion von Idealen sind bezüglich $\tau$ zu verstehen.}
+\end{center}
 
+~\
 
+\begin{bem+df}\label{12.1}
+	Sei $\a\subseteq A$ ein Ideal
+	\begin{enumerate}
+		\item[] $S^{-1}\a := a^e=\{\frac{a}{s}\ | \ a\in \a, \, s\in S\}\subseteq S^{-1}A$ ist ein Ideal.
+	\end{enumerate}
+	Ferner gilt: $S^{-1}\a= S^{-1}A\Lra \a\cap S = \emptyset$. 
+\end{bem+df}
+\begin{proof}
+	"'$\Ra$"' $S^{-1}\a = S^{-1}A \Ra 1 = \frac{1}{1} \in S^{-1}\a \Ra $ Es existiert ein $a\in \a, \, s\in S$ mit $\frac{a}{s} = \frac{1}{1}$. Damit exitstiert ein $t\in S$ mit $ta = ts$, also ist $\a \cap S \neq \emptyset$.\\
+	"'$\La$"' Sei $\a\cap S\neq \emptyset$. Dann existiert ein $s\in \a \cap S$ mit $\frac{s}{s} = \frac{1}{1}\in S^{-1}A$, also ist $S^{-1}\a = S^{-1}A$
+\end{proof}
+\begin{bem}\label{12.2}
+	Sei $\p \subseteq A$ ein Primideal mit $\p\cap S=\emptyset$. Dann ist $S^{-1}\p$ ein Primideal in $S^{-1} A$.
+\end{bem}
+\begin{proof}
+	Seien $\frac{a_1}{s_1}, \frac{a_2}{s_2}\in S^{-1} A$ mit $\frac{a_1}{s_1} \cdot\frac{a_2}{s_2}\in S^{-1} \p$. Dann existieren $b\in \p, \, s\in S$ mit $\frac{a_1a_2}{s_1s_2} = \frac{b}{s}$. Dann existiert ein $t\in S$ mit $tsa_1a_2 = tbs_1s_2 \in \p$, woebi $t,s\notin \p$. Da $\p$ Primideal, muss also $a_1a_2\in \p$ gelten und damit $a_1\in \p$ oder $a_2\in \p$. Damit folgt schließlich $\frac{a_1}{s_1}\in S^{-1} \p$ oder $\frac{a_2}{s_2}\in S^{-1}\p$.
+\end{proof}
+\begin{bem}\label{12.3}
+	Es gilt:
+	\begin{enumerate}[label=\alph*)]
+		\item Für die Abbildungen
+		$$\begin{tikzcd}[row sep = tiny]
+		\{\text{Ideale in } A\} \arrow[yshift = 0.5ex]{r}{\Phi} & \{\text{Ideale in } S^{-1}A\} \arrow[yshift = -0.5ex]{l}{\Psi} \\
+		\a \arrow[mapsto]{r}& a^e=S^{-1} \a \\
+		\b^c=\tau^{-1}(\b) & b\arrow[mapsto]{l}
+		\end{tikzcd}$$
+		gilt: $\Phi \circ \Psi = \id_{\{\text{Ideale in } S^{-1}A\}}$, insbesondere ist $\Phi$ surjektiv und $\Psi $ injektiv. Beide Abbildungen sind inklusionserhaltend.
+		\item Die Abbildungen
+		$$\begin{tikzcd}[row sep = tiny]
+		\{\text{Primideale in } A \text{mit } \p\cap S = \emptyset\} \arrow[yshift = 0.5ex]{r}{\Phi} & \{\text{Primideale in } S^{-1}A\} \arrow[yshift = -0.5ex]{l}{\Psi} \\
+		\p \arrow[mapsto]{r}& p^e=S^{-1} \p \\
+		q^c=\tau^{-1}(q) & q\arrow[mapsto]{l}
+		\end{tikzcd}$$
+		sind bijektiv und invers zueinander, beide sind inklusionserhaltend.
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	\begin{enumerate}[label= \alph*)]
+		\item Es ist zu zeigen, dass $b^{ce} = b$ für alle Ideale $b$ in $S^{-1}A$.\\
+		"'$\subseteq$"' gilt nach \ref{11.12}.\\
+		"'$\supseteq$"' Sei $\frac{a}{s}\in \b$ mit $a\in A, \, s\in S$. Dann ist $\frac{a}{1} = \frac{s}{1} \cdot \frac{a}{s} \in \b$. Dann ist $a\in c^c$, also $\frac{a}{s} \in \b^{ce}$.
+		\item \begin{itemize}
+			\item $\Psi$ ist wohldefiniert: Für ein Primideal $\q\in S^{-1}A$ ist $\q^c$ ein Primideal (vgl. Übungen). Es ist $\q^c\cap S=\emptyset$, denn andernfalls würde ein $s\in S$ existieren mit $\frac{s}{1} \in\q $, also $1 = \frac{1}{s} \cdot \frac{s}{1}\in \q$, Widerpsruch!
+			\item $\Phi$ ist wohldefiniert nach \ref{12.2}.
+		\end{itemize}
+	Nach $a)$ ist $\Phi \circ \Psi=\id_{\{\text{Primideale in } S^{-1}A\}}$, also genügt es zu zeigen, dass für alle Primideale $\p \subseteq A$ mit $\p \cap S= \emptyset$ ist $\p^{ec} = \p$.\\
+	"'$\supseteq$"' aus \ref{11.12} $a)$\\
+	"'$\supseteq$"' Sei $a\in \p^{ec}$. Dann existiert ein $b\in \p, \, s\in S$ mit $\frac{a}{1} = \frac{b}{s}$, also existiert ein $t\in S$ mit $tas = tb$, d.h. $sta=tb$. Da $st\notin \p$ und $\p$ Primideal, folgt $a\in \p$.
+	\end{enumerate}
+\end{proof}
+\begin{bem+df}\label{12.4}
+	Sei $\p\subseteq A$ ein Primideal, setze $S:= A\backslash \p$ (ist ein Untermonoid).
+	\begin{enumerate}
+		\item[] $A_\p:= S^{-1}A$ heißt die \define{Lokalisierung von $A$ bei $\p$\index{Lokalisiserung von $A$ bei $\p$}}.
+	\end{enumerate}
+	$A_\p$ ist ein lokaler Ring mit dem maximalen Ideal $S^{-1} \p$. Erweiterung und Kontraktion liefern inklusionserhaltende Bijektionen zwischen der Menge der Primideale in $A$, die $\p$ enthalten und der Menge der Primideale in $A_\p$.
+\end{bem+df}
+\begin{proof}
+	folgt aus \ref{12.3} $b)$ (beachte: $\q \cap S= \emptyset \Lra \q \subseteq \p$).
+\end{proof}
+\begin{bsp}
+	Betrachte $A=\Z, \, \p = (p)$ für eine Primzahl $p$. Dann ist $$\Z_{(p)} = \left\{ \frac{m}{n} \in \Q|\, m,n \in \Z, \, \text{ggT}(m,n) = 1, \, p\nmid n\right\}$$
+	lokal mit dem maximalen Ideal $$p\Z_{(p)} = \left\{\frac{m}{n} \in \Q| \, m,n\in \Z, \, \text{ggT}(m,n) = 1, \, p |m,\,, p\nmid n\right\}$$
+\end{bsp}
+\begin{bem+df}\label{12.6}
+	Sei $M$ ein $A$-Modul. Wir definieren eine Relation "'$\sim$"' auf $S\times M$ wie folgt:
+	$$(s_1,m_1) \sim (s_2, m_2) \defi \text{Es existiert ein } t\in S \text{ mit } ts_2m_1 = ts_1m_2$$
+	"'$\sim$"' ist ein Äquivalenzrelation und wir setzen $S^{-1}M := \QR{(S\times M)}{\sim}$; $\frac{m}{s}$ bezeichne die Äquivalenzklasse on $(s,m) \in S\times M$. Dann ist $S^{-1}M$ ein $S^{-1}A$-Modul vermöge
+	\begin{align*}
+	\frac{m_1}{s_1}+ \frac{m_2}{s_2}&:= \frac{s_2m_1+s_1m_2}{s_1s_2}, & \frac{a}{s} \cdot \frac{m}{t}&:= \frac{am}{st}
+	\end{align*}
+	für $m_1,m_2,m \in M, \, s_1,s_2,s,t\in S$. $S^{-1}M$ heißt der \define{Quotientenmodul\index{Quotientenmodul}} von $M$ nach $S$. Es gibt eine natürliche Abbildung $\tau:M \to S^{-1} M, \, m \mapsto \frac{m}{1}$.
+\end{bem+df}
+\begin{proof}
+	nachrechnen.
+\end{proof}
+\begin{anm}
+	$S^{-1}M$ ist auch ein $A$-Modul vermöge $a\cdot \frac{m}{s} := \frac{a}{1} \cdot \frac{m}{s}= \frac{am}{s}$. $\tau$ ist dann ein Homomorphismus von $A$-Moduln.
+\end{anm}
+\begin{sa}
+	Seien $M,N$ $A$-Moduln, $\phi:M \to N$ $A$-linear, $\tau_M:M \to S^{-1}M$,\\
+	\begin{minipage}[t]{0.6\textwidth}
+		 $\tau_N:N \to S^{-1}N$ die kanonischen Abbildungen.
+		 Dann gibt es genau eine $S^{-1}A$-lineare Abbildung
+		$$S^{-1}\phi:S^{-1}M \longrightarrow S^{-1}N $$
+		mit $S^{-1}\phi \circ \tau_M = \tau_N \circ \phi$
+	\end{minipage}
+	\begin{minipage}[t]{0.4\textwidth} 
+		$$\begin{tikzcd}
+		M \arrow{r}{\phi} \arrow[swap]{d}{\tau_M} & N \arrow{d}{\tau_N} \\
+		S^{-1}M \arrow[dashed, red]{r}{S^{-1}\phi}& S^{-1}N
+		\end{tikzcd}$$
+	\end{minipage}
+	Auf diese Weise wird $S^{-1}\_:A$-Mod$\longrightarrow S^{-1}A$-Mod zu einem additiven Funktor.
+\end{sa}
+\begin{proof}
+	\begin{enumerate}
+		\item Existenz: Setze $S^{-1}\phi:S^{-1}M \to S^{-1}N, \; \frac{m}{s} \mapsto \frac{\phi(m)}{s}$.
+		\begin{itemize}
+			\item $S^{-1}\phi$ ist wohldefiniert: Sei $(s_1,m_1) \sim (s_2, m_2)$. Dann existiert ein $t\in S$ mit $ts_2m_1 = ts_1m_2$, also 
+			$ts_2\phi(m_1) = ts_1\phi(m_2)\Ra (s_1, \phi(m_1)) \sim (s_2\phi(m_2)) \Ra \frac{\phi(m_1)}{s_1} = \frac{\phi(m_2)}{s_2}$. 
+			\item $S^{-1}\phi$ ist $S^{-1}A$-linear.
+			\item Das Diagramm kommutiert, denn 
+			$$(S^{-1}\phi)(\tau_M(m)) = (S^{-1}\phi)\left(\frac{m}{1}\right) = \frac{\phi(m)}{1} = \tau_N(\phi(m))$$
+		\end{itemize}
+		\item Eindeutigkeit: Aus der Kommutativität des Diagramms und der $S^{-1}A$-Linearität vo $S^{-1}\phi$ folgt:
+		\begin{eqnarray*}
+			(S^{-1}\phi)\left(\frac{m}{s}\right) &=& S^{-1}\phi\left(\frac{1}{s} \cdot \frac{m}{1}\right) = \frac{1}{s} S^{-1}\phi\left(\frac{m}{1}\right) = \frac{1}{s}S^{-1}\phi(\tau_M(m)) = \frac{1}{s} (\tau_N(\phi(m)))\\
+			&=& \frac{1}{s} \cdot \frac{\phi(m)}{1} = \frac{\phi(m)}{2}
+		\end{eqnarray*}
+		\item Die Funktorialität und Additivität von $S^{-1}\_$ ist leicht nachzurechnen.
+	\end{enumerate}
+\end{proof}
+\begin{sa}\label{12.8}
+	$S^{-1}\_:A$-Mod $\longrightarrow S^{-1}A$-Mod ist ein exakter Funktor.
+\end{sa}
+\begin{proof}
+	Sei $\begin{tikzcd}
+	M' \arrow{r}{f} & M \arrow{r}{f} & M''
+	\end{tikzcd}$ eine exakte Folge von $A$-Moduln. Nach den Übungen genügt es zu zeigen, dass 
+	$$\begin{tikzcd}
+	S^{-1}M' \arrow{r}{S^{-1}f} & S^{-1}M \arrow{r}{S^{-1}g} & S^{-1}M''
+\end{tikzcd}$$
+exakt ist, d.h. $\im(S^{-1}f) = \ker(S^{-1}g)$.\\
+"'$\subseteq$"' Es ist $S^{-1}g\circ S^{-1}f = S^{-1}(\underbrace{g\circ f}_{=0}) = 0$\\
+"'$\supseteq$"' Sei $\frac{m}{s} \in \ker(S^{-1}g)$. Dann ist $\frac{g(m)}{s} = 0 = \frac{0}{1}$, also existiert ein $t\in S$ mit $tg(m) = 0$, d.h. $g(tm) = 0 \Ra tm\in \ker g = \im f$, also existiert ein $m'\in M$ mit $f(m') = tm$. Damit folgt schließlich
+$$S^{-1}f\left(\frac{f(m')}{st} \right) = \frac{f(m')}{st} = \frac{tm}{st} = \frac{m}{s}$$
+also $\frac{m}{s} \in \im \left(S^{-1}f\right)$.
+\end{proof}
+\begin{fo}
+Sei $M$ ein $A$-Modul, $N\subseteq M$ ein Untermodul. Dann ist $S^{-1}N$ auf natürliche Weise ein Untermodul von $S^{-1}M$ und es gilt: 
+$$S^{-1} \left(\QR{M}{N}\right) \cong \QR{S^{-1}M}{S^{-1}N}$$
+(wir identifizieren diese Moduln im Folgenden mit einander.)
+\end{fo}
+\begin{proof}
+Wende $S^{-1}\_$ auf die exakte Folge 
+$$\begin{tikzcd}
+0 \arrow{r} & N \arrow{r} & M \arrow{r} & \QR{M}{N} \arrow{r} & 0
+\end{tikzcd}$$
+an. Dann olgt die Behauptung aus \ref{12.8}
+\end{proof}
+\begin{bem}\label{12.10}
+Seien $M,N$ $A$-Moduln, $\phi:M \to N$ $A$-linear. Dann gilt:
+\begin{enumerate}[label= \alph*)]
+	\item $\ker(S^{-1}\phi) = S^{-1}(\ker \phi)$
+	\item $\coker(S^{-1}\phi) = S^{-1}(\coker\phi)$
+	\item $\im(S^{-1}\phi) = S^{-1}(\im \phi)$
+\end{enumerate}
+\end{bem}
+\begin{proof}
+\begin{enumerate}[label= \alph*)]
+	\item Wende $S^{-1}$ auf die exakte Folge $\begin{tikzcd}
+	0 \arrow{r} & \ker \phi \arrow{r} & M \arrow{r}{\phi}& N
+	\end{tikzcd}$ an.
+	\item Wende $S^{-1}$ auf die exakte Folge $\begin{tikzcd}
+	M \arrow{r} & M  \arrow{r} & \coker \phi \arrow{r}& 0
+	\end{tikzcd}$ an.
+	\item Wende $S^{-1}$ auf die exakte Folge $\begin{tikzcd}
+	0 \arrow{r} & \im \phi \arrow{r} & N \arrow{r}& \coker \phi \arrow{r} & 0
+	\end{tikzcd}$ an.
+\end{enumerate}
+\end{proof}
+\begin{bem}\label{12.11}
+Für die Abbildungen:
+$$\begin{tikzcd}[row sep = tiny]
+\{A\text{-Untermoduln von } M\} \arrow[yshift = 0.5ex]{r}{\Phi} & \{S^{-1}A\text{-Untermoduln von } S^{-1}M\} \arrow[yshift = -0.5ex]{l}{\Psi} \\
+N \arrow[mapsto]{r}& S^{-1}N \\
+\tau^{-1}(P) & P\arrow[mapsto]{l} 
+\end{tikzcd}$$
+gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insbesondere ist $\Phi$ surjektiv und $\Psi$ injektiv. Beide Abbildungen sind inklusionserhaltend.
+\end{bem}
+\begin{proof}
+	nachrechnen.
+\end{proof}
