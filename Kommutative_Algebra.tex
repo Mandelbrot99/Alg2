@@ -349,7 +349,7 @@ exakt ist, d.h. $\im(S^{-1}f) = \ker(S^{-1}g)$.\\
 $$S^{-1}f\left(\frac{f(m')}{st} \right) = \frac{f(m')}{st} = \frac{tm}{st} = \frac{m}{s}$$
 also $\frac{m}{s} \in \im \left(S^{-1}f\right)$.
 \end{proof}
-\begin{fo}
+\begin{fo} \label{12.9}
 Sei $M$ ein $A$-Modul, $N\subseteq M$ ein Untermodul. Dann ist $S^{-1}N$ auf natürliche Weise ein Untermodul von $S^{-1}M$ und es gilt: 
 $$S^{-1} \left(\QR{M}{N}\right) \cong \QR{S^{-1}M}{S^{-1}N}$$
 (wir identifizieren diese Moduln im Folgenden mit einander.)
@@ -370,7 +370,7 @@ Seien $M,N$ $A$-Moduln, $\phi:M \to N$ $A$-linear. Dann gilt:
 \end{enumerate}
 \end{bem}
 \begin{proof}
-\begin{enumerate}[label= \alph*)]
+\begin{enumerate}[label= \alph*]
 	\item Wende $S^{-1}$ auf die exakte Folge $\begin{tikzcd}
 	0 \arrow{r} & \ker \phi \arrow{r} & M \arrow{r}{\phi}& N
 	\end{tikzcd}$ an.
@@ -394,3 +394,126 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 \begin{proof}
 	nachrechnen.
 \end{proof}
+\begin{fo} \label{12.12}
+	Es gilt: 
+	\begin{enumerate} [label= \alph*)]
+		\item $M$ endlich erzeugter $A$-Modul, dann folgt: $S^{-1}M $ ist ein endlich erzeugter $S^{-1}A$-Modul
+		\item $M$ noetherscher $A$-Modul, dann ist auch $S^{-1}M$ ein noetherscher $S^{-1}A$-Modul. 
+	\end{enumerate}
+\end{fo}
+\begin{proof}
+	\begin{enumerate}
+		\item Sei $x_1,\dots,x_r $ ein Erzeugendensystem von $M$ über $A$, dann folgt $ \frac{x_1}{1}, \dots, \frac{x_r}{1} $ ist ein Erzeugendensystem von $S^{-1}M$ über $S^{-1}A$.
+		\item Sei $M$ ein noetherscher $A$-Modul, $L \subseteq S^{-1}M $ ein $S^{-1}A$-Untermodul. Mit \ref{12.11} folgt: es existiert ein Untermodul $N$ in $M$ mit $ L = S^{-1}N $, da $M$ noethersch ist $N$ endlich erzeugt. Mit (a) folgt $L = S^{-1}N$ ist eindelich erezugt über $S^{-1}A$.
+	\end{enumerate}
+\end{proof}
+\begin{df} \label{12.13}
+	Sei $M$ ein $A$-Modul, $\p \subseteq A $ ein Primideal. Wir setzen $S := A \backslash \p$. $M_{\p} := S^{-1}M $ heißt die \define{Lokalisierung } von $M$ bei $\p$. Für einen Homomorphismus $\phi: M \to N $ von $A$-Moduln ist entsprechend $\phi_{\p} = S^{-1}\phi: M_{\p} \to N_{\p} $ definiert. 
+\end{df}
+\begin{anm}
+	Eine Eigenschaft $(E)$ eines $A$-Moduls $M$ nennt man eine \define{lokale Eigenschft}, wenn gilt: $M$ erfüllt $(E) \Lra M_{\p} $ erfüllt $(E)$ für jedes Primideal $ \p \subseteq A $. 
+\end{anm}
+\begin{sa} \label{12.14}
+	Sei $M$ ein $A$-Modul. Dann sind äquivalent: 
+	\begin{enumerate} [label= \roman*)]
+		\item $M = 0$
+		\item $M_{\p} = 0 $ für alle Primideale $\p \subseteq A$ 
+		\item $M_{\m} = 0 $ für alle maximalen Ideale $\m \subseteq A $
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	$(i) \Ra (ii) \Ra (iii) $ trivial \\
+	$(iii) \Ra (i) $ Sei $M \neq 0.$ Dann existiert ein $x\in M, x\neq 0.$ Es ist $ann_{A}(x) \subseteq A $ ein Ideal mit $ann_{A}(x )\neq A.$ Wegen $1 \notin ann_A(x)$, folgt dass ein maximales Ideal $\m \subseteq A $ mit $ann_A(x)\subseteq \m $. Für alle $s \in A\backslash \m \subseteq A \backslash ann_A(x) $ ist $sx \neq 0$ ist $ \frac{x}{1} \neq \frac{0}{1} $ in $M_{\m} $. Darus folgt $M_{\m} \neq 0. $
+\end{proof}
+\begin{fo} \label{12.15}
+	Sei  $\begin{tikzcd}
+	 M^{'} \arrow{r}{f} & M \arrow{r}{g} & M^{''} 
+	\end{tikzcd}$ eine Sequenz vn $A$-Moduln. Dann sind äquivalent: 
+	\begin{enumerate} [label= \roman*)]
+		\item $\begin{tikzcd} M^{'} \arrow{r}{f} & M \arrow{r}{g} & M^{''} \end{tikzcd}$ ist exakt 
+		\item $\begin{tikzcd} M_{\p}^{'} \arrow{r}{f_{\p}} & M_{\p} \arrow{r}{g_{\p}} & M_{\p}^{''}  \end{tikzcd}$ ist exakt für alle Primideale $\p \subseteq A$. 
+		\item $\begin{tikzcd} M_{\m}^{'} \arrow{r}{f_{\m}} & M_{\m} \arrow{r}{g_{\m}} & M_{\m}^{''}  \end{tikzcd}$ ist exakt für alle maximalen Ideale $\m \subseteq A$.
+	\end{enumerate}
+\end{fo}
+\begin{proof}
+	$(i) \Ra (ii) $ aus \ref{12.8}, $(ii) \Ra (iii)$ trivial. \\
+	$(iii) \Ra (i) $ zu zeigen ist: $ \im f = \ker g $: \\
+	"'$\subseteq$"' Für jedes maximale Ideal $\m \subseteq A $ ist $$(\im (g \circ f))_{\m} = \im((g \circ f)_{\m}) = \im (g_{\m} \circ f_{\m}) = 0$$ Mit \ref{12.14} folgt $\im(g \circ f) = 0 \Ra g \circ f = 0$. \\
+	"'$\supseteq$"' Setze $ N := \QR{\ker g }{\im f} $ mit \ref{12.9} folgt: $$N_{\m} = \QR{(\ker g)_{\m} }{(\im f)_{\m}} = \QR{\ker g_{\m} }{\im f_{\m}} = 0 $$ für alle maximalen Ideale $\m \subseteq A$. Mit \ref{12.14} folgt $\ker g = \im f $.
+\end{proof}
+\begin{fo} \label{12.16}
+	Seien $M,N$ $A$-Moduln, $f: M \to N $ $A$-Modulhomomorphismen. Dann gilt: 
+	\begin{enumerate} [label= \alph*)]
+		\item $f$ injektiv $\Lra f_{\m} $ injektiv für alle maximalen Ideale $\m \subseteq A  \Lra f_{\p} $ injektiv für alle Primideale $\p \subseteq A $. 
+		\item $f$ surjektiv $ \Lra f_{\m} $ surjektiv für alle maximalen Ideale $\m \subseteq A  \Lra f_{\p} $ surjektiv für alle Primideale $\p \subseteq A $. 
+		\item $f = 0  \Lra f_{\m} = 0 $ für alle maximalen Ideale $\m \subseteq A  \Lra f_{\p} = 0 $ für alle Primideale $\p \subseteq A $. 
+	\end{enumerate}
+\end{fo}
+\begin{proof}
+	\begin{enumerate} [label= \alph*)]
+		\item Wende \ref{12.15} an auf $\begin{tikzcd}	0 \arrow{r} & M \arrow{r}{f} & N
+		\end{tikzcd}$ an.
+		\item Wende \ref{12.15} an auf $\begin{tikzcd}	M \arrow{r}{f} & N \arrow{r} & 0
+		\end{tikzcd}$ an.
+		\item Wende \ref{12.14} auf $\im f $ an.
+	\end{enumerate}
+\end{proof}
+\begin{bem} \label{12.17}
+	Sei $A$ nullteilerfrei, $K = \Quot(A) $. Die natürliche Abbildung $A \to K $ beziehungsweise $A_{\p} \to K $, $\p$ Primideal in $A$, sind alle injektiv, fasse also $A$ bzw $A_{\p} $ als Unterringe von $K$ auf. Dann gilt: $$ A = \bigcap_{\p \subseteq A\atop \text{Primideal}} A_{\p} = \bigcap_{\m \subseteq A\atop \text{max. Ideal}} A_{\m}$$.
+\end{bem}
+\begin{proof}
+	(Für Primideale) \\
+	"$\subseteq" $klar. \\
+	"$\supseteq"$ Sei $ x \in K $ mit $x \in A_{\p} $ für alle Primideale $ \p \subseteq A $. Setze $\phi: A \to \QR{K}{A}, a \mapsto ax +A$. (Homomorphismus von $A$-Moduln) dann folgt $\phi_{\p}: A_{\p} \to (\QR{K}{A})_{\p} = \QR{k_{\p}}{A_{\p}} $
+	%hier fehlt was
+\end{proof}
+\subsection{ Tensorprodukt und flache Moduln}
+\begin{df}
+	Seinen $L,M,N$ $A$-Moduln, $\phi: M \times N \to L. $ \\
+	$ \phi$  heißt \define{A-bilinear} $\defi$ für jedes $n \in \N $ ist die Abbildung $M \to L \quad m \mapsto \phi(m,n) $ $A$-linear und für jedes $m \in M $ ist die Abbildung $ N \to L \quad n \mapsto \phi(m,n)  $ $A$-linear.
+\end{df}
+\begin{df} 
+	Seien $M,N$ $A$-Moduln, Ein \define{Tensorprodukt} von $M$ und $N$ über $A$ ist ein $A$-Modul $T$ zusammen mit einer $A$-bilinearen Abbildung $\tau: M \times N \to T $ sodass folgende Universelle Eigenschaft erfüllt ist: Für jeden $A$-Modul $L$ und jede $A$-lineare Abbildung $\phi: M \times N \to L $ gibt es genau einen $A$-Modulhomomorphismus $\alpha:  T \to L $, sodass $\alpha \circ \tau = \phi$ gilt:
+	$$\begin{tikzcd}
+	M \times N  \arrow{rr} \arrow{dr}{\tau} && L \\
+	& T \arrow[dashed, red]{ur}{\alpha}&
+	\end{tikzcd}$$
+\end{df}
+\begin{sa} \label{13.3}
+	Seinen $M,N $ $A$-Moduln. Dann gilt: 
+	\begin{enumerate} [label= \alph*)]
+		\item Es gibt ein Tensorprodukt von $M,N$ über $A$.
+		\item Sind $T,T'$ Tensorprodukte von $M,N$ über $A$ mit $ A$-bilinearen Abbildungen $\tau: M \times N \to T$, $\tau^{'}: M \times N \to T^{'}$, dann existiert genau ein $A$-Modulhomomorphismus $\alpha: T \to T^{'} $ mit $\alpha \circ \tau = \tau^{'}. $ $ \alpha $ ist ein Isomorphismus. Mit anderen Worten: Das Tensorprodukt von $M,N$ ist eindeutig bestimmt bis auf einen einduteigen Isomorphismus. 
+		\item Ist $T$ ein Tensorprodukt von $M,N$ über $A$ mit $A$-bilinearer Abbildung $\tau: M \times N \to T $ und setzen wir für $m \in M, n \in N$: 
+		$$ m \otimes n  := \tau(m,n)$$
+		Dann wird $T$ erzeugt von den Elementen $m \otimes n $, $m \in M, n \in N $ das heißt jedes Element von $T$ ist von der Form $\sum_{i=1}^{r} a_i (m_i \otimes n_i) $ mit $ a_i \in A, m_i \in M , n_i \in N $. 
+		Hierbei gilt:\\
+		 $(m +m^{'}) \otimes n = m \otimes n + m^{'} \otimes n,$ \\
+		 $ m \otimes (n+n^{'}) = M \otimes n + m \otimes n^{'},$ \\
+		 $ (am) \otimes n = a ( m \otimes n ) = m \otimes (an) $  \\
+	   für alle $m,m^{'} \in M, n,n^{'} \in N, a\in A $. Notation für Tensorprodukt von $M$ und $N$ über $A$: $M \otimes_A N $
+	\end{enumerate}
+\end{sa}
+\begin{proof} 
+	\begin{enumerate} [label= \alph*)]
+		\item 1. Es gibt eine kanonische Inklusion:
+		% hier lange abbildung :)
+		Die Elemente $[m,n] $ bilden offenbar eine $A$-Basis von $A^{M \times N } $. Sei $U$ ein Untermodul von $A^{M \times N }$, dr von allen Elementen der folgenden Gestalt erzeugt wird: $ [m + m^{'}, n] - [m,n] - [m^{'}, n], [m, n + n^{'}] - [m,n] -[m,n^{'}], [am,n] -a[m,n], [m,an] -a[m,n]$ mit $m,m^{'} \in M, n,n^{'} \in N, a\in A.$ Setze $$T:= \QR{A^{M \times N}}{U}, \tau: M \times N \hookrightarrow A^{M \times N} \to T, (m,n) \mapsto \bar{[m,n]}$$ 
+		2. T ist zusammen mit $\tau$ ein Tensorprodukt von $M,N$ über $A$: 
+		\begin{itemize}
+			\item T ist $A$- bilinear nach Konstruktion von U. ( zum Beispiel: $\tau(m +m^{'},n) = \bar{[m +m^{'},n]} = \bar{[m,n]} + \bar{[m^{'},n]} = \tau(m,n) + \tau(m^{'},n)$)
+			\item $T$ erfüllt die Universelle Eigenschaft: Sei $L$ ein $A$-Modul $\phi: M \times N \to L $ $A$-bilinear. Wir erhalten eine $A$-lineare Abbildung $$\psi: A^{M \times N } \to L, \quad \psi([m,n]) := \phi(m,n)$$ Wegen $\phi$ bilinear ist $\psi(U) = 0: \psi( [m + m^{'}, n] - [m,n] - [m^{'}, n]) = \psi([m + m^{'}, n]) -\psi([m,n]) - \psi([m^{'}, n]) = \phi(m + m^{'}, n) -\phi(m,n) -\phi(m^{'}, n) = 0 $. Daraus erhalten wir eine $A$-lineare Abbildung $$ \alpha: T = \QR{A^{M \times N}}{U} \to L $$ mit $\alpha([m,n]) = \psi([m,n]) = \phi(m,n)$ also $\alpha(\tau(m,n)) = \phi(m,n)$, das heißt $\alpha \circ \tau = \phi $. $\alpha $ ist durch die Vorgabe $\alpha \circ \tau = \phi $ eindeutig bestimmt, da die Elemente $ \bar{[m,n]} = \tau(m,n) $ den $A$-Modul $T$ erzeugen. 
+		\end{itemize}
+		\item mit Standardargumenten 
+		\item aus der Konstruktion im Beweis von (a)
+	\end{enumerate}
+\end{proof}
+\begin{anm}
+	Für $m \in M $ ist stehts $m \otimes 0 =0 $ denn  $ m \otimes 0 = m \otimes (0+0) = m \otimes 0 + m \otimes 0 $ anlalog $ 0 \otimes n = 0 $ für $n \in N$. 
+\end{anm}
+\begin{bsp}
+	\begin{enumerate}
+		\item $\QR{\Q}{\Z} \otimes_{\Z} \QR{\Q}{\Z} = 0 $ Denn: Seien $a,b \in \QR{\Q}{\Z}$ so existiert ein $ n \in N $ mit $ na = 0 $, es existiert ein $b^{'} \in \QR{\Q}{\Z} $ mit $nb^{'} = b \Ra a \otimes b = a \otimes (nb^{'}) = (na) \otimes b^{'} = 0 \otimes b^{'}$
+		\item $\QR{\Z}{2\Z} \otimes_{\Z} \QR{\Z}{3\Z} = 0 $. Denn: Für $a \in \QR{\Z}{2\Z}, b \in \QR{\Z}{3\Z} $ ist $a \otimes b = (3a) \otimes b = a \otimes (3b) = a \otimes 0 = 0$
+	\end{enumerate}
+\end{bsp}
