@@ -397,21 +397,24 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 \begin{fo} \label{12.12}
 	Es gilt: 
 	\begin{enumerate} [label= \alph*)]
-		\item $M$ endlich erzeugter $A$-Modul, dann folgt: $S^{-1}M $ ist ein endlich erzeugter $S^{-1}A$-Modul
-		\item $M$ noetherscher $A$-Modul, dann ist auch $S^{-1}M$ ein noetherscher $S^{-1}A$-Modul. 
+		\item Ist $M$ ein endlich erzeugter $A$-Modul, dann folgt: $S^{-1}M $ ist ein endlich erzeugter $S^{-1}A$-Modul
+		\item Ist $M$ ein  noetherscher $A$-Modul, dann ist auch $S^{-1}M$ ein noetherscher $S^{-1}A$-Modul. 
 	\end{enumerate}
 \end{fo}
 \begin{proof}
 	\begin{enumerate}
-		\item Sei $x_1,\dots,x_r $ ein Erzeugendensystem von $M$ über $A$, dann folgt $ \frac{x_1}{1}, \dots, \frac{x_r}{1} $ ist ein Erzeugendensystem von $S^{-1}M$ über $S^{-1}A$.
-		\item Sei $M$ ein noetherscher $A$-Modul, $L \subseteq S^{-1}M $ ein $S^{-1}A$-Untermodul. Mit \ref{12.11} folgt: es existiert ein Untermodul $N$ in $M$ mit $ L = S^{-1}N $, da $M$ noethersch ist $N$ endlich erzeugt. Mit (a) folgt $L = S^{-1}N$ ist eindelich erezugt über $S^{-1}A$.
+		\item Sei $x_1,\dots,x_r $ ein Erzeugendensystem von $M$ über $A$, dann ist $ \frac{x_1}{1}, \dots, \frac{x_r}{1} $ ein Erzeugendensystem von $S^{-1}M$ über $S^{-1}A$.
+		\item Sei $M$ ein noetherscher $A$-Modul, $L \subseteq S^{-1}M $ ein $S^{-1}A$-Untermodul. Mit \ref{12.11} folgt die Existenz eines Untermoduls $N$ in $M$ mit $ L = S^{-1}N $, da $M$ noethersch ist $N$ endlich erzeugt. Mit (a) folgt $L = S^{-1}N$ ist endlich erzeugt über $S^{-1}A$.
 	\end{enumerate}
 \end{proof}
 \begin{df} \label{12.13}
-	Sei $M$ ein $A$-Modul, $\p \subseteq A $ ein Primideal. Wir setzen $S := A \backslash \p$. $M_{\p} := S^{-1}M $ heißt die \define{Lokalisierung } von $M$ bei $\p$. Für einen Homomorphismus $\phi: M \to N $ von $A$-Moduln ist entsprechend $\phi_{\p} = S^{-1}\phi: M_{\p} \to N_{\p} $ definiert. 
+	Sei $M$ ein $A$-Modul, $\p \subseteq A $ ein Primideal. Wir setzen $S := A \backslash \p$.
+	\begin{enumerate}
+		\item[] $M_{\p} := S^{-1}M $ heißt die \define{Lokalisierung\index{Lokalisierung}} von $M$ bei $\p$.
+	\end{enumerate}  Für einen Homomorphismus $\phi: M \to N $ von $A$-Moduln ist entsprechend $\phi_{\p} = S^{-1}\phi: M_{\p} \to N_{\p} $ definiert. 
 \end{df}
 \begin{anm}
-	Eine Eigenschaft $(E)$ eines $A$-Moduls $M$ nennt man eine \define{lokale Eigenschft}, wenn gilt: $M$ erfüllt $(E) \Lra M_{\p} $ erfüllt $(E)$ für jedes Primideal $ \p \subseteq A $. 
+	Eine Eigenschaft $(E)$ eines $A$-Moduls $M$ nennt man eine \define{lokale Eigenschaft\index{lokale Eigenschaft eines Moduls}}, wenn gilt: $M$ erfüllt $(E) \Lra M_{\p} $ erfüllt $(E)$ für jedes Primideal $ \p \subseteq A $. 
 \end{anm}
 \begin{sa} \label{12.14}
 	Sei $M$ ein $A$-Modul. Dann sind äquivalent: 
@@ -423,7 +426,7 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 \end{sa}
 \begin{proof}
 	$(i) \Ra (ii) \Ra (iii) $ trivial \\
-	$(iii) \Ra (i) $ Sei $M \neq 0.$ Dann existiert ein $x\in M, x\neq 0.$ Es ist $ann_{A}(x) \subseteq A $ ein Ideal mit $ann_{A}(x )\neq A.$ Wegen $1 \notin ann_A(x)$, folgt dass ein maximales Ideal $\m \subseteq A $ mit $ann_A(x)\subseteq \m $. Für alle $s \in A\backslash \m \subseteq A \backslash ann_A(x) $ ist $sx \neq 0$ ist $ \frac{x}{1} \neq \frac{0}{1} $ in $M_{\m} $. Darus folgt $M_{\m} \neq 0. $
+	$(iii) \Ra (i) $ Sei $M \neq 0.$ Dann existiert ein $x\in M, x\neq 0.$ Es ist $\ann_{A}(x) \subseteq A $ ein Ideal mit $\ann_{A}(x )\neq A.$ Wegen $1 \notin \ann_A(x)$, folgt dass ein maximales Ideal $\m \subseteq A $ mit $ann_A(x)\subseteq \m $. Für alle $s \in A\backslash \m \subseteq A \backslash \ann_A(x) $ ist $sx \neq 0$ ist $ \frac{x}{1} \neq \frac{0}{1} $ in $M_{\m} $. Daraus folgt $M_{\m} \neq 0. $
 \end{proof}
 \begin{fo} \label{12.15}
 	Sei  $\begin{tikzcd}
@@ -461,48 +464,63 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 \begin{bem} \label{12.17}
 	Sei $A$ nullteilerfrei, $K = \Quot(A) $. Die natürliche Abbildung $A \to K $ beziehungsweise $A_{\p} \to K $, $\p$ Primideal in $A$, sind alle injektiv, fasse also $A$ bzw $A_{\p} $ als Unterringe von $K$ auf. Dann gilt: $$ A = \bigcap_{\p \subseteq A\atop \text{Primideal}} A_{\p} = \bigcap_{\m \subseteq A\atop \text{max. Ideal}} A_{\m}$$.
 \end{bem}
-\begin{proof}
-	(Für Primideale) \\
+\begin{proof}[Für Primideale]
 	"$\subseteq" $klar. \\
-	"$\supseteq"$ Sei $ x \in K $ mit $x \in A_{\p} $ für alle Primideale $ \p \subseteq A $. Setze $\phi: A \to \QR{K}{A}, a \mapsto ax +A$. (Homomorphismus von $A$-Moduln) dann folgt $\phi_{\p}: A_{\p} \to (\QR{K}{A})_{\p} = \QR{k_{\p}}{A_{\p}} $
-	%hier fehlt was
+	"$\supseteq"$ Sei $ x \in K $ mit $x \in A_{\p} $ für alle Primideale $ \p \subseteq A $. Setze $$\phi: A \to \QR{K}{A}, \quad a \mapsto ax +A$$ (Homomorphismus von $A$-Moduln) dann ist
+	$$\phi_{\p}: A_{\p} \to \left(\QR{K}{A}\right)_{\p} = \QR{k_{\p}}{A_{\p}} , \quad \frac{a}{s} \mapsto \frac{ax}{s} + A_\p$$
+	die Nullabbildung für alle Primideale $\p\subseteq A$ wegen $x\in A_\p$. Nach \ref{12.16} ist $\phi=0$, also insbesondere $\phi(1) = 0=x+ A=A$, also ist $x\in A$. Analog für maximale Ideale.
 \end{proof}
+\newpage
 \subsection{ Tensorprodukt und flache Moduln}
 \begin{df}
-	Seinen $L,M,N$ $A$-Moduln, $\phi: M \times N \to L. $ \\
-	$ \phi$  heißt \define{A-bilinear} $\defi$ für jedes $n \in \N $ ist die Abbildung $M \to L \quad m \mapsto \phi(m,n) $ $A$-linear und für jedes $m \in M $ ist die Abbildung $ N \to L \quad n \mapsto \phi(m,n)  $ $A$-linear.
+	Seien $L,M,N$ $A$-Moduln, $\phi: M \times N \to L. $. $ \phi$  heißt \define{A-bilinear\index{bilineare Abbildung}} $\defi$ für jedes $n \in \N $ ist die Abbildung $M \to L \quad m \mapsto \phi(m,n) $ $A$-linear und für jedes $m \in M $ ist die Abbildung $ N \to L \quad n \mapsto \phi(m,n)  $ $A$-linear.
 \end{df}
 \begin{df} 
-	Seien $M,N$ $A$-Moduln, Ein \define{Tensorprodukt} von $M$ und $N$ über $A$ ist ein $A$-Modul $T$ zusammen mit einer $A$-bilinearen Abbildung $\tau: M \times N \to T $ sodass folgende Universelle Eigenschaft erfüllt ist: Für jeden $A$-Modul $L$ und jede $A$-lineare Abbildung $\phi: M \times N \to L $ gibt es genau einen $A$-Modulhomomorphismus $\alpha:  T \to L $, sodass $\alpha \circ \tau = \phi$ gilt:
+	Seien $M,N$ $A$-Moduln, Ein \define{Tensorprodukt\index{Tensorprodukt}} von $M$ und $N$ über $A$ ist ein $A$-Modul $T$ zusammen mit einer $A$-bilinearen Abbildung $\tau: M \times N \to T $ sodass folgende Universelle Eigenschaft erfüllt ist: Für jeden $A$-Modul $L$ und jede $A$-lineare Abbildung $\phi: M \times N \to L $ gibt es genau einen $A$-Modulhomomorphismus $\alpha:  T \to L $, sodass $\alpha \circ \tau = \phi$ gilt:
 	$$\begin{tikzcd}
 	M \times N  \arrow{rr} \arrow{dr}{\tau} && L \\
 	& T \arrow[dashed, red]{ur}{\alpha}&
 	\end{tikzcd}$$
 \end{df}
 \begin{sa} \label{13.3}
-	Seinen $M,N $ $A$-Moduln. Dann gilt: 
+	Seien $M,N $ $A$-Moduln. Dann gilt: 
 	\begin{enumerate} [label= \alph*)]
 		\item Es gibt ein Tensorprodukt von $M,N$ über $A$.
-		\item Sind $T,T'$ Tensorprodukte von $M,N$ über $A$ mit $ A$-bilinearen Abbildungen $\tau: M \times N \to T$, $\tau^{'}: M \times N \to T^{'}$, dann existiert genau ein $A$-Modulhomomorphismus $\alpha: T \to T^{'} $ mit $\alpha \circ \tau = \tau^{'}. $ $ \alpha $ ist ein Isomorphismus. Mit anderen Worten: Das Tensorprodukt von $M,N$ ist eindeutig bestimmt bis auf einen einduteigen Isomorphismus. 
-		\item Ist $T$ ein Tensorprodukt von $M,N$ über $A$ mit $A$-bilinearer Abbildung $\tau: M \times N \to T $ und setzen wir für $m \in M, n \in N$: 
+		\item Sind $T,T'$ Tensorprodukte von $M,N$ über $A$ mit $ A$-bilinearen Abbildungen $\tau: M \times N \to T$, $\tau^{'}: M \times N \to T^{'}$, dann existiert genau ein $A$-Modulhomomorphismus $\alpha: T \to T^{'} $ mit $\alpha \circ \tau = \tau^{'}. $ $ \alpha $ ist ein Isomorphismus. Mit anderen Worten: Das Tensorprodukt von $M,N$ ist eindeutig bestimmt bis auf einen eindeutigen Isomorphismus. 
+		\item Ist $T$ ein Tensorprodukt von $M,N$ über $A$ mit einer $A$-bilinearen Abbildung $\tau: M \times N \to T $ und setzen wir für $m \in M, n \in N$: 
 		$$ m \otimes n  := \tau(m,n)$$
 		Dann wird $T$ erzeugt von den Elementen $m \otimes n $, $m \in M, n \in N $ das heißt jedes Element von $T$ ist von der Form $\sum_{i=1}^{r} a_i (m_i \otimes n_i) $ mit $ a_i \in A, m_i \in M , n_i \in N $. 
-		Hierbei gilt:\\
-		 $(m +m^{'}) \otimes n = m \otimes n + m^{'} \otimes n,$ \\
-		 $ m \otimes (n+n^{'}) = M \otimes n + m \otimes n^{'},$ \\
-		 $ (am) \otimes n = a ( m \otimes n ) = m \otimes (an) $  \\
+		Hierbei gilt:
+		 \begin{align*}
+		 (m +m^{'}) \otimes n &= m \otimes n + m^{'} \otimes n,&
+		  m \otimes (n+n^{'}) &= M \otimes n + m \otimes n^{'},\end{align*}
+		 $$(am) \otimes n = a ( m \otimes n ) = m \otimes (an) $$
 	   für alle $m,m^{'} \in M, n,n^{'} \in N, a\in A $. Notation für Tensorprodukt von $M$ und $N$ über $A$: $M \otimes_A N $
 	\end{enumerate}
 \end{sa}
 \begin{proof} 
 	\begin{enumerate} [label= \alph*)]
 		\item 1. Es gibt eine kanonische Inklusion:
-		% hier lange abbildung :)
-		Die Elemente $[m,n] $ bilden offenbar eine $A$-Basis von $A^{M \times N } $. Sei $U$ ein Untermodul von $A^{M \times N }$, dr von allen Elementen der folgenden Gestalt erzeugt wird: $ [m + m^{'}, n] - [m,n] - [m^{'}, n], [m, n + n^{'}] - [m,n] -[m,n^{'}], [am,n] -a[m,n], [m,an] -a[m,n]$ mit $m,m^{'} \in M, n,n^{'} \in N, a\in A.$ Setze $$T:= \QR{A^{M \times N}}{U}, \tau: M \times N \hookrightarrow A^{M \times N} \to T, (m,n) \mapsto \bar{[m,n]}$$ 
+		$$\begin{tikzcd}[row sep = tiny]
+			\iota: M \times N\arrow[hook]{r} & A^{(M \times N)} = \bigoplus_{k\in M \times N} A	\\
+			(m,n) \arrow[mapsto]{r} & [m,n] = ([m,n]_k)_{k\in M\times N}	
+		\end{tikzcd}$$
+		(was kein $A$-Modulhomomorphismus ist) wobei 
+		$$[m,n]_k:= \begin{cases}
+		1, & \text{falls } k=(m,n) \\0 & \text{sonst}
+		\end{cases}$$
+		Die Elemente $[m,n] $ bilden offenbar eine $A$-Basis von $A^{M \times N } $. Sei $U$ ein Untermodul von $A^{M \times N }$, der von allen Elementen der folgenden Gestalt erzeugt wird: 
+		\begin{align*}
+		 &[m + m^{'}, n] - [m,n] - [m^{'}, n], &[m, n + n^{'}] - [m,n] -[m,n^{'}], \\
+		 &[am,n] -a[m,n],& [m,an] -a[m,n]
+		\end{align*} mit $m,m^{'} \in M, n,n^{'} \in N, a\in A.$ Setze $$T:= \QR{A^{M \times N}}{U}, \quad \tau: M \times N \overset{\iota}{\hookrightarrow} A^{M \times N} \overset{\pi}{\to} T,\quad  (m,n) \mapsto \bar{[m,n]}$$ 
 		2. T ist zusammen mit $\tau$ ein Tensorprodukt von $M,N$ über $A$: 
 		\begin{itemize}
 			\item T ist $A$- bilinear nach Konstruktion von U. ( zum Beispiel: $\tau(m +m^{'},n) = \bar{[m +m^{'},n]} = \bar{[m,n]} + \bar{[m^{'},n]} = \tau(m,n) + \tau(m^{'},n)$)
-			\item $T$ erfüllt die Universelle Eigenschaft: Sei $L$ ein $A$-Modul $\phi: M \times N \to L $ $A$-bilinear. Wir erhalten eine $A$-lineare Abbildung $$\psi: A^{M \times N } \to L, \quad \psi([m,n]) := \phi(m,n)$$ Wegen $\phi$ bilinear ist $\psi(U) = 0: \psi( [m + m^{'}, n] - [m,n] - [m^{'}, n]) = \psi([m + m^{'}, n]) -\psi([m,n]) - \psi([m^{'}, n]) = \phi(m + m^{'}, n) -\phi(m,n) -\phi(m^{'}, n) = 0 $. Daraus erhalten wir eine $A$-lineare Abbildung $$ \alpha: T = \QR{A^{M \times N}}{U} \to L $$ mit $\alpha([m,n]) = \psi([m,n]) = \phi(m,n)$ also $\alpha(\tau(m,n)) = \phi(m,n)$, das heißt $\alpha \circ \tau = \phi $. $\alpha $ ist durch die Vorgabe $\alpha \circ \tau = \phi $ eindeutig bestimmt, da die Elemente $ \bar{[m,n]} = \tau(m,n) $ den $A$-Modul $T$ erzeugen. 
+			\item $T$ erfüllt die Universelle Eigenschaft: Sei $L$ ein $A$-Modul $\phi: M \times N \to L $ $A$-bilinear. Wir erhalten eine $A$-lineare Abbildung $$\psi: A^{M \times N } \to L, \quad \psi([m,n]) := \phi(m,n)$$ Wegen $\phi$ bilinear ist $\psi(U) = 0:$
+			\begin{eqnarray*} \psi( [m + m^{'}, n] - [m,n] - [m^{'}, n]) &=& \psi([m + m^{'}, n]) -\psi([m,n]) - \psi([m^{'}, n])\\
+				& =& \phi(m + m^{'}, n) -\phi(m,n) -\phi(m^{'}, n) \\
+				&=& 0 \end{eqnarray*}. Daraus erhalten wir eine $A$-lineare Abbildung $$ \alpha: T = \QR{A^{M \times N}}{U} \to L $$ mit $\alpha([m,n]) = \psi([m,n]) = \phi(m,n)$ also $\alpha(\tau(m,n)) = \phi(m,n)$, das heißt $\alpha \circ \tau = \phi $. $\alpha $ ist durch die Vorgabe $\alpha \circ \tau = \phi $ eindeutig bestimmt, da die Elemente $ \bar{[m,n]} = \tau(m,n) $ den $A$-Modul $T$ erzeugen. 
 		\end{itemize}
 		\item mit Standardargumenten 
 		\item aus der Konstruktion im Beweis von (a)
