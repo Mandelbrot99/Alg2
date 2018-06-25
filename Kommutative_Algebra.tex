@@ -225,7 +225,7 @@ Ferner gibt es einen Ringhomomorphismus $\tau:A \to S^{-1}A, \; a \mapsto \frac{
 	\begin{enumerate}
 		\item[] $S^{-1}\a := a^e=\{\frac{a}{s}\ | \ a\in \a, \, s\in S\}\subseteq S^{-1}A$ ist ein Ideal.
 	\end{enumerate}
-	Ferner gilt: $S^{-1}\a= S^{-1}A\Lra \a\cap S = \emptyset$. 
+	Ferner gilt: $S^{-1}\a= S^{-1}A\Lra \a\cap S \neq \emptyset$. 
 \end{bem+df}
 \begin{proof}
 	"'$\Ra$"' $S^{-1}\a = S^{-1}A \Ra 1 = \frac{1}{1} \in S^{-1}\a \Ra $ Es existiert ein $a\in \a, \, s\in S$ mit $\frac{a}{s} = \frac{1}{1}$. Damit exitstiert ein $t\in S$ mit $ta = ts$, also ist $\a \cap S \neq \emptyset$.\\
@@ -472,10 +472,10 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 \end{proof}
 \newpage
 \subsection{ Tensorprodukt und flache Moduln}
-\begin{df}
+\begin{df}\label{13.1}
 	Seien $L,M,N$ $A$-Moduln, $\phi: M \times N \to L. $. $ \phi$  heißt \define{A-bilinear\index{bilineare Abbildung}} $\defi$ für jedes $n \in \N $ ist die Abbildung $M \to L \quad m \mapsto \phi(m,n) $ $A$-linear und für jedes $m \in M $ ist die Abbildung $ N \to L \quad n \mapsto \phi(m,n)  $ $A$-linear.
 \end{df}
-\begin{df} 
+\begin{df} \label{13.2}
 	Seien $M,N$ $A$-Moduln, Ein \define{Tensorprodukt\index{Tensorprodukt}} von $M$ und $N$ über $A$ ist ein $A$-Modul $T$ zusammen mit einer $A$-bilinearen Abbildung $\tau: M \times N \to T $ sodass folgende Universelle Eigenschaft erfüllt ist: Für jeden $A$-Modul $L$ und jede $A$-lineare Abbildung $\phi: M \times N \to L $ gibt es genau einen $A$-Modulhomomorphismus $\alpha:  T \to L $, sodass $\alpha \circ \tau = \phi$ gilt:
 	$$\begin{tikzcd}
 	M \times N  \arrow{rr} \arrow{dr}{\tau} && L \\
@@ -518,16 +518,17 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 		\begin{itemize}
 			\item T ist $A$- bilinear nach Konstruktion von U. ( zum Beispiel: $\tau(m +m^{'},n) = \bar{[m +m^{'},n]} = \bar{[m,n]} + \bar{[m^{'},n]} = \tau(m,n) + \tau(m^{'},n)$)
 			\item $T$ erfüllt die Universelle Eigenschaft: Sei $L$ ein $A$-Modul $\phi: M \times N \to L $ $A$-bilinear. Wir erhalten eine $A$-lineare Abbildung $$\psi: A^{M \times N } \to L, \quad \psi([m,n]) := \phi(m,n)$$ Wegen $\phi$ bilinear ist $\psi(U) = 0:$
-			\begin{eqnarray*} \psi( [m + m^{'}, n] - [m,n] - [m^{'}, n]) &=& \psi([m + m^{'}, n]) -\psi([m,n]) - \psi([m^{'}, n])\\
-				& =& \phi(m + m^{'}, n) -\phi(m,n) -\phi(m^{'}, n) \\
-				&=& 0 \end{eqnarray*}. Daraus erhalten wir eine $A$-lineare Abbildung $$ \alpha: T = \QR{A^{M \times N}}{U} \to L $$ mit $\alpha([m,n]) = \psi([m,n]) = \phi(m,n)$ also $\alpha(\tau(m,n)) = \phi(m,n)$, das heißt $\alpha \circ \tau = \phi $. $\alpha $ ist durch die Vorgabe $\alpha \circ \tau = \phi $ eindeutig bestimmt, da die Elemente $ \bar{[m,n]} = \tau(m,n) $ den $A$-Modul $T$ erzeugen. 
+			\begin{eqnarray*} \psi( [m + m', n] - [m,n] - [m', n]) &=& \psi([m + m', n]) -\psi([m,n]) - \psi([m', n])\\
+				& =& \phi(m + m', n) -\phi(m,n) -\phi(m', n) \\
+				&=& 0
+			 \end{eqnarray*}. Daraus erhalten wir eine $A$-lineare Abbildung $$ \alpha: T = \QR{A^{M \times N}}{U} \to L $$ mit $\alpha([m,n]) = \psi([m,n]) = \phi(m,n)$ also $\alpha(\tau(m,n)) = \phi(m,n)$, das heißt $\alpha \circ \tau = \phi $. $\alpha $ ist durch die Vorgabe $\alpha \circ \tau = \phi $ eindeutig bestimmt, da die Elemente $ \bar{[m,n]} = \tau(m,n) $ den $A$-Modul $T$ erzeugen. 
 		\end{itemize}
 		\item mit Standardargumenten 
 		\item aus der Konstruktion im Beweis von (a)
 	\end{enumerate}
 \end{proof}
 \begin{anm}
-	Für $m \in M $ ist stehts $m \otimes 0 =0 $ denn  $ m \otimes 0 = m \otimes (0+0) = m \otimes 0 + m \otimes 0 $ anlalog $ 0 \otimes n = 0 $ für $n \in N$. 
+	Für $m \in M $ ist stets $m \otimes 0 =0 $ denn  $ m \otimes 0 = m \otimes (0+0) = m \otimes 0 + m \otimes 0 $ analog $ 0 \otimes n = 0 $ für $n \in N$. 
 \end{anm}
 \begin{bsp}
 	\begin{enumerate}
@@ -535,3 +536,153 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 		\item $\QR{\Z}{2\Z} \otimes_{\Z} \QR{\Z}{3\Z} = 0 $. Denn: Für $a \in \QR{\Z}{2\Z}, b \in \QR{\Z}{3\Z} $ ist $a \otimes b = (3a) \otimes b = a \otimes (3b) = a \otimes 0 = 0$
 	\end{enumerate}
 \end{bsp}
+\begin{bem}\label{13.5}
+	Seien $M,M', N,N'$ $A$-Moduln, $f:M \to M'$, $g:N \to N'$ $A$-Modulhomomorphismen. Dann gibt es genau einen $A$-Modulhomomorphismus 
+	$$f\otimes g: M \otimes N \longrightarrow M' \otimes N'$$
+	mit $(f \otimes g)(m \otimes n) = f(m) \otimes g(n)$ für alle $m\in M, \, n\in N$.
+\end{bem}
+\begin{proof}
+	Die Abbildung $f\times g:M \times N \to M' \otimes N', \; (m,n) \mapsto f(m) \otimes g(n)$ ist $A$-bilinear. Dann folgt die Behauptung aus der Universellen Eigenschaft des Tensorprodukts.
+\end{proof}
+\begin{fo}
+	Seien $M,N$ $A$-Moduln. Dann sind 
+	$$M \otimes_A - : A\text{-Mod} \to A\text{-Mod} \quad \text{und} \quad -\otimes_A N: A\text{-Mod} \to A\text{-Mod}$$
+	additive Funktoren. hierbei setzen wir für $N_1, N_2\in A$-Mod, $\phi \in \Hom_A(N_1, N_2)$
+	$$(M \otimes_A -)(\phi) : =\id_M\otimes\, \phi : M \otimes N_1 \to M \otimes N_2, \quad m\otimes n \mapsto m \otimes \phi(n)$$
+	(analog für $-\otimes_A N$)
+\end{fo}\label{13.6}
+\begin{proof}
+	Offenbar ist $(M \otimes_A -)(\id_N) = \id_M\otimes \id_N = \id_{M \otimes N}$ und für $\phi \in \Hom_A(N_1, N_2)$, $\psi \in \Hom_A(N_2,N_3)$ ist 
+	$$(M \otimes_A -)(\psi\circ \phi) = \id_M \otimes(\psi \circ \phi) = (\id_M \otimes \psi)\otimes(\id_M\otimes \phi) = (M \otimes_A-)(\psi) \circ (M \otimes_A -)(\phi)$$
+\end{proof}
+\begin{bem}\label{13.7}
+	Seien $L,M,N$ $A$-Moduln, $(N_i)_{i\in I}$ eine Familie von $A$-Moduln. Dann gibt es natürliche Isomorphismen 
+	\begin{enumerate}[label= \alph*)]
+		\item $M \otimes_A A \cong A \cong A \otimes_A N$
+		\item $N\otimes_A N\cong N \otimes_A M$
+		\item $(L\otimes_A M)\otimes_A N \cong L \otimes_A(M \otimes_A N)$
+		\item $M \otimes_A \left(\bigoplus_{i\in I} N_i\right) \cong \bigoplus_{i\in I}(M \otimes N_i)$
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	\begin{enumerate}[label= \alph*)]
+		\item Die Abbildung $\phi:M \times A \to M, \, (m,a) \mapsto am$ ist $A$-bilinear. Aus der Universellen Eigenschaft erhalten wir einen $A$-Modulhomommorphismus $\alpha:M \otimes_A A \to M$ mit $\alpha(m \otimes a) = am$. Die Abbildung $\beta:M \to M \otimes_A A, \, m \mapsto m \otimes 1$ ist $A$-linear. Es ist 
+		\begin{eqnarray*}
+		(\beta \circ \alpha)(m \otimes a)& =& \beta(am) = (am) \otimes 1 = m \otimes a\\
+		(\alpha \circ \beta)(m) &=& \alpha(m \otimes 1) = 1m = m
+		\end{eqnarray*}
+	d.h. $\alpha, \beta$ sind invers zueinander, also $M \otimes_AA\cong A$. Für $A$-Modulhomomorphismen $M_1,M_2, \, \phi\in \Hom_A(M_1, M_2)$ kommutiert das Diagramm
+	$$\begin{tikzcd}
+	M_1 \otimes A \arrow[swap]{d}{\phi\otimes \id_A}\arrow{r}{\alpha_1, \sim}& M_1\arrow{d}{\phi} \\
+	M_2 \otimes A \arrow{r}{\alpha_2, \sim} & M_2
+	\end{tikzcd}$$
+	denn: 
+	$$\alpha(\phi\otimes \id_A) (m \otimes a) = \alpha_2(\phi(m) \otimes a) = a\phi(m) = \phi(am) = \phi(\alpha_1(m \otimes a))$$
+	\item Die Abbildung $\phi:M \times N \to N \otimes_A M, \, (m,n) \mapsto n \otimes m$ ist $A$-bilinear. Nach der Universellen Eigenschaft erhalten wir einen $A$-Modulhomomorphismus $\alpha:M \otimes_A N \to N \otimes_A M$ mit $\alpha(m \otimes n) = n \otimes m$ für alle $m\in M, \, n\in N$. Analog erhlalten wir einen $A$-Modulhomomorphismus $\beta:M \otimes_A M \to M \otimes_A N$ mit $\beta(n \otimes m) = m \otimes n$ für alle $m\in M, \, n\in N$. Diese sind offenbar invers zueinander. Die Natürlichkeit folgt aus der Kommutativität des Diagramms
+	$$\begin{tikzcd}
+	M_1 \otimes N_1 \arrow{r}{\alpha_1} \arrow[swap]{d}{\phi \otimes \psi} & N_1 \otimes_A M_1 \arrow{d}{\psi \circ \phi}\\
+	M_2 \otimes_A N_2 \arrow{r}{\alpha_2} & N_2  \otimes M_2
+	\end{tikzcd}$$
+	Rest Übung.
+	\end{enumerate}
+\end{proof}
+\begin{anm}
+	Das Tensorprodukt kommutiert im Allgemeinen nicht mit Produkten (Übung).
+\end{anm}
+\begin{fo}\label{13.8}
+	Seien $M,N$ freie $A$-Moduln. Dann ist $M\otimes_A N$ ein freier $A$-Modul.
+\end{fo}
+\begin{proof}
+	Nach Voraussetzung ist $M \cong R^{(I)}  =\bigoplus_{i\in I} A, \, N \cong A^{(J)}$ für geeignete $I,J$. Dann ist 
+	$$M \otimes_A N \cong A^{(I)} \otimes_A A^{(J)} = \left( \bigoplus_{i\in I} A\right)\otimes \left(\bigoplus_{j\in J}A\right) = \bigoplus_{I\times J}(A \otimes_A A) \cong \bigoplus_{I\times J}A = A^{(I \times J)}$$
+\end{proof}
+\begin{bem}\label{13.9}
+	Sei $B$ ein kommutativer Ring. $f:A\to B$ ein Ringhomomorphismus, $M$ ein $A$-Modul. Dann wird $B$ ein $A-$Modul vermöge $A\times B \to M, \, (a,b) \mapsto f(a) b$ und $M \otimes_AB$ ist ein $B$-Modul vermöge 
+	$$B \times (M \otimes_A B)\to M \otimes_A B\quad(b, \sum_{i=1}^r m_i \otimes b_i)\mapsto \sum_{i=1}^r m_i \otimes b b_i$$
+	
+\end{bem}
+\begin{bem}\label{13.10}
+	Sei $B$ ein kommutativer Ring, $M$ ein $A$-Modul, $L$ ein $B$-Modul, $N$ $A$- und $B$-Modul mit $a(b x) = b(ax)$ für alle $a\in A, \, b\in B, \, x\in N$ ("'\define{$N$ ist ein $(A,B)$-Bimodul\index{Bimodul}}"'). Dann ist $M \otimes_AN$ in natürlicher Weise ein $B$-Modul, $M\otimes_BL$ ein $A$-Modul und es ists 
+	$$(M \otimes_A N) \otimes_B L \cong M \otimes_A(N \otimes_B L)$$
+	ein Isomomorphismus von $A$- und $B$-Moduln.
+\end{bem}
+\begin{proof}
+	Übung.
+\end{proof}
+\begin{bem}\label{13.11}
+	Sei $M$ ein $A$-Modul, $S\subseteq A$ ein Untermonoid bezüglich "'$\cdot$"'. Dann gibt es einen natürlichen Isomorphismus (von $A$- und $S^{-1}A$-Moduln)
+	$$S^{-1}A \otimes_AM\cong S^{-1}M$$
+\end{bem}
+\begin{proof}
+	Setze $$\phi:S^{-1}A \times M \to S^{-1} M, \quad  \left(\frac{a}{s}, m\right) \mapsto \frac{am}{s}$$
+	$\phi$ ist wohldefniert und $A$-bilinear, d.h. wir erhalten einen $A$-Modulhomomorphismus
+	$$\psi: S^{-1}A \otimes_A M \longrightarrow S^{-1} M \quad \text{mit} \quad \psi\left(\frac{a}{s} \otimes m \right) =\frac{am}{s}$$
+	für alle $a\in A, \, s\in S,\, m \in M$. Definiere $\delta: S^{-1}M \to S^{-1}A \otimes_AM, \, \frac{m}{s} \mapsto \frac{1}{s} \otimes me $. Dann ist $\delta$ wohldefiniert, denn sei $\frac{m_1}{s_1} =\frac{m_2}{s_2}$. Dann existiert ein $t\in S$ mit $ts_2m_1 = ts_1m_2$, also ist 
+	$$\frac{1}{s_1} \otimes m_1 = \frac{1}{ts_2s_1} \otimes ts_2 m_1 = \frac{1}{ts_2s_1} \otimes ts_1 m_2 = \frac{1}{s_2} \otimes m_2$$
+	Es ist $\psi \circ \delta = \id_{S^{-1}M}$ und 
+	$$(\delta\circ \psi)\left(\frac{a}{s} \otimes m\right)= \delta \left(\frac{am}{s}\right)= \frac{1}{s}\otimes (am) = \frac{a}{s}\otimes m$$
+	d.h. $\delta \circ \psi = \id_{S^{-1}A \otimes_A M}$. $\psi$ ist auch ein Homomorphismus von $S^{-1}A$-Moduln. Die Natürlichkeit n $M$ rechnet man leicht nach.	
+\end{proof}
+\begin{bem}\label{13.12}
+	Seiene $M,N$ $A$-Moduln, $S\subseteq A$ ein Untermonoid bezüglich "'$\cdot$"'. Dann gibt es einen natürlichen Isomorphismus von $S^{-1}A$-Moduln 
+	$$S^{-1} M \otimes_{S^{-1}M} S^{-1}N \cong S^{-1} (M \otimes_A N)$$
+\end{bem}
+\begin{proof}
+	Übung.
+\end{proof}
+\begin{bem}\label{13.13}
+	Seien $L,M,N$ $A$-Moduln. Dann gilt: 
+	$$\Hom_A(M \otimes_A N, L) \cong \Hom_A(M, \Hom_A(N,L))$$
+	auf natürliche Weise. Insbesondere ist $-\otimes_AN$ \rotatebox{90}{$\perp$} $\Hom_A(N,-)$. 
+\end{bem}
+\begin{proof}
+	Setze $\text{Bil}_A(M\times N,L):= \{f:M \times N \to L \ | \ f \text{ ist }A\text{-bilinear}\}$. Dann ist $\text{Bil}_A(M \times N,L)$ auf natürliche Weise ein $A$-Modul. Nach Definition des Tensorprodukts ist 
+	$$\Hom_A(M \otimes_AN,L) \cong \text{Bil}_A(M \times N,L)$$
+	ein Isomorphismus von $A$-Moduln. Definiere 
+	\begin{eqnarray*}
+		\Phi: \text{Bil}_A(M \times N, L) &\longrightarrow &\Hom_A(M, \Hom_A(N,L))\\
+		 \phi &\mapsto& \Phi(\phi): M \to \Hom_A(N,L), \, m \mapsto (N \to L, n \mapsto \phi(m,n))
+ 	\end{eqnarray*}
+ 	und 
+ 	\begin{eqnarray*}
+ 	\Psi: \Hom_A(M, \Hom_A(N,L)) & \longrightarrow & \text{Bil}_A(M \times N,L) \\
+ 	\psi &\mapsto& (M \times N \to L, \, (m,n) \mapsto \psi(m)(n) ) 
+ 	\end{eqnarray*}
+ 	$\Phi, \Psi$ sind zueinander inverse $A$-Modulhomomorphismen. Also folgt
+ 	$$\Hom_A(M \otimes_A N,L) \cong \text{Bil}_A(M \times N,L) \cong \Hom_A(M,\Hom_A(N,L))$$
+\end{proof}
+\begin{fo}\label{13.14}
+	Seien $M,N$ $A$-Moduln. Dann sind die Funktoren $M \otimes_A -$ und $-\otimes_A N$ rechtsexakt.
+\end{fo}
+\begin{proof}
+	Wegen $-\otimes_A$ \rotatebox{90}{$\perp$} $\Hom_A(N,-)$ ist $-\otimes_A N$ rechtsexakt nach \ref{5.33}. Nach \ref{13.7} $b)$ ist auch $M \otimes_A -$ rechtsexakt.
+\end{proof}
+\begin{bsp}
+	$-\otimes_A N$ ist im Allgemeinen nicht exakt: Sei $A= \Z$, $N = \QR{\Z}{2 \Z}$. Wir betrachten die Folge 
+	$$\begin{tikzcd}
+	0 \arrow{r} & \Z \arrow{r}{f} & \Z\arrow{r}{\pi} & \QR{\Z}{2\Z} \arrow{r} & 0
+	\end{tikzcd}$$
+	wobei $f: \Z \to \Z, \, x\mapsto 2x$ und $\pi$ der kanonischen Projektion.
+	Es ist $\Z\otimes_\Z\QR{\Z}{2\Z} \cong \QR{\Z}{2\Z} \neq 0$ und die Abbildung
+	$$f\otimes_A \id_N : \Z \otimes_\Z \QR{\Z}{2\Z} \longrightarrow \Z \otimes_\Z \QR{\Z}{2\Z}$$
+	ist die Nullabbildung, denn für $x\in \Z, \, y\in \QR{\Z}{2\Z}$ ist 
+	$$(f \otimes \id_N)(x \otimes y) = f(x) \otimes y = 2x \otimes y = x \otimes 2y = x \otimes 0 = 0$$
+\end{bsp}
+\begin{bem}\label{13.15}
+	Sei $M$ ein $A$-Modul, $\a\subseteq A$ ein Ideal. Dann gilt:
+	$$\QR{A}{\a} \otimes_A M \cong \QR{M}{\a M}$$
+\end{bem}
+\begin{proof}
+	Wir betrachten die exakte Sequenz
+	$$\begin{tikzcd}
+	0 \arrow{r} & \a \arrow{r}{\iota} & A \arrow{r} & \QR{A}{\a} \arrow{r} & 0 
+	\end{tikzcd}$$
+	von $A$-Moduln. Anwendung von $-\otimes_AM$ liefert nach \ref{13.14} die exakte Folge 
+	$$\begin{tikzcd}
+	\a \otimes_A M \arrow{r}{\iota \otimes \id_M} & A\arrow{d}{\psi, \sim} \otimes_AM\arrow{r} & \QR{A }{\a} \otimes_A M \arrow{r} & 0\\
+	& M & & 
+	\end{tikzcd}$$
+	d.h. $\QR{A}{\a} \otimes_AM\cong \coker(\iota\otimes_A \id_M)$. Nach \ref{13.7} $a)$ ist die Abbildung $\psi:A \otimes_A M \to M,\, a \otimes m \mapsto am$ ein $A$-Modulisomorphismus. Es folgt 
+	$$\QR{A}{\a} \otimes_A M \cong \coker(\iota\otimes_A \id_M) \cong \coker(\psi\circ (\iota \otimes_A \id_M))$$
+	wobei $\psi \circ(\iota\otimes_A \id_M) : \a \otimes_A M \to M, \, \sum a_i \otimes m_i \mapsto \sum a_i m_i$, insbesondere ist $\im(\psi \circ (\iota \otimes_A \id_M)) = \a M$, d.h. $\coker(\psi \circ (\iota \otimes \id_M)) = \QR{M}{\a M}$.
+\end{proof}
