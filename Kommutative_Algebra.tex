@@ -668,7 +668,7 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 	ist die Nullabbildung, denn für $x\in \Z, \, y\in \QR{\Z}{2\Z}$ ist 
 	$$(f \otimes \id_N)(x \otimes y) = f(x) \otimes y = 2x \otimes y = x \otimes 2y = x \otimes 0 = 0$$
 \end{bsp}
-\begin{bem}\label{13.15}
+\begin{bem}\label{13.16}
 	Sei $M$ ein $A$-Modul, $\a\subseteq A$ ein Ideal. Dann gilt:
 	$$\QR{A}{\a} \otimes_A M \cong \QR{M}{\a M}$$
 \end{bem}
@@ -697,7 +697,7 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 	0 \arrow{r} & M' \arrow{r}{f} & M \end{tikzcd}$ exakte Folge von $A$-Moduln $\Ra \begin{tikzcd}
 	0 \arrow{r} & M^{'}\otimes_A P \arrow{r}{f \otimes id_P} & M \otimes_A P \end{tikzcd}$ ist exakt. \\
 	Sei $\begin{tikzcd} 0 \arrow{r} & M' \arrow{r}{f} & M \end{tikzcd}$ exakt. Wir erhalten kommutatives Diagramm mit exakten Zeilen.
-		$$\begin{tikzcd}
+		$$\begin{tikzcd}[column sep = huge]
 	0 \arrow{r} & \bigoplus_{i \in I} M^{'} \arrow[swap]{d}{\cong}\arrow{r}{\oplus f}& \bigoplus_{i \in I} M \arrow{d}{\cong} \\
 	0 \arrow{r} & M^{'} \otimes_A \bigoplus_{i \in I} A \arrow[swap]{d}{\cong} \arrow{r}{ f \otimes id_{A^{(I)}}} & 	M \otimes_A \bigoplus_{i \in I} A \arrow[swap]{d}{\cong} \\
 	0 \arrow{r} & M^{'} \otimes_A P \oplus Q \arrow[swap]{d}{\cong} \arrow{r}{ f \otimes (id_p \oplus id_Q) } & 	M \otimes_A P \oplus Q \arrow[swap]{d}{\cong}\\
@@ -707,16 +707,16 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 	0 \arrow{r} & M^{'}\otimes_A P \arrow{r}{f \otimes id_P} & M \otimes_A P \end{tikzcd}$ exakt ist.
 \end{proof}
 \begin{bem} \label{13.19}
-	Seien $M,N $ Flache $A$-Moduln. Dann ist $ M \otimes_A N $ flach.
+	Seien $M,N $ flache $A$-Moduln. Dann ist $ M \otimes_A N $ flach.
 \end{bem}
 \begin{proof}
 	Sei $\begin{tikzcd}
-	0 \arrow{r} & L' \arrow{r}{f} & L \end{tikzcd}$ eine exakte Sequenz von $A$-Moduln \\
-	Da $M$ flach ist folgt: $\begin{tikzcd}	0 \arrow{r} & L' \otimes_A M \arrow{r}{f} & L \otimes_A M \end{tikzcd}$ ist exakt \\
+	0 \arrow{r} & L' \arrow{r} & L \end{tikzcd}$ eine exakte Sequenz von $A$-Moduln \\
+	Da $M$ flach ist folgt: $\begin{tikzcd}	0 \arrow{r} & L' \otimes_A M \arrow{r} & L \otimes_A M \end{tikzcd}$ ist exakt \\
 	Da $N$ flach ist, folgt: 
-	$\begin{tikzcd}	0 \arrow{r} & (L' \otimes_A M) \otimes_A N\arrow{r}{f} & (L \otimes_A M) \otimes_A N \end{tikzcd}$ ist exakt \\
+	$\begin{tikzcd}	0 \arrow{r} & (L' \otimes_A M) \otimes_A N\arrow{r} & (L \otimes_A M) \otimes_A N \end{tikzcd}$ ist exakt \\
 	Und mit \ref{13.7} schließlich dass
-	$\begin{tikzcd}	0 \arrow{r} & L' \otimes_A (M \otimes_A N) \arrow{r}{f} & L \otimes_A( M \otimes_A N) \end{tikzcd}$ exakt ist.
+	$\begin{tikzcd}	0 \arrow{r} & L' \otimes_A (M \otimes_A N) \arrow{r} & L \otimes_A( M \otimes_A N) \end{tikzcd}$ exakt ist.
 	
 \end{proof}
 \begin{bem} \label{13.20}
@@ -727,12 +727,14 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 	\end{enumerate}
 \end{bem}
 \begin{proof}
-	Sei $\begin{tikzcd} 0 \arrow{r} & N' \arrow{r} & N \end{tikzcd}$. Dann: \\
-	$\begin{tikzcd}
-	0 \arrow{r} & N^{'}\otimes_A (\bigoplus_{i \in I} M_i) \arrow{r} & N \otimes_A (\bigoplus_{i \in I} M_i) \end{tikzcd}$ exakt \\
-	$\overset{13.7}{\Lra} \begin{tikzcd}
-	0 \arrow{r} & \bigoplus_{i \in I} (N^{'}\otimes_A M_i) \arrow{r} & \bigoplus_{i \in I} (N^{}\otimes_A M_i) \end{tikzcd}$ exakt.\\
-	 $\Lra \begin{tikzcd} 0 \arrow{r} & N' \otimes_A M_i \arrow{r} & N \otimes_A M_i \end{tikzcd}$ exakt für alle $i \in I$
+	Sei $\begin{tikzcd} 0 \arrow{r} & N' \arrow{r} & N \end{tikzcd}$. Dann ist \\
+	\begin{eqnarray*}
+	& &	\begin{tikzcd}
+	0 \arrow{r} & N^{'}\otimes_A (\bigoplus_{i \in I} M_i) \arrow{r} & N \otimes_A (\bigoplus_{i \in I} M_i) \end{tikzcd} \text{ exakt} \\
+	&\overset{13.7}{\Lra}& \begin{tikzcd}
+	0 \arrow{r} & \bigoplus_{i \in I} (N^{'}\otimes_A M_i) \arrow{r} & \bigoplus_{i \in I} (N^{}\otimes_A M_i) \end{tikzcd} \text{ exakt}\\
+	&\Lra& \begin{tikzcd} 0 \arrow{r} & N' \otimes_A M_i \arrow{r} & N \otimes_A M_i \end{tikzcd} \text{ exakt für alle }i \in I
+\end{eqnarray*}
 \end{proof}
 \begin{bem} \label{13.21}
 	Sei $B$ ein kommutativer Ring, $f: A \to B $ ein Ringhomomorphismus, $M$ ein flacher $A$-Modul. Dann ist $ B \otimes_A M $ ein flacher $B$-Modul. 
@@ -746,10 +748,10 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 \begin{proof}
 	Sei $\begin{tikzcd} 0 \arrow{r} & M' \arrow{r} & M \end{tikzcd}$ eine exakte Folge von $A$-Moduln. Wir erhalten kommutatives Diagramm mit exakten Zeilen: 
 	$$\begin{tikzcd}
-	S^{-1}A \arrow[swap]{d}{\cong}\arrow{r} &  S^{-1}M \arrow{d}{\cong} \\
-	S^{-1}A \otimes_A M^{'} \arrow{r} & S^{-1}A \otimes_A M
+	0 \arrow{r} &S^{-1}M' \arrow[swap]{d}{\sim}\arrow{r} &  S^{-1}M \arrow{d}{\sim} \\
+0 \arrow{r} & 	S^{-1}A \otimes_A M^{'} \arrow{r} & S^{-1}A \otimes_A M
 	\end{tikzcd}$$
-	(Beachte Exaktheit von $S^{-1}-$, \ref{12.8})
+	(Beachte: $S^{-1}-$ ist exakt nach \ref{12.8})
 \end{proof}
 \begin{anm}
 	$A$ nullteilerfrei $\Ra \Quot A $ flacher Modul.
@@ -766,60 +768,60 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 \begin{proof}
 	$(i) \Ra(ii) $ folgt wegen $M_{\p} \cong M \otimes_A A_{\p} $ aus \ref{13.21} \\
 	$(ii) \Ra(iii) $ trivial.\\
-	$(iii) \Ra(i) $ Sei $\begin{tikzcd} 0 \arrow{r} & N' \arrow{r} & N \end{tikzcd}$ eine exakte Folge von $A$-Moduln. Mit \ref{12.15} folgt  $\begin{tikzcd} 0 \arrow{r} & N_{\m}^{'} \arrow{r} & N_{\m} \end{tikzcd}$ ist eine exakte Sequenz von $A_{\m}$-Moduln für alle maximalen Ideale $\m \subseteq A $. mit (iii) folgt  $\begin{tikzcd} 0 \arrow{r} & N_{\m}^{'} \otimes_A M_{\m} \arrow{r} & N_{\m} \otimes_A M_{\m} \end{tikzcd}$
-	ist eine exakte Sequenz von $A_{\m}$-Moduln für alle maximalen Ideale $\m \subseteq A $. Das heißt $\begin{tikzcd} 0 \arrow{r} & (N^{'} \otimes_A M)_{\m} \arrow{r} & ( N \otimes_A M)_{\m} \end{tikzcd}$ ist eine exakte Sequenz von $A_{\m}$-Moduln für alle maximalen Ideale $\m \subseteq A $. Mit \ref{12.15} folgt  $\begin{tikzcd} 0 \arrow{r} & N^{'} \otimes_A M \arrow{r} & N \otimes_A M \end{tikzcd}$ ist eine exakte folge von $A$-Moduln. 
+	$(iii) \Ra(i) $ Sei $\begin{tikzcd} 0 \arrow{r} & N' \arrow{r} & N \end{tikzcd}$ eine exakte Folge von $A$-Moduln. Mit \ref{12.15} folgt  $\begin{tikzcd} 0 \arrow{r} & N_{\m}^{'} \arrow{r} & N_{\m} \end{tikzcd}$ ist eine exakte Sequenz von $A_{\m}$-Moduln für alle maximalen Ideale $\m \subseteq A $. mit $(iii)$ folgt  $\begin{tikzcd} 0 \arrow{r} & N_{\m}^{'} \otimes_A M_{\m} \arrow{r} & N_{\m} \otimes_A M_{\m} \end{tikzcd}$
+	ist eine exakte Sequenz von $A_{\m}$-Moduln für alle maximalen Ideale $\m \subseteq A $. Das heißt $\begin{tikzcd} 0 \arrow{r} & (N^{'} \otimes_A M)_{\m} \arrow{r} & ( N \otimes_A M)_{\m} \end{tikzcd}$ ist eine exakte Sequenz von $A_{\m}$-Moduln für alle maximalen Ideale $\m \subseteq A $. Mit \ref{12.15} ist dann $\begin{tikzcd} 0 \arrow{r} & N^{'} \otimes_A M \arrow{r} & N \otimes_A M \end{tikzcd}$ eine exakte folge von $A$-Moduln. 
 \end{proof}
 \begin{anm}
-	Erinnerung an LA2 (29.15) Sei $M$ ein $A$-Modul. $$ T(M) := \{ x \in M | \text{es existiert ein} a \in A, a \text{kein Nullteiler, mit } ax = 0 \} $$ \define{Torsionsmodul von $M$}. \\
-	$M$ heißt \define{torsionsfrei} $\defi T(M) = \{0\}$
+	Erinnerung an LA2 (29.15): Sei $M$ ein $A$-Modul. $$ T(M) := \{ x \in M \ | \ \exists a \in A, a \text{ kein Nullteiler mit } ax = 0 \} $$ ist das \define{Torsionsmodul von $M$\index{Torsionsmodul}}.	$M$ heißt \define{torsionsfrei\index{torsionsfrei}} $\defi T(M) = \{0\}$
 \end{anm}
 \begin{bem} \label{13.24}
 	Sei $A$ nullteilerfrei, $M$ ein flacher $A$-Modul. Dann ist $M$ torsionsfrei. 
 \end{bem}
 \begin{proof}
-	Setze $K := \Quot A$ Dann folgt $\begin{tikzcd} 0 \arrow{r} & A \arrow{r} & K \end{tikzcd}$ ist eine exakte Folge von $A$-Moduln. Aus der Flachheit von $M$ folgt $\begin{tikzcd} 0 \arrow{r} & A  \otimes_A M \arrow{r} & K \otimes_A M \end{tikzcd}$ exakt. $K \otimes_A M $ ist ein $K$-Vektorraum und somit torsionsfrei als $K$-Vektorraum und auch als $A$-Modul. Daraus folgt dass $M$ torsionsfrei als $A$-Modul ist.
+	Setze $K := \Quot A$ Dann folgt $\begin{tikzcd} 0 \arrow{r} & A \arrow{r} & K \end{tikzcd}$ ist eine exakte Folge von $A$-Moduln. Aus der Flachheit von $M$ folgt $\begin{tikzcd} 0 \arrow{r} & A  \otimes_A M \arrow{r} & K \otimes_A M \end{tikzcd}$ exakt. $K \otimes_A M $ ist ein $K$-Vektorraum und somit torsionsfrei als $K$-Vektorraum und auch als $A$-Modul. Daraus folgt, dass $M$ torsionsfrei als $A$-Modul ist.
 \end{proof}
 \begin{bem+df} \label{13.25}
 	Sei $M$ ein $A$-Modul. Dann sind äquivalent: 
 	\begin{enumerate} [label= \roman*)]
 		\item Für jede Sequenz $\begin{tikzcd} N^{'} \arrow{r} & N \arrow{r} & N^{''} \end{tikzcd}$ von $A$-Moduln gilt: \\
-		$$ \begin{tikzcd} N^{'} \arrow{r} & N \arrow{r} & N^{''} \end{tikzcd} \text{exakt} \Lra \begin{tikzcd} N^{'} \otimes_A M \arrow{r} & N \otimes_A M \arrow{r} & N^{''} \otimes_A M \end{tikzcd} \text{exakt} $$
-		\item $M$ istflach und für alle maximalen Ideale $\m \subseteq A $ ist $\QR{M}{\m M} \neq 0 $.
+		$$ \begin{tikzcd}[column sep = small] N^{'} \arrow{r} & N \arrow{r} & N^{''} \end{tikzcd} \text{exakt} \Lra \begin{tikzcd}[column sep = small] N^{'} \otimes_A M \arrow{r} & N \otimes_A M \arrow{r} & N^{''} \otimes_A M \end{tikzcd} \text{exakt} $$
+		\item $M$ ist flach und für alle maximalen Ideale $\m \subseteq A $ ist $\QR{M}{\m M} \neq 0 $.
 		\item $M$ ist flach und für alle $A$-Moduln $N$ gilt: $N \otimes_A M = 0 \Ra N = 0 $.
 		\item $M$ ist flach und für alle $A$-Modulhomomorphismen $\phi: N_1 \to N_2 $ gilt: 
-		$$ \phi \otimes_A id_M : N_1 \otimes_A M \to N_2 \otimes_A M \text{ist die Nullabbildung} \Ra \phi = 0 $$ \\
-		Ist eine dieser äquivalenten Bedinungen erfüllt so heißt $M$ ein treuflacher $A$-Modul. 
+		$$ \phi \otimes_A id_M : N_1 \otimes_A M \to N_2 \otimes_A M = 0 \Ra \phi = 0 $$ 
+		Ist eine dieser äquivalenten Bedingungen erfüllt so heißt $M$ ein \define{treuflacher\index{treuflacher Modul}} $A$-Modul. 
 	\end{enumerate}
 \end{bem+df}
 \begin{proof}
-	$(i) \Ra (ii) $ \\
-	$M$ flach: Klar. Sei $\m \subseteq A $ ein maximales Ideal, dann erhält man die exakte Sequenz $\begin{tikzcd} 0 \arrow{r} & \m \arrow{r} & A \arrow{r} & \QR{A}{\m} \arrow{r} & 0 \end{tikzcd}$ von $A$-Moduln. mit (i) und unter Anwendung von $- \otimes_A M $ erhalten wir dass $$\begin{tikzcd} 0 \arrow{r} & \m \otimes_A M \arrow{r} & A \otimes_A M \arrow{r} & \QR{A}{\m} \otimes_A M \arrow{r} & 0 \end{tikzcd}$$ exakt ist. 
-	Nach \ref{13.16} gilt außerdem $\QR{A}{\m} \otimes_A M \cong \QR{M}{\m M}$. \\
-	Annahme: $\QR{M}{\m M} = 0 \Ra \begin{tikzcd} 0 \arrow{r} & \m \otimes_A M \arrow{r} & A \otimes_A M \arrow{r} & 0 \end{tikzcd}$ ist exakt, mit (i) folgt $\begin{tikzcd} 0 \arrow{r} & \m \arrow{r} & A \arrow{r} &  0 \end{tikzcd}$ ist exakt (Widerspruch).  \\
-	$(ii) \Ra (iii) $ \\
-	 Sei $N$ ein $A$-Modul, $N \neq 0$, dann existiert ein $x \in N, x \neq 0$, das heißt $ann_A(x) \subsetneq A $. Dann existiert ein maximales Ideal $\m \in A $  mit $ann_A(x) \subseteq \m $. Man erhält einen Epimorphismus von $A$-Moduln $ f: Ax \to \QR{A}{ann_A(x)} \to \QR{A}{\m} $ daraus erhalt man $ f \otimes_A id_M: Ax \otimes_A M \to  \QR{A}{\m} \otimes_A M \cong \QR{M}{\m M } \neq 0$. Woraus $Ax \otimes_A M \neq 0 $ resultiert. Die Sequenz $\begin{tikzcd} 0 \arrow{r} & Ax \arrow{r} & N   \end{tikzcd}$ ist exakt, wegen $M$ flach auch $\begin{tikzcd} 0 \arrow{r} & Ax \otimes_A M  \arrow{r} & N \otimes_A M \end{tikzcd}$ Somit: $N \otimes_a M \neq 0 $. \\
-	$(iii) \Ra (iv) $ \\
-	 Sei $\phi: N_1 \to N_2 $ $A$-linear mit $\phi \otimes \id_M: N_1 \otimes_A M \to N_2 \otimes_A M $ ist die Nullabbildung. Setze $U := \im \phi $. \\
-	 So erhalten wie die Fakotrisierung $\phi: N_1 \to U \to N_2$.\\
-	  $\phi|^{U} \otimes_A id_M $ ist surjektiv, $\iota \otimes_A id_M $ ist injektiv, wegen $M$ flach. Außerdem $(\iota \otimes_A id_M) \circ (\phi|^{U} \otimes_A id_M) = \phi \otimes id_M = 0$. Aus der injektivität von $\iota \otimes_A id_M $  folgt $\phi|^{U} \otimes_A id_M = 0 $. Aus der Surjektivität von $\phi|^{U} \otimes_A id_M = 0 $ folgt $U \otimes_A M =  0 $ und mit (iii) folgt $U = 0 $, das heißt $\phi = 0.$ \\
-	$(iv) \Ra (iii) $ \\
-	Sei $N$ ein $A$-Modul mit $N \otimes_A M = 0 \Ra id_N \otimes_A id_M: N \otimes_AM \to N \otimes_A M $ ist die Nullabildung. Dann folgt mit (iv) $id_n = 0 \Ra N = 0 $. \\
-	$(iii) \Ra (i) $ \\
-	Sei $\begin{tikzcd} N^{'} \arrow{r} & N \arrow{r} & N^{''} \end{tikzcd}$ eine Sequenz von $A$-Moduln. \\
-	Zu zeigen ist: $\begin{tikzcd} N^{'} \arrow{r}{f} & N \arrow{r}{g} & N^{''} \end{tikzcd}$ exakt $\Lra$ $\begin{tikzcd} N^{'} \otimes_A M  \arrow{r}{f \otimes id_M} & N \otimes_A M  \arrow{r}{g \otimes id_M} & N^{''} \otimes_A M  \end{tikzcd}$ exakt. \\
+	$(i) \Ra (ii) $	Dass $M$ flach ist, ist trivial. Sei also $\m \subseteq A $ ein maximales Ideal, dann erhält man die exakte Sequenz $\begin{tikzcd} 0 \arrow{r} & \m \arrow{r} & A \arrow{r} & \QR{A}{\m} \arrow{r} & 0 \end{tikzcd}$ von $A$-Moduln. mit (i) und unter Anwendung von $- \otimes_A M $ erhalten wir dass $$\begin{tikzcd} 0 \arrow{r} & \m \otimes_A M \arrow{r} & A \otimes_A M \arrow{r} & \QR{A}{\m} \otimes_A M \arrow{r} & 0 \end{tikzcd}$$ exakt ist. 
+	Nach \ref{13.16} gilt außerdem $\QR{A}{\m} \otimes_A M \cong \QR{M}{\m M}$. Angenommen $\QR{M}{\m M} = 0$. Dann wäre $$\begin{tikzcd} 0 \arrow{r} & \m \otimes_A M \arrow{r} & A \otimes_A M \arrow{r} & 0 \end{tikzcd}$$
+	exakt und mit (i) wäre dann auch $\begin{tikzcd} 0 \arrow{r} & \m \arrow{r} & A \arrow{r} &  0 \end{tikzcd}$ exakt, Widerspruch!  \\
+	$(ii) \Ra (iii) $ Sei $N$ ein $A$-Modul, $N \neq 0$. Dann existiert ein $x \in N,\, x \neq 0$, das heißt $\ann_A(x) \subsetneq A $. Dann existiert ein maximales Ideal $\m \in A $  mit $\ann_A(x) \subseteq \m $. Man erhält einen Epimorphismus von $A$-Moduln 
+	$$f: Ax \longrightarrow \QR{A}{\ann_A(x)} \longrightarrow \QR{A}{\m}$$
+	woraus $$ f \otimes_A id_M: Ax \otimes_A M \to  \QR{A}{\m} \otimes_A M \cong \QR{M}{\m M } \neq 0$$ folgt. Damit ist dann $Ax \otimes_A M \neq 0 $. Die Sequenz $\begin{tikzcd} 0 \arrow{r} & Ax \arrow{r} & N   \end{tikzcd}$ ist exakt, da wegen $M$ flach auch $\begin{tikzcd} 0 \arrow{r} & Ax \otimes_A M  \arrow{r} & N \otimes_A M \end{tikzcd}$ exakt ist. Somit: $N \otimes_a M \neq 0 $. \\
+	$(iii) \Ra (iv) $ Sei $\phi: N_1 \to N_2 $ $A$-linear und $\phi \otimes \id_M: N_1 \otimes_A M \to N_2 \otimes_A M $ sei die Nullabbildung. Setze $U := \im \phi $. So erhalten wie die Faktorisierung $\phi: N_1 \to U \to N_2$. Dann ist $\phi|^{U} \otimes_A id_M $ ist surjektiv, $\iota \otimes_A id_M $ ist injektiv, da $M$ flach ist. Außerdem ist
+	$$(\iota \otimes_A id_M) \circ (\phi|^{U} \otimes_A id_M) = \phi \otimes id_M = 0$$
+	Aus der Injektivität von $\iota \otimes_A id_M $  folgt $\phi|^{U} \otimes_A id_M = 0 $ und die Surjektivität von $\phi|^{U} \otimes_A id_M = 0 $ impliziert $U \otimes_A M =  0 $ und mit (iii) folgt $U = 0 $, das heißt $\phi = 0.$ \\
+	$(iv) \Ra (iii) $ Sei $N$ ein $A$-Modul mit $N \otimes_A M = 0 \Ra id_N \otimes_A id_M: N \otimes_AM \to N \otimes_A M $ ist die Nullabildung. Dann folgt mit (iv) $id_N = 0 \Ra N = 0 $. \\
+	$(iii) \Ra (i) $ Sei $\begin{tikzcd} N^{'} \arrow{r} & N \arrow{r} & N^{''} \end{tikzcd}$ eine Sequenz von $A$-Moduln. Zu zeigen ist: 
+	$$\begin{tikzcd} N^{'} \arrow{r}{f} & N \arrow{r}{g} & N^{''} \end{tikzcd} \text{ exakt }\Lra \begin{tikzcd} N^{'} \otimes_A M  \arrow{r}{f \otimes id_M} & N \otimes_A M  \arrow{r}{g \otimes id_M} & N^{''} \otimes_A M  \end{tikzcd} \text {exakt}$$
 	$"\Ra "$ folgt aus der Flachheit von $M$. \\
 	Für $"\Leftarrow "$ ist zu zeigen $ \im f = \ker g $ \\
 	$"\subseteq " $ Es ist $(g \circ f) \otimes_A id_M = (g \otimes_A id_M) \circ (f \otimes_A id_M ) = 0$  mit (iv) folgt $g \circ f = 0 $. \\
-	$"\supseteq " $ Wir betrachten die Sequenzen $\begin{tikzcd} N^{'} \arrow{r}{f|^{\im f}} & \im f \arrow{r} & 0 \end{tikzcd}$ \\
-	$\begin{tikzcd} 0 \arrow{r}  & \im f \arrow{r}{\iota_1} & \ker g \arrow{r} & \QR{\ker g}{\im f} \arrow{r} & 0 \end{tikzcd}$ \\
-	$\begin{tikzcd} 0 \arrow{r}  & \ker g \arrow{r}{\iota_2} & N \arrow{r}{g|^{\im g}} & \im g \arrow{r} & 0 \end{tikzcd}$ \\
-	Diese sind exakt (wobei $\iota_1, \iota_2$ Inklusionen). \\
-	Es ist $\im ((\iota_a \otimes_A id_M) \circ (\iota_i \otimes_A id_M) \circ (f|^{\im f} \otimes_A id_M )) = \im(f \otimes_A id_M) = \ker(g \otimes_A id_M) = \ker(g|^{\im g} \otimes_A  id_M) = \im(\iota_2 \otimes_A id_M)$\\
-	 (Letzes Gleichheitszeichen aus der Flachheit von $M$ ). \\
-	 Wegen $M$ flach ist $\iota_2 \otimes id_M $ injektiv ,woraus resultiert $\im ((\iota_1 \otimes id_M) \circ (f|^{\im f} \otimes id_M)) = \ker g \otimes_A M \\
-	 \Ra (\iota_1 \otimes id_M ) \circ (f|^{\im f} \otimes id_M) $ surjektiv \\
-	 Woraus folgt dass $\iota_1 \otimes id_M $ surjektiv ist. Da $M$ flach ist, erhalten wir die exakte Sequenz $$ \begin{tikzcd} 0 \arrow{r}  & \im f \otimes_A M \arrow{r}{\iota_1 \otimes id_M } & \ker g \otimes_A M \arrow{r} & (\QR{\ker g}{\im f}) \otimes_A M \arrow{r} & 0 \end{tikzcd}$$
-	 Daraus resultiert: $(\QR{\ker g}{\im f}) \otimes_A M = 0 $ und mit (ii), dass $\QR{\ker g}{\im f} = 0$. Das heißt $\ker g = \im f $.
+	$"\supseteq " $ Wir betrachten die exakten Sequenzen \begin{eqnarray*}
+		&&\begin{tikzcd} N^{'} \arrow{r}{f|^{\im f}} & \im f \arrow{r} & 0 \end{tikzcd}\\
+		&&\begin{tikzcd} 0 \arrow{r}  & \im f \arrow{r}{\iota_1} & \ker g \arrow{r} & \QR{\ker g}{\im f} \arrow{r} & 0 \end{tikzcd} \\
+		& &\begin{tikzcd} 0 \arrow{r}  & \ker g \arrow{r}{\iota_2} & N \arrow{r}{g|^{\im g}} & \im g \arrow{r} & 0 \end{tikzcd}
+	\end{eqnarray*}
+	Es ist \begin{eqnarray*}
+		\im ((\iota_a \otimes_A id_M) \circ (\iota_i \otimes_A id_M) \circ (f|^{\im f} \otimes_A id_M )) &=& \im(f \otimes_A id_M) = \ker(g \otimes_A id_M) \\
+		&=& \ker(g|^{\im g} \otimes_A  id_M) = \im(\iota_2 \otimes_A id_M)
+	\end{eqnarray*}
+	wobei die letze Gleichheit aus der Flachheit von $M$ folgt. Wegen $M$ flach, ist $\iota_2 \otimes id_M $ injektiv, woraus $$\im ((\iota_1 \otimes id_M) \circ (f|^{\im f} \otimes id_M)) = \ker g \otimes_A M$$ folgt, also 
+	$(\iota_1 \otimes id_M ) \circ (f|^{\im f} \otimes id_M) $ surjektiv.
+	Damit ist auch $\iota_1 \otimes id_M $ surjektiv. Da $M$ flach ist, erhalten wir die exakte Sequenz $$ \begin{tikzcd} 0 \arrow{r}  & \im f \otimes_A M \arrow{r}{\iota_1 \otimes id_M } & \ker g \otimes_A M \arrow{r} & (\QR{\ker g}{\im f}) \otimes_A M \arrow{r} & 0 \end{tikzcd}$$
+	 Daraus resultiert schließlich
+	 $$\left(\QR{\ker g}{\im f}\right) \otimes_A M = 0$$ und mit (ii) folgt, dass $\QR{\ker g}{\im f} = 0$, d.h. $\ker g = \im f $.
 \end{proof}
 \begin{bsp}
 	\begin{enumerate} [label= \alph*)]
