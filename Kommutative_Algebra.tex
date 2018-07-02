@@ -832,3 +832,148 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 		Insbesondere ist $A[X] \cong A^{(\N_0)} $ ein treuflacher $A$-Modul. 
 	\end{enumerate}
 \end{bsp}
+\newpage
+\subsection{Tor}
+\begin{df}\label{14.1}
+	Seien $M,N$ $A$-Moduln. Wir setzen $$\text{Tor}_n^A(M,N)\index{Tor} := L_n(M \otimes_A -)(N) \quad \text{für} \quad n\geq 0$$
+	Explizit: Wähle eine projektive Auflösung $Q_ \bullet \to N$, dann ist $\Tor_n^A(M,N) = \HH_n(M \otimes_A Q_\bullet)$
+\end{df}
+\begin{sa}\label{14.2}
+	Sei $M$ ein $A$-Modul. Dann ist $(\Tor_n^A(M,-))_{n\geq 0}$ ein universeller $\delta$-Funktor, d.h.
+	\begin{itemize}
+		\item $\Tor_n^A(M,-): A$-Mod $\to A$-Mod sind additive Funktoren für alle $n\geq 0$
+		\item Für jede exakte Folge $\begin{tikzcd}
+		0 \arrow{r} & N' \arrow{r} & N \arrow{r} & N'' \arrow{r} & 0
+		\end{tikzcd}$ gibt es Verbindungshomomorphismen $\delta:\Tor_{n+1}^A(M,N'') \to \Tor_n^A(M,N)$, sodass die lange Folge 
+		$$\begin{tikzcd}[column sep = small]
+		 \ldots \arrow{r} & \Tor_{n+1}^A(M,N'') \arrow{r}{\delta} & \Tor_n^A(M,N') \arrow{r} & \Tor_n^A(M,N)\\
+	\arrow{r} & \Tor_n^A(M,N'') \arrow{r}{\delta} & \Tor_{n-1}^A(M,N') \arrow{r} & \ldots 
+		\end{tikzcd}$$
+		exakt ist, $\delta$ funktoriell (vgl. \ref{9.1}).
+		\item Für jeden homologischen $\delta$-Funktor $H'=(H_n')_{n\geq 0}: A$-Mod $ \to A$-Mod setzt sich jede natürliche Transformation $f_0 : M \otimes_A - \Ra H_0'$ eindeutig zu einem Homomorphismus von homologichen $\delta$-Funktoren fortsetzt.
+	\end{itemize}
+\end{sa}
+\begin{proof}
+	Analog zu Kapitel 2.
+\end{proof}
+\begin{sa}\label{14.3}
+	Seien $M,N$ $A$-Moduln. Dann gibt es einen kanonischen Isomorphimus 
+	$$\Tor_n^A(M,N) \cong L_n(- \otimes_A N)(M) \quad \text{für alle} \quad n\geq 0$$
+	insbesondere kann $\Tor_n^A(M,N)$ auch über eine projektive Auflösung $P_\bullet\to M$ von $M$ berechnet werden via $\Tor_n^A(M,N) = \HH_n (P_\bullet \otimes_A N)$.
+\end{sa}
+\begin{proof}
+	Analog zum Beweis von \ref{10.2}, verwende hierbei, dass projektive Moduln flach sind.
+\end{proof}
+\begin{fo}\label{14.4}
+	Sei $M$ ein flacher $A$-Modul, $N$ ein $A$-Modul. Dann ist $M$ $(-\otimes_A N)$-azyklisch.
+\end{fo}
+\begin{proof}
+	Es ist $$L_n(- \otimes_A N)(M) \underset{\ref{14.3}}{\cong} \Tor_n^A(M,N) = L_n(M \otimes_A -)(N)$$
+	Da $M$ flach ist, ist $M \otimes_A -$ exakt, d.h. $L_n(M \otimes_A -) = 0$ für $n\geq 1$, also $L_n(- \otimes_AN)(M) = 0$ für $n\geq 1$.
+\end{proof}
+\begin{fo}\label{14.5}
+	Seien $M,N$ $A$-Moduln. Dann gilt: 
+	$$\Tor_n^A(M,N) \cong \Tor_n^A(N,M) \quad \text{für alle}\quad n\geq 0$$
+\end{fo}
+\begin{proof}
+	Sei $P_\bullet\to M$ eine projektive Auflösung von $M$. Es ist 
+	\begin{eqnarray*}
+	\Tor_n^A(M,N) &=& L_n(M \otimes_A-)(N) \underset{\ref{14.3}}{\cong} L_n(- \otimes_A N)(M) = \HH_n(P_\bullet \otimes_AN) = \HH_n(N \otimes_AP_\bullet )\\
+	&=& L_N(N \otimes_A-)(M) = \Tor_n^A(N,M)
+	\end{eqnarray*}
+\end{proof}
+\begin{bem}\label{14.6}
+	Sei $\begin{tikzcd}
+	0 \arrow{r} & M' \arrow{r} & M \arrow{r} & M'' \arrow{r} & 0
+	\end{tikzcd}$ eine exakte Folge von $A$-Moduln, $M''$ flach, $N$ ein $A$-Modul. Dann ist die Folge
+	$$\begin{tikzcd}
+	0 \arrow{r} & M' \otimes_AN\arrow{r} & M \otimes_AN\arrow{r} & M'' \otimes_AN\arrow{r} & 0
+	\end{tikzcd}$$
+	exakt.
+\end{bem}
+\begin{proof}
+	Nach \ref{14.2} erhalten wir eine exakte Folge 
+	$$\begin{tikzcd}
+	\Tor_n^A(M'',N) \arrow{r} & M' \otimes_A N \arrow{r} & M \otimes_A N \arrow{r} & M'' \otimes_AN\arrow{r} & 0
+	\end{tikzcd}$$
+	Da $M''$ flach ist, ist $\Tor_1^A(M'', N) = 0$ nach \ref{14.4}.
+\end{proof}
+\begin{sa}\label{14.7}
+	Sei $A$ ein lokaler Ring mit maximalem Ideal $\m$ und Restklassenkörper $\QR{A}{\m}$, $M$ ein endlich erzeugter $A$-Modul. Dann sind äquivalent:
+	\begin{enumerate}[label= \roman*)]
+		\item $M$ ist frei
+		\item $M$ ist projektiv
+		\item $M$ ist flach
+		\item $\Tor_1^A(\QR{A}{\a}, M) =0$ für jedes Ideal $\a\subseteq A$.
+	\end{enumerate}
+Ist $A$ noethersch, dann sind $i) -iv)$ äquivalent zu:
+\begin{enumerate}
+	\item[v)] $\Tor_1^A(k,M) = 0$ 
+\end{enumerate}
+\end{sa}
+\begin{proof}
+	$i)\Ra i))$ klar, $ii) \Ra iii)$ aus \ref{13.18}, $iii)\Ra iv)$ aus \ref{14.4}, $iv) \Ra v)$ klar.\\
+	$iv)\Ra i)$ (bzw. $v) \Ra i)$)
+	\begin{enumerate}
+		\item Seien $x_1, \ldots, x_n\in M$, sodass die Restklassen $\bar x_1 , \ldots, \bar x_n$ in $k$ eine $k$-Basis von $\QR{M}{\m M}$ bilden. Das Nakayama-Lemma liefert, dass $x_1, \ldots, x_n\in M$ bereits ein Erzeugendensystem von $M$ sind. Setze $F:= A^n, \, \phi: F\to M, \, e_i \mapsto x_i$. $E:= \ker \phi$, erhalte also ein exakte Sequenz
+		\begin{equation}\tag{$\ast$}
+		\begin{tikzcd}
+		0\arrow{r} & E\arrow{r} & F \arrow{r}{\phi} & M \arrow{r} & 0
+		\end{tikzcd}
+		\end{equation}
+		Anwendung von $-\otimes_A k$ liefert die exakte Folge 
+		$$\begin{tikzcd}
+		0 \overset{iv)}{=} \Tor_1^A(k,M) \arrow{r} & k \otimes_A E \arrow{r} & k \otimes_A F \arrow{r}{\id_k\otimes \phi} & k \otimes_A M \arrow{r} & 0
+		\end{tikzcd}$$
+		Ferner gilt:
+		\begin{eqnarray*}
+		\dim_k(k\otimes_A M) &=& \dim_k\left(\QR{A}{\m} \otimes_AM\right) = \dim_k\left(\QR{M}{\m M}\right) = n = \dim_k(k^n)\\
+		& = &\dim_k(k \otimes_A A^n) = \dim_k(k \otimes_A F)
+		\end{eqnarray*}
+		Also ist $\id_k \otimes \phi$ ein Isomorphismus, d.h. $k\otimes_A E = 0$, also $\QR{A}{\m}\otimes_A E = 0$ und damit $\QR{E}{\m E} =0$. Ist $A$ noethersch, dann ist $E$ endlich erzeugt und nach dem Nakayama-Lemma folgt, dass $E=0$, also $M\cong F$, d.h. $M$ ist frei, woraus $v) \Ra i)$ folgt.
+		\item Sei $x= a_1 e_a + \ldots + a_n e_n\in E\subseteq F$. Setze $\a_x:= a_1 A + \ldots + a_n A$ (ist ein endlich erzeugtes Ideal in $A$.) Wir wollen einsehen. das $\a_x=0$ ist. Tensoriere $(\ast)$ mit $\QR{A}{\a_x}$ und erhalte die exakte Folge:
+		$$\begin{tikzcd}[column sep = small]
+		0 \underset{iv)}{=} \Tor_1^A\left( \QR{A}{\a_x}, M\right)\arrow{r} & \QR{A}{\a_x}\otimes_A E \arrow{d}{\sim} \arrow{r} & \QR{A}{\a_x} \otimes_A F \arrow{r}  \arrow{d}{\sim} & \QR{A}{\a_x} \otimes_M M \arrow{r} & 0\\
+		& \QR{E}{\a_x E} \arrow[hook]{r} & \QR{F}{\a_x F} & &
+		\end{tikzcd}$$
+		Da $x\in E \cap F$ ist $x\in \a_XE= \a_x \m E \subseteq \a_x \m F$. Damit ist $x= \sum a_i' b_i$ mit $a_i' \in \a_x \m,\, b_i \in F$, also ist $x= \sum_i \tilde{a}_i e_i$ mit $\tilde{a}_i \in \a_x \m$. Also lieft $a_i \in \a_x \m $ für alle $i=1,\ldots, $, das heißt $\a_x \subseteq \a_x \m \subseteq \a_x$, woraus schließlich $\a_x = \a_x \m$ folgt. Anwendung des Nakayama-Lemmas liefert also $\a_x=0$, also $x=0$, womit $E = \ker \phi =0$, also $M \cong F$, also ist $M$ frei.
+	\end{enumerate}
+\end{proof}
+\begin{fo}\label{14.8}
+	Sei $M$ ein endlich erzeugter $A$-Modul. Dann sind äquivalent:
+	\begin{enumerate}[label = \roman*)]
+		\item $M$ ist ein flacher $A$-Modul
+		\item $M_\p$ ist ein freier $A_\p$-Modul für alle Primideale $\p\subseteq A$.
+		\item $M_\m$ ist ein freier $A_\m$-Modul für alle maximalen Ideale $\m\subseteq A$.
+	\end{enumerate}
+\end{fo}
+\begin{proof}
+	Flachheit ist eine lokale Eigenschaft nach \ref{13.24}. Damit folgt die Behauptung aus \ref{14.7}.
+\end{proof}
+\begin{sa}\label{14.9}
+	Sei $A$ ein Hauptidealring, $M,N$ seien $A$-Moduln. Dann ist $\Tor_n^A(M,N) = 0$ für $n\geq 2$.
+\end{sa}
+\begin{proof}
+	Es existiert ein freier $A$-Modul $F_0$ und ein Epimorphismus $\epsilon:F_0 \twoheadrightarrow N$. Setze $F_1:= \ker \epsilon \subseteq F_0$. Da $A$ ein Hauptidealring ist, ist $F_1$ frei und 
+	$$\begin{tikzcd}
+	(0 \arrow{r} & F_1 \arrow{r} & F_0) \arrow{r}{\epsilon} & N
+	\end{tikzcd}$$
+	eine projektive Auflösung von $N$. Für $\Tor$ folgt damit:
+	$$\Tor_n^A(M,N) = \HH_n(M \otimes F_0) = 0\quad \text{für} \quad n\geq 2$$
+\end{proof}
+\begin{bem}\label{14.10}
+	Sei $M$ ein $A$-Modul, $a\in A$ kein Nullteiler. Dann gilt:
+	$$\Tor_1^A\left( \QR{A}{(a)} , M \right) \cong \{x\in M \ | \ ax=0\}$$
+\end{bem}
+\begin{proof}
+	Setze $\phi_a:A \to A, \, b \mapsto ab$. Da $a$ kein Nullteiler ist, ist $\phi_a$ injekitv. Erhalte also eine exakte Folge
+	$$\begin{tikzcd}
+	0 \arrow{r} & A \arrow{r}{\phi_a} & A \arrow{r} & \QR{A}{(a)} \arrow{r} & 0
+	\end{tikzcd}$$
+	Tensorieren mit $M$ liefert die exakte Folge
+	$$\begin{tikzcd}[column sep = small]
+	0=\Tor_1^A(A,M) \arrow{r} & \Tor_1^A\left( \QR{A}{(a)}, M\right)\arrow{r} & A \otimes_A M \arrow{d}{\sim} \arrow{r}{\phi_a \otimes \id_M} & \arrow{d}{\sim} A \otimes_A M \arrow{r} & \QR{A}{(a)} \otimes_AM\arrow{r} & 0\\
+	& & M \arrow{r}{x\mapsto ax} & M & &
+	\end{tikzcd}$$
+	Also ist $\Tor_1^A\left(\QR{A}{(a)}, M\right)\cong \ker(\phi_a \otimes \id_M) \cong \{x\in M \ | \ ax=0 \}$.
+\end{proof}
