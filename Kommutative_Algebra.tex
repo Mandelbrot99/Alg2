@@ -846,9 +846,18 @@ gilt $\Phi \circ \Psi = \id_{\{S^{-1}A\text{-Untermoduln von } S^{-1}M\}}$, insb
 		0 \arrow{r} & N' \arrow{r} & N \arrow{r} & N'' \arrow{r} & 0
 		\end{tikzcd}$ gibt es Verbindungshomomorphismen $\delta:\Tor_{n+1}^A(M,N'') \to \Tor_n^A(M,N)$, sodass die lange Folge 
 		$$\begin{tikzcd}[column sep = small]
-		 \ldots \arrow{r} & \Tor_{n+1}^A(M,N'') \arrow{r}{\delta} & \Tor_n^A(M,N') \arrow{r} & \Tor_n^A(M,N)\\
-	\arrow{r} & \Tor_n^A(M,N'') \arrow{r}{\delta} & \Tor_{n-1}^A(M,N') \arrow{r} & \ldots 
+		 \ldots \arrow{r} & \Tor_{n+1}^A(M,N'') \arrow{r}{\delta} & \Tor_n^A(M,N')\arrow[d, phantom, ""{coordinate, name=Z}] \arrow{r} & \Tor_n^A(M,N) \arrow[dll,
+		 "\delta",
+		 rounded corners,
+		 to path=
+		 { -- ([xshift=2ex]\tikztostart.east)
+		 	|- (Z) [near end]\tikztonodes
+		 	-| ([xshift=-2ex]\tikztotarget.west)
+		 	-- (\tikztotarget)}
+		 ]\\
+	 & \Tor_n^A(M,N'') \arrow{r}{\delta} & \Tor_{n-1}^A(M,N') \arrow{r} & \ldots 
 		\end{tikzcd}$$
+
 		exakt ist, $\delta$ funktoriell (vgl. \ref{9.1}).
 		\item Für jeden homologischen $\delta$-Funktor $H'=(H_n')_{n\geq 0}: A$-Mod $ \to A$-Mod setzt sich jede natürliche Transformation $f_0 : M \otimes_A - \Ra H_0'$ eindeutig zu einem Homomorphismus von homologichen $\delta$-Funktoren fortsetzt.
 	\end{itemize}
@@ -977,3 +986,137 @@ Ist $A$ noethersch, dann sind $i) -iv)$ äquivalent zu:
 	\end{tikzcd}$$
 	Also ist $\Tor_1^A\left(\QR{A}{(a)}, M\right)\cong \ker(\phi_a \otimes \id_M) \cong \{x\in M \ | \ ax=0 \}$.
 \end{proof}
+\newpage
+\subsection{Ganze Ringerweiterungen und Dimension}
+\begin{center}
+	\textbf{In diesem Abschnitt bedeute "'Ringerweiterung"' stets Erweiterung kommutativer Ringe}
+\end{center}
+\begin{df}
+	Sei $B|A$ eine Ringerweiterung.
+	\begin{enumerate}
+		\item[] $B|A$ heißt \emph{endlich\index{endliche Ringerweiterung}} $\defi B$ ist endlich erzeugt als $A$-Modul
+		\item[] $b\in B$ heißt \emph{ganz\index{ganze Ringerweiterung}} über $A \defi A[b]|A$ ist endlich
+		\item[] $B|A$ heißt \emph{ganz} $\defi$ Alle $b\in B$ sind ganz über $A$.
+	\end{enumerate}
+\end{df}
+\begin{anm}
+	Seien $B|A, \, C|B$ endliche Ringerweiterungen. Dann ist $C|A$ eine endliche Ringerweiterung, denn ist $(b_i)_{i=1, \ldots, n}$ ein Erzeugendensystem von $B$ als $A$-Modul, $(c_j)_{j=1, \ldots, m}$ ein Erzeugendensystem von $C$ als $B$-Modul. Dann ist $(b_ic_j)_{i=1, \ldots, n\atop j=1,\ldots, m}$ ein Erzeugendensystem von $C$ als $A$-Modul.
+\end{anm}
+\begin{sa}\label{15.2}
+	Sei $B|A$ eine Ringerweiterung, $b\in B$. Dann sind äquivalent:
+	\begin{enumerate}[label= \roman*)]
+		\item $b$ ist ganz über $A$
+		\item ES gibt ein $n\in \N$, $a_{n-1}, \ldots, a_0\in A$ mit 
+		\begin{equation}\tag{$\ast$}
+		b^n + a_{n-1}b^{n-1} + \ldots + a_1 b + a_0 =0
+		\end{equation}
+		$(\ast)$ heißt eine \define{Ganzheitsgleichung\index{Ganzheitsgleichung}} für $b$.
+		\item Es gibt eine Zwischenring $A\subseteq Z\subseteq B$, sodass $b\in Z$ ist und $Z|A$ endlich ist.
+		\item Es gibt einen $A[b]$-Modul $M$ mit $\ann_{A[b]} M =0$, der als $A$-Modul endlich erzeugt ist.
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	$i)\Ra iii)$ Ist $b$ ganz über $A$. Dann ist $A[b]|A$ endlich. Setze $Z:= A[b]$.\\
+	$iii)\Ra iv)$ Setze $M:= Z$. Dann ist $M$ in natürlicher Weise ein $A[b] \subseteq Z$-Modul. Es gilt: $x\in \ann_{A[b]}Z \Ra xZ =0$ und wegen $1\in Z$ ist $x=0$, also $\ann_{A[b]} M =0$. Wegen $Z|A$ endlich, ist $M$ endlich erzeugt als $A$-Modul.\\
+	$iv)\Ra ii)$ Setze $\phi:M \to M,\, x\mapsto bx$. Dann ist $\phi$ offenbar ein $A$-Modulhomomorphismus und wegen \ref{11.14} mit $\a = A$ folgt die Existenz von $a_0, \ldots, a_{n-1}\in A$ mit 
+	$$\phi^n + a_{n-1}\phi^{n-1} + \ldots + a_1 \phi + a_0 \id_M= 0$$
+	Für alle $x\in M$ ist dann 
+	$$(\underbrace{b^n + a_{n-1} b^{n-1} + \ldots + a_1 b + a_0}_{\in \ann_{A[b]}M=0})x=0$$
+	Als ist $b^n + \ldots + a_0 =0$.\\
+	$ii)\Ra i)$ Sei $b^n + a_{n-1}b^{n-1} + \ldots + a_0=0$. Dann ist $1, b,\ldots, b^{n-1}$ ein Erzeugendensystem von $A[b]$ als $A$-Modul, denn: Sei $c\in A[b]$, etwa $c= \alpha_0 + \alpha_1 b + \ldots + \alpha_sb^s$ mit $\alpha_0, \ldots, \alpha_s\in A$. Setze $h:= \sum_{i=0}^s \alpha_i T^i\in A[T]$, $f:=\sum_{i=0}^n a_i T^i$ ($a_n:= 1$). Da $f$ normiert ist, existieren $q,r\in A[T]$ mit $h=qf+r$ und $\deg r < \deg f$. Dann ist 
+	$$c=h(b) = q(b) \underbrace{f(b)}_{=0} + r(b) = r(b) \in \sum_{i=0}^{n-1} Ab^i$$
+	
+\end{proof}
+\begin{anm}
+	Ist $B|A$ eine Körpererweiterung, dann gilt:
+	\begin{eqnarray*}
+	b\in B \text{ ist ganz über } A & \Lra & b\text{ ist algebraisch über } A\\
+	B|A \text{ ist ganz} & \Lra & B|A \text{ ist algebraisch}
+	\end{eqnarray*}
+\end{anm}
+\begin{fo}\label{15.3}
+	Es gilt:
+	\begin{enumerate}[label= \alph*)]
+		\item $B|A$ endlich $\Ra B|A$ ganz
+		\item $C|B|A$ Ringerweiterungen, $c\in C$ ganz über $A$. Dann ist $c$ gnaz über $B$.
+	\end{enumerate}
+\end{fo}
+\begin{proof}
+	$b)$ Sei $b\in B$. Dann folgt die Behauptung aus \ref{15.2} $iii)\Ra i)$ mit $Z=B$.\\
+	$a)$ aus \ref{15.2} $i)\Ra ii)$
+\end{proof}
+\begin{bsp}
+	$\Z[i]|\Z$ ist ganz, denn $\Z[i]|\Z$ ist endlich, da $1,i$ ein Erzeugendensystem von $\Z[i]$ als $\Z$-Modul bilden.
+\end{bsp}
+\begin{sa}\label{15.5}
+	Seien $C|B|A$ Ringerweiterungen. Dann sind äquivalent:
+	\begin{enumerate}[label= \roman*)]
+		\item $B|A$ ist ganz und $C|B$ ist ganz
+		\item $C|A$ ist ganz
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	$i)\Ra ii)$ Sei $c\in C$. Dann existieren $b_0, \ldots, b_{n-1}\in B $ mit \begin{equation}\tag{$\ast$}
+	c^n + b_{n-}c^{n-1} + \ldots + b_1 c+ b_0 =0
+	\end{equation}
+	Dann ist $A[b_0, \ldots, b_{n-1}, c]|A$ endlich (also ist $c$ ganz über $A$ nach \ref{15.2} mit $Z = A[b_0, \ldots, b_{n-1}, c]$), denn:
+	\begin{itemize}
+		\item $A[b_0]|A$ ist endlich wegen $b_0\in B$ und $B|A$ ist ganz.
+		\item $(A[b_0])[b_1]|A[b_0]$ ist endlich, wegen $b_1\in B$, also ist $b_1$ ganz über $A$. Somit ist $b_1$ ganz über $A[b_0]$, usw. Dann ist $(A[b_0, \ldots, b_{n-1}])[c]|A[b_0, \ldots, b_{n-1}]$ endlich, da $c$ gegenüber $A[b_0, \ldots, b_{n-1}]$ ganz ist wegen $(\ast)$.
+	\end{itemize}
+	$ii)\Ra i)$ Sei $C|A$ ganz. Dann ist offensichtlich $B|A$ ganz und $C|B$ ist ganz nach \ref{15.3} $b)$.
+\end{proof}
+\begin{bem}
+	Sei $B|A$ eine ganze Ringerweiterung, $\b\subseteq B$ ein Ideal. Dann ist $\QR{B}{\b} |\QR{A}{\b \cap A}$ eine ganze Ringerweiterung. 
+\end{bem}
+\begin{proof}
+	Wir haben eine natürliche Inklusion $\QR{A}{\b \cap A} \hookrightarrow \QR{B}{\b}$. Sei $\bar b\in \QR{B}{\b}$. Da $b$ ganz über $A$ ist, existieren $a_{n-1}, \ldots, a_0\in A$ mit $b^n + \ldots + a_1 b + a_0 =0$, d.h. 
+	$$\bar b + \ldots + \bar a_1 \bar b + \bar a_0 =\bar 0$$
+	Damit ist $\bar b$ ganz über $\QR{A}{\b \cap A}$.
+\end{proof}
+\begin{bem}
+	Sei $B|A$ eine ganze Ringerweiterung, $S\subseteq A$ ein Untermonois bezüglich "'$\cdot$"'. Dann ist $S^{-1} B |S^{-1} A$ eine ganze Ringerweiterung.
+\end{bem}
+\begin{proof}
+	Wir haben eine natürliche Inklusion $S^{-1}A \hookrightarrow S^{-1}B$. Sei $b\in B, \, s\in S$. Da $B|A$ ganz ist, existieren $a_{n-1}, \ldots, a_0\in A$ mit $b^n + \ldots + a_0 =0$. Also ist 
+	$$\left(\frac{b}{s}\right)^n + \frac{a_{n-1}}{s} \left(\frac{b}{s}\right)^{n-1} + \ldots + \frac{a_1}{s^{n-1}}\left(\frac{b}{s}\right)+ \frac{a_0}{s^n} =0$$
+	also ist $\frac{b}{s}$ ganz über $S^{-1}A$.
+\end{proof}
+\begin{bem+df}
+	Sei $B|A$ eine Ringerweiterung. Dann gilt:
+	$$\bar A^B:= \{b\in B \ | \ b\text{ ist ganz über } A\}$$
+	ist ein Unterring von $B$ mit $A\subseteq \bar A^B$, der \define{ganze Abschluss\index{ganzer Abschluss einer Ringerweiterung}}. $A$ heißt \define{ganzabgeschlossen in $B$ \index{ganzabgeschlossene Ringerweiterung}} $\defi \bar A^B =A$. $\bar A^B|A$ ist eine ganze Ringerweiterung und $\bar A^B$ ist ganzabgeschlossen in $B$. 
+\end{bem+df}
+\begin{proof}
+	Seien $b_1, b_2\in \bar A^B$. Setze $Z:= A[b_1,b_2]$. Es ist $A[b_1]|A$ endlich, da $b_1$ ganz über $A$ ist. Da $b_2$ ganz über $A$ ist, ist $b_2$auch ganz über $A[b_1]$ nach \ref{15.3}. Dann ist $Z= (A[b_1])[b_2]|A[b_1]$ endlich und $Z|A$ ist endlich. Es sind $b_1-b_2, \, b_1\cdot b_2\in Z$ und nach \ref{15.2} sind $b_1-b_2, \, b_1\cdot b_2$ ganz über $A$. Außerdem sind $0,1\in \bar A^B$. Somit ist $\bar A^B$ ein Unterring von $B$. $\bar A^B|A$ ist ganz nach Konstruktion und $\bar A^B$ ist ganzabgeschlossen in $B$, denn:
+	$$\overline{(\bar A^B)}^B = \{b\in B \ | \ b\text{ ist ganz über } \bar A^B\} = \{b\in B \ | \ b\text{ ist ganz über }A \} = \bar A^B$$
+\end{proof}
+\begin{bem}
+	Sei $B|A$ eine Ringerweiterung, $S\subseteq A$ ein Untermonoid bezüglich "'$\cdot$"'. Dann gilt: $$\overline{S^{-1}A}^{S^{-1}B} = S^{-1}( \bar A^B)$$ Insbesondere gilt: Ist $A$ ganzabgeschlossen in $B$, dann ist $S^{-1}A$ ganzabgeschlossen in $S^{-1}B$.
+\end{bem}
+\begin{proof}
+	"'$\subseteq$"' Die Erweiterung $S^{-1}(\bar A^B)|S^{-1}A$ ist ganz, da $\bar A^B|A$ ganz ist und nach \ref{15.7} ist $S^{-1}(\bar A^B) \subseteq \overline{S^{-1}A}^{S^{-1}B}$.\\
+	"'$\supseteq$"' Sei $b\in B$, $s\in S$ mit $\frac{b}{s}$ ganz über $S^{-1}A$. Dann existieren $a_{n-1}, \ldots, a_0\in A, \, s_{n-1}, \ldots, s_0\in S$ mit
+	$$\left(\frac{b}{s}\right)^n + \frac{a_{n-1}}{s_{n-1}}\left( \frac{b}{s}\right)^{n-1} + \ldots + \frac{a_1}{s_1} \frac{b}{s} + \frac{a_0}{s_0} =0$$
+	Setze $t:= s_0 \cdots s_{n-1}\in S$. Mutlipliziere die Gleichung mit $(st)^n$:
+	$$(bt)^n + \frac{a_{n-1}st}{s_{n-1}}(bt)^{n-1}+ \ldots =0$$
+	d.h. wir erhalten eine Ganzheitsgleichung für $bt$ über $A$. Dann ist $bt\in \bar A^B$, d.h. $\frac{b}{s} = \frac{bt}{st} \in S^{-1}( \bar A^B)$
+\end{proof}
+\begin{df}
+	Sei $A$ nullteilerfrei. Der \define{ganze Abschluss\index{ganzer Abschluss eines Rings}} von $A$ ist der ganze Abschluss von $A$ in $\Quot(A)$. $A$ heißt \define{normal (ganzabgeschlossen)\index{normaler Ring}} $\defi A$ stimmt mit seinem ganzen Abschluss überein.
+\end{df}
+\begin{bem}
+	Sei $A$ faktoriell. Dann ist $A$ normal.
+\end{bem}
+\begin{proof}
+	Sei $b\in \Quot(A)$ ganz über $A$. Es ist zu zeigen, dass $b\in A$ liegt. Es existieren $a_{n-1}, \ldots, a_0\in A$ mit 
+	$$b^n + a_{n-1} b^{n-1} + \ldots + a_1 b + a_0 =0$$
+	Sei $b=\frac{p}{q}$ mit $p,q\in A$ teilerfremd. Dann ist
+	$$\frac{p^n}{q^n} + a_{n-1} \frac{p^{n-1}}{q^{n-1}} + \ldots + a_1 \frac{p}{q} + a_0=0$$
+	Multiplikation mit $q^n$ liefert
+	$$p^n = a_{n-1}qp^{n-1} - \ldots - a_1 q^{n-1} p - a_0 q^n$$
+	Angenommen $q\notin A^*$. Da $A$ faktoriell, existieren Primteiler $\pi$ von $a$, sodass $\pi |p^n$, also $\pi|p$ Widerspruch zu $p,q$ teilerfremd! Alst liegt $q\in A^*$, d.h. $b\in A$.
+\end{proof}
+\begin{bsp}
+	Es ist $\bar \Z^{\Q(i)} = \Z[i]$, denn: $\Z[i]|\Z$ ist ganz, $\Z[i]$ ist normal, da faktoriell.
+\end{bsp}
