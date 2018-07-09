@@ -1066,7 +1066,7 @@ Ist $A$ noethersch, dann sind $i) -iv)$ äquivalent zu:
 	\end{itemize}
 	$ii)\Ra i)$ Sei $C|A$ ganz. Dann ist offensichtlich $B|A$ ganz und $C|B$ ist ganz nach \ref{15.3} $b)$.
 \end{proof}
-\begin{bem}
+\begin{bem}\label{15.6}
 	Sei $B|A$ eine ganze Ringerweiterung, $\b\subseteq B$ ein Ideal. Dann ist $\QR{B}{\b} |\QR{A}{\b \cap A}$ eine ganze Ringerweiterung. 
 \end{bem}
 \begin{proof}
@@ -1074,7 +1074,7 @@ Ist $A$ noethersch, dann sind $i) -iv)$ äquivalent zu:
 	$$\bar b + \ldots + \bar a_1 \bar b + \bar a_0 =\bar 0$$
 	Damit ist $\bar b$ ganz über $\QR{A}{\b \cap A}$.
 \end{proof}
-\begin{bem}
+\begin{bem}\label{15.7}
 	Sei $B|A$ eine ganze Ringerweiterung, $S\subseteq A$ ein Untermonois bezüglich "'$\cdot$"'. Dann ist $S^{-1} B |S^{-1} A$ eine ganze Ringerweiterung.
 \end{bem}
 \begin{proof}
@@ -1082,7 +1082,7 @@ Ist $A$ noethersch, dann sind $i) -iv)$ äquivalent zu:
 	$$\left(\frac{b}{s}\right)^n + \frac{a_{n-1}}{s} \left(\frac{b}{s}\right)^{n-1} + \ldots + \frac{a_1}{s^{n-1}}\left(\frac{b}{s}\right)+ \frac{a_0}{s^n} =0$$
 	also ist $\frac{b}{s}$ ganz über $S^{-1}A$.
 \end{proof}
-\begin{bem+df}
+\begin{bem+df}\label{15.8}
 	Sei $B|A$ eine Ringerweiterung. Dann gilt:
 	$$\bar A^B:= \{b\in B \ | \ b\text{ ist ganz über } A\}$$
 	ist ein Unterring von $B$ mit $A\subseteq \bar A^B$, der \define{ganze Abschluss\index{ganzer Abschluss einer Ringerweiterung}}. $A$ heißt \define{ganzabgeschlossen in $B$ \index{ganzabgeschlossene Ringerweiterung}} $\defi \bar A^B =A$. $\bar A^B|A$ ist eine ganze Ringerweiterung und $\bar A^B$ ist ganzabgeschlossen in $B$. 
@@ -1091,7 +1091,7 @@ Ist $A$ noethersch, dann sind $i) -iv)$ äquivalent zu:
 	Seien $b_1, b_2\in \bar A^B$. Setze $Z:= A[b_1,b_2]$. Es ist $A[b_1]|A$ endlich, da $b_1$ ganz über $A$ ist. Da $b_2$ ganz über $A$ ist, ist $b_2$auch ganz über $A[b_1]$ nach \ref{15.3}. Dann ist $Z= (A[b_1])[b_2]|A[b_1]$ endlich und $Z|A$ ist endlich. Es sind $b_1-b_2, \, b_1\cdot b_2\in Z$ und nach \ref{15.2} sind $b_1-b_2, \, b_1\cdot b_2$ ganz über $A$. Außerdem sind $0,1\in \bar A^B$. Somit ist $\bar A^B$ ein Unterring von $B$. $\bar A^B|A$ ist ganz nach Konstruktion und $\bar A^B$ ist ganzabgeschlossen in $B$, denn:
 	$$\overline{(\bar A^B)}^B = \{b\in B \ | \ b\text{ ist ganz über } \bar A^B\} = \{b\in B \ | \ b\text{ ist ganz über }A \} = \bar A^B$$
 \end{proof}
-\begin{bem}
+\begin{bem}\label{15.9}
 	Sei $B|A$ eine Ringerweiterung, $S\subseteq A$ ein Untermonoid bezüglich "'$\cdot$"'. Dann gilt: $$\overline{S^{-1}A}^{S^{-1}B} = S^{-1}( \bar A^B)$$ Insbesondere gilt: Ist $A$ ganzabgeschlossen in $B$, dann ist $S^{-1}A$ ganzabgeschlossen in $S^{-1}B$.
 \end{bem}
 \begin{proof}
@@ -1105,7 +1105,7 @@ Ist $A$ noethersch, dann sind $i) -iv)$ äquivalent zu:
 \begin{df}
 	Sei $A$ nullteilerfrei. Der \define{ganze Abschluss\index{ganzer Abschluss eines Rings}} von $A$ ist der ganze Abschluss von $A$ in $\Quot(A)$. $A$ heißt \define{normal (ganzabgeschlossen)\index{normaler Ring}} $\defi A$ stimmt mit seinem ganzen Abschluss überein.
 \end{df}
-\begin{bem}
+\begin{bem}\label{15.11}
 	Sei $A$ faktoriell. Dann ist $A$ normal.
 \end{bem}
 \begin{proof}
@@ -1120,3 +1120,122 @@ Ist $A$ noethersch, dann sind $i) -iv)$ äquivalent zu:
 \begin{bsp}
 	Es ist $\bar \Z^{\Q(i)} = \Z[i]$, denn: $\Z[i]|\Z$ ist ganz, $\Z[i]$ ist normal, da faktoriell.
 \end{bsp}
+\begin{bem}\label{15.13}
+	Sei $A$ normal, $S\subseteq A$ ein Untermonoid bezüglich "'$\cdot$"'. Dann ist $S^{-1}A$ normal.
+\end{bem}
+\begin{proof}
+	Sei $A$ ganzabgeschlossen in $\Quot(A)$. Nach \ref{15.9} ist $S^{-1}A$ ganzabgeschlossen in $S^{-1}\Quot(A)= \Quot(A) = \Quot(S^{-1}A)$.
+\end{proof}
+\begin{bem}\label{15.14}
+	Sei $A$ nullteilerfrei. Dann sind äquivalent:
+	\begin{enumerate}[label= \roman*)]
+		\item $A$ ist normal
+		\item $A_\p$ ist normal für alle Primideale $\p\subseteq A$.
+		\item $A_\m$ ist normal für alle maximalen Ideal $\m\subseteq A$.
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	$i)\Ra ii)$ aus \ref{15.13}\\
+	$ii)\Ra iii)$ klar\\
+	$iii)\Ra i)$ Sei $x\in \Quot(A)$ ganz über $A$. Dann ist $x$ ganz über $A_\m$ für alle maximalen Ideale $\m$ in $A$. Nach $iii)$ liegt 
+	$$x\in \bigcap_{\m\subseteq A \atop \text{max. Ideal}} A_\m \underset{\ref{12.17}}{=} A$$
+\end{proof}
+\begin{bem}\label{15.15}
+	Sei $B|A$ eine ganze Ringerweiterung, $B$ nullteilerfrei. Dann sind äquivalent:
+	\begin{enumerate}[label= \roman*)]
+		\item $A$ ist ein Körper
+		\item $B$ ist ein Körper
+	\end{enumerate}
+\end{bem}
+\begin{proof}
+	$i)\Ra ii)$ Sei $0\neq b\in B$. Dann ist. da $B|A$ ganz, $b\in \Quot(B)$ algebraisch über $A$. Dann ist $A[b]$ ein Körper. Also liegt $b^{-1}\in A[b]\subseteq B$.\\
+	$ii)\Ra i)$ Sei $0\neq a\in A$. Dann ist $a^{-1}\in B$, da $B$ ein Körper ist. Da $B|A$ ganz, existieren $c_{n-1}, \ldots, c_0\in A$ mit $(a^{-1})^n + c_{n-1} (a^{-1})^{n-1} + \ldots + c_0 =0$ und Multiplikation mit $a^{n-1}$ liefert
+	$$a^{-1} = - c_{n-1} - \ldots - c_0 a^{n-1}\in A$$
+\end{proof}
+\begin{df}
+	Sei $B|A$ eine Ringerweiterung, $\p\subseteq B$, $\p'\subseteq A$ Primideale.
+	\begin{enumerate}
+		\item[] $\p$ \define{liegt über\index{Primideal liegt über Primideal}} $\p' \defi \p' = \p \cap A$ 
+	\end{enumerate}
+\end{df}
+\begin{sa}\label{15.17}
+	Sei $B|A$ eine ganze Ringerweiterung. Dann gilt:
+	\begin{enumerate}[label= \alph*)]
+		\item ("'\define{Lying over\index{Lying Over}}"') Zu jedem Primideal $\p'\subseteq A$ existiert ein Primideal $\p\subseteq B$, so dass $\p$ über $\p'$ liegt. 
+		\item Sind $\p \subseteq \q$ Primideale in $B$, die über demselben Primideale $\p'\subseteq A$ liegen, dann ist $\p=\q$.
+		\item Liegt das Primideal $\p$ von $B$ über dem Primideal $\p'$ von $A$, dann gilt:
+		$$\p \text{ maximales Ideal} \Lra \p' \text{ maximales Ideal}$$
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	$c)$ Nach \ref{15.6} ist $\QR{B}{\p}| \QR{A}{\p'}$ ganz und nach \ref{15.15} ist $\p$ maximal $\Lra$ $\p'$ maximal.\\
+	$b)$ Seien $\p\subseteq \q$ Primideale in $B$, die über dem Primideale $\p'$ von $A$ liegen. Wir setzen $S:= A\backslash \p'$ und betrachten die nach \ref{15.7} ganze Ringerweiterung $S^{-1}B |S^{-1} A = A_{\p'}$. $S^{-1}\p'$ ist das eindeutig bestimmte maximale Ideal im lokalen Ring $A_{\p'}$. $S^{-1}\p, S^{-1}\q$ sind wegen 
+	$\p\cap S\subseteq \q\cap S= \q \cap ( A \backslash \p') \underset{\q\cap A = \p'}{=} \emptyset$ Primideale in $S^{-1}B$. Es ist
+	$$S^{-1}\q\cap A_{\p'}=S^{-1}\q \cap S^{-1}A = S^{-1}(\q \cap A) = S^{-1}\p'= S^{-1}\p \cap A_{\p'}$$
+	Nach $c)$ sind dan $S^{-1}\q \supseteq S^{-1}\p$ maximale Ideale in $S^{-1}B$, also folgt $S^{-1} \q = S^{-1}\p$, also nach \ref{12.3} $b)$ $\q = \p$.\\
+	$a)$ Sei $\p' \subseteq A$ ein Primideal. Wir setzen $S:= A \backslash \p'$. Dann ist nach \ref{15.7} $S^{-1}B|S^{-1}A= A_{\p'}$ ganz. Sei $\m\subseteq S^{-1}B$ ein maximales Ideal. Dann st $\m \cap A_{\p'}$ ein maximales Ideal in $A_{\p'}$, also ist $\m \cap A_{\p'} = S^{-1}\p'$. Wir betrachten das kommutative Diagramm
+	$$\begin{tikzcd}
+	A\arrow[hook]{r} \arrow[swap]{d}{\tau_S^A} & B\arrow{d}{\tau_S^B}\supseteq \p\\
+	S^{-1}A \arrow[hook]{r} & S^{-1}B \supseteq \m
+	\end{tikzcd}$$
+	Setze $\p:= (\tau_S^B)^{-1}(\m)$. Dann ist $\p$ ein Primideal in $B$ und $$\p \cap A=(\tau_S^B)^{-1}(\m) \cap A = (\tau_S^A)^{-1}( \m \cap A_{\p'})= (\tau_S^A)^{-1}(S^{-1} \p') = \p'$$
+\end{proof}
+\begin{fo}\label{15.18}
+	Sei $B|A$ eine ganze Ringerweiterung, $\p_0\subsetneq \p_1 \subsetneq \ldots \subsetneq \p_r$ eine Primideal-Kette in $B$. Dann ist 
+	$$\p_0\cap A \subsetneq \p_1 \cap A \subsetneq \ldots \subsetneq \p_r \cap A$$
+	eine Primideal-Kette in $A$.
+\end{fo}
+\begin{proof}
+	aus \ref{15.17} $b)$
+\end{proof}
+\begin{fo}[Going-Up\index{Going-Up}]
+	Sei $B|A$ eine ganze Ringerweiterung, $\p_0'\subsetneq \p_1'\subsetneq \ldots \subsetneq \p_r'$ eine Primideal-Kette in $A$, $\p_0$ ein Primideal in $B$ mit $\p_0\cap A = \p_0'$. Dann existiert eine Primideal-Kette $$\p_0\subsetneq \p_1 \subsetneq \ldots \subsetneq \p_r \text{ in }B \quad\text{mit} \quad \p_i \cap A = \p_i'$$ für $i=1, \ldots, r$.
+\end{fo}
+\begin{proof}
+	Offenbar genügt es den Fall $r=1$ zu betrachten, Rest induktiv. Es ist $\QR{B}{\p_0}| \QR{A}{\p_0'}$ eine ganze Ringerweiterung nach \ref{15.6}. Außerdem ist $\QR{\p_1'}{\p_0'}$ ein Primideal in $\QR{A}{\p_0'}$ und nach Lying-Over existiert ein Primideal $\q\subseteq \QR{B}{\p_0}$ über dem Primideal $\QR{\p_1'}{\p_0'}$ von $\QR{A}{\p_0'}$. Dann existiert ein Primideal $\p_1\subseteq B$ mit $\q = \QR{\p_1}{\p_0}$. Wegen $\p_1' \supsetneq \p_0'$ ist $\q \neq 0$ und $\p_1 \supsetneq \p_0$. Außerdem ist $\p_1\cap A = \p_1'$, denn betrachte das kommutative Diagramm
+	$$\begin{tikzcd}
+	A \arrow[hook]{r}{i} \arrow{d}{\pi_A} & B \arrow{d}{\pi_B} \\
+	\QR{A}{\p_0'} \arrow{r}{j} & \QR{B}{\p_0} 
+	\end{tikzcd}$$
+	(wobei $i,j$ Inklusionen, $\pi_A, \pi_B$ die kanonischen Projektionen seien). Es ist 
+	$$\p_1\cap A = i^{-1}(\p_1) = i^{-1}\left(\pi_B^{-1}\left(\QR{\p_1}{\p_0}\right)\right) = \pi_A^{-1}\left(j^{-1}\left(\QR{\p_1}{\p_0}\right)\right) = \pi_A^{-1}\left(\QR{\p_1'}{\p_0'}\right)= \p_1'$$
+\end{proof}
+\begin{df}
+	Sei $A\neq 0$. Eine endliche Kette von $n+1$ Primidealen $\p_0\supsetneq \p_1 \supsetneq \ldots \supsetneq \p_n$ heißt eine \define{Primidealkette der Länge $n$\index{Primidealkette}} in $A$. Für ein Primideal $\p\subseteq A$ heißt 
+	$$\text{ht}(\p):= \sup\{n\in \N_0 \ | \ \p = \p_0 \supsetneq \p_1 \supsetneq \ldots \supsetneq \p_n \text{ ist eine PI-Kette der Länge } n\text{ in } A\}$$
+	die \define{Höhe\index{Höhe eines Primideals}}. 
+	$$\dim(A) := \sup\{\text{ht}(\p) \ | \ \p \text{ Primideal in }A \}$$
+	heißt die \define{(Krull-)Dimension\index{(Krull-)Dimension}} von $A$.
+\end{df}
+\begin{bsp}
+	\begin{enumerate}[label = \alph*)]
+		\item Sei $K$ ein Körper. Dann ist $\dim K=0$, denn $(0)$ ist das einzige Primideal in $K$.
+		\item Sei $A$ ein Hauptidealring, der kein Körper ist. Dann ist $\dim A=1$, denn es existiert ein Primideal $\neq (0)$ in $A$, da ein maximales Ideal $\neq (0)$ in $A$ existiert. Sei $\p$ ein Primideal in $A$, $\p\neq 0$. Dann existiert ein Primelement $\pi \in A$ mit $\p = (\pi)$. Es ist $\text{ht}(\p) =1$, denn ist $(0) \neq \q \subseteq \p $ ein Primideal, dann existiert ein $\tilde{\pi} \in A$ mit $\q=(\tilde{\pi})$, also $\pi |\tilde{\pi}$, d.h. $\pi$ ist assoziiert zu $\tilde{\pi}$ und damit $\q = \p$, also $\text{ht}(\p) =1$.
+	\end{enumerate}
+\end{bsp}
+\begin{sa}
+	Sei $B|A$ eine ganze Ringerweiterung, $\p'\subseteq A$ ein Primideal. Dann gilt:
+	\begin{enumerate}[label= \alph*)]
+		\item $\dim B = \dim A$.
+		\item Für jedes Primideal $\p\subseteq B$ über $\p'$ ist $\dim \QR{A}{\p'} = \dim \QR{B}{\p}$ und $\text{ht}(\p) \leq \text{ht}(\p')$.
+		\item Falls $\text{ht}(\p')< \infty$, dann existiert ein Primideal $\p$ von $B$ über $\p'$ mit $\text{ht}(\p) = \text{ht}(\p')$
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	$a)$ Aus \ref{15.18} folgt $\dim A \geq \dim B$ und aus dem Going-Up (\ref{15.19}) folgt $\dim A \leq \dim B. $\\
+	$b)$ Es ist $\QR{B}{\p} | \QR{A}{\p'}$ ganz nach \ref{15.6}, also ist nach $a)$ $\dim \QR{A}{\p'} = \dim \QR{B}{\p}$. Aus \ref{15.18} folgt $\text{ht}(\p) \leq \text{ht}(\p')$.\\
+	$c)$ Sei $\text{ht}(\p')=r < \infty$, $\p_0'\subsetneq \p_1' \subsetneq \ldots \subsetneq \p_r' = \p'$ eine Primidealkette in $A$. Nach Lying-Over existiert ein Primideal $\p_0$ in $B$ über $\p_0'$ und nach Going-Up existiert ein Primidealkette 
+	$$\p_0\subseteq \p_1 \subsetneq \ldots \subsetneq \p_r \quad \text{mit} \quad \p_i \cap A = \p_i'$$
+	für $i=1, \ldots, r$. Es folgt $\text{ht}(\p_r)\geq r$. Nach $b)$ ist $\text{ht}(\p_r) \leq \text{ht}(\p_r \cap A) =\text{ht}(\p_r') = \text{ht}(\p') =r$. Somit ist $\text{ht}(\p_r) = r$. 
+\end{proof}
+\begin{anm}
+	Im Allgemeinen ist $\text{ht}(\p) \neq \text{ht}(\p')$
+\end{anm}
+\begin{sa}[Going-Down]
+	Sei $B|A$ eine ganze Erweiterung nullteilerfreier Ringe, $A$ normal. Sei $\p_0'\supsetneq \p_1'\supsetneq \ldots \supsetneq \p_r'$ eine Primidealkette in $A$ und $\p_0$ sei ein Primideal in $B$ über $\p_0'$. Dann existiert eine Primidealkette
+	$$\p_0\supsetneq \p_1\supsetneq \ldots \supsetneq \p_r \quad \text{in }B \quad \text{mit} \quad \p_i \cap A = \p_i'$$
+	für $i=1, \ldots, r$. Insbesondere gilt: Ist $\p'$ ein Primideal in $A$ und $\p$ ein Primideal in $B$ über $A$, dann ist $\text{ht}(\p) = \text{ht}(\p')$.
+\end{sa}
+\begin{proof}
+	siehe Atiyah-MacDonald, Thm 5.16.
+\end{proof}
