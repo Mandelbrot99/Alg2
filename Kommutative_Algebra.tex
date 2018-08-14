@@ -1239,3 +1239,127 @@ Ist $A$ noethersch, dann sind $i) -iv)$ äquivalent zu:
 \begin{proof}
 	siehe Atiyah-MacDonald, Thm 5.16.
 \end{proof}
+\newpage
+\subsection{Direkte und projektive Limiten}
+\begin{df}\label{16.1}
+	Sei $I$ eine Menge, $\leq$ eine Halbordnung auf $I$. $(I, \leq)$ heißt \define{gerichtet\index{gerichtete Menge}} $\defi$ Für alle $a,b\in I$ existiert ein $c\in I$ mit $a\leq c$ und $b\leq c$.
+\end{df}
+\begin{center}
+	\textbf{Für den Rest des Abschnitts sei $(I, \leq)$ stets eine gerichtete, halbgeordnete Menge}
+\end{center}
+\begin{df}\label{16.2}
+	Ein über $I$ indiziertes \define{direktes System\index{direktes System} (induktives System)} von $A$-Moduln besteht aus
+	\begin{itemize}
+		\item einer Familie $(M_i)_{i\in I}$ von $A$-Moduln
+		\item einer Familie $(\phi_{ij})_{i,j\in I, i\leq j}$ von $A$-Modulhomomorphismen $\phi_{ij}:M_i \to M_j$ (\define{Übergangsabbildungen \index{Übergangsabbildungen}}), sodass gilt:
+		\begin{itemize}
+			\item $\phi_{ii}= \id_{M_i}$ für alle $i\in I$
+			\item $\phi_{ik}= \phi_{jk} \circ \phi_{ij}$ für alle $i,j,k\in I$ mit $i\leq j \leq k$
+		\end{itemize}
+	\end{itemize} 
+	Im Folgenden schreiben wir dafür kurz $(M_i, \phi_{ij})_I$
+\end{df}
+\begin{bsp}\label{16.3}
+	\begin{enumerate}[label = \alph*)]
+		\item $I=\N$ mit "'$\leq$"', einem $A$-Modul $M$ und $M_1 \subseteq M_2 \subseteq \ldots $ einer Folge von Untermoduln von $M$, $\phi_{ij}:M_i \hookrightarrow M_j$ der Inklusion für $i\leq j$ liefert ein direktes System von $A$-Moduln
+		\item Sei $M$ ein $A$-Modul, $I$ einer Menge von Untermoduln von $M$, die gerichtet bezüglich "'$\subseteq$"' sei. Setze $M_i:= i$ für $i\in I$. Dann ist $(M_i)_{i\in I}$ ein direktes System von $A$-Moduln mit den Inklusionen als Übergangsabbildungen.
+		\item Sei $M$ ein $A$-Modul, $I$ die Menge der endlich erzeugten Untermoduln von $M$ ist gerichtet bezüglich "'$\subseteq$"' (mit $M_1, M_2\subseteq M$ endlich erzeugt ist auch $M_1+M_2$ endlich erzeugt), dies liefert ein Beispiel für $b)$.
+		\item $I=\N$ mit $\big| -$Halbordnung, $M_i= \QR{\Z}{i\Z}$, 
+		$$\phi_{ij}:\QR{\Z}{i\Z} \longrightarrow \QR{\Z}{j\Z}, \quad a+ i\Z\mapsto \frac{j}{i}a + j\Z\quad \text{für } i|j$$
+		liefert ein direktes System von $\Z$-Moduln.
+	\end{enumerate}
+\end{bsp}
+\begin{bem+df}\label{16.4}
+	Ein Homomorphismus von direkten Systemen $(M_i, \phi_{ij}^M)_I$ ins direkte System $(N_i, \phi_{ij}^N)_I$ ist eine Familie $(f_i)_{i\in I}$ von $A$-Modulhomomorphismen $f_i:M_i \to N_i$, sodass $\phi_{ij}^N \circ f_i = f_j \circ \phi_{ij}^M$ für alle $i,j\in I$ mit $i\leq j$ gilt:
+	$$\begin{tikzcd}
+	M_i \arrow{r}{f_i} \arrow[swap]{d}{\phi_{ij}^M} & N_i \arrow{d}{\phi_{ij}^N}\\
+	M_j \arrow{r}{f_j} & N_j
+	\end{tikzcd}$$
+	Die über $I$ indizierten direkten Systeme von $A$-Moduln bilden zusammen mit obigem Homomorphismus eine abelsche Kategorie (alles komponentenweise), welche mit $I$-Dir-$A$-Mod bezeichnet wird.
+\end{bem+df}
+\begin{df}\label{16.5}
+	Ein \define{direkter Limes\index{direkter Limes}} des direkten Systems $(M_i, \phi_{ij})_I$ von $A$-Moduln (indirekter Limes, Kolimes) ist ein $A$-Modul $M$ zusammen mit einer Familie $(\phi_i)_{i\in I}$ von $A$-Modulhomomorphismen $\phi_i:M_i \to M$, sodass $\phi_i = \phi_j \circ \phi_{ij}$ für alle $i,j\in I$ mit $i\leq j$ ist, sodass folgende universelle Eigenschaft erfüllt ist: Für jeden $A$-Modul $N$ und jede Familie $(\psi_i)_{i\in I}$ von $A$-Modulhomomorphismen $\psi_i :M_i \to N$ mit $\psi_i = \psi_j \circ \phi_{ij}$ für alle $i\leq j$ existiert ein eindeutig bestimmter $A$-Modulhomomorphismus $\psi:M \to N$ mit $\psi_i = \psi \circ \phi_i$ für alle $i\in I$:
+	$$\begin{tikzcd}
+	& N & \\
+	& M \arrow[dashed]{u}& \\
+	M_i \arrow{ur}{\phi_i} \arrow[bend left]{uur}{\psi_i} \arrow{rr}{\phi_{ij}} & & M_j \arrow[swap]{ul}{\phi_j} \arrow[bend right, swap]{uul}{\psi_j}
+	\end{tikzcd}$$
+\end{df}
+\begin{sa}\label{16.6}
+	Sei $(M_i, \phi_{ij})_I$ ein direktes System von $A$-Moduln. Dann gilt:
+	\begin{enumerate}[label= \alph*)]
+		\item Setzt man $L:= \overset{.}{\bigcup\limits_{i\in I}} M_i$ und für $x,y\in L$, $x= m_i \in M_i$, $y= m_j \in M_j$ 
+		$$x\sim y \defi \text{Es existiert ein }k\in I \text{ mit } i\leq k, j \leq k \text{ mit } \phi_{ik}(x) = \phi_{jk}(y)$$
+		dann ist "'$\sim$"' eine Äquivalenzrelation auf $L$. Hierbei ist $\overset{.}{\bigcup\limits_{i\in I}} M_i:= \bigcup_{i\in I}(M_i \times \{i\})$, man identifiziert $M_i\times \{i\}$ mit $M_i$
+		\item Setzt man $M:= \QR{L}{\sim}$, dann wird $M$ auf naürliche Weise zu einem $A$-Modul und die Abbildung $\phi_i : M_i \to M, \, x \mapsto \bar x$ sind $A$-Modulhomomorphismen mit $\phi_j = \phi_j \circ \phi_{ij}$ für alle $i,j\in I $ mit $i\leq j$. Für jedes $m\in M$ existiert ein $m_i \in M_i$ mit $m= \phi_i(m_i)$.
+		\item $(M,(\phi_i)_{i\in I})$ ist ein direkter Limes von $(M_i, \phi_{ij})_I$
+		\item Ist $(M', (\phi_i')_{i\in I})$ ein weiterer direkter Limes des obigen direkten System, dann existiert ein eindeutig bestimmter Isomorphismus $\gamma:M \to M'$ mit $\gamma \circ \phi_i = \phi_i'$ für alle $i\in I$
+	\end{enumerate}
+Notation: $M = \varinjlim\limits_{i\in I} M_i$
+\end{sa}
+\begin{proof}
+	\begin{enumerate}[label= \alph*)]
+		\item Offenbar ist "'$\sim$"' reflexiv und symmetrisch. "'$\sim$"' ist transitiv, denn: Sei $x\sim y, \, y\sim z$, $x= m_i \in M_i, \, y= m_j \in M_j, \, z=m_k \in M_k$. Dann existieren $l\in I$ mit $i\leq l, \, j \leq l$, sodass $\phi_{il}(x) = \phi_{jl}(y)$, $m\in I$ mit $j\leq n, \, k \leq n$, sodass $\phi_{jm}(y) = \phi_{km}(z)$. Da $I$ gerichtet ist, existiert ferner ein $n\in I$ mit $l,m\leq n$. Also ist 
+		\begin{eqnarray*}
+		\phi_{in}(x) &=& \phi_{ln}(\phi_{il}(x)) = \phi_{ln}(\phi_{jl}(y)) = \phi_{jn}(y) = \phi_{mn}(\phi_{jm}(y)) = \phi_{mn}(\phi_{km}(z)) \\
+		&=& \phi_{kn}(z)
+		\end{eqnarray*}
+	Also ist $x\sim z$.
+	\item Seien $m,n\in M$. Dann existieren$i\in I, \, m_i \in M_i$ mit $m=\bar m_i = \phi_i(m_i)$, $j\in I, \, n_j \in M_j$ mit $n= \bar n_j = \phi_j(n_j)$. Da $I$ gerichtet ist, existiert ein $k\in K$ mit $i\leq k, \, j\leq k$. Setze $m_k:= \phi_{ik}(m_i), \, n_k:= \phi_{jk}(n_j)$
+	$$m+n:= \bar{m_k + n_k} = \phi_k(m_k + n_k)$$
+	Man rechnet nach, dass dies wohldefiniert ist. Ist $a\in A$, setze $am:= \bar{a m_i}= \phi_i(a m_i)$. Erneut rechne man nach, dass dies wohldefiniert ist und $M$ dadurch zum $A$-Modul wird. Die $\phi_i$, $i\in I$ sind dann $A$-Modulhomomorphismen nach Konstruktion:
+	$$\phi_i(m_i + m_i ') = \bar{m_i + m_i'} = \bar n_i + \bar m_i' = \phi_i(m_i) + \phi_i(n_i')$$
+	\item Sei $N$ ein $A$-Modul und $(\psi_i)_{i\in I}$ eine Familie von $A$-Modulhomomorphismen $\psi_i:M_i \to N$ mit $\psi_i = \psi_j \circ \phi_{ij}$ für alle $i,j\in I$ mit $i\leq j$
+		$$\begin{tikzcd}
+	& N & \\
+	& M \arrow[dashed]{u}& \\
+	M_i \arrow{ur}{\phi_i} \arrow[bend left]{uur}{\psi_i} \arrow{rr}{\phi_{ij}} & & M_j \arrow[swap]{ul}{\phi_j} \arrow[bend right, swap]{uul}{\psi_j}
+	\end{tikzcd}$$
+	Sei $m\in M$. Wähle ein $i\in I$, $m_i \in M_i$ mit $\phi_i(m_i) = m$. Setze $\phi(m) := \psi_i(m_i)$. Dann ist $\psi$ wohldefiniert, denn sei $\phi_i(m_i) = m = \phi_j(m_j)$. Dann ist $m_i \sim m_j$. Dann existiert ein $k\in I$ mit $i,j\leq k$ und $\phi_{ik}(m_i) = \phi_{jk}(m_j)$. Dann ist
+	$$\psi(m_i) = \psi_k(\phi_{ik}(m_i)) = \psi_k(\phi_{jk}(m_j)) = \psi_j(m_j)$$
+	$\psi$ ist ein $A$-Modulhomomorphismus, denn sei $m= \phi_i(m_i), \, n= \phi_j(n_j) $ mit $m_i = M_i, \, n_j = M_j$. Dann existiert ein $k\in I$ mit $i\leq k, \, j \le k$, es ist 
+	$$m+n = \phi_i(m_i) + \phi_j(n_j) = \phi_k(\phi_{ik}(m_i)) + \phi_l(\phi_{jk}(n_j)) = \phi_k(\phi_{ik}(m_i) + \phi_j(n_j))$$
+	Also ist 
+	$$\psi(m+n) = \psi_k(\phi_{ik}(m_i) + \phi_{jk}(n_j)) = \psi_i(m_i) + \psi_{j}(n_j) = \psi(m) + \psi(n)$$
+	Für $a\in A$ ist $\phi_i(am_i) = am$, also $\psi(am) = \psi_i(am_i) = a \psi_i(m_i) = a \psi(m)$. Es ist $\psi \circ \phi_i = \psi_i$ für alle $i\in I$, da $\psi(\phi_i(m_i)) = \psi_i(m_i)$ nach Definition von $\psi$. Durch die Vorgabe $\psi \circ \phi_i = \psi_i$ für alle $i\in I$ ist $\psi$ eindeutig bestimmt.
+	\item mit den Standardargumenten.
+	\end{enumerate}
+\end{proof}
+\begin{bsp}
+		vergleiche \ref{16.3}
+	\begin{enumerate}[label= \alph*)]
+		\item Betrachte $M_1 \subseteq M_2 \subseteq \ldots \subseteq M$ mit den Inklusionen als Übergangsabbildungen. Dann ist 
+		$$\varinjlim_{i\in \N} M_i = \bigcup_{i\in \N} M_i \subseteq M, \quad \text{wobei }\phi_i :M_i \hookrightarrow \bigcup_{i\in \N}M_i \text{ Inklusion}$$
+			$$\begin{tikzcd}[row sep = large]
+		& N & \\
+		& \bigcup\limits_{i\in \N}M_i \arrow[dashed]{u}& \\
+		M_i \arrow[hook]{ur}{\phi_i} \arrow[bend left]{uur}{\psi_i} \arrow{rr}{\phi_{ij}} & & M_j \arrow[swap, hook]{ul}{\phi_j} \arrow[bend right, swap]{uul}{\psi_j}
+		\end{tikzcd}\qquad \psi_j \circ \phi_{ij} = \psi_i \text{ für } i\leq j \text{ d.h. } \psi_j \big|_{M_i} = \psi_i$$
+		\item Sei $(M_i)_{i\in I}$ eine bezüglich "'$\subseteq$"' gerichtete Familie von Untermoduln von $M$, indiziert über sich selbst. Dann ist $\varinjlim_{i\in I} M_i = \bigcup_{i\in I} M_i$
+		\item Sei $(M_i)_{i\in I}$ die Familie der endlich erzeugten Untermoduln von $M$. Dann ist $\varinjlim_{i\in I} M_i = \bigcup_{i\in I} M_i = M$, denn jedes Element aus $M$ liegt in einem endlich erzeugten Untermodul von $M$.
+	\end{enumerate}
+\end{bsp}
+\begin{bem}\label{16.8}
+	Sei $(f_i)_{i\in I}:(M_i, \phi_{ij}^M)_I \to (N_i, \phi_{ij}^N)_I$ ein Homomorphismus der direkten Systeme von $A$-Moduln. Dann existiert ein eindeutig bestimmter Homomorphismus 
+	$$\varinjlim_{i\in I} f_i: \varinjlim_{i\in I} M_i \longrightarrow \varinjlim_{i\in I} N_i$$
+	mit $(\varinjlim f_i) \circ \phi_i^M = \phi_i^N \circ f_i $ für alle $i\in I$:
+	$$\begin{tikzcd}[row sep = large]
+	M_i \arrow{r}{f_i} \arrow{d}{\phi_i^M} & N_i \arrow{d}{\phi_i^N} \\
+	\varinjlim_{i\in I} M_i \arrow[swap]{r}{\varinjlim f_i} & \varinjlim_{i\in I} N_i
+	\end{tikzcd}$$
+\end{bem}
+\begin{proof}
+	Wende die Universelle Eigenschaft von $\varinjlim_{i\in I} M_i$ an:
+	$$\begin{tikzcd}[column sep = large]
+	& \varinjlim\limits_{i\in I} N_i & \\
+	& \varinjlim\limits_{i\in I} M_i \arrow[dashed]{u}{\varinjlim f_i}& \\
+	M_i \arrow[hook]{ur}{\phi_i^M} \arrow[bend left]{uur}{\phi_i^N \circ f_i} \arrow{rr}{\phi_{ij}^M} & & M_j \arrow[swap, hook]{ul}{\phi_j^M} \arrow[bend right, swap]{uul}{\phi_j^N \circ f_j}
+	\end{tikzcd}$$
+	(beachte: $\phi_j^N \circ f_j \circ \phi_{ij}^M = \phi_j^N \circ \phi_{ij}^N \circ f_i = \phi_i^N \circ f_i$ für $i\leq j$)
+\end{proof}
+\begin{fo}
+	$\varinjlim_{i\in I}-:I$-Dir-$A$-Mod$\to A$-Mod ist ein additiver Funktor
+\end{fo}
+\begin{proof}
+	Die Funktorialität und Additivität von $\varinjlim_{i\in I}-$ ergeben sich aus der Charakterisierung von $\varinjlim f_i$ in \ref{16.8}.
+\end{proof}
