@@ -1261,10 +1261,10 @@ Ist $A$ noethersch, dann sind $i) -iv)$ äquivalent zu:
 \end{df}
 \begin{bsp}\label{16.3}
 	\begin{enumerate}[label = \alph*)]
-		\item $I=\N$ mit "'$\leq$"', einem $A$-Modul $M$ und $M_1 \subseteq M_2 \subseteq \ldots $ einer Folge von Untermoduln von $M$, $\phi_{ij}:M_i \hookrightarrow M_j$ der Inklusion für $i\leq j$ liefert ein direktes System von $A$-Moduln
+		\item $I=\N$ mit "'$\leq$"', einen $A$-Modul $M$ und $M_1 \subseteq M_2 \subseteq \ldots $ einer Folge von Untermoduln von $M$, $\phi_{ij}:M_i \hookrightarrow M_j$ der Inklusion für $i\leq j$ liefert ein direktes System von $A$-Moduln
 		\item Sei $M$ ein $A$-Modul, $I$ einer Menge von Untermoduln von $M$, die gerichtet bezüglich "'$\subseteq$"' sei. Setze $M_i:= i$ für $i\in I$. Dann ist $(M_i)_{i\in I}$ ein direktes System von $A$-Moduln mit den Inklusionen als Übergangsabbildungen.
 		\item Sei $M$ ein $A$-Modul, $I$ die Menge der endlich erzeugten Untermoduln von $M$ ist gerichtet bezüglich "'$\subseteq$"' (mit $M_1, M_2\subseteq M$ endlich erzeugt ist auch $M_1+M_2$ endlich erzeugt), dies liefert ein Beispiel für $b)$.
-		\item $I=\N$ mit $\big| -$Halbordnung, $M_i= \QR{\Z}{i\Z}$, 
+		\item $I=\N$ mit "'$\big| $"'-Halbordnung, $M_i= \QR{\Z}{i\Z}$, 
 		$$\phi_{ij}:\QR{\Z}{i\Z} \longrightarrow \QR{\Z}{j\Z}, \quad a+ i\Z\mapsto \frac{j}{i}a + j\Z\quad \text{für } i|j$$
 		liefert ein direktes System von $\Z$-Moduln.
 	\end{enumerate}
@@ -1281,7 +1281,7 @@ Ist $A$ noethersch, dann sind $i) -iv)$ äquivalent zu:
 	Ein \define{direkter Limes\index{direkter Limes}} des direkten Systems $(M_i, \phi_{ij})_I$ von $A$-Moduln (indirekter Limes, Kolimes) ist ein $A$-Modul $M$ zusammen mit einer Familie $(\phi_i)_{i\in I}$ von $A$-Modulhomomorphismen $\phi_i:M_i \to M$, sodass $\phi_i = \phi_j \circ \phi_{ij}$ für alle $i,j\in I$ mit $i\leq j$ ist, sodass folgende universelle Eigenschaft erfüllt ist: Für jeden $A$-Modul $N$ und jede Familie $(\psi_i)_{i\in I}$ von $A$-Modulhomomorphismen $\psi_i :M_i \to N$ mit $\psi_i = \psi_j \circ \phi_{ij}$ für alle $i\leq j$ existiert ein eindeutig bestimmter $A$-Modulhomomorphismus $\psi:M \to N$ mit $\psi_i = \psi \circ \phi_i$ für alle $i\in I$:
 	$$\begin{tikzcd}
 	& N & \\
-	& M \arrow[dashed]{u}& \\
+	& M \arrow[dashed]{u}{\psi}& \\
 	M_i \arrow{ur}{\phi_i} \arrow[bend left]{uur}{\psi_i} \arrow{rr}{\phi_{ij}} & & M_j \arrow[swap]{ul}{\phi_j} \arrow[bend right, swap]{uul}{\psi_j}
 	\end{tikzcd}$$
 \end{df}
@@ -1290,7 +1290,8 @@ Ist $A$ noethersch, dann sind $i) -iv)$ äquivalent zu:
 	\begin{enumerate}[label= \alph*)]
 		\item Setzt man $L:= \overset{.}{\bigcup\limits_{i\in I}} M_i$ und für $x,y\in L$, $x= m_i \in M_i$, $y= m_j \in M_j$ 
 		$$x\sim y \defi \text{Es existiert ein }k\in I \text{ mit } i\leq k, j \leq k \text{ mit } \phi_{ik}(x) = \phi_{jk}(y)$$
-		dann ist "'$\sim$"' eine Äquivalenzrelation auf $L$. Hierbei ist $\overset{.}{\bigcup\limits_{i\in I}} M_i:= \bigcup_{i\in I}(M_i \times \{i\})$, man identifiziert $M_i\times \{i\}$ mit $M_i$
+		dann ist "'$\sim$"' eine Äquivalenzrelation auf $L$.  \\
+		Hierbei ist $\overset{.}{\bigcup\limits_{i\in I}} M_i:= \bigcup_{i\in I}(M_i \times \{i\})$, man identifiziert $M_i\times \{i\}$ mit $M_i$
 		\item Setzt man $M:= \QR{L}{\sim}$, dann wird $M$ auf naürliche Weise zu einem $A$-Modul und die Abbildung $\phi_i : M_i \to M, \, x \mapsto \bar x$ sind $A$-Modulhomomorphismen mit $\phi_j = \phi_j \circ \phi_{ij}$ für alle $i,j\in I $ mit $i\leq j$. Für jedes $m\in M$ existiert ein $m_i \in M_i$ mit $m= \phi_i(m_i)$.
 		\item $(M,(\phi_i)_{i\in I})$ ist ein direkter Limes von $(M_i, \phi_{ij})_I$
 		\item Ist $(M', (\phi_i')_{i\in I})$ ein weiterer direkter Limes des obigen direkten System, dann existiert ein eindeutig bestimmter Isomorphismus $\gamma:M \to M'$ mit $\gamma \circ \phi_i = \phi_i'$ für alle $i\in I$
@@ -1325,7 +1326,7 @@ Notation: $M = \varinjlim\limits_{i\in I} M_i$
 	\item mit den Standardargumenten.
 	\end{enumerate}
 \end{proof}
-\begin{bsp}
+\begin{bsp} \label{16.7}
 		vergleiche \ref{16.3}
 	\begin{enumerate}[label= \alph*)]
 		\item Betrachte $M_1 \subseteq M_2 \subseteq \ldots \subseteq M$ mit den Inklusionen als Übergangsabbildungen. Dann ist 
@@ -1357,9 +1358,419 @@ Notation: $M = \varinjlim\limits_{i\in I} M_i$
 	\end{tikzcd}$$
 	(beachte: $\phi_j^N \circ f_j \circ \phi_{ij}^M = \phi_j^N \circ \phi_{ij}^N \circ f_i = \phi_i^N \circ f_i$ für $i\leq j$)
 \end{proof}
-\begin{fo}
+\begin{fo} \label{16.9}
 	$\varinjlim_{i\in I}-:I$-Dir-$A$-Mod$\to A$-Mod ist ein additiver Funktor
 \end{fo}
 \begin{proof}
 	Die Funktorialität und Additivität von $\varinjlim_{i\in I}-$ ergeben sich aus der Charakterisierung von $\varinjlim f_i$ in \ref{16.8}.
+\end{proof}
+\begin{bsp} \label{16.10}
+	(vgl. Beispiel \ref{16.3}(d)) $I=\N$ mit "'$\big | $"'-Halbordnung, $M_i = \QR{\Z}{i\Z}$,$$\phi_{ij}: \QR{\Z}{i\Z} \to \QR{\Z}{j\Z}, \quad  a+i\Z \mapsto \frac{j}{i}a + j \Z \quad \text{für} \ i|j$$\\
+	Setze $$f_i: \QR{\Z}{i\Z} \overset{\sim}{\longrightarrow} \QR{(\frac{1}{i} \Z)}{\Z} \subseteq \QR{\Q}{\Z}, \quad a+i \Z \mapsto \frac{a}{i} + \Z $$ sowie $$ \psi_{ij}: \QR{(\frac{1}{i} \Z)}{\Z} \hookrightarrow \QR{(\frac{1}{j} \Z)}{\Z}, \quad \frac{a}{i} + \Z \mapsto \frac{a}{i} + \Z  \quad \text{für} \ i|j$$ 
+	Dann ist $ (\QR{(\frac{1}{i} \Z)}{\Z}, \psi_{ij})_{\N} $ ist ein direktes System von $\Z$-Moduln und $$ (f_i)_{i \in \N} : (\QR{\Z}{i \Z}, \phi_{ij})_{\N} \to (\QR{(\frac{1}{i} \Z)}{\Z}, \psi_{ij})_{\N} $$ ist ein Isomorphismus direkter Systeme( beachte: $\psi_{ij} \circ f_i = f_j \circ \phi_{ij} $ für $i|j$, denn: \\
+	$(\psi_{ij} \circ f_i)(a + i\Z) = \psi_{ij}(\frac{a}{i} + \Z) = \frac{a}{i} + \Z$,\\
+	$(f_j \circ \phi_{ij})(a + i\Z) = f_j(\frac{j}{i} a + j\Z) = \frac{ja}{ij} + \Z = \frac{a}{i} + \Z$\\
+	Mit \ref{16.9} folgt $\varinjlim_{i\in \N} \QR{\Z}{i \Z} \cong \varinjlim_{i\in \N} \QR{(\frac{1}{i} \Z)}{\Z} \underset{\ref{16.7}(b)}{=} \bigcup_{i\in \N} \QR{(\frac{1}{i} \Z)}{\Z} = \QR{\Q}{\Z}$.
+\end{bsp}
+\begin{bem} \label{16.11}
+	$(M_i, \phi_{ij})_I $ direktes System von $A$-Moduln, $N$ ein $A$-Modul. Dann gibt es einen natürlichen Isomorphismus $$\varinjlim_{i\in I}(M_i \otimes_A N) \cong (\varinjlim_{i\in I} M_i) \otimes_A N $$
+\end{bem}
+\begin{proof}
+	Es genügt nachzurechnen, dass die rechte Seite die Universelle Eigenschaft von $\varinjlim$ erfüllt.
+\end{proof}
+\begin{sa} \label{16.12}
+	Der Funktor $\varinjlim_{i\in I} - :$ $I$-Dir-$A$-Mod $\to A$-Mod  ist exakt. 
+\end{sa}
+\begin{proof}
+	Sei $\begin{tikzcd}
+	(K_i, \phi_{ij}^K)_I \arrow{r}{(f_i)_I} & (M_i, \phi_{ij}^M)_I  \arrow{r}{(g_i)_I} & (N_i, \phi_{ij}^N)_I \end{tikzcd}$ eine exakte Sequenz in $I$-Dir-$A$-Mod (insebsondere ist $\begin{tikzcd} K_i \arrow{r}{f_i} & M_i \arrow{r}{g_i} & N_i \end{tikzcd}$ exakt für alle $i \in I$). \\
+	 Die Limiten der Systeme seien durch $(\varinjlim K_i, \phi_i^K),(\varinjlim M_i, \phi_i^M), (\varinjlim N_i, \phi_i^N) $ gegeben. \\
+	Mit Folgerung \ref{16.9} ist $\varinjlim g_i \circ \varinjlim f_i = \varinjlim (g_i \circ f_i) = 0$. \\
+	Sei $m \in \varinjlim M_i $ mit $ (\varinjlim g_i)(m) = 0$. Nach \ref{16.6}(b) existieren $ i \in I, m_i \in M_i $ mit $m=\phi_i^M(m_i) $. Wir haben das kommutative Diagramm: \\
+	$$\begin{tikzcd}[row sep = large]
+	m_i \in \arrow[mapsto]{d} & M_i \arrow{r}{g_i} \arrow{d}{\phi_i^M} & N_i \arrow{d}{\phi_i^N} \\
+	m \in & \varinjlim M_i \arrow[swap]{r}{\varinjlim g_i} & \varinjlim N_i
+	\end{tikzcd}$$
+	Dann ist $ \phi_i^N(g_i(m_i)) = (\varinjlim g_i)(\underbrace{\phi_i^M(m_i)}_{=m}) = (\varinjlim g_i)(m) = 0.$  \\
+	Es folgt, dass ein $j \in J, j \geq i $ existiert, mit $\phi_{ij}^N(\underbrace{g_i(m_i)}_{g_j(\phi_{ij}^M(m_i))})= 0.$ \\
+ 	Somit $ \phi_{ij}^M(m_i) \in \ker(g_j) = \im(f_j) $, woraus resultiert, dass ein $k_j \in K_j $ existiert, mit $ f_j(k_j) = \phi_{ij}^M(m_i)$\\
+	Setze $k:= \phi_j^K(k_j) \in \varinjlim K_i $ und betrachte folgendes kommutatives  Diagramm: \\
+	$$\begin{tikzcd}[row sep = large]
+	k_j \in \arrow[mapsto]{d} & K_j \arrow{r}{f_j} \arrow{d}{\phi_j^K} & M_j \arrow{d}{\phi_j^M} \\
+	k \in & \varinjlim K_i \arrow[swap]{r}{\varinjlim f_i} & \varinjlim M_i
+	\end{tikzcd}$$
+	So gilt:\\
+	 $(\varinjlim f_i)(k) = (\varinjlim f_i)(\phi_j^K(k_j)) = \phi_j^M(f_j(k_j)) =\phi_j^M(\phi_{ij}^M(m_i))=\phi_i^M(m_i)=m$ \\
+	 Das heißt $ m \in \im(\varinjlim f_i) $
+\end{proof}
+\begin{anm}
+	$\varinjlim_{i\in I} -$  \ ist linksadjungiert zum "konstanten System-Funktor": $$ I-\text{const}: A\text{-Mod} \to I-\text{Dir-}A\text{-Mod}, \quad M \mapsto (M,id_M)_I $$
+	denn: $Hom_{A\text{-Mod}}(\varinjlim_{i\in I} M_i,N) \cong Hom_{I-\text{Dir-}A\text{-Mod}}((M_i,\phi_{ij})_I, I\text{-const(N)}) $
+\end{anm}
+\begin{fo} \label{16.13}
+	Sei $ (M_i, \phi_{ij})_I $ ein direktes System flacher $A$-Moduln. Dann ist $\varinjlim_{i\in I} M_i $ flach. 
+\end{fo}
+\begin{proof}
+	Sei  $\begin{tikzcd} 0 \arrow{r} & N' \arrow{r}{f} & N \end{tikzcd}$  eine exakte Sequenz von $A$-Moduln. Da $M_i$ flach für alle $i \in I $ folgt dass $\begin{tikzcd} 0 \arrow{r} & (M_i \otimes_A N',\phi_{ij}\otimes id_{N'})_I \arrow{r} & (M_i \otimes_A N, \phi_{ij} \otimes id_N)_I \end{tikzcd}$  eine exakte Sequenz von direkten Systemen.\\
+	 Mit \ref{16.12} folgt die Exaktheit von $\begin{tikzcd} 0 \arrow{r} & \varinjlim_{i\in I}(M_i \otimes_A N')  \arrow{r} & \varinjlim_{i\in I}(M_i \otimes N) \end{tikzcd}$ und mit  \ref{16.11} die Exaktheit von  $\begin{tikzcd} 0 \arrow{r} & (\varinjlim_{i\in I}M_i) \otimes_A N' \arrow{r} & (\varinjlim_{i\in I}M_i) \otimes N \end{tikzcd}$ \\
+	 Damit ist $ \varinjlim_{i\in I} M_i $ flach
+\end{proof}
+\begin{fo} \label{16.14}
+	Sei $M$ ein $A$-Modul, sodass jeder endlich erzeugte Untermodul von $M$ flach ist. Dann ist M flach. 
+\end{fo}
+\begin{proof}
+	Ist $(M_i)_{i \in I } $ die Familie der endlich erzeugten Untermoduln von $M$, dann ist $M = \varinjlim_{i\in I} M_i $ (vergleiche Beispiel \ref{16.7}(c)). Die Behauptung folgt somit aus \ref{16.13}.
+\end{proof}
+\begin{df}
+	$J \subseteq I $ heißt \define{kofinal} $\Leftrightarrow $ für jedes $ i \in I $ existiert ein $j \in J $ mit $ i \leq j$.
+\end{df}
+\begin{anm}
+	\begin{itemize}
+		\item Ist $J \subseteq I $ kofinal, dann ist $J $ gerichtet, denn  $I$ ist  gerichtet und damit folgt für  $i,j \in J  $, dass ein $k \in I$ existiert, mit $i,j \leq k $ und es existiert ein $l \in J $ mit $k \leq l $. Das heißt $i,j \leq l .$
+		\item Ist $(M_i, \phi_{ij})_I $ ein direktes System, dann ist auch $(M_i, \phi_{ij})_J $ ein direktes System und es gibt einen eindeutig bestimmten Homomorphimus: $$ \iota: \varinjlim_{i\in J} M_i \to \varinjlim_{i\in I} M_i $$ 
+		Mit $ \iota \circ \phi_i^J = \phi_i^I $ für alle $ i \in J $: 
+		$$\begin{tikzcd}[column sep = large]
+		& \varinjlim\limits_{i\in I} M_i & \\
+		& \varinjlim\limits_{i\in J} M_i \arrow[dashed, red]{u}{\iota}& \\
+		M_i \arrow{ur}{\phi_i^J} \arrow[bend left]{uur}{\phi_i^I} \arrow{rr}{\phi_{ij}} & & M_j \arrow[swap]{ul}{\phi_j^J} \arrow[bend right, swap]{uul}{\phi_j^I}
+		\end{tikzcd}$$
+	\end{itemize}
+\end{anm}
+\begin{bem} \label{16.16}
+	Sei $ J \subseteq I $ kofinal, $(M_i, \phi_{ij})_I $ ein direktes System von $A$-Moduln. Dann ist der natürliche Homomorphismus $$ \iota: \varinjlim_{i\in J} M_i \to \varinjlim_{i\in I} M_i $$ ein Isomorphismus. 
+\end{bem}
+\begin{proof}
+	Situation: 
+	$$\begin{tikzcd}[row sep = large]
+	M_i \arrow{r}{id_{M_i}} \arrow{d}{\phi_i^J} & M_i \arrow{d}{\phi_i^I} \\
+	\varinjlim_{j \in J} M_j \arrow[swap]{r}{\iota} & \varinjlim_{i\in I} M_i
+	\end{tikzcd}$$
+	\begin{enumerate}
+		\item[] Injektivität von $\iota $: \\
+		Sei $m \in \varinjlim_{j \in J} M_j $ mit $ \iota(m)=0$. Es existieren  $i \in J, m_i \in M_i $ mit $ m = \phi_i^J(m_i) \Ra \iota(\phi_i^J(m_i)) =0 \Ra \phi_i^I(m_i) = 0  \Ra $ Es existiert ein $k \in I, k \geq i $ mit $\phi_{ik}(m_i) =0$.Wegen $J \subseteq I $ kofinal, existiert ein $j\in J, j \geq k $. Es ist $\phi_{ij}(m_i)= \phi_{kj}(\underbrace{\phi_{ik}(m_i)}_{=0}) = 0 \Ra m = \phi_i^J(m_i)=0. $
+		\item[] Surjektivität von $\iota$: \\
+		Sei $m \in \varinjlim_{i\in I} M_i \Ra $ Es existieren $i \in I, m_i \in M_i $ mit $ m = \phi_i^I(m_i)$. Wegen $J \subseteq I $ kofinal, existiert  ein $j \in J $ mit $ j \geq i $. Setze $m_j := \phi_{ij}(m_i) \in M_j$, dann ist $m = \phi_i^I(m_i) = \phi_j^I(\phi_{ij}(m_i)) = \phi_j^I(m_j)=\iota(\phi_j^J(m_j)) \in \im\iota $.
+	\end{enumerate}
+\end{proof}
+\begin{df} \label{16.17}
+	Ein über $I$ indiziertes \define{projektives System\index{projektives System}} von $A$-Moduln besteht aus
+	\begin{itemize}
+		\item einer Familie $(M_i)_{i\in I}$ von $A$-Moduln
+		\item einer Familie $(\phi_{ij})_{i,j\in I, i\leq j}$ von $A$-Modulhomomorphismen $\phi_{ij}:M_j \to M_i$ (\define{Übergangsabbildungen \index{Übergangsabbildungen}}), sodass gilt:
+		\begin{itemize}
+			\item $\phi_{ii}= \id_{M_i}$ für alle $i\in I$
+			\item $\phi_{ik}= \phi_{ij} \circ \phi_{jk}$ für alle $i,j,k\in I$ mit $i\leq j \leq k$
+		\end{itemize}
+	\end{itemize} 
+	Im Folgenden schreiben wir dafür kurz $(M_i, \phi_{ij})_I$
+\end{df}
+\begin{bsp} \label{16.18}
+	\begin{enumerate} [label = \alph*)]
+		\item $I=\N$ mit "'$\leq$"', einem $A$-Modul $M$ und $M_1 \subseteq M_2 \subseteq \ldots $ einer Folge von Untermoduln von $M$, $\phi_{ij}:M_j \hookrightarrow M_i$ der Inklusion für $i\leq j$ liefert ein projektives System von $A$-Moduln
+		\item Sei $M$ ein $A$-Modul, $I$ einer Menge von Untermoduln von $M$, die gerichtet bezüglich "'$\subseteq$"' sei. Setze $M_i:= i$ für $i\in I$. Dann ist $(M_i)_{i\in I}$ ein projektives System von $A$-Moduln mit den Inklusionen als Übergangsabbildungen.
+		\item $I=\N$ mit "'$\big| $"'-Halbordnung, $M_i= \QR{\Z}{i\Z}$, 
+		$$\phi_{ij}:\QR{\Z}{j\Z} \longrightarrow \QR{\Z}{i\Z}, \quad a+ j\Z \mapsto a + i\Z \quad \text{für } i|j$$ liefert ein projektives System von $\Z$-Moduln.
+		\item $I=\N$ mit "' $\leq $"'-Halbordnung, $p$ Primzahl, $M_i= \QR{\Z}{p^{i}\Z}$, 
+		$$\phi_{ij}:\QR{\Z}{p^{j}\Z} \longrightarrow \QR{\Z}{p^{i}\Z}, \quad a+ p^{j}\Z \mapsto a + p^{i}\Z \quad \text{für } i \leq j$$ liefert ein projektives System von $\Z$-Moduln.
+	\end{enumerate}
+\end{bsp}
+\begin{bem+df} \label{16.19}
+	Ein Homomorphismus von projektiven Systemen $(M_i, \phi_{ij}^M)_I$ ins projektive System $(N_i, \phi_{ij}^N)_I$ ist eine Familie $(f_i)_{i\in I}$ von $A$-Modulhomomorphismen $f_i:M_i \to N_i$, sodass $\phi_{ij}^N \circ f_j = f_i \circ \phi_{ij}^M$ für alle $i,j\in I$ mit $i\leq j$ gilt:
+	$$\begin{tikzcd}
+	M_i \arrow{r}{f_i} & N_i \\
+	M_j \arrow{r}{f_j} \arrow{u}{\phi_{ij}^M} & N_j \arrow{u}{\phi_{ij}^N}
+	\end{tikzcd}$$
+	Die über $I$ indizierten projektiven Systeme von $A$-Moduln bilden zusammen mit obigem Homomorphismus eine abelsche Kategorie (alles komponentenweise), welche mit $I$-Pro-$A$-Mod bezeichnet wird.
+\end{bem+df}
+\begin{df} \label{16.20}
+		Ein \define{projektiver Limes\index{projektiver Limes}} des projektiven Systems $(M_i, \phi_{ij})_I$ von $A$-Moduln ist ein $A$-Modul $M$ zusammen mit einer Familie $(\phi_i)_{i\in I}$ von $A$- Modulhomomorphismen $\phi_i:M \to M_i$, sodass $\phi_i = \phi_{ij} \circ \phi_j$ für alle $i,j\in I$ mit $i\leq j$ ist, sodass folgende universelle Eigenschaft erfüllt ist: Für jeden $A$-Modul $N$ und jede Familie $(\psi_i)_{i\in I}$ von $A$-Modulhomomorphismen $\psi_i :N \to M_i$ mit $\psi_i = \phi_{ij} \circ \psi_j$ für alle $i\leq j$ existiert ein eindeutig bestimmter $A$-Modulhomomorphismus $\psi:N \to M$ mit $\psi_i = \phi_i \circ \psi$ für alle $i\in I$:
+	$$\begin{tikzcd}
+	& N \arrow[dashed, red]{d}{\psi} \arrow[bend right]{ddl}{\psi_i} \arrow[bend left, swap]{ddr}{\psi_j}& \\ 
+	& M \arrow{dl}{\phi_i} \arrow{dr}{\phi_j}& \\
+	M_i  & & M_j  \arrow{ll}{\phi_{ij}}
+	\end{tikzcd}$$
+\end{df}
+\begin{sa} \label{16.21}
+	Sei $(M_i,\phi_{ij})_I $ ein projektives System von $A$-Moduln. Dann gilt: 
+	\begin{enumerate} [label = \alph*)]
+		\item Setzt man $$ M:= \{(m_i)_{i \in I} \in \prod_{i\in I}M_i| \ \phi_{ij}(m_j)=m_i \ \text{für alle} \ i \leq j\} $$ $$\phi_i: M \to M_i, \quad (m_j)_{j\in I} \mapsto m_i $$
+		Dann ist $(M, (\phi_i)_{i \in I }) $ ein projektiver Limes von $(M_i,(\phi_{ij})_I$.
+		\item Ist $(M',(\phi'_i)_{i \in I})$ ein weiterer projektiver Limes des obigen Systems, dann existiert ein eindeutig bestimmter Isomorphismus $\gamma: M' \to M $ mit $\phi_i \circ \gamma = \phi_i'$ für alle $i \in I $.
+	\end{enumerate}
+	Notation: $M = \varprojlim_{i\in I} M_i$ 
+\end{sa}
+\begin{proof}
+	\begin{enumerate} [label = \alph*)]
+		\item $M$ ist trivialerweise $A$-Modul. Weiterhin sind $\phi_i, i \in I $ $A$ -Modulhomo- morphismen mit $\phi_{ij} \circ \phi_j = \phi_i $ für $i \leq j$: \\
+		$$ (\phi_{ij} \circ \phi_j)((m_k)_{k \in I}) = \phi_{ij}(m_j) = m_i= \phi_i((m_k)_{k \in I})  \quad \quad  \text{für} \ (m_k)_{k \in I } \in M $$ Sei $N$ ein $A$-Modul und $(\psi_i)_{i \in I} $ eine Familie von $A$-Modulhomomorphismen $\psi_i:N \to M_i $ mit $ \psi_i = \phi_{ij} \circ \psi_j $ für alle $i,j \in I $ mit $i \leq j$, Setze:  $$ \delta: N \to \prod_{i\in I} M_i, \quad n \mapsto (\psi_i(n))_{i \in I} $$ 
+		Wegen $\psi_i = \phi_{ij} \circ \psi_j $ für $i \leq j $ ist $\im\delta \subseteq M $. Setze $\psi:= \delta \big|^M : N \to M$.\\ 
+		$ \psi $ ist ein $A$-Modulhomomorphismus mit $\phi_i(\psi(n)) = \psi_i(n) $ für alle $ n \in N, i \in I $, das heißt $\phi_i \circ \psi = \psi_i$. Durch die Vorgabe $\phi_i \circ \psi = \psi_i $ ist $\psi $ eindeutig bestimmt. 
+		\item mit Standardargumenten.
+	\end{enumerate}
+\end{proof}
+\begin{bsp} \label{16.22} (vergleiche Beispiel \ref{16.18})
+	\begin{enumerate}[label= \alph*)]
+		\item Betrachte $M \supseteq M_1 \supseteq M_2 \supseteq \dots $ mit den Inklusionen als Übergangsabbildungen. Dann ist 
+		$$\varprojlim_{i\in \N} M_i = \bigcap_{i\in \N} M_i \subseteq M \quad  (\text{mit} \ \phi_i: \bigcap_{\in I} M_i \hookrightarrow M_i \  \text{Inklusionen}) $$
+		$$ \begin{tikzcd}[row sep = large]
+		& N \arrow[dashed]{d} \arrow[bend right]{ddl}{\psi_i}  \arrow[bend left, swap]{ddr}{\psi_j}& \\
+		& \bigcap_{i\in I} M_i \arrow[hook]{dl}{\phi_i} \arrow[swap, hook]{dr}{\phi_j}& \\
+	    M_i   & & M_j  \arrow{ll}{\phi_{ij}}
+		\end{tikzcd}  $$
+		alternativ: $$ \bigcap_{i \in \N} M_i \longrightarrow \{ (m_i)_{i \in \N} \in \prod_{i \in \N} M_i | \ m_j = m_i \ \text{für alle} \ i \leq j\}  \qquad m \mapsto (m)_{i \in \N}$$
+		\item Sei $(M_i)_{i\in I}$ eine bezüglich "'$\supseteq$"' gerichtete Familie von Untermoduln von $M$, indiziert über sich selbst. Dann ist $\varprojlim_{i\in I} M_i = \bigcap_{i\in I} M_i$
+		\item $\varprojlim_{i\in \N} \QR{\Z}{i \Z} $ bezeichnet man mit $\hat{\Z}$
+		\item $\varprojlim_{i\in \N} \QR{\Z}{p^{i} \Z} $ bezeichnet man als $\Z_{p}$
+	\end{enumerate}
+\end{bsp}
+\begin{bem} \label{16.23}
+	Sei $(f_i)_{i\in I}:(M_i, \phi_{ij}^M)_I \to (N_i, \phi_{ij}^N)_I$ ein Homomorphismus projektiver  Systeme von $A$-Moduln. Dann existiert ein eindeutig bestimmter Homomorphismus 
+	$$\varprojlim_{i\in I} f_i: \varprojlim_{i\in I} M_i \longrightarrow \varprojlim_{i\in I} N_i$$
+	mit $\phi_i^N \circ (\varprojlim_{i \in I} f_i) =  f_i \circ \phi_i^M $ für alle $i\in I$ (Wobei $\phi_i^N$ beziehungsweise $\phi_i^M $ die Strukturmorphismen zu $\varprojlim N_i $ beziehungsweise $\varprojlim M_i $ sind ):
+	$$\begin{tikzcd}[row sep = large]
+	\varprojlim_{i\in I}M_i \arrow{r}{\varprojlim f_i} \arrow{d}{\phi_i^M} & \varprojlim_{i\in I} N_i \arrow{d}{\phi_i^N} \\
+	M_i \arrow[swap]{r}{f_i} & N_i
+	\end{tikzcd}  \qquad
+	\text{Explizit:} \ (\varprojlim f_i)((m_i)_{i \in I }) = (f_i(m_i))_{i \in I}$$
+\end{bem}
+\begin{proof}
+		Wende die Universelle Eigenschaft von $\varprojlim N_i$ an:
+	$$\begin{tikzcd}[column sep = large]
+	& \varprojlim M_i \arrow[dashed, red]{d}{\varprojlim f_i} \arrow[bend right]{ddl}{f_i \circ \phi_i^M } \arrow[bend left, swap]{ddr}{f_j \circ \phi_j^M } &\\
+	& \varprojlim N_i\arrow{dl}{\phi_i^N} \arrow[swap, hook]{dr}{\phi_j^N}& \\
+	N_i & & N_j \arrow{ll}{\phi_{ij}^N} 
+	\end{tikzcd}$$
+	beachte: $\phi_{ij}^N \circ f_j \circ \phi_j^M = f_i \circ \phi_{ij}^M \circ \phi_j^M = f_i \circ \phi_i^M $ 
+\end{proof}
+\begin{fo} \label{16.24}
+	$\varprojlim_{i\in I}-:I$-Pro-$A$-Mod$\to A$-Mod ist ein additiver Funktor
+\end{fo}
+\begin{proof}
+Die Funktorialität und Additivität von $\varprojlim_{i\in I}-$ ergeben sich aus der Charakterisierung von $\varprojlim f_i$ in \ref{16.23}.
+\end{proof}
+\begin{sa} \label{16.25}
+	Der Funktor $\varprojlim_{i\in I}-:I$-Pro-$A$-Mod$\to A$-Mod ist linksexakt.
+\end{sa}
+\begin{proof}
+	 $\varprojlim_{i\in I}-$ ist rechtsadjungiert zum Funktor $I$-const: $A$-Mod $\to I$-Pro-$A$-Mod, $\quad M \mapsto (M, id_M)_I $ 
+	 $$ Hom_{I\text{-Pro-}A\text{-Mod}}(I\text{-const(N)}, (M_i,\phi_{ij})_I) \cong Hom_{A\text{-Mod}}(N, \varprojlim_{i \in I} M_i ) \quad \text{(vergleiche UE)} $$
+	 Damit ist $ \varprojlim_{i \in I }- $ ist linksexakt 
+\end{proof}
+\begin{anm}
+	$\varprojlim_{i\in I}-$ ist im Allgemeinen nicht rechtsexakt.
+\end{anm}
+\begin{bsp} \label{16.26}
+	Wir betrachten die exakte Sequenz projektiver Systeme von $Z$-Moduln über $ I = \N $: 
+	$$\begin{tikzcd}  0 \arrow{r} & (\Z, \cdot p )_{\N} \arrow{r}{(\cdot p^n)_{n \in \N}} & (\Z, id_{\Z})_{\N} \arrow{r} & (\QR{\Z}{p^n \Z}, \text{Proj.Abb.}) \arrow{r} &  0 \end{tikzcd}$$
+	
+	$$\begin{tikzcd}
+	n+1: & 0 \arrow{r} & \Z \arrow{r}{\cdot p^{n+1}} \arrow{d}{\cdot p}& \Z \arrow{r}{\text{proj.}} \arrow{d}{id_{\Z}} & \QR{\Z}{p^{n+1}\Z} \arrow{r} \arrow{d}{\text{proj.}} & 0 \\
+	n:  &0 \arrow{r}& \Z \arrow{r}{\cdot p^n} & \Z \arrow{r}{\text{proj.}} & \QR{\Z}{p^n \Z} \arrow{r} & 0
+	\end{tikzcd}$$
+	Das projektive System $(\Z, \cdot p )_{\N}$ ist via 
+	$$ \begin{tikzcd}
+	n+1: & \Z \arrow{r}{\cdot p^{n+1}} \arrow{d}{\cdot p}& p^{n+1}\Z  \arrow[hook]{d} &  \\
+	n:  & \Z \arrow{r}{\cdot p^n} & p^n \Z 
+	\end{tikzcd}$$
+	isomorph zum System $p\Z \supseteq p^2 \Z \supseteq \dots $ von $\Z$-Untermoduln von $\Z$, das heißt, der projektive Limes ist isomorph zu $\varprojlim_{i\in \N} p^n \Z = \bigcap_{n \in \N} p^n \Z = 0 $ \\
+	Somit erhält man im projektiven Limes die exakte Sequenz 
+	$$ \begin{tikzcd}
+	0 \arrow{r} & 0 \arrow{r} &\Z \arrow{r}{f} & \Z_{p} \qquad  \text{mit} \  f: \Z \to \Z_{p}, \ x \mapsto (x+p^n \Z )_{n \in \N} \end{tikzcd}$$
+	$f$ ist nicht surjektiv, denn es existiert kein $x \in \Z $ mit $x \equiv 1 +p + \dots + p^{n-1} (mod p^n) $ für alle $n \in \N$ ($p\neq 2$) \\
+	(alternativ: $\Z_{p} $ überabzählbar).
+\end{bsp}
+\begin{df} \label{16.27}
+	Sei $(M_i, \phi_{ij})_{\N}$ ein (bzgl "$\leq$") projektives System von $A$-Moduln. Das System erfüllt die \define{Mittag-Leffler-Bedingung (ML)} \defi Für jedes $i \in \N $ wird die Sequenz 
+	$$ M_i = \phi_{ii}(M_i) \supseteq \phi_{i,i+1}(M_{i+1}) \supseteq \phi_{i,i+2}(M_{i+2}) \supseteq \dots $$ stationär. 
+\end{df}
+\begin{anm}
+	Sind die Homomorphismen $\phi_{ij} $ alle surjektiv oder sind alle $M_i$ endlich, so ist die (ML) erfüllt. Das System $(\Z, \cdot p) $ von der linken Seite der Sequenz in Beispiel \ref{16.26} erfüllt die (ML) nicht: 
+	$$ p\Z \supseteq p^2 \Z \supseteq \dots $$
+\end{anm}
+\begin{bem} \label{16.28}
+	Sei 
+	$$\begin{tikzcd}  0 \arrow{r} & (K_i, \phi_{ij}^K)_{\N} \arrow{r}{(f_i)_{i \in \N}} & (M_i, \phi_{ij}^M)_{\N} \arrow{r}{(g_i)_{i \in \N}} & (N_i, \phi_{ij}^N)_{\N} \arrow{r} &  0 \end{tikzcd}$$
+	eine exakte Sequenz in $\N$-Pro-$A$-Mod und $(K_i, \phi_{ij}^K)_{\N} $ erfülle die (ML). Dann ist die Sequenz 
+	$$ \begin{tikzcd}  0 \arrow{r} & \varprojlim_{i\in \N} K_i \arrow{r} & \varprojlim_{i\in \N} M_i  \arrow{r} & \varprojlim_{i\in \N} N_i \arrow{r} &  0 \end{tikzcd}$$
+	exakt. 
+\end{bem}
+\begin{proof}
+	Siehe Stacks-Poject (O2MY)
+\end{proof}
+\begin{bem} \label{16.29}
+	Sei $J \subseteq I $ kofinal, $(M_i, \phi_{ij})_I $ ein projektives System von $A$-Moduln. Dann ist der natürliche Homomorphismus
+	$$ \epsilon: \varprojlim_{i \in I } M_i \longrightarrow \varprojlim_{i \in J} M_i, \qquad (m_i)_{i \in I } \longmapsto (m_j)_{j \in J } $$ 
+	ein Isomorphismus. 
+\end{bem}
+\begin{proof}
+	\begin{enumerate} 
+		\item[] Injektivität von $\epsilon$: \\ Sei $(m_i)_{i \in I} \in \varprojlim M_i $ mit $ m_j = 0 $ für alle $j \in J $. Sei $i \in I$. Da $J \subseteq I $ kofinal, folgt, dass ein $j \in J $ existiert mit $ i \leq j \Ra m_i = \phi_{ij}(m_j)= \phi_{ij}(0) = 0$.
+		\item[] Surjektivität von $\epsilon$: \\ Sei $(m_i)_{i \in J} \in \varprojlim_{i\in J} M_i$. Sei $i \in I $. Dann existiert ein $ j \in J $ mit $j \geq i$. Setze $m_i:= \phi_{ij}(m_j) \in M_i$. Dies ist unabhängig von der Wahl von $j$, denn: Ist $j' \in J $ mit $ j' \geq i $ , dann existiert (wegen I gerichtet) ein $k \in I $ mit $k \geq j',j $ und somit exisitert ein $l \in J $ mit $l \geq k \geq j,j' $ \\
+		Dann ist $ \phi_{ij}(m_j) = \phi_{ij}(\phi_{jl}(m_l)) = \phi_{il}(m_l)=\phi_{ij}'(\phi_{j'l}(m_l)) = \phi_{i'j}(m_j') $ Es ist $(m_i)_{i \in I} \in \varprojlim_{i \in I } M_i$, denn: Sind $i,k \in I $ mit $k\geq i $, dann existiert ein $j \in J $ mit $j \geq k \geq i $ \\
+		$\Ra \phi_{ik}(m_k) = \phi_{ik}(\phi_{kj}(m_j)) = \phi_{ij}(m_j) = m_i$. Somit $(m_i)_{i \in I } \in \im \epsilon $.
+	\end{enumerate}
+\end{proof}
+\newpage 
+\subsection{Diskrete Beweruntgsringe}
+\begin{df} \label{17.1}
+	Sei $K$ ein Körper, $v: K \to \Z \cup \{\infty\}$. $v$ heißt \define{diskrete Bewertung} auf $K$, wenn gilt: 
+	\begin{enumerate}
+		\item[(DB1)] $ v(x) = \infty \Leftrightarrow x = 0 $
+		\item[(DB2)] $v(xy) = v(x) + v(y) $
+		\item[(DB3)] $v(x+y) \geq min\{v(x),v(y)\}$
+	\end{enumerate}
+	für alle $x,y \in K $.In diesem Fall heißt $v$ \define{triviale Bewertung} \defi \ $v(K) = \{0,\infty\} $ \\
+	\define{normierte Bewertung} \defi \ $v$ surjektiv \\
+	Letzteres ist für $v(x^n) = nv(x) $ äquivalent dazu, dass ein $x \in K $ mit $v(x) = 1 $ existiert. 
+\end{df}
+\begin{anm}
+	$v(K^{*})$ ist eine Untergruppe von $\Z$, denn $ v \big|_{K^{*}} : K^{*} \to \Z $ ist ein Gruppenhomomorphismus. Somit ist $v(K^{*}) = m\Z $ für ein $ m \in \N_0$. Es gilt dann: 
+	\begin{itemize}
+		\item $v$ trivial $\Leftrightarrow m = 0$
+		\item Ist $v$ nichttrivial, so ist durch $v': K \to \Z \cup \{\infty\}, \quad x \mapsto \begin{cases}
+		\frac{1}{m}v(x), &\text{falls} \ x \neq 0 \\ \infty, & \text{falls} \ x = 0 
+		\end{cases} $
+		eine normierte diskrete Bewertung gegeben.
+	\end{itemize}
+\end{anm}
+\begin{bsp} \label{17.2}
+	Sei $A$ ein faktorieller Ring, $p$ ein Primelement in $A$. Jedes  $x \in \Quot(A), x \neq 0 $, lässt sich eindeutig schreiben als
+	$$ x = p^r\frac{a}{b}, \qquad \text{mit} \ p \nmid a, p\nmid b, r \in \Z $$
+	Setze $v_p(x) := r, v_p(0) := \infty$, dann ist $v_p$ eine normierte diskrete Bewertung auf $\Quot(A)$, denn: 
+	\begin{itemize}
+		\item (DB1),(DB2) klar.
+		\item (DB3): Seien $x,y \in K $. Falls $x=0$ oer $y=0 $, dann ist (DB3) klar. Falls $x,y \neq 0 $, dann $ x = p^r \frac{a}{b}, y= p^s\frac{c}{d}, \text{mit } r,s \in \Z, p\nmid a, p\nmid b, p\nmid c, p\nmid d, \OE \ r \geq s $. \\
+		$\Ra x+y = p^r \frac{a}{b} + p^s\frac{c}{d} = p^s(p^{r-s}\frac{a}{b}+\frac{c}{d}) = p^s(\frac{p^{r-s}ad+bc}{bd})$. \\
+		$\Ra v_p(x+y) = \underbrace{v_p(p^s)}_{=s} +\underbrace{v_p(\frac{p^{r-s}ad+bc}{bd})}_{\geq 0} \geq s$
+		\item $v_p$ normiert, da $v_p(p) = 1$.
+	\end{itemize}
+\end{bsp}
+\begin{sa} \label{17.3}
+	Sei $K$ ein Körper, $v$ eine diskrete Bewertung auf $K$. Dann gilt: 
+	\begin{enumerate} [label= \alph*)]
+		\item $\br := \{x \in K| \ v(x) \geq 0\}$ ist ein nullteilerfreier Ring mit $\Quot(\br) = K $
+		\item $\br^{*} = \{ x \in K | \ v(x) =0 \} $
+		\item $\br$ ist ein lokaler Ring mit maximalen Ideal $$ \m_v := \{x \in K | \ v(x) > 0\} $$ 
+		\item $\br$ ist ein Hauptidealring
+		\item $\br$ ist ein Körper $\Leftrightarrow v$ ist trivial 
+		\item Ist $v$ normiert,dann gilt: $$ p \in \br \ \text{ist Primelemt in } \ \br \quad \Leftrightarrow \quad v(p) =1 $$
+		Die Primelemente von $ \br $ sind alle zueinander assoziiert und jedes Primelemt erzeugt $\m_v$.
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	\begin{enumerate} [label= \alph*)]
+		\item Seien $x,y \in \br \Ra v(x) \geq 0, v(y) \geq 0$. Damit folgt: $v(xy) = v(x) +v(y) \geq 0, v(x+y) \geq min\{v(x),v(y)\} \geq 0$.\\
+		 Es ist $v(1)=v(1 \cdot 1) = v(1) +v(1)$, das heißt $v(1)=0 $, also $1 \in \br$. $0 \in \br$ klar. \\
+		Außerdem: $0 = v(1) =v((-1)(-1)) = v(-1) +v(-1)$, das heißt $v(-1) = 0 $. \\
+		$\Ra v(-x) = v((-1)x) = v(-1)+v(x) =v(x) \geq 0 $ Womit folgt, dass $\br$ ein Ring ist und  wegen $\br \subseteq K $ ist $\br $ nullteilerfrei. \\
+		Sei $x \in K, x \neq 0 $. Wegen $0 = v(1)= v(xx^{-1}) = v(x) + v(x^{-1})$ ist $v(x) \geq 0 $ oder $v(x^{-1}) \geq 0 $.\\
+		$\Ra x \in \br $ oder $ x^{-1} \in \br \Ra x \in \Quot(\br)$. Somit folgt $K \subseteq \Quot(\br) \subseteq K $. 
+		\item Sei $x \in K, x \neq 0 $. \\ 
+		Dann ist $ x \in \br^{*} \Leftrightarrow v(x) \geq 0$ und $ v(x^{-1}) \geq 0$.
+		Wegen $0 = v(1) = v(xx^{-1})$ ist $v(x^{-1}) = - v(x) $ \\
+		Das heißt $x \in \br^{*} \Leftrightarrow v(x) = 0 $.
+		\item $\m_v = \br \backslash \br^{*} $ ist ein Ideal in $\br $,denn: 
+		\begin{itemize}
+			\item $0 \in \m_v $ klar 
+			\item $x,y \in \m_v \Ra v(x) > 0, v(y) > 0 \Ra v(x+y) \geq \text{min}{v(x),v(y)} > 0$
+			\item $ x \in \m_v, y\in \br \Ra v(x) >0, v(y) \geq 0 \Ra v(yx) = \underbrace{v(y)}_{\geq 0} + \underbrace{v(x)}_{ > 0} >0 $
+		\end{itemize}
+		$\Ra \m_v$  ist einziges maximales Ideal in $\br$.
+		\item $\br$ ist nullteilerfrei nach (a). Sei $\a \in \br $ Ideal, $\a \neq (0), \Ra v(\a) \subseteq \N_0 \cup \{\infty\}$, insbesondere hat $v(\a) $ ein minimales Element. Sei $a \in \a$ mit $ v(a) $ minimal (insbesondere ist $a\neq 0 $). \\
+		Behauptung: $ \a = (a) $, denn: 
+		\begin{enumerate}
+			\item[$"\supseteq"$] klar 
+			\item[$"\subseteq"$] Sei $b \in \a \Ra b = a \frac{b}{a} $ in $K$, es ist $v(\frac{b}{a}) = v(ba^{-1}) = v(b) -v(a) \geq 0$, wegen $v(a) $ minimal. \\
+			$ \Ra \frac{b}{a} \in \br \Ra b \in (a)$.
+		\end{enumerate}
+		\item $\br$ Körper $\Leftrightarrow \br \backslash \br^{*} = \{0\} \Leftrightarrow \{x \in K | \ v(x) > 0 \} = \{0\} \Leftrightarrow v(K^{*}) = \{0\} \Leftrightarrow v$ ist trivial.
+		\item Sei $p \in \br$. \\
+		Ist $v(p) = 1$, dann ist $p$ nach Beweis in (d) ein Erzeuger von $\m_v$ und somit ein Primelement. \\
+		Ist $v(p) = n \geq 1 $, dann ist $p$ kein Primelement in $\br$. \\
+		denn: Nach Voraussetzung ist $v$ normiert, das heißt es existiert ein $q \in K $ mit $v(q) =1$.$q$ ist dann dein Erzeuger von $\m_v$ und somit ein Primelement in $\br$. Es ist $v(pq^{-n}) = v(p) -nv(q) = n -n = 0$, das heißt $pq^{-n} \in \br^{*} $\\
+		$ \Ra p $ ist assoziiert zu $q^n$ und da $\br$ faktoriell folgt, dass p kein Primelement ist.
+	\end{enumerate}
+\end{proof}
+\begin{df} \label{17.4}
+	$A$ heißt \define{diskreter Bewertungsring} (DBR) \defi $A$ ist ein lokaler Hauptidealring, der kein Körper ist. 
+\end{df}
+\begin{sa} \label{17.5}
+	Sei $A$ ein diskreter Bewertungsring, $p$ ein Primelement von A. Dann gilt: 
+	\begin{enumerate} [label= \alph*)]
+		\item Jedes Element $x \in \Quot(A), x\neq 0$, lässt sich eindeutig darstellen als 
+		$$ x = up^n $$ 
+		mit $u \in A^{*}, n \in \Z$.Hierbei ist $n$ unabhängig von der Wahl von $p$. 
+		\item Die Abbildung 
+		$$ v = v_A: \Quot(A) \longrightarrow  \Z \cup \{\infty\}, \quad x \mapsto \begin{cases}
+		n, & \text{falls} \ x = up^n, u \in A^{*} \\ \infty, & \text{falls} x = 0 
+		\end{cases} $$
+		ist eine normierte diskrete Bewertung auf $\Quot(A) $ mit $\br = A $. 
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	\begin{enumerate} [label= \alph*)]
+		\item Da $A$ ein lokaler  Hauptidealring ist, erzeugt $p$ das maximale Ideal $\m$ von $A$ (vergleiche Algebra1, Satz 6.3), daraus folgt, dass sich jedes $x \in A, x \neq 0$ als $x = up^n $ mit $ u \in A^{*}, n \in \N_0 $ schreiben lässt. (beachte: Jedes Primelement aus $A$ ist assoziiert zu $p$) \\
+		Es folgt auch, dass sich jedes $x \in \Quot(A), x \neq 0 $ als $ x = up^n$ mit $ u \in A^{*}, n \in \Z$ schreiben lässt. Dies ist eindeutig, denn: $ up^n = vp^m $ mit $ u,v \in A^{*}, n,m \in \Z $ und $ \OE \ n \geq m $. \\ 
+		$\Ra uv^{-1}p^{n-m} = 1 \Ra n=m \Ra u=v$. \\
+		Die Darstellung ist außerdem unabhängig von der Wahl von $p$, da jedes Primelement von $A$ assoziiert zu $p$ ist.
+		\item $v_A $ ist normierte diskrete Bewertung auf $\Quot(A) $ nach Beispiel \ref{17.2}. Es ist $x \in \br \Leftrightarrow x = up^n $ mit $ u\in A^{*}, n \geq 0 \Leftrightarrow x \in A $.
+	\end{enumerate}
+\end{proof}
+\begin{fo} \label{17.6}
+	Sei $K$ ein Körper. Dann sind die Abbildungen 
+	$$\begin{tikzcd}[row sep = tiny]
+	\{\text{normierte diskrete BR} \ v \ \text{auf} \ K \} \arrow[yshift = 0.5ex]{r} & \{ \text{Unterringe} \ A \ \text{von} \ K | \ A \ \text{ist DBR mit } \ \Quot(A) = K \} \arrow[yshift = -0.5ex]{l} \\
+	v \arrow[mapsto]{r}& \br \\
+	v_A &  A \arrow[mapsto]{l} 
+	\end{tikzcd}$$
+	bijjektiv und invers zueinander.
+\end{fo}
+\begin{proof}
+	Die Abbildungen sind wohldefiniert nach \ref{17.3} und \ref{17.5}. \\
+	Sei $v$ eine normierte diskrete Bewertung auf $K \Ra v_{\br} = v $, denn: Sei $x \in K, x \neq 0$, dann folgt, dass ein Primelement $p$ in $\br$ und $u \in \br^{*}$ existieren mit $ x = up^n$ (folgt, da $\br$ ein DBR mit $\Quot(\br) = K$ ) \\
+	$\Ra v(x) = \underbrace{v(u) }_{=0} +\underbrace{nv(p)}_{=1 \ \text{nach} \ \ref{17.3}(e)} = n = v_{\br}(x)$. \\
+	Sei $A$ ein Unterring von $K$ mit $\Quot(A) = K$, welcher ein DBR ist \\
+	$\Ra \mathcal{O}_{v_A} =A $ nach \ref{17.5}(b).
+\end{proof}
+\begin{bem} \label{17.7}
+	Sei $A$ ein lokaler, noetherscher, nullteilerfreier Ring mit $dim(A) =1 $, $\m$ das maximale Ideal von $A$, $\a \subseteq A $ Ideal, $\A \neq 0 $. Dann exisitiert ein $n \in \N$ mit $\m^n \subseteq \a $. 
+\end{bem}
+\begin{proof}
+	Die Behauptung ist klar für $\a = A$, im Folgenden sei $\a \neq A $. 
+	\begin{enumerate}
+		\item Sei $x \in \m $. Behauptung: Es existiert ein $n \in \N $ mit $x^n \in \a $. \\
+		Annahme: Für alle $n \in \N $ ist $x^n \notin \a $. Setze $\bar{A}:= \QR{A}{\a}, S:= \{\bar{1}, \bar{x}, \bar{x}^2, \dots \} \subseteq \bar{A}$. \\
+		In $S^{-1}\bar{A} $ ist $ \frac{\bar{1}}{\bar{1}} \neq \frac{\bar{0}}{\bar{1}}$, denn sonst existiert ein $n \in \N_0 $ mit $ \bar{x}^n = \bar{0}$, das heißt mit $x^n \in \a $ (Widerspruch) \\
+		Insbesondere ist $S^{-1}\bar{A} \neq 0 \Ra$ in $S^{-1}\bar{A} $ existiert ein Primideal $\q$. Ist $\tau: \bar{A} \to S^{-1}\bar{A} $ die kanonische Abbildung, dann ist $\p := \tau^{-1}(\q) $ ein Primideal in $\bar{A}$. Es ist $\bar{x} \notin \p $, andernfalls wäre $ \underbrace{\frac{\bar{x}}{\bar{1}}}_{\text{Einheit in } \ S^{-1}\bar{A}}\in \q $.\\
+		Ist $\pi: A \to \bar{A} $ die kanonische Projektion, dann ist $x \notin \phi^{-1}(\p) =: \tilde{\p}$, und $\tilde{\p} $ ist ein Primideal in $A$ mit $\tilde{\p } \supseteq \a $. Nach Voraussetzung sind $(0), \m $ die einzigen Primideale in $A$ (denn: $A$ ist eindimensonaler, lokaler, nullteilerfreier Ring). Aus $\tilde{\p} \supseteq \a $ folgt $ \tilde{\p} =\m$ und damit $ x \notin \m $ (Widerspruch)
+		\item Da $A$ noethersch, exisiteren $x_1,\dots,x_r \in \m $ mit $ m = \sum_{i = 1}^{r} Ax_i$. Wegen 1. exisiteren $n_i \in\N, i=1,...,r $ mit $x_i,n_i \in \a $. Setze $n:= \sum_{i = 1}^{r} n_i $, dann wird $\m^n $ erzeugt von Elementen der Form $ x_1^{e_1} \cdot ... \cdot x_r^{e_r} $ mit $\sum_{i = 1}^{r} e_i =n = \sum_{i = 1}^{r} n_i$, das heißt es existieren stets ein $i \in\{1,..,r\} $ mit $ e_i \geq n_i $, insbesondere $x_1^{e_1} \cdot ... \cdot  x_r^{e_r} \in \a  \Ra \m^n \subseteq \a $. 
+	\end{enumerate}
+\end{proof}
+\begin{sa} \label{17.8}
+	Sei $A$ ein noetherscher, lokaler, nullteilerfreier Ring mit maximalem Ideal $\m$. Dann sind äquivalent: 
+	\begin{enumerate} [label= \roman*)]
+		\item $A$ ist ein diskreter Bewertungsring
+		\item $dim(A) =1 $ und $A$ ist normal 
+		\item $\m$ ist ein Hauptideal $\neq (0)$
+		\item $A$ ist faktoriell und besitzt bis auf Assoziiertheit genau ein Primelement.
+	\end{enumerate}
+\end{sa}
+\begin{proof}
+	\begin{enumerate}
+		\item[] (i)$\Ra$ (ii) Sei $A$ ein diskreter Bewertungsring, dann folgt mit \ref{15.21}(b), dass $dim(A)=1$. $A$ ist normal nach \ref{15.11}, da $A$ faktoriell als Hauptidealring.
+		\item[](ii) $\Ra $ (iii) Da $A$ kein Körper ist, wegen $dim(A)=1 $ folgt: $\m \neq 0$. $\m $ ist ein Hauptideal, denn: \\
+		Sei $a \in \m $ mit $a \neq 0$. Nach \ref{17.7} existiert ein $n \in \N $ mit $\m^n \subseteq (a) $. Es ist $A=\m^0 \not\subseteq (a) $, sondt$ a\in A^{*}$ (Widerspruch). \\
+		Wähle ein $n \in \N $ minimal mit $\m^n \subseteq (a) $ (insbesondere $\m^{n-1} \not \subseteq (a)$ ). Sei $b \in \m^{n-1} \backslash (a)$, setze $x := \frac{a}{b} \in \Quot(A) $. Weil $b \notin (a) $ ist $x^{-1} = \frac{b}{a} \notin A$, da $A$ normal, folgt, dass $x^{-1} $ nicht ganz über $A$ ist. \\
+		Wegen $\m^n \subseteq (a), b \in \m^{n-1} $ ist $x^{-1}\m = \frac{b}{a}\m \subseteq A$ (da $b\m \subseteq \m^n$ ), $x^{-1}\m $ ist ein Ideal in A. Falls $x^{-1}\m = A$, dann ist $\m = (x) $, fertig. \\
+		Annahme: $x^{-1}\m \neq A$. Dann ist $x^{-1}\m \subseteq \m \Ra \m$ ist $ A[x^{-1}]$-Modul. Da A noethersch, ist $\m $ endlich erzeugt als $A$-Modul. Es ist $\ann_{A[x^{-1}]}\m = 0$,  denn $A[x^{-1}],\m \subseteq \Quot(A)$. Somit folgt aus der Charakterisierung (iv) in Satz \ref{15.2}, dass $x^{-1} $ ganz über $A$. Im Widerspruch zu $A$ normal und $x^{-1} \notin A $. 
+		\item[] (iii) $\Ra $ (iv) Sei $\m = (p) , p \in A, p \neq 0$, sei $x\in A, x\neq 0$.
+		\begin{enumerate} 
+			\item[1.] Behauptung: Es existiert ein $n \in \N $ mit $p^n \nmid x. $ \\
+			Annahme: Für alle $ n \in \N $ existiert ein $a_n \in A, a_n \neq 04 mit x = a_np^n$\\
+			$\Ra a_{n+1}p^{n+1} = x =a_np^n \Ra a_{n+1}p^{n+1} -a_np^n = 0 \Ra p^n(a_{n+1}p-a_n) = 0 $,da $A$ nullteilerfrei, folgt$ a_{n+1p}-a_n = 0 \Ra a_n = a_{n+1} p \Ra (a_n) \subseteq (a_{n+1}) $ für alle $n \in \N$.\\
+			Da $A$ noethersch, existiert ein $n\in \N $ mit $(a_n) = (a_{n+1}) \Ra$ es existiert ein$ b \in A $ mit $ a_{n+1} = ba_n \Ra a_{n+1} =ba_n = ba_{n+1}p \Ra a_{n+1}(1-bp) = 0 \Ra bp = 1 \Ra p \in A^{*} $(Widerspruch)
+			\item[2.] Wegen 1. existiert ein $n \in \N_0 $ mit $ p^n | x$, aber $p^{n+1} \nmid x$. Daraus folgt: es existiert ein $u \in A $ mit $ x = up^n, p \nmid u$. Insbesondere ist $u \notin \m $, also $u \in A^{*}$. Diese Darstellung von $x$ ist eindeutig, denn: Ist $x = vp^m$ mit $v \in A^{*}, m \in \N_0$, dann ist $up^n=vp^m$ und für $\OE n \geq M $ folgt: $uv^{-1}p^{n-m} =1 \Ra n =m \Ra u =v$. Ist $q$ ein Primelement von $A$, dann exisitert ein $u \in A^{*}, n\in \N_0$ mit $q =up^n$, da $q$ ein Primelement, folgt $q|p$, sowie $p|q \Ra p$ ist assoziiert zu $q$.
+		\end{enumerate}
+		\item[](iv)$\Ra$ (i) Da $A$ ein Primelement, ist $A$ kein Körper. Sei $p$ ein Primelement von $A$. Nach Beispiel \ref{17.2} erhalten wir die normierte diskrete Bewertung $v_p$ auf $\Quot(A), A = \mathcal{O}_{v_p} $ ist ein diskreter Bewertungsring nach \ref{17.6}
+	\end{enumerate}
 \end{proof}
